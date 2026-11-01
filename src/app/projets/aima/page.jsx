@@ -60,12 +60,12 @@ export default function Page() {
           { label: 'Durée', valeur: 'février → octobre 2026' },
           { label: 'Équipe', valeur: '2 dev, 2 com' },
           { label: 'Mon rôle', valeur: 'Dev full-stack et refonte UI/UX' },
-          { label: 'Outils', valeur: 'ClickUp, Figma, React Native (Expo), Laravel, Filament, PostgreSQL, Docker, Dokploy' },
+          { label: 'Outils', valeur: 'ClickUp, Figma, React Native (Expo), Laravel 12, Filament, PostgreSQL, Docker, Dokploy' },
         ]}
         statut="V1 en relecture"
       >
         <p>Pendant notre troisième année de BUT MMI, on a travaillé avec l'ADSB-NC, l'association des donneurs de sang de Nouvelle-Calédonie. On était quatre : Geneviève Mekenese et moi au développement, Emmy Vergé et Hugo Galy à la stratégie de communication.</p>
-        <p>Ensemble, on a imaginé Aïma : une appli mobile (iOS, Android et web), avec son API et un backoffice pour que l'association puisse gérer ses contenus en autonomie.</p>
+        <p>Ensemble, on a imaginé Aïma : une appli mobile installable aussi depuis le navigateur (PWA), reliée à une API Laravel, avec un backoffice pour que l'association gère ses contenus en autonomie. Les stratèges ont rédigé les contenus, cadré le juridique et illustré les cartes ; notre binôme a conçu le fonctionnement de l'appli et l'a développée.</p>
         <p>Notre objectif : donner envie de faire un premier don, puis de revenir. Plutôt que des points, on récompense les donneurs avec <span className="hl">des cartes à collectionner</span>, et on prend soin de leurs données de santé.</p>
       </Contexte>
 
@@ -81,7 +81,11 @@ export default function Page() {
           },
           {
             question: 'Comment protéger des données de santé ?',
-            reponse: "Savoir qu'une personne donne son sang, c'est déjà une donnée de santé. Le don est validé par un QR code anonyme, le questionnaire d'éligibilité ne garde aucune réponse, et on a rédigé une analyse d'impact RGPD.",
+            reponse: "Savoir qu'une personne donne son sang, c'est déjà une donnée de santé. On a retiré le groupe sanguin de l'inscription, le don est validé par un QR code anonyme, et le questionnaire d'éligibilité (15 questions) tourne entièrement sur le téléphone : aucune réponse ne part sur le réseau.",
+          },
+          {
+            question: "Comment réinitialiser un mot de passe sans serveur d'e-mails ?",
+            reponse: "Mettre en place l'envoi automatique d'e-mails ne tenait pas dans nos délais. J'ai conçu une alternative sûre : l'association génère un mot de passe temporaire depuis le backoffice, et à la connexion suivante l'appli oblige la personne à en choisir un nouveau. Le parcours est couvert par des tests automatisés.",
           },
         ]}
       />
@@ -90,7 +94,7 @@ export default function Page() {
         etapes={[
           {
             titre: 'Cahier des charges et gestion de projet',
-            texte: 'On a commencé par rédiger le cahier des charges et les documents de gamification. Toute la gestion de projet se passait dans ClickUp, avec un système de tickets écrits en user stories.',
+            texte: "On a commencé par rédiger le cahier des charges et modéliser la gamification. Toute la gestion de projet se passait dans ClickUp, avec des tickets écrits en user stories. Quand le planning a glissé, on a recentré le backlog sur une V1 solide et reporté le reste en V2. Chaque premier mardi du mois, on présentait l'avancement aux stratèges et à l'association.",
             image: { src: `${img}/demarche/cdc.webp`, alt: "Espace ClickUp du projet : le cahier des charges technique d'Aïma et les dossiers de documentation, de user stories et de tickets", width: 1534, height: 746 },
           },
           {
@@ -104,12 +108,12 @@ export default function Page() {
           },
           {
             titre: 'Backoffice et API',
-            texte: "On a développé l'API Laravel et le backoffice Filament, pour que l'association gère elle-même ses contenus, ses événements et ses défis. J'ai d'abord déployé le backoffice sur Dokploy, puis je l'ai hébergé sur un Raspberry Pi pour le forum de l'IUT.",
+            texte: "J'ai écrit le contrat d'API, puis développé l'API Laravel 12 (30 routes sécurisées) en rangeant les règles métier dans des services dédiés : parrainage, niveaux, badges, défis. Le backoffice Filament permet à l'association de tout gérer seule. Après une étude comparative d'hébergement, j'ai déployé le backoffice sur un VPS avec Dokploy, puis sur un Raspberry Pi pour le forum de l'IUT.",
             image: { src: `${img}/demarche/backoffice.webp`, alt: 'Tableau de bord du backoffice Aïma : utilisateurs, dons du mois, nouveaux inscrits et défi du mois, avec les menus Administration, Opérations, Communication et Gamification', width: 1534, height: 742 },
           },
           {
             titre: 'Intégration UI/UX et mise en ligne',
-            texte: 'On a fait la refonte UI/UX et intégré le contenu textuel et les illustrations. On a aussi rédigé les aspects juridiques (CGU, politique de confidentialité, mentions légales), puis hébergé le front sur Netlify.',
+            texte: "On a intégré les contenus et les illustrations, et j'ai repris l'UI/UX de plusieurs écrans. J'ai branché le scanner de QR code, les notifications push et le questionnaire d'éligibilité, puis transformé l'appli en PWA, installable sans passer par les stores et hébergée sur Netlify. Côté qualité : une pull request relue par fonctionnalité et des tests automatisés (Jest, PHPUnit).",
             image: { src: `${img}/demarche/integration_front.webp`, alt: "Écran Quiz d'Aïma intégré, testé au format iPhone dans les outils de développement du navigateur", width: 1534, height: 744 },
             liens: [{ href: demo, label: "Voir l'appli en ligne" }],
           },
@@ -119,14 +123,19 @@ export default function Page() {
       <Apport
         casquettes={[
           {
+            titre: 'Cadrage et gestion',
+            texte: 'Organiser le travail et faire les bons arbitrages.',
+            competences: ["Contrat d'API", 'Backlog ClickUp', 'Découpage V1 / V2', "Étude d'hébergement", 'Mot de passe temporaire'],
+          },
+          {
             titre: 'Dev full-stack',
             texte: "De la base de données jusqu'à la mise en ligne.",
-            competences: ['API Laravel', 'Backoffice Filament', 'Gamification', 'Scan QR code', 'Notifications push', 'Sécurité & RGPD', 'Docker', 'Raspberry Pi + Netlify'],
+            competences: ['API Laravel 12', 'Services métier', 'Backoffice Filament', 'Scan QR code', 'Notifications push', 'Éligibilité 100 % locale', 'PWA (Expo)', 'Tests PHPUnit et Jest', 'Docker + Dokploy'],
           },
           {
             titre: 'Refonte UI/UX',
             texte: 'Des écrans plus clairs et une appli qui parle comme ses utilisateurs.',
-            competences: ['Écrans Profil, Don, Quiz, Cartes', 'Révélation animée des cartes', 'Identité Aïma dans le backoffice', 'Ton tutoyé et bienveillant'],
+            competences: ['Écrans Profil, Don, Quiz, Cartes', "Composants d'authentification", 'Révélation animée des cartes', 'Identité Aïma dans le backoffice', 'Ton tutoyé et bienveillant'],
           },
         ]}
       />
