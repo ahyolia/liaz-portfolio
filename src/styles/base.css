@@ -10,13 +10,17 @@
 html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  scroll-padding-top: 6rem; /* les ancres ne passent pas sous le header collant */
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  /* Papier pointillé */
+  background-image: radial-gradient(var(--dot) 1.5px, transparent 1.6px);
+  background-size: 1.75rem 1.75rem;
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--step-0);
@@ -32,7 +36,8 @@ p, li, dd { max-width: var(--measure); overflow-wrap: break-word; }
 /* ---- Typographie -------------------------------------------------------- */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 400; /* Bagel Fat One n'existe qu'en une graisse */
+  font-weight: var(--weight-display);
+  letter-spacing: -0.01em;
   line-height: var(--leading-tight);
   text-wrap: balance;
 }
@@ -57,7 +62,7 @@ a:hover { text-decoration-color: var(--color-accent); }
   border-radius: var(--radius-s);
 }
 
-::selection { background: var(--aqua); color: var(--ink); }
+::selection { background: var(--color-highlight); color: var(--ink); }
 
 /* ---- Utilitaires -------------------------------------------------------- */
 .visually-hidden {
@@ -113,21 +118,45 @@ a:hover { text-decoration-color: var(--color-accent); }
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);
-  padding: var(--space-xs) var(--space-m);
-  border: 2px solid var(--ink);
+  padding: 0.85em 1.6em;
+  border: 1.5px solid transparent;
   border-radius: var(--radius-pill);
-  background: var(--coral);
-  color: var(--ink);
+  background: var(--color-pop);
+  color: var(--color-pop-text);
+  font-size: var(--step--1);
   font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
   text-decoration: none;
-  box-shadow: 3px 3px 0 var(--ink);
-  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  box-shadow: 0 8px 20px -10px var(--color-pop);
+  transition:
+    translate 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    background-color 0.2s var(--ease),
+    color 0.2s var(--ease);
 }
 
-.btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
-.btn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
+.btn:hover {
+  translate: 0 -2px;
+  background: color-mix(in srgb, var(--color-pop), black 12%);
+  box-shadow: 0 12px 24px -10px var(--color-pop);
+}
 
-.btn--ghost { background: var(--cream); }
+.btn:active { translate: 0 0; }
+
+/* Bouton secondaire : contour, se remplit au survol */
+.btn--ghost {
+  border-color: currentColor;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.btn--ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: none;
+}
 
 .cluster {
   display: flex;
@@ -218,7 +247,7 @@ a:hover { text-decoration-color: var(--color-accent); }
   padding-block-start: var(--space-m);
   font-family: var(--font-display);
   font-size: var(--step-1);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   border-bottom-style: solid;
 }
 
@@ -226,7 +255,7 @@ a:hover { text-decoration-color: var(--color-accent); }
 .academic-banner {
   max-width: none;
   padding: var(--space-2xs) var(--space-s);
-  background: var(--aqua);
+  background: var(--color-highlight);
   color: var(--ink);
   font-size: var(--step--1);
   text-align: center;
@@ -241,7 +270,7 @@ a:hover { text-decoration-color: var(--color-accent); }
   font-size: var(--step--1);
 }
 
-.academic-nav a[aria-current='page'] { color: var(--coral); }
+.academic-nav a[aria-current='page'] { color: var(--color-accent); }
 
 /* ---- Lien d'évitement --------------------------------------------------- */
 .skip-link {
@@ -258,27 +287,177 @@ a:hover { text-decoration-color: var(--color-accent); }
 
 .skip-link:focus { transform: none; --focus-ring: var(--ink); }
 
-/* ---- Header ------------------------------------------------------------- */
+/* ---- Header : pilule flottante, collante, fond translucide flouté ----- */
 .site-header {
-  padding-block: var(--space-m);
-  border-bottom: 2px dashed rgb(247 241 215 / 0.3);
+  position: sticky;
+  top: var(--space-s);
+  z-index: 50;
+  width: min(100% - 2 * var(--space-s), var(--container));
+  margin: var(--space-s) auto 0;
+  padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-m);
+  border: 1px solid rgb(var(--shadow-color) / 0.1);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  box-shadow: 0 12px 32px -18px rgb(var(--shadow-color) / 0.5);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
 }
 
 .site-header__inner {
+  width: 100%; /* la pilule fixe déjà la largeur */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+/* Logo + astérisque rose qui tourne au survol */
+.site-logo {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.1em;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-display);
+  text-decoration: none;
+}
+
+.site-logo__mark {
+  width: 0.6em;
+  height: 0.6em;
+  margin-top: 0.05em;
+  color: var(--pink);
+  transition: rotate 0.6s var(--ease);
+}
+
+.site-logo:hover .site-logo__mark { rotate: 120deg; }
+
+/* Liens : chaque lien a sa couleur candy, façon sticker */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav li:nth-child(1) { --pill: var(--aqua); }
+.site-nav li:nth-child(2) { --pill: var(--yellow); }
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.65em 1.25em;
+  border-radius: var(--radius-pill);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s var(--ease), rotate 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current='page'] {
+  background: var(--pill);
+  color: var(--ink);
+}
+
+.site-nav a:hover { rotate: -3deg; }
+
+/* Bouton Contact */
+.site-nav .site-nav__cta {
+  background: var(--color-pop);
+  color: var(--color-pop-text);
+}
+
+.site-nav .site-nav__cta:hover {
+  background: color-mix(in srgb, var(--color-pop), black 12%);
+  color: var(--color-pop-text);
+  rotate: 3deg;
+}
+
+/* Petit mobile : pas la place pour 3 liens, Contact reste dans le pied de page */
+@media (max-width: 30rem) {
+  .site-header { padding-inline-start: var(--space-s); }
+  .site-header__inner { gap: var(--space-2xs); }
+  .site-nav { gap: 0; }
+  .site-nav a { padding-inline: 0.85em; }
+  .site-nav li:has(.site-nav__cta) { display: none; }
+}
+
+/* ---- Contenu ------------------------------------------------------------ */
+main { flex: 1; }
+
+/* ---- Icônes (sprite public/icons.svg) ---------------------------------- */
+/* Usage : <svg class="icon" aria-hidden="true"><use href="/icons.svg#mail"></use></svg> */
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* ---- Footer : bas de ticket crème, bord dentelé en haut ---------------- */
+.site-footer {
+  --band: var(--cream);
+  --focus-ring: var(--ink);
+  margin-block-start: var(--space-3xl);
+  padding-block: var(--space-2xl) var(--space-m);
+  background: var(--band);
+  color: var(--ink);
+  font-size: var(--step--1);
+}
+
+/* Pas d'espace si la page se termine déjà par un bandeau coloré */
+main:has(> .band:last-child) + .site-footer { margin-block-start: 0; }
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-l);
+}
+
+.footer-nav ul,
+.site-footer__contact {
+  display: grid;
+  gap: var(--space-2xs);
+  padding: 0;
+  list-style: none;
+}
+
+.footer-nav a,
+.site-footer__contact a {
+  text-decoration: none;
+}
+
+.footer-nav a:hover,
+.site-footer__contact a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-xs);
+  padding: 0;
+  list-style: none;
+}
+
+.social-links a {
+  display: inline-flex;
+  padding: var(--space-3xs);
+  transition: rotate 0.2s var(--ease);
+}
+
+.social-links a:hover { rotate: -10deg; }
+
+.site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-s);
+  gap: var(--space-s) var(--space-l);
+  margin-block-start: var(--space-xl);
+  padding-block-start: var(--space-m);
+  border-top: 2px dashed var(--line-soft);
 }
 
-.site-logo {
-  font-family: var(--font-display);
-  font-size: var(--step-2);
-  text-decoration: none;
-}
-
-.site-nav {
+.site-footer__bottom ul {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2xs) var(--space-m);
@@ -286,56 +465,22 @@ a:hover { text-decoration-color: var(--color-accent); }
   list-style: none;
 }
 
-.site-nav a {
-  display: inline-block;
-  padding-block: var(--space-3xs);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: var(--step--1);
-}
-
-.site-nav a:hover,
-.site-nav a[aria-current='page'] {
-  text-decoration: underline wavy var(--coral) 2px;
-  text-underline-offset: 0.35em;
-}
-
-/* ---- Contenu ------------------------------------------------------------ */
-main { flex: 1; }
-
-/* ---- Footer ------------------------------------------------------------- */
-.site-footer {
-  margin-block-start: var(--space-2xl);
-  padding-block: var(--space-xl) var(--space-l);
-  border-top: 2px dashed rgb(247 241 215 / 0.3);
-  font-size: var(--step--1);
-}
-
-.site-footer__inner {
-  display: grid;
-  gap: var(--space-m);
-}
-
-.site-footer__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-s);
-  padding: 0;
-  list-style: none;
-}
-
 .site-footer .barcode {
-  --bar: var(--cream);
-  width: 12rem;
-  height: 2.5rem;
+  width: 9rem;
+  height: 2rem;
 }
 
 @media (min-width: 48rem) {
   .site-footer__inner {
-    grid-template-columns: 1fr auto;
-    align-items: end;
+    grid-template-columns: 1fr auto auto;
+    align-items: start;
+    column-gap: var(--space-2xl);
   }
+
+  .footer-nav,
+  .site-footer__contact { text-align: right; }
+
+  .site-footer__contact { justify-items: end; }
 }
 
 /* ---- Animations : sécurité accessibilité ------------------------------- */

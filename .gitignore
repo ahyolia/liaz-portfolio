@@ -20,3 +20,7 @@ npm-debug.log*
 Thumbs.db
 .vscode/*
 !.vscode/extensions.json
+
+# Next.js (cache de build et export statique)
+.next/
+out/
