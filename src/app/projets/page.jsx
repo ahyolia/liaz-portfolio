@@ -1,5 +1,4 @@
-import ProjectCard from '../../components/ProjectCard';
-import { projets } from '../../data/projets.js';
+import ProjectGrid from '../../components/ProjectGrid';
 
 export const metadata = {
   title: "Projets — Camélia Amin Handoyo",
@@ -17,10 +16,8 @@ export default function Page() {
             <p className="lead">Une sélection de projets réalisés en formation, en stage ou en perso. <span className="todo">À REMPLACER</span></p>
           </header>
 
-          {/* Une carte par projet : la liste est dans src/data/projets.js */}
-          <ul className="grid list-reset" role="list">
-            {projets.map((projet, i) => <ProjectCard key={projet.slug} projet={projet} index={i} />)}
-          </ul>
+          {/* Une carte par projet, filtrables par domaine : la liste est dans src/data/projets.js */}
+          <ProjectGrid />
         </div>
       </section>
     </main>

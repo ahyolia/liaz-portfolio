@@ -1,9 +1,10 @@
 import ProjectSlide from '../components/ProjectSlide';
-import { projets } from '../data/projets.js';
+import { projetsALaUne } from '../data/projets.js';
 
+// Seuls les projets marqués aLaUne (src/data/projets.js) sont affichés.
 // Le carrousel démarre centré sur la 2e carte : on y place le 1er projet
-// de la liste (le meilleur), avec le dernier à sa gauche.
-const aLaUne = projets.length > 2 ? [projets.at(-1), ...projets.slice(0, -1)] : projets;
+// à la une, avec le dernier à sa gauche.
+const aLaUne = projetsALaUne.length > 2 ? [projetsALaUne.at(-1), ...projetsALaUne.slice(0, -1)] : projetsALaUne;
 
 export const metadata = {
   title: "Camélia Amin Handoyo — Portfolio",

@@ -13,15 +13,29 @@
 //   roles     sous-titre du carrousel de l'accueil
 //   tags      mots-clés de la carte
 //   image     visuel de la carte et du carrousel
+//   domaines  ids de DOMAINES ci-dessous, pour le filtre de la page Projets
+//   aLaUne    (optionnel) true = affiché dans « Mes meilleurs projets ! » (3 ou 4 max)
 //   href      (optionnel) lien de la fiche si elle n'est pas /projets/<slug>/
 //   aRemplacer (optionnel) affiche le marqueur « À REMPLACER »
+
+// Domaines proposés dans le filtre de la page Projets (dans cet ordre)
+export const DOMAINES = [
+  { id: 'dev', label: 'Développement' },
+  { id: 'ux', label: 'UX / UI' },
+  { id: '3d', label: '3D & interactif' },
+  { id: 'video', label: 'Vidéo' },
+  { id: 'motion', label: 'Motion design' },
+  { id: 'gestion', label: 'Gestion de projet' },
+];
 
 export const projets = [
   {
     slug: 'aima',
+    domaines: ['dev', 'ux'],
+    aLaUne: true,
     titre: 'Aïma',
     annee: '2026',
-    cadre: "Projet universitaire en collaboration avec l'ADSB-NC",
+    cadre: "Projet de BUT MMI 3 en collaboration avec l'ADSB-NC",
     resume:
       'Une appli mobile créée pour l\'association des donneurs de sang de Nouvelle-Calédonie : des cartes à collectionner et des quiz pour donner envie de revenir donner.',
     roles: 'dev full-stack · ui/ux design',
@@ -29,19 +43,71 @@ export const projets = [
     image: { src: '/images/projets/aima/screens_app/mockups-aima.webp', width: 1080, height: 721 },
   },
   {
+    slug: 'etincelle-caledonienne',
+    domaines: ['video', 'gestion'],
+    aLaUne: true,
+    titre: "L'amour d'une éducatrice",
+    annee: '2026',
+    cadre: 'Concours webdoc NC la 1ère',
+    resume:
+      "Un web-documentaire sur Mirella, surveillante de lycée, réalisé en binôme pour le concours « Les Étincelles Calédoniennes » et diffusé par NC la 1ère.",
+    roles: 'web-documentaire · gestion de projet',
+    tags: ['Vidéo', 'Prise de son', 'Interview', 'ClickUp'],
+    image: { src: '/images/projets/etincelle-caledonienne/visuel-brut.webp', width: 1600, height: 900 },
+  },
+  {
+    slug: 'accroche-video',
+    domaines: ['video'],
+    titre: 'Accroche vidéo',
+    annee: '2026',
+    cadre: 'BUT MMI 3 - Cours PPP',
+    resume:
+      "Me présenter en moins d'une minute, par fragments : là où je construis, là où je respire, et là où je me projette.",
+    roles: 'écriture · réalisation · montage',
+    tags: ['Vidéo', 'Écriture', 'Montage', 'Voix off'],
+    image: { src: '/images/projets/cv-video/miniature-bougies.webp', width: 1600, height: 900 },
+  },
+  {
+    slug: 'resonance',
+    domaines: ['video', 'motion'],
+    titre: 'RESONANCE In Motion',
+    annee: '2026',
+    cadre: 'BUT MMI 3 - Motion design',
+    resume:
+      "Un moodboard animé pour dire qui je suis sans portrait figé : des formes qui bougent, des géométries qui se répondent et des espaces profonds.",
+    roles: 'motion design · after effects',
+    tags: ['Motion design', 'After Effects', 'Typographie animée'],
+    image: { src: '/images/projets/resonance/colours-of-my-soul.webp', width: 1240, height: 702 },
+  },
+  {
     slug: 'liaz-gallery',
+    domaines: ['3d', 'dev'],
+    aLaUne: true,
     titre: 'LiAZ Gallery',
     annee: '2026',
-    cadre: 'Cours Dispositifs interactifs, projet solo',
+    cadre: 'BUT MMI 3 - XR et Interactions',
     resume:
-      "Une galerie d'images en réalité virtuelle qu'on pilote à la voix : on dit ce qu'on cherche, et les images trouvées sur le web s'accrochent aux murs.",
-    roles: 'dev unity · réalité virtuelle',
-    tags: ['Unity 6', 'C#', 'VR / OpenXR', 'Reconnaissance vocale'],
-    // À REMPLACER : une capture de la galerie dans public/images/projets/liaz-gallery/
-    image: { src: '/images/placeholder.svg', width: 1200, height: 750 },
+      "Une galerie d'images en 3D qu'on pilote à la voix : on dit ce qu'on cherche, et les images trouvées sur le web s'accrochent aux murs.",
+    roles: 'dev unity · 3d interactive',
+    tags: ['Unity 6', 'C#', 'Reconnaissance vocale'],
+    image: { src: '/images/projets/liaz-gallery/gallerie.webp', width: 1534, height: 862 },
+  },
+  {
+    slug: 'pocket-stars',
+    domaines: ['dev', '3d'],
+    aLaUne: true,
+    titre: 'Pocket Stars',
+    annee: '2026',
+    cadre: 'BUT MMI 3 - Développement front',
+    resume:
+      'Une balade en 3D sur une île flottante, sous un ciel où chaque étoile cache une carte Pokémon : on clique, elle descend et se révèle.',
+    roles: 'dev front 3d · game design',
+    tags: ['React', 'Three.js', 'API TCGdex', 'Web Audio'],
+    image: { src: '/images/projets/pocket-stars/carte-alakazam.webp', width: 1440, height: 900 },
   },
   {
     slug: 'projet-2',
+    domaines: ['ux'],
     href: '/projets/projet-exemple/',
     titre: 'Projet 2',
     annee: '2025',
@@ -54,6 +120,7 @@ export const projets = [
   },
   {
     slug: 'projet-3',
+    domaines: ['dev'],
     href: '/projets/projet-exemple/',
     titre: 'Projet 3',
     annee: '2025',
@@ -66,6 +133,7 @@ export const projets = [
   },
   {
     slug: 'projet-4',
+    domaines: ['video'],
     href: '/projets/projet-exemple/',
     titre: 'Projet 4',
     annee: '2024',
@@ -86,3 +154,6 @@ export const projetSuivant = (slug) => {
   const i = projets.findIndex((p) => p.slug === slug);
   return projets[(i + 1) % projets.length];
 };
+
+/** Projets à la une sur l'accueil (« Mes meilleurs projets ! »), 4 au maximum */
+export const projetsALaUne = projets.filter((p) => p.aLaUne).slice(0, 4);
