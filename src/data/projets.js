@@ -69,7 +69,7 @@ export const projets = [
   {
     slug: 'resonance',
     domaines: ['video', 'motion'],
-    titre: 'RESONANCE In Motion',
+    titre: 'RESONANCE in Motion',
     annee: '2026',
     cadre: 'BUT MMI 3 - Motion design',
     resume:
@@ -101,6 +101,18 @@ export const projets = [
     roles: 'dev front 3d · game design',
     tags: ['React', 'Three.js', 'API TCGdex', 'Web Audio'],
     image: { src: '/images/projets/pocket-stars/carte-alakazam.webp', width: 1440, height: 900 },
+  },
+  {
+    slug: 'eveil-des-abysses',
+    domaines: ['3d', 'ux'],
+    titre: 'Éveil des Abysses',
+    annee: '2025',
+    cadre: 'BUT MMI 2 - Pacific Spirit',
+    resume:
+      "Une installation immersive où les gestes de la main, filmés par une webcam, guident en temps réel un banc de poissons virtuels.",
+    roles: 'design interactif · touchdesigner',
+    tags: ['TouchDesigner', 'Flux optique', 'Installation', 'Scénographie'],
+    image: { src: '/images/projets/eveil-des-abysses/evenement-visiteur.webp', width: 1600, height: 1066 },
   },
 ];
 
