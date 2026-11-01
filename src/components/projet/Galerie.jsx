@@ -4,7 +4,8 @@
 // items [{ cat, legende, variante?, images }]
 //   images  : 1 image = image seule ; 2 images = paire (recto/verso), la 2e au survol
 //   image   : { src, alt, width, height, fond? } (fond = couleur du panneau derrière)
-//   variante: 'logo' ou 'icon' pour poser l'image sur un panneau avec marge
+//   variante: 'logo' ou 'icon' pour poser l'image sur un panneau avec marge ;
+//             'page' pour une page de PDF (vignette réduite au haut de la page)
 //   cat     : doit correspondre à l'id d'un filtre
 
 function Image({ img }) {

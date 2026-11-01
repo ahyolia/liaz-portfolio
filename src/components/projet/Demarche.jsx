@@ -4,6 +4,7 @@
 // Props : titre, etapes [{ titre, texte, image? | images?, attendu?, liens? }]
 //   image   : { src, alt, width, height, portrait? } (cadre 2:1, l'image y tient en entier)
 //   images  : plusieurs images côte à côte dans le même cadre (ex. écrans mobiles)
+//   video   : { src, poster, alt, width, height } courte vidéo muette à la place de l'image
 //   attendu : texte du cadre en pointillés tant que l'image manque
 //   texte   : accepte du HTML simple
 
@@ -28,6 +29,21 @@ export default function Demarche({ titre = 'La démarche', etapes }) {
                       <img key={im.src} src={im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy" />
                     ))}
                   </div>
+                ) : etape.video ? (
+                  // Courte vidéo muette (ex. capture d'écran filmée), lancée au clic
+                  <video
+                    className="process-step__visual process-step__visual--video"
+                    src={etape.video.src}
+                    poster={etape.video.poster}
+                    width={etape.video.width}
+                    height={etape.video.height}
+                    aria-label={etape.video.alt}
+                    controls
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                  />
                 ) : etape.image ? (
                   <img
                     className={etape.image.portrait ? 'process-step__visual process-step__visual--card' : 'process-step__visual'}

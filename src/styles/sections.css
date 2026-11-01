@@ -736,6 +736,9 @@ img.process-step__visual--card {
 .process-step__visual--grille {
   display: grid;
   grid-auto-flow: column;
+/* Vidéo d'étape : posée en entier sur un fond crème */
+video.process-step__visual--video { height: auto; padding: var(--space-xs); background: #F7EFE4; }
+
   grid-auto-columns: 1fr;
   gap: var(--space-2xs);
   overflow: hidden;
@@ -991,6 +994,10 @@ img.process-step__visual--card {
 .case-stage {
   position: relative;
   isolation: isolate;
+/* Page de PDF (dossier, affiche) : vignette recadrée sur le haut de la page,
+   la page entière s'ouvre dans la visionneuse */
+.gallery__item--page img { aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
+
   display: grid;
   place-items: center;
   min-height: 26rem;
