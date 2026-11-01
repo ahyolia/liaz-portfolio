@@ -573,15 +573,15 @@
 /* Sur téléphone, le scotch recouvrirait l'onglet : on le retire */
 @media (max-width: 40rem) { .case-hero .tape { display: none; } }
 
-/* N° de fiche manuscrit, dans le coin bas droit */
+/* N° de fiche manuscrit, dans le coin bas droit de la fiche */
 .case-hero__num {
   position: absolute;
-  bottom: var(--space-xs);
-  right: var(--space-l);
+  bottom: var(--space-l);
+  right: var(--space-2xl);
   z-index: 2;
   margin: 0;
   font-size: var(--step-0);
-  rotate: -3deg;
+  rotate: -2deg;
 }
 
 /* ---- Onglet de classeur : retour à la liste, fil d'Ariane ------------
