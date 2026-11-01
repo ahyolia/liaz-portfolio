@@ -21,14 +21,15 @@ const affiche = { width: 1600, height: 900 };
 export const metadata = {
   title: "L'amour d'une éducatrice, web-documentaire — Camélia Amin Handoyo",
   description:
-    "Étude de cas : « L'amour d'une éducatrice », web-documentaire réalisé en binôme pour le concours Les Étincelles Calédoniennes de NC la 1ère.",
+    "« L'amour d'une éducatrice », web-documentaire réalisé en binôme pour le concours Les Étincelles Calédoniennes de NC la 1ère.",
 };
 
 export default function Page() {
   return (
     <ProjectLayout slug="etincelle-caledonienne">
       <CaseHero
-        eyebrow="Étude de cas · web-documentaire"
+        slug="etincelle-caledonienne"
+        eyebrow="Web-documentaire"
         titre="L'amour d'une éducatrice, le portrait d'une surveillante de lycée"
         accroche="Un web-documentaire de quelques minutes pour mettre en lumière celles et ceux qui travaillent dans l'ombre."
         couleur="#E4F2D7"

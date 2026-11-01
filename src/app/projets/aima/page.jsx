@@ -19,14 +19,15 @@ const github = 'https://github.com/ahyolia/bloodshare';
 
 export const metadata = {
   title: "Aïma, l'appli du don du sang — Camélia Amin Handoyo",
-  description: "Étude de cas : Aïma, application gamifiée de fidélisation des donneurs de sang pour l'ADSB-NC (React Native, Laravel, Filament).",
+  description: "Aïma, application gamifiée de fidélisation des donneurs de sang pour l'ADSB-NC (React Native, Laravel, Filament).",
 };
 
 export default function Page() {
   return (
     <ProjectLayout slug="aima">
       <CaseHero
-        eyebrow="Étude de cas · appli mobile"
+        slug="aima"
+        eyebrow="Appli mobile"
         titre="Aïma, l'appli qui fidélise les donneurs de sang"
         accroche="Une appli qui donne envie de donner son sang, et d'y retourner."
         couleur="#FFE4E0"

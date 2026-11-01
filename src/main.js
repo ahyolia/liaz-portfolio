@@ -120,7 +120,8 @@ function initCaseHero() {
   const marks = hero.querySelectorAll('.mark');
   const tl = gsap
     .timeline({ defaults: { ease: 'power3.out' } })
-    .from(hero.querySelectorAll('.back-btn, .eyebrow'), { autoAlpha: 0, y: 12, duration: 0.5, stagger: 0.08 })
+    .from(hero.querySelectorAll('.case-hero'), { autoAlpha: 0, y: 30, duration: 0.7 })
+    .from(hero.querySelectorAll('.case-hero__tab, .eyebrow, .case-hero__num'), { autoAlpha: 0, y: 12, duration: 0.5, stagger: 0.08 }, '-=0.4')
     .from(words, { yPercent: 110, duration: 0.8, stagger: 0.045 }, '-=0.2')
     .from(hero.querySelectorAll('.lead, .cluster'), { autoAlpha: 0, y: 20, duration: 0.6, stagger: 0.1 }, '-=0.5');
   if (phones.length) tl.from(phones, { autoAlpha: 0, y: 140, rotation: (i) => (i ? 14 : -14), duration: 1.1, stagger: 0.15, ease: 'back.out(1.3)' }, 0.25);

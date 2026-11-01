@@ -15,14 +15,15 @@ const plan = { width: 1600, height: 900 };
 export const metadata = {
   title: 'Accroche vidéo, me présenter en une minute — Camélia Amin Handoyo',
   description:
-    "Étude de cas : une vidéo de présentation de moins d'une minute, écrite, réalisée et montée seule pour le cours PPP du BUT MMI.",
+    "Une vidéo de présentation de moins d'une minute, écrite, réalisée et montée seule pour le cours PPP du BUT MMI.",
 };
 
 export default function Page() {
   return (
     <ProjectLayout slug="accroche-video">
       <CaseHero
-        eyebrow="Étude de cas · vidéo"
+        slug="accroche-video"
+        eyebrow="Vidéo"
         titre="Accroche vidéo, me présenter en moins d'une minute"
         accroche="Je construis, je prends du recul, je me projette. Le reste ne se dit pas. Il se lit."
         couleur="#FCE7C8"

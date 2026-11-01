@@ -12,17 +12,18 @@ const behance = 'https://www.behance.net/gallery/252305951/RESONANCE-In-Motion';
 const lecteur = 'https://www-ccv.adobe.io/v1/player/ccv/FbW8zuoJyUD/embed?api_key=behance1&bgcolor=%23191919&autoplay=true';
 
 export const metadata = {
-  title: 'RESONANCE In Motion, moodboard animé — Camélia Amin Handoyo',
+  title: 'RESONANCE in Motion, moodboard animé — Camélia Amin Handoyo',
   description:
-    'Étude de cas : RESONANCE In Motion, un moodboard animé en motion design (After Effects) qui traduit mon univers créatif.',
+    'RESONANCE in Motion, un moodboard animé en motion design (After Effects) qui traduit mon univers créatif.',
 };
 
 export default function Page() {
   return (
     <ProjectLayout slug="resonance">
       <CaseHero
-        eyebrow="Étude de cas · motion design"
-        titre="RESONANCE In Motion, un moodboard qui bouge"
+        slug="resonance"
+        eyebrow="Motion design"
+        titre="RESONANCE in Motion, un moodboard qui bouge"
         accroche="Comment se définir quand son identité est une mosaïque en mouvement ?"
         couleur="#DCDDFB"
         liens={[

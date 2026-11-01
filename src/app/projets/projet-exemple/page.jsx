@@ -19,14 +19,15 @@ const placeholder = { src: '/images/placeholder.svg', width: 1200, height: 750 }
 
 export const metadata = {
   title: "Projet exemple — Camélia Amin Handoyo",
-  description: "Étude de cas : contexte, démarche et rendu final. À REMPLACER.",
+  description: "Contexte, démarche et rendu final. À REMPLACER.",
 };
 
 export default function Page() {
   return (
     <ProjectLayout slug="projet-exemple">
       <CaseHero
-        eyebrow="Étude de cas · type de projet"
+        slug="projet-exemple"
+        eyebrow="Type de projet"
         titre="Nom du projet, ce qu'il fait en quelques mots"
         accroche={`Une phrase d'accroche. ${todo}`}
         liens={[

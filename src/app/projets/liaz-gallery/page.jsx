@@ -17,14 +17,15 @@ const placeholder = { src: '/images/placeholder.svg', width: 1200, height: 750 }
 export const metadata = {
   title: 'LiAZ Gallery, galerie 3D à commande vocale — Camélia Amin Handoyo',
   description:
-    "Étude de cas : LiAZ Gallery, galerie d'images en 3D pilotée à la voix, développée avec Unity 6, C# et l'API Serper.",
+    "LiAZ Gallery, galerie d'images en 3D pilotée à la voix, développée avec Unity 6, C# et l'API Serper.",
 };
 
 export default function Page() {
   return (
     <ProjectLayout slug="liaz-gallery">
       <CaseHero
-        eyebrow="Étude de cas · 3D interactive"
+        slug="liaz-gallery"
+        eyebrow="3D interactive"
         titre="LiAZ Gallery, une galerie 3D qu'on pilote à la voix"
         accroche="On dit ce qu'on cherche, et les images trouvées sur le web s'accrochent aux murs."
         couleur="#D7F2F3"

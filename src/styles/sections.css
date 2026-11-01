@@ -542,49 +542,91 @@
 /* Le cahier garde son relief sur la feuille blanche */
 .case-sheet .notebook { box-shadow: var(--shadow-paper); }
 
-/* ---- En-tête d'étude de cas : texte à gauche, captures à droite -------- */
+/* ---- En-tête d'une fiche projet : une fiche quadrillée scotchée --------
+   Texte à gauche, scène des visuels à droite, dans le même cadre papier. */
+.case-hero-wrap { padding-block-start: 2.5rem; /* place de l'onglet */ }
+
 .case-hero {
+  position: relative;
   display: grid;
-  gap: var(--space-xl);
+  gap: var(--space-l);
   align-items: center;
+  padding: clamp(var(--space-l), 5vw, var(--space-2xl)) clamp(var(--space-m), 5vw, var(--space-2xl));
+  border-radius: 0.5rem;
+  rotate: -0.6deg;
 }
+
+/* min-width: 0 : sans ça, la piste de grille s'élargit au contenu et déborde sur mobile */
+.case-hero > * { min-width: 0; }
 
 .case-hero h1 {
   font-size: var(--step-5);
   line-height: 1.05;
 }
 
-/* ---- .back-btn : retour à la liste, pastille avec flèche ronde -------- */
-.back-btn {
-  display: inline-flex;
+.case-hero .tape { top: -0.7rem; }
+
+/* Sur téléphone, le scotch recouvrirait l'onglet : on le retire */
+@media (max-width: 40rem) { .case-hero .tape { display: none; } }
+
+/* N° de fiche manuscrit, dans le coin bas droit */
+.case-hero__num {
+  position: absolute;
+  bottom: var(--space-xs);
+  right: var(--space-l);
+  z-index: 2;
+  margin: 0;
+  font-size: var(--step-0);
+  rotate: -3deg;
+}
+
+/* ---- Onglet de classeur : retour à la liste, fil d'Ariane ------------
+   Collé en haut à gauche de la fiche quadrillée, comme un intercalaire. */
+.case-hero__tab {
+  position: absolute;
+  bottom: 100%;
+  left: clamp(var(--space-m), 5vw, var(--space-2xl));
+  display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  justify-self: start;
-  padding: 0.3rem 1.1rem 0.3rem 0.3rem;
-  border: 1.5px solid var(--ink);
-  border-radius: var(--radius-pill);
-  background: var(--paper);
-  color: var(--ink);
+  gap: var(--space-2xs);
+  max-width: calc(100% - 2 * var(--space-m));
+  padding: 0.55rem 1.25rem 0.45rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: var(--aqua);
   font-size: var(--step--1);
   font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 -2px 6px -3px rgb(var(--shadow-color) / 0.3);
+}
+
+.case-hero__tab a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--ink);
   text-decoration: none;
-  transition: background-color 0.25s var(--ease);
 }
 
-.back-btn__icon {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--paper);
+.case-hero__tab a::after {
+  /* zone cliquable = tout l'onglet */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
 }
 
-.back-btn__icon .icon { width: 1rem; height: 1rem; scale: -1 1; transition: translate 0.25s var(--ease); }
+.case-hero__tab .icon { width: 1rem; height: 1rem; scale: -1 1; transition: translate 0.25s var(--ease); }
+.case-hero__tab:has(a:hover) { background: var(--yellow); }
+.case-hero__tab a:hover .icon { translate: -3px 0; }
+.case-hero__tab a:focus-visible { outline: none; }
+.case-hero__tab:has(a:focus-visible) { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 
-.back-btn:hover { background: var(--yellow); }
-.back-btn:hover .back-btn__icon .icon { translate: 3px 0; } /* = vers la gauche (icône retournée) */
+.case-hero__crumb {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  opacity: 0.8;
+}
 
 /* Deux téléphones qui se chevauchent légèrement */
 .phone-duo {
@@ -603,7 +645,7 @@
 .phone-duo .phone:last-child  { rotate: 5deg; margin-inline-start: -8%; --ty: var(--space-l); animation-delay: -3.5s; }
 
 @media (min-width: 64rem) {
-  .case-hero { grid-template-columns: 1.1fr 1fr; }
+  .case-hero { grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
 }
 
 /* ---- Contexte + ticket d'une étude de cas ------------------------------ */
@@ -690,6 +732,9 @@
 
 img.process-step__visual { background: #1E1E1E; box-shadow: 0 14px 28px -14px rgb(0 0 0 / 0.45); }
 
+/* Vidéo d'étape : posée en entier sur un fond crème */
+video.process-step__visual--video { height: auto; padding: var(--space-xs); background: #F7EFE4; }
+
 /* Image portrait (carte) : posée en entier sur un fond crème */
 img.process-step__visual--card {
   object-fit: contain;
@@ -736,9 +781,6 @@ img.process-step__visual--card {
 .process-step__visual--grille {
   display: grid;
   grid-auto-flow: column;
-/* Vidéo d'étape : posée en entier sur un fond crème */
-video.process-step__visual--video { height: auto; padding: var(--space-xs); background: #F7EFE4; }
-
   grid-auto-columns: 1fr;
   gap: var(--space-2xs);
   overflow: hidden;
@@ -948,6 +990,10 @@ video.process-step__visual--video { height: auto; padding: var(--space-xs); back
 .gallery__item--logo img { padding: var(--space-xl) var(--space-m); background: var(--swap-bg, #F7EFE4); }
 .gallery__item--icon img { padding: var(--space-xl); background: var(--swap-bg, #F7EFE4); }
 
+/* Page de PDF (dossier, affiche) : vignette recadrée sur le haut de la page,
+   la page entière s'ouvre dans la visionneuse */
+.gallery__item--page img { aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
+
 /* ---- .swap : paire d'images, la 2e remplace la 1re au survol / focus / tap */
 .swap {
   display: grid;
@@ -994,10 +1040,6 @@ video.process-step__visual--video { height: auto; padding: var(--space-xs); back
 .case-stage {
   position: relative;
   isolation: isolate;
-/* Page de PDF (dossier, affiche) : vignette recadrée sur le haut de la page,
-   la page entière s'ouvre dans la visionneuse */
-.gallery__item--page img { aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
-
   display: grid;
   place-items: center;
   min-height: 26rem;

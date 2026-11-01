@@ -18,14 +18,15 @@ const capture = { width: 1440, height: 900 };
 export const metadata = {
   title: 'Pocket Stars, cartes Pokémon en 3D — Camélia Amin Handoyo',
   description:
-    'Étude de cas : Pocket Stars, exploration 3D de cartes Pokémon sous un ciel étoilé, avec React, Three.js et l’API TCGdex.',
+    'Pocket Stars, exploration 3D de cartes Pokémon sous un ciel étoilé, avec React, Three.js et l’API TCGdex.',
 };
 
 export default function Page() {
   return (
     <ProjectLayout slug="pocket-stars">
       <CaseHero
-        eyebrow="Étude de cas · expérience web 3D"
+        slug="pocket-stars"
+        eyebrow="Expérience web 3D"
         titre="Pocket Stars, un ciel où chaque étoile cache une carte"
         accroche="On se promène sur une île flottante, on clique sur une étoile, et une carte Pokémon descend se révéler en 3D."
         couleur="#E3DDFB"
@@ -144,9 +145,9 @@ export default function Page() {
           { cat: 'cartes', legende: 'Recto de remplacement', images: [{ src: `${img}/carte-remplacement.webp`, alt: 'Recto de remplacement « Image indisponible »', ...capture }] },
           { cat: 'mobile', legende: 'Sur téléphone, avec le joystick', images: [{ src: `${img}/pocketstars-mobile.webp`, alt: "Pocket Stars sur téléphone : ciel étoilé, boutons de recherche et de son, joystick virtuel et Mimikyu", width: 302, height: 654 }] },
           { cat: 'mobile', legende: 'Révélation sur téléphone', images: [{ src: `${img}/pocketstars-mobile2.webp`, alt: "Pocket Stars sur téléphone : révélation d'Arcanine, carte holo rare affichée avec son recto de remplacement, et la réaction de Mimikyu", width: 298, height: 654 }] },
-          { cat: 'conception', legende: 'Dossier : moodboard', images: [{ src: `${img}/dossier-moodboard.webp`, alt: "Page Moodboard du dossier : cartes holographiques, étoiles et ambiance visuelle", width: 1100, height: 1556 }] },
-          { cat: 'conception', legende: 'Dossier : maquettes', images: [{ src: `${img}/dossier-maquettes.webp`, alt: "Page Maquettes du dossier : croquis au crayon et maquettes de l'interface", width: 1100, height: 1556 }] },
-          { cat: 'conception', legende: 'Dossier : planning', images: [{ src: `${img}/dossier-planning.webp`, alt: "Page Planning du dossier : diagramme de Gantt et risques du projet", width: 1100, height: 1556 }] },
+          { cat: 'conception', variante: 'page', legende: 'Dossier : moodboard', images: [{ src: `${img}/dossier-moodboard.webp`, alt: "Page Moodboard du dossier : cartes holographiques, étoiles et ambiance visuelle", width: 1100, height: 1556 }] },
+          { cat: 'conception', variante: 'page', legende: 'Dossier : maquettes', images: [{ src: `${img}/dossier-maquettes.webp`, alt: "Page Maquettes du dossier : croquis au crayon et maquettes de l'interface", width: 1100, height: 1556 }] },
+          { cat: 'conception', variante: 'page', legende: 'Dossier : planning', images: [{ src: `${img}/dossier-planning.webp`, alt: "Page Planning du dossier : diagramme de Gantt et risques du projet", width: 1100, height: 1556 }] },
         ]}
       />
 
