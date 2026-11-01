@@ -36,8 +36,8 @@ export default function Page() {
         ]}
       >
         <div className="phone-duo" data-depth="0.4">
-          <div className="phone"><img src={`${img}/screens_app/aima_screen.png`} alt="Accueil d'Aïma : alerte de stock critique, réserves de sang par groupe et actualités" width="302" height="650" /></div>
-          <div className="phone"><img src={`${img}/screens_app/aima_screen2.png`} alt="Profil d'Aïma : avatar, niveau Curieux, nombre de dons, points et badges" width="300" height="654" /></div>
+          <div className="phone"><img src={`${img}/screens_app/aima_screen.webp`} alt="Accueil d'Aïma : alerte de stock critique, réserves de sang par groupe et actualités" width="302" height="650" /></div>
+          <div className="phone"><img src={`${img}/screens_app/aima_screen2.webp`} alt="Profil d'Aïma : avatar, niveau Curieux, nombre de dons, points et badges" width="300" height="654" /></div>
         </div>
         <img className="floaty floaty--card" src={`${img}/cards/mois-01.webp`} alt="" width="900" height="1273" data-depth="1.4" style={{ "--x": "0%", "--y": "6%", "--r": "-14deg", "--size": "5.5rem" }} />
         <img className="floaty floaty--icon" src={`${img}/branding/aima-icone-aubergine@2x.png`} alt="" width="240" height="240" data-depth="1.2" style={{ "--x": "80%", "--y": "2%", "--r": "8deg", "--size": "4.5rem", "--delay": "-4s" }} />
@@ -91,12 +91,12 @@ export default function Page() {
           {
             titre: 'Cahier des charges et gestion de projet',
             texte: 'On a commencé par rédiger le cahier des charges et les documents de gamification. Toute la gestion de projet se passait dans ClickUp, avec un système de tickets écrits en user stories.',
-            image: { src: `${img}/demarche/cdc.png`, alt: "Espace ClickUp du projet : le cahier des charges technique d'Aïma et les dossiers de documentation, de user stories et de tickets", width: 1534, height: 746 },
+            image: { src: `${img}/demarche/cdc.webp`, alt: "Espace ClickUp du projet : le cahier des charges technique d'Aïma et les dossiers de documentation, de user stories et de tickets", width: 1534, height: 746 },
           },
           {
             titre: 'Wireframes et maquettes',
             texte: "On a construit l'arborescence de l'appli, puis les wireframes et les maquettes, avec un design system commun sur Figma.",
-            image: { src: `${img}/demarche/maquettes.png`, alt: "Fichier Figma du projet : wireframes des écrans Accueil, Don, Quiz et Cartes, avec l'arborescence de chaque partie", width: 1534, height: 824 },
+            image: { src: `${img}/demarche/maquettes.webp`, alt: "Fichier Figma du projet : wireframes des écrans Accueil, Don, Quiz et Cartes, avec l'arborescence de chaque partie", width: 1534, height: 824 },
             liens: [
               { href: figma.arborescence, label: 'Arborescence' },
               { href: figma.designSystem, label: 'Design system et maquettes' },
@@ -105,12 +105,12 @@ export default function Page() {
           {
             titre: 'Backoffice et API',
             texte: "On a développé l'API Laravel et le backoffice Filament, pour que l'association gère elle-même ses contenus, ses événements et ses défis. J'ai d'abord déployé le backoffice sur Dokploy, puis je l'ai hébergé sur un Raspberry Pi pour le forum de l'IUT.",
-            image: { src: `${img}/demarche/backoffice.png`, alt: 'Tableau de bord du backoffice Aïma : utilisateurs, dons du mois, nouveaux inscrits et défi du mois, avec les menus Administration, Opérations, Communication et Gamification', width: 1534, height: 742 },
+            image: { src: `${img}/demarche/backoffice.webp`, alt: 'Tableau de bord du backoffice Aïma : utilisateurs, dons du mois, nouveaux inscrits et défi du mois, avec les menus Administration, Opérations, Communication et Gamification', width: 1534, height: 742 },
           },
           {
             titre: 'Intégration UI/UX et mise en ligne',
             texte: 'On a fait la refonte UI/UX et intégré le contenu textuel et les illustrations. On a aussi rédigé les aspects juridiques (CGU, politique de confidentialité, mentions légales), puis hébergé le front sur Netlify.',
-            image: { src: `${img}/demarche/integration_front.png`, alt: "Écran Quiz d'Aïma intégré, testé au format iPhone dans les outils de développement du navigateur", width: 1534, height: 744 },
+            image: { src: `${img}/demarche/integration_front.webp`, alt: "Écran Quiz d'Aïma intégré, testé au format iPhone dans les outils de développement du navigateur", width: 1534, height: 744 },
             liens: [{ href: demo, label: "Voir l'appli en ligne" }],
           },
         ]}
@@ -143,7 +143,7 @@ export default function Page() {
           {
             cat: 'appli',
             legende: "L'appli sur téléphone",
-            images: [{ src: `${img}/screens_app/mockups%20aima.png`, alt: "Aïma ouverte sur l'écran d'accueil, sur un téléphone posé contre un ordinateur portable", width: 1080, height: 721 }],
+            images: [{ src: `${img}/screens_app/mockups-aima.webp`, alt: "Aïma ouverte sur l'écran d'accueil, sur un téléphone posé contre un ordinateur portable", width: 1080, height: 721 }],
           },
           {
             cat: 'identite',
@@ -158,16 +158,16 @@ export default function Page() {
             cat: 'com',
             legende: 'Carte de visite · recto / verso',
             images: [
-              { src: `${img}/com/businesscard_recto.png`, alt: 'Carte de visite Aïma, recto illustré', width: 1080, height: 756 },
-              { src: `${img}/com/businesscard_verso.png`, alt: "Carte de visite Aïma, verso avec les contacts du Centre du don du sang et de l'ADSB-NC", width: 1080, height: 756 },
+              { src: `${img}/com/businesscard_recto.webp`, alt: 'Carte de visite Aïma, recto illustré', width: 1080, height: 756 },
+              { src: `${img}/com/businesscard_verso.webp`, alt: "Carte de visite Aïma, verso avec les contacts du Centre du don du sang et de l'ADSB-NC", width: 1080, height: 756 },
             ],
           },
           {
             cat: 'com',
             legende: "Carte d'accès au compte · recto / verso",
             images: [
-              { src: `${img}/com/accountcard_recto.png`, alt: "Carte d'accès au compte, recto illustré", width: 1080, height: 717 },
-              { src: `${img}/com/accountcard_verso.png`, alt: "Carte d'accès au compte, verso avec le QR code et l'identifiant du donneur", width: 1080, height: 720 },
+              { src: `${img}/com/accountcard_recto.webp`, alt: "Carte d'accès au compte, recto illustré", width: 1080, height: 717 },
+              { src: `${img}/com/accountcard_verso.webp`, alt: "Carte d'accès au compte, verso avec le QR code et l'identifiant du donneur", width: 1080, height: 720 },
             ],
           },
           {

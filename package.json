@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "preview": "npx serve out"
+    "preview": "npx serve out",
+    "images": "node scripts/optimiser-images.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

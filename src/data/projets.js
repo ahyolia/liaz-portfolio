@@ -26,7 +26,19 @@ export const projets = [
       'Une appli mobile créée pour l\'association des donneurs de sang de Nouvelle-Calédonie : des cartes à collectionner et des quiz pour donner envie de revenir donner.',
     roles: 'dev full-stack · ui/ux design',
     tags: ['React Native', 'Laravel', 'UI/UX', 'RGPD'],
-    image: { src: '/images/projets/aima/screens_app/mockups%20aima.png', width: 1080, height: 721 },
+    image: { src: '/images/projets/aima/screens_app/mockups-aima.webp', width: 1080, height: 721 },
+  },
+  {
+    slug: 'liaz-gallery',
+    titre: 'LiAZ Gallery',
+    annee: '2026',
+    cadre: 'Cours Dispositifs interactifs, projet solo',
+    resume:
+      "Une galerie d'images en réalité virtuelle qu'on pilote à la voix : on dit ce qu'on cherche, et les images trouvées sur le web s'accrochent aux murs.",
+    roles: 'dev unity · réalité virtuelle',
+    tags: ['Unity 6', 'C#', 'VR / OpenXR', 'Reconnaissance vocale'],
+    // À REMPLACER : une capture de la galerie dans public/images/projets/liaz-gallery/
+    image: { src: '/images/placeholder.svg', width: 1200, height: 750 },
   },
   {
     slug: 'projet-2',
