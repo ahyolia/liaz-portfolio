@@ -1,0 +1,30 @@
+---
+// Section « problème » : les questions de conception et les décisions prises,
+// numérotées sur une page de cahier. reponse accepte du HTML simple.
+
+interface Props {
+  titre?: string;
+  questions: { question: string; reponse: string }[];
+}
+
+const { titre = "Les questions qu'on s'est posées", questions } = Astro.props;
+---
+
+<section class="section" aria-labelledby="questions">
+  <div class="container">
+    <!-- Le masque des trous coupe l'ombre : elle est portée par .decisions-wrap -->
+    <div class="decisions-wrap reveal">
+      <div class="notebook decisions">
+        <h2 id="questions">{titre}</h2>
+        <ol class="list-reset" role="list">
+          {questions.map((q) => (
+            <li>
+              <h3>{q.question}</h3>
+              <p set:html={q.reponse} />
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>

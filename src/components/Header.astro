@@ -1,0 +1,24 @@
+---
+// En-tête du site, commun à toutes les pages (inclus par BaseLayout).
+// current : href de la page active, qui reçoit aria-current="page" ('/', '/projets/', '/a-propos/').
+interface Props {
+  current?: string;
+}
+
+const { current } = Astro.props;
+const isCurrent = (href: string) => (href === current ? 'page' : undefined);
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <!-- À REMPLACER : ton logo (SVG) -->
+    <a class="site-logo" href="/" aria-current={isCurrent('/')}>liazfolio<svg class="site-logo__mark" aria-hidden="true"><use href="/icons.svg#asterisk"></use></svg></a>
+    <nav aria-label="Navigation principale">
+      <ul class="site-nav">
+        <li><a href="/projets/" aria-current={isCurrent('/projets/')}>Projets</a></li>
+        <li><a href="/a-propos/" aria-current={isCurrent('/a-propos/')}>À propos</a></li>
+        <li><a class="site-nav__cta" href="/a-propos/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

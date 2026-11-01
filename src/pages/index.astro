@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectSlide from '../components/ProjectSlide.astro';
+import { projets } from '../data/projets.js';
+
+// Le carrousel démarre centré sur la 2e carte : on y place le 1er projet
+// de la liste (le meilleur), avec le dernier à sa gauche.
+const aLaUne = projets.length > 2 ? [projets.at(-1), ...projets.slice(0, -1)] : projets;
+---
+
+<BaseLayout
+  title="Camélia Amin Handoyo — Portfolio"
+  description="Portfolio de Camélia Amin Handoyo, étudiante en BUT MMI : développement web, graphisme et UX design."
+  current="/"
+>
+<main id="contenu">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <p class="hero__word reveal">Portfolio</p>
+
+      <div class="hero__skills receipt-wrap reveal">
+        <div class="receipt stack">
+          <p class="receipt__title">Au menu</p>
+          <ul class="list-reset stack" style="--flow: var(--space-2xs)">
+            <li class="receipt__row"><span>Dev web</span><span>×1</span></li>
+            <li class="receipt__row"><span>Graphisme</span><span>×1</span></li>
+            <li class="receipt__row"><span>UX design</span><span>×1</span></li>
+          </ul>
+          <p class="receipt__row receipt__total"><span>Total</span><span>3 en 1</span></p>
+          <span class="barcode" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <h1 class="hero__name reveal">Camélia<br />Amin Handoyo</h1>
+    </div>
+  </section>
+
+  <!-- Aperçu « à propos » -->
+  <section class="band band--aqua torn-top torn-bottom about-preview" aria-labelledby="titre-about">
+    <div class="container about-preview__inner">
+      <figure class="polaroid reveal">
+        <span class="tape" aria-hidden="true"></span>
+        <!-- À REMPLACER : ta photo dans public/images/ -->
+        <img src="/images/photo-placeholder.svg" alt="Portrait de Camélia (à remplacer)" width="600" height="720" />
+      </figure>
+
+      <div class="stack reveal" style="--flow: var(--space-m)">
+        <div>
+          <h2 id="titre-about" class="about-preview__title">Camélia ?</h2>
+          <p class="about-preview__subtitle">Une étudiante en BUT MMI</p>
+        </div>
+        <p>
+          Ma présentation, mes convictions, ce qui me motive et mes objectifs.
+          <span class="todo">À REMPLACER</span>
+        </p>
+        <p class="cluster">
+          <a class="btn" href="/cv/CV.pdf" download>Télécharger mon CV</a>
+          <a class="btn btn--ghost" href="/a-propos/#outils">Mes outils et logiciels</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projets à la une -->
+  <section class="showcase" aria-labelledby="titre-projets">
+    <div class="container">
+      <h2 id="titre-projets" class="showcase__title reveal">Mes meilleurs projets !</h2>
+    </div>
+
+    <div data-carousel-root>
+      <!-- Une carte par projet : la liste est dans src/data/projets.js -->
+      <ul class="carousel" data-carousel tabindex="0" aria-labelledby="titre-projets">
+        {aLaUne.map((projet) => <ProjectSlide projet={projet} />)}
+      </ul>
+
+      <div class="carousel-nav">
+        <button type="button" class="carousel-btn carousel-btn--prev" data-carousel-prev aria-label="Projet précédent">
+          <svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
+        </button>
+        <button type="button" class="carousel-btn" data-carousel-next aria-label="Projet suivant">
+          <svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
+        </button>
+      </div>
+    </div>
+
+    <p class="showcase__cta">
+      <a class="btn btn--ghost" href="/projets/">Voir toutes mes réalisations</a>
+      <span class="todo">Projets À REMPLACER</span>
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section class="band band--yellow torn-top contact-band" aria-labelledby="titre-contact">
+    <div class="container contact-band__inner">
+      <h2 id="titre-contact" class="contact-band__title">Intéressé(e) ?<br />Contactez-moi ^^</h2>
+      <!-- À REMPLACER : tes vrais liens -->
+      <ul class="contact-links">
+        <li>
+          <a href="https://www.linkedin.com/">
+            LinkedIn
+            <svg class="icon" aria-hidden="true"><use href="/icons.svg#linkedin"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:camhdyo@gmail.com">
+            E-mail
+            <svg class="icon" aria-hidden="true"><use href="/icons.svg#mail"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/">
+            Instagram
+            <svg class="icon" aria-hidden="true"><use href="/icons.svg#instagram"></use></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+</BaseLayout>

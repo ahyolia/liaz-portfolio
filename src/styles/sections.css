@@ -1,0 +1,1019 @@
+/* ==========================================================================
+   Sections de l'accueil et de la page À propos
+   ========================================================================== */
+
+/* ---- Hero --------------------------------------------------------------- */
+.hero { padding-block: var(--space-xl) var(--space-2xl); }
+
+.hero__inner {
+  display: grid;
+  grid-template-areas:
+    'word'
+    'skills'
+    'name';
+  gap: var(--space-xl);
+}
+
+.hero__word {
+  grid-area: word;
+  max-width: none;
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 17vw - 0.5rem, 10rem); /* tient en largeur dès 320px */
+  font-weight: var(--weight-display);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-display);
+}
+
+.hero__skills {
+  grid-area: skills;
+  justify-self: end;
+  width: min(100%, 19rem);
+  rotate: 3deg;
+}
+
+.hero__skills .receipt__row { text-transform: uppercase; }
+
+.hero__name {
+  grid-area: name;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--step-5);
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+@media (min-width: 48rem) {
+  .hero__inner {
+    min-height: min(78svh, 48rem);
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      'word word'
+      '.    skills'
+      'name .';
+  }
+
+  .hero__skills { align-self: center; }
+}
+
+/* ---- Aperçu « Camélia ? » ---------------------------------------------- */
+.about-preview { padding-block: var(--space-2xl) var(--space-3xl); }
+
+.about-preview__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about-preview .polaroid { justify-self: center; width: 100%; }
+
+.about-preview__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--step-6);
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.about-preview__subtitle {
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (min-width: 48rem) {
+  .about-preview__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+}
+
+/* ---- Outils & logiciels (page À propos) : 2 tickets + stickers -------- */
+.skills__title {
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--step-5);
+  text-align: center;
+}
+
+.skills {
+  display: grid;
+  gap: var(--space-2xl);
+  margin-block-start: var(--space-xl);
+}
+
+.skills__stage {
+  --tilt: -1.5deg;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: var(--space-l);
+}
+
+.skills__stage:nth-child(2) { --tilt: 1.5deg; }
+
+.skills__receipt {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 20rem);
+  rotate: var(--tilt);
+}
+
+.skills-receipt {
+  --flow: var(--space-2xs);
+  --color-accent: var(--pink-deep); /* rose comme le ticket de l'inspi, ≈ 4.8:1 sur crème */
+}
+
+.skills-receipt__meta {
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.skills-receipt__title {
+  margin-block-start: var(--space-s);
+  font-size: var(--step-2);
+  color: var(--color-accent);
+  text-align: center;
+}
+
+.skills-receipt__thanks {
+  max-width: none;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.skills-receipt__group {
+  margin-block: var(--space-s) var(--space-3xs);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.skills-receipt .receipt__total { margin-block-start: var(--space-s); }
+
+.skills-receipt__barcode {
+  --bar: var(--color-accent);
+  width: 100%;
+  height: 3rem;
+  margin-block-start: var(--space-s);
+}
+
+/* Stickers : rangés sous chaque ticket sur mobile… */
+.skills__stickers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-s);
+  max-width: 30rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool-sticker {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  aspect-ratio: 1;
+  padding: 0.7rem;
+  border-radius: 1.1rem;
+  background: var(--paper);
+  box-shadow: 0 10px 20px -10px rgb(var(--shadow-color) / 0.55);
+  rotate: var(--r, 0deg);
+  transition: rotate 0.25s var(--ease);
+}
+
+.tool-sticker:hover { rotate: calc(var(--r, 0deg) * -1); }
+
+.tool-sticker img { width: 100%; height: 100%; object-fit: contain; }
+
+/* …et tout autour de leur ticket sur grand écran. La zone déborde un peu
+   du conteneur (84rem max) pour laisser de l'air entre stickers et tickets */
+@media (min-width: 80rem) {
+  .skills {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    column-gap: var(--space-2xl);
+    --skills-width: min(100vw - 2 * var(--space-m), 84rem);
+    width: var(--skills-width);
+    /* marges négatives égales : la zone reste centrée en débordant du conteneur */
+    margin-inline: calc((100% - var(--skills-width)) / 2);
+  }
+
+  .skills__stickers {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    max-width: none;
+    pointer-events: none;
+  }
+
+  .tool-sticker {
+    position: absolute;
+    top: var(--y);
+    width: 4.75rem;
+    pointer-events: auto;
+  }
+
+  .tool-sticker[data-side='left'] { left: var(--x); }
+  .tool-sticker[data-side='right'] { right: var(--x); }
+}
+
+/* ---- Carrousel « Mes meilleurs projets ! » ------------------------------ */
+.showcase { padding-block: var(--space-3xl) var(--space-2xl); }
+
+.showcase__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--step-5);
+  color: var(--color-accent);
+  text-align: right;
+}
+
+.carousel {
+  --item: min(78vw, 30rem);
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--item);
+  gap: var(--space-l);
+  margin: var(--space-l) 0 0;
+  /* Marges pour pouvoir centrer la première et la dernière carte */
+  padding: var(--space-m) calc((100% - var(--item)) / 2) var(--space-l);
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* barre masquée : navigation par flèches, clavier ou tactile */
+}
+
+.carousel::-webkit-scrollbar { display: none; }
+
+.carousel > li { scroll-snap-align: center; }
+
+.carousel__media {
+  margin-block-end: var(--space-s);
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--paper);
+  box-shadow: 0 18px 40px -24px rgb(var(--shadow-color) / 0.45);
+}
+
+.carousel__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: scale 0.4s var(--ease);
+}
+
+.card:has(.card__link:hover) .carousel__media img { scale: 1.04; }
+
+/* Flèches précédent / suivant */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-s);
+  margin-block-start: var(--space-s);
+}
+
+.carousel-btn {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel-btn .icon { width: 1.25rem; height: 1.25rem; }
+.carousel-btn--prev .icon { scale: -1 1; }
+
+.carousel__caption {
+  text-align: center;
+  color: var(--color-text);
+}
+
+.carousel__caption h3 { font-size: var(--step-2); }
+
+.carousel__caption p {
+  max-width: none;
+  font-size: var(--step--1);
+}
+
+/* Carte centrale mise en avant (navigateurs récents, si animations autorisées) */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .carousel > li {
+      animation: carousel-focus linear both;
+      animation-timeline: view(inline);
+    }
+  }
+}
+
+@keyframes carousel-focus {
+  0%, 100% { scale: 0.86; opacity: 0.7; }
+  50% { scale: 1; opacity: 1; }
+}
+
+.showcase__cta {
+  max-width: none;
+  margin-block-start: var(--space-l);
+  text-align: center;
+}
+
+/* ---- Bandeau contact ---------------------------------------------------- */
+.contact-band { padding-block: var(--space-2xl) var(--space-3xl); }
+
+.contact-band__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.contact-band__title {
+  font-size: var(--step-3);
+  text-transform: uppercase;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-l) var(--space-xl);
+  padding: 0;
+  list-style: none;
+}
+
+.contact-links a {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2xs);
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-links .icon {
+  width: 3rem;
+  height: 3rem;
+  transition: rotate 0.2s var(--ease);
+}
+
+.contact-links a:hover .icon { rotate: -8deg; }
+
+@media (min-width: 48rem) {
+  .contact-band__inner { grid-template-columns: 1fr auto; }
+}
+
+/* ---- Couverture « éventail de cartes » (projets sans capture) ----------- */
+/* Trois visuels portrait posés en éventail sur un fond de couleur.
+   --fan-bg : couleur du fond, à régler par projet. */
+.fan {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--fan-bg, var(--paper));
+}
+
+.fan img,
+.carousel__media .fan img {
+  grid-area: 1 / 1;
+  width: 32%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0.6rem;
+  box-shadow: 0 14px 28px -12px rgb(0 0 0 / 0.45);
+  transition: rotate 0.4s var(--ease), translate 0.4s var(--ease);
+}
+
+.fan img:nth-child(1) { rotate: -12deg; translate: -58% 6%; }
+.fan img:nth-child(2) { rotate: 0deg; translate: 0 -2%; z-index: 1; }
+.fan img:nth-child(3) { rotate: 12deg; translate: 58% 6%; }
+
+/* L'éventail s'ouvre un peu au survol de la carte */
+.card:has(.card__link:hover) .fan img { scale: 1; }
+.card:has(.card__link:hover) .fan img:nth-child(1) { rotate: -16deg; translate: -66% 8%; }
+.card:has(.card__link:hover) .fan img:nth-child(3) { rotate: 16deg; translate: 66% 8%; }
+
+/* Média en tête des cartes de la page Projets */
+.card__media {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.card__media > img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ---- Captures d'écran mobiles ------------------------------------------ */
+/* Cadre de téléphone simple autour d'une capture portrait */
+.phone {
+  padding: 0.5rem;
+  border-radius: 2rem;
+  background: var(--ink);
+  box-shadow: 0 18px 40px -24px rgb(var(--shadow-color) / 0.6);
+}
+
+.phone img {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 1.5rem;
+  background: var(--paper);
+}
+
+/* Grille serrée pour les visuels portrait (captures, cartes, badges) */
+.grid--portrait {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 48rem) {
+  .grid--portrait { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---- Feuille de l'étude de cas ----------------------------------------- */
+/* Le texte d'un projet est posé sur une feuille blanche plutôt que sur le
+   papier pointillé : bien plus lisible pour de longs paragraphes. */
+.case-sheet {
+  width: min(100% - 2 * var(--space-2xs), calc(var(--container) + 2 * var(--space-xl)));
+  margin: var(--space-m) auto var(--space-2xl);
+  background: var(--paper);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-paper);
+}
+
+/* Le cahier garde son relief sur la feuille blanche */
+.case-sheet .notebook { box-shadow: var(--shadow-paper); }
+
+/* ---- En-tête d'étude de cas : texte à gauche, captures à droite -------- */
+.case-hero {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.case-hero h1 {
+  font-size: var(--step-5);
+  line-height: 1.05;
+}
+
+/* ---- .back-btn : retour à la liste, pastille avec flèche ronde -------- */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  justify-self: start;
+  padding: 0.3rem 1.1rem 0.3rem 0.3rem;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.25s var(--ease);
+}
+
+.back-btn__icon {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.back-btn__icon .icon { width: 1rem; height: 1rem; scale: -1 1; transition: translate 0.25s var(--ease); }
+
+.back-btn:hover { background: var(--yellow); }
+.back-btn:hover .back-btn__icon .icon { translate: 3px 0; } /* = vers la gauche (icône retournée) */
+
+/* Deux téléphones qui se chevauchent légèrement */
+.phone-duo {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-m) var(--space-xl);
+}
+
+.phone-duo .phone {
+  width: min(42%, 15rem); /* captures d'environ 300 px : pas plus grand */
+  flex-shrink: 0;
+}
+
+.phone-duo .phone { animation: float 7s ease-in-out infinite alternate; }
+.phone-duo .phone:first-child { rotate: -4deg; z-index: 1; }
+.phone-duo .phone:last-child  { rotate: 5deg; margin-inline-start: -8%; --ty: var(--space-l); animation-delay: -3.5s; }
+
+@media (min-width: 64rem) {
+  .case-hero { grid-template-columns: 1.1fr 1fr; }
+}
+
+/* ---- Contexte + ticket d'une étude de cas ------------------------------ */
+.case-context {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.case-ticket {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 26rem);
+}
+
+.case-ticket .receipt-wrap { rotate: 2deg; }
+
+/* Stickers de la stack : alignés en rangée sous le texte du contexte */
+.case-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  padding-block-start: var(--space-s);
+}
+
+/* (la page À propos rend .tool-sticker absolu dès 80rem : on neutralise ici) */
+.case-tools .tool-sticker {
+  position: relative;
+  top: auto;
+  width: 3.75rem;
+  border: 1.5px solid rgb(var(--shadow-color) / 0.18);
+  background: var(--cream);
+}
+
+@media (min-width: 64rem) {
+  .case-context { grid-template-columns: 1.15fr 1fr; }
+}
+
+/* ---- Démarche : questions / décisions numérotées sur une page de cahier */
+.decisions-wrap {
+  max-width: 52rem;
+  margin-inline: auto;
+  rotate: -0.6deg;
+  filter: drop-shadow(0 10px 18px rgb(var(--shadow-color) / 0.22));
+}
+.decisions ol { counter-reset: question; }
+.decisions li { counter-increment: question; }
+.decisions li + li { margin-block-start: var(--line); }
+.decisions h3::before {
+  content: counter(question) ". ";
+  font-family: var(--font-hand);
+  color: var(--pink-deep);
+}
+
+/* ---- Démarche : étapes (visuel, numéro, titre, texte) dans un .carousel */
+.process-carousel .carousel { --item: min(84vw, 46rem); margin-block-start: 0; }
+
+/* Étapes voisines : réduites mais sans transparence, le texte reste lisible */
+.process-carousel .carousel > li { animation-name: carousel-focus-scale; }
+
+@keyframes carousel-focus-scale {
+  0%, 100% { scale: 0.9; }
+  50% { scale: 1; }
+}
+
+.process-step { display: grid; gap: var(--space-2xs); align-content: start; }
+.process-step h3 { font-size: var(--step-1); }
+.process-step__num { line-height: 1; }
+.process-step__links { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-m); font-weight: 600; }
+
+/* Visuel de même format pour tous les blocs, légèrement penché */
+/* Cadre de même format pour tous les blocs ; l'image y tient en entier
+   (captures d'écran ≈ 2:1), posée sur un fond sombre comme les logiciels */
+.process-step__visual {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  margin-block-end: var(--space-xs);
+  border-radius: 0.75rem;
+  object-fit: contain;
+  rotate: -1deg;
+}
+
+.process-step:nth-child(even) .process-step__visual { rotate: 1deg; }
+
+img.process-step__visual { background: #1E1E1E; box-shadow: 0 14px 28px -14px rgb(0 0 0 / 0.45); }
+
+/* Image portrait (carte) : posée en entier sur un fond crème */
+img.process-step__visual--card {
+  object-fit: contain;
+  padding: var(--space-s);
+  background: #F7EFE4;
+  box-shadow: none;
+}
+
+/* ---- .slot : emplacement d'image à fournir (contenu de travail) -------- */
+.slot {
+  display: grid;
+  place-content: center;
+  gap: var(--space-2xs);
+  padding: var(--space-m);
+  border: 2px dashed var(--line-soft);
+  background: var(--cream);
+  font-family: var(--font-hand);
+  font-size: var(--step-0);
+  text-align: center;
+  color: var(--ink);
+}
+
+.slot code { font-family: var(--font-mono); font-size: var(--step--2); opacity: 0.7; overflow-wrap: anywhere; }
+
+/* ---- Liens du projet --------------------------------------------------- */
+.case-links { display: flex; flex-wrap: wrap; gap: var(--space-s); }
+
+/* ---- .project-nav : projet précédent / suivant, en une ligne discrète */
+.project-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-s) var(--space-l);
+  margin-block-end: var(--space-xl);
+  padding-block: var(--space-m);
+  border-top: 2px dashed var(--line-soft);
+  font-size: var(--step--1);
+}
+
+.project-nav__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5ch;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project-nav__link span[aria-hidden] { transition: translate 0.25s var(--ease); }
+.project-nav__link:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.project-nav__link:hover span[aria-hidden] { translate: -3px 0; }
+.project-nav__link--next:hover span[aria-hidden] { translate: 3px 0; }
+
+.project-nav__label { font-weight: 400; opacity: 0.7; }
+
+/* ---- « Mon apport » : compétences en mots-clés ------------------------- */
+.contrib {
+  position: relative;
+  display: grid;
+  gap: var(--space-xl) var(--space-l);
+}
+
+@media (min-width: 48rem) { .contrib { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+.contrib__card {
+  position: relative;
+  display: grid;
+  gap: var(--space-xs);
+  align-content: start;
+  padding: var(--space-l) var(--space-m) var(--space-xl);
+  border-radius: 0.25rem;
+  rotate: -1deg;
+}
+
+.contrib__card--pink {
+  background: #FFE4E0;
+  box-shadow: var(--shadow-paper);
+  rotate: 1.2deg;
+}
+
+@media (min-width: 48rem) { .contrib__card--pink { margin-block-start: var(--space-xl); } }
+
+.contrib__card h3 { font-size: var(--step-3); }
+.contrib__kicker { line-height: 1; }
+
+/* Tampon « commits » posé à cheval sur les deux fiches */
+.contrib__stamp {
+  position: absolute;
+  z-index: 2;
+  top: -2.5rem;
+  right: 0;
+  width: 6.5rem;
+  margin: 0;
+  background: rgb(255 255 255 / 0.7);
+  font-size: var(--step--1);
+  rotate: 12deg;
+}
+
+@media (min-width: 48rem) { .contrib__stamp { top: auto; bottom: -2rem; right: auto; left: calc(50% - 3.25rem); } }
+
+/* ---- .chips : compétences en stickers colorés, légèrement de travers ---- */
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-block-start: var(--space-xs); }
+
+.chips li {
+  --chip: var(--yellow);
+  padding: 0.35em 0.9em;
+  border: 2px solid var(--paper);
+  border-radius: var(--radius-pill);
+  background: var(--chip);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: var(--step--1);
+  box-shadow: 0 3px 0 rgb(var(--shadow-color) / 0.25);
+  rotate: -2deg;
+  transition: rotate 0.25s var(--ease), translate 0.25s var(--ease);
+}
+
+.chips li:nth-child(4n + 2) { --chip: var(--aqua); rotate: 2deg; }
+.chips li:nth-child(4n + 3) { --chip: var(--cream); rotate: -1deg; }
+.chips li:nth-child(4n + 4) { --chip: #FFB4BF; rotate: 3deg; }
+
+.chips li:hover { rotate: 0deg; translate: 0 -3px; }
+
+/* ---- Galerie : mosaïque posée sur la feuille, filtres en pastilles ---- */
+.gallery-panel { display: grid; gap: var(--space-m); }
+
+.gallery-filters { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-2xs); }
+
+.gallery-filters button {
+  padding: 0.4em 1em;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--step--1);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.gallery-filters button:hover { background: var(--cream); }
+.gallery-filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+.gallery {
+  columns: 2;
+  column-gap: var(--space-s);
+}
+
+@media (min-width: 48rem) { .gallery { columns: 3; column-gap: var(--space-m); } }
+
+.gallery__item {
+  position: relative;
+  margin: 0 0 var(--space-s);
+  overflow: hidden;
+  border-radius: 0.375rem;
+  break-inside: avoid;
+  animation: gallery-in 0.4s var(--ease);
+}
+
+@media (min-width: 48rem) { .gallery__item { margin-block-end: var(--space-m); } }
+
+.gallery__item[hidden] { display: none; }
+
+@keyframes gallery-in { from { opacity: 0; scale: 0.96; } }
+
+.gallery__item img { width: 100%; transition: scale 0.5s var(--ease), opacity 0.45s var(--ease); }
+.gallery__item:hover img { scale: 1.03; }
+
+/* Légende en étiquette, en bas à gauche : au survol / focus (toujours visible au tactile) */
+.gallery__item figcaption {
+  position: absolute;
+  left: var(--space-2xs);
+  bottom: var(--space-2xs);
+  max-width: calc(100% - 2 * var(--space-2xs));
+  padding: 0.3em 0.75em;
+  border-radius: var(--radius-pill);
+  background: rgb(17 17 17 / 0.8);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0;
+  translate: 0 0.4rem;
+  transition: opacity 0.3s var(--ease), translate 0.3s var(--ease);
+}
+
+.gallery__item:is(:hover, :focus-within) figcaption { opacity: 1; translate: 0 0; }
+
+@media (hover: none) { .gallery__item figcaption { opacity: 1; translate: 0 0; } }
+
+/* Logo et icône : posés sur un panneau, couleur propre à chaque image (--swap-bg) */
+.gallery__item--logo img { padding: var(--space-xl) var(--space-m); background: var(--swap-bg, #F7EFE4); }
+.gallery__item--icon img { padding: var(--space-xl); background: var(--swap-bg, #F7EFE4); }
+
+/* ---- .swap : paire d'images, la 2e remplace la 1re au survol / focus / tap */
+.swap {
+  display: grid;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.swap > img {
+  grid-area: 1 / 1;
+  align-self: center;
+  transition: opacity 0.45s var(--ease), scale 0.45s var(--ease), rotate 0.3s var(--ease);
+}
+
+.swap > img + img { opacity: 0; scale: 0.96; }
+
+.swap:is(:hover, :focus-visible) > img:first-child { opacity: 0; scale: 0.96; }
+.swap:is(:hover, :focus-visible) > img + img { opacity: 1; scale: 1; }
+
+/* =========================================================================
+   Composants « étude de cas » réutilisables
+   - .case-stage   : scène colorée (--stage-color) derrière les visuels
+   - .floaty       : élément flottant positionné par --x / --y / --r / --size,
+                     variantes --card (carte), --icon (icône d'appli), --label (logo sur étiquette),
+                     data-depth = force de la parallaxe au mouvement de souris
+   - .mark         : surligneur dessiné à l'arrivée (dans un titre data-split)
+   - .case-stats   : chiffres clés, data-count = valeur du compteur animé
+   Animations pilotées par initCaseHero() dans src/main.js
+   ========================================================================= */
+
+/* Flottement doux ; --ty conserve un décalage vertical de départ */
+@keyframes float {
+  from { translate: 0 var(--ty, 0px); }
+  to   { translate: 0 calc(var(--ty, 0px) - 14px); }
+}
+
+@keyframes blob {
+  from { border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%; rotate: 0deg; }
+  to   { border-radius: 58% 42% 55% 45% / 45% 58% 42% 55%; rotate: 10deg; }
+}
+
+.case-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 26rem;
+}
+
+/* Forme organique qui ondule lentement */
+.case-stage::before {
+  content: '';
+  position: absolute;
+  inset: 6% 6% 2%;
+  z-index: -1;
+  background: var(--stage-color, var(--cream));
+  border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+  animation: blob 14s ease-in-out infinite alternate;
+}
+
+.case-stage .phone-duo { padding-block: var(--space-l) var(--space-2xl); }
+
+.floaty {
+  position: absolute;
+  left: var(--x, 0);
+  top: var(--y, 0);
+  z-index: 2;
+  width: var(--size, 4.5rem);
+  rotate: var(--r, 0deg);
+  filter: drop-shadow(0 10px 12px rgb(var(--shadow-color) / 0.3));
+  animation: float 5s ease-in-out infinite alternate;
+  animation-delay: var(--delay, 0s);
+}
+
+.floaty--card { border-radius: 0.5rem; }
+.floaty--icon { border-radius: 22%; } /* icône d'appli (coins arrondis) */
+/* Logo sur fond transparent : posé sur une étiquette blanche pour rester lisible */
+.floaty--label {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  background: var(--paper);
+}
+.floaty.sticker { white-space: nowrap; font-size: var(--step--1); }
+
+/* Surligneur : visible sans JS, redessiné par l'animation d'entrée */
+.mark {
+  background: linear-gradient(var(--color-highlight), var(--color-highlight)) 0 88% / 100% 0.35em no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Mots du titre découpés par JS : chacun glisse depuis sous sa ligne */
+[data-split] .split-word {
+  display: inline-block;
+  padding-block-end: 0.12em; /* jambages (g, p) non rognés */
+  margin-block-end: -0.12em;
+  overflow: clip;
+  vertical-align: bottom;
+}
+
+[data-split] .split-word > span { display: inline-block; }
+
+/* Chiffres clés */
+.case-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-m);
+  grid-column: 1 / -1;
+}
+
+.case-stats li {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3xs);
+  padding: var(--space-s) var(--space-m);
+  border-inline-start: 3px solid var(--pink);
+  font-size: var(--step--1);
+}
+
+.case-stats__num {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: var(--weight-display);
+  line-height: 1;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 64rem) {
+  .case-stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---- Visionneuse (lightbox) : voir initLightbox() dans main.js ---------- */
+/* Bouton posé par le JS autour des images agrandissables */
+.zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.lightbox {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: var(--space-xl) var(--space-m);
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+}
+
+.lightbox[open] { display: grid; place-items: center; animation: lightbox-in 0.3s var(--ease); }
+.lightbox::backdrop { background: rgb(17 17 17 / 0.9); }
+
+@keyframes lightbox-in { from { opacity: 0; scale: 0.97; } }
+
+.lightbox__figure { display: grid; gap: var(--space-s); justify-items: center; margin: 0; }
+
+.lightbox__figure img {
+  max-width: min(92vw, 80rem);
+  max-height: calc(100dvh - 9rem);
+  border-radius: 0.5rem;
+  object-fit: contain;
+}
+
+.lightbox__figure figcaption { max-width: 60ch; font-size: var(--step--1); text-align: center; opacity: 0.85; }
+
+.lightbox__btn {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__btn:hover { background: var(--yellow); }
+.lightbox__btn .icon { width: 1.25rem; height: 1.25rem; }
+.lightbox__close { top: var(--space-m); right: var(--space-m); }
+.lightbox__prev, .lightbox__next { top: 50%; translate: 0 -50%; }
+.lightbox__prev { left: var(--space-m); }
+.lightbox__prev .icon { scale: -1 1; }
+.lightbox__next { right: var(--space-m); }
+.lightbox--single :is(.lightbox__prev, .lightbox__next) { display: none; }

@@ -1,0 +1,42 @@
+---
+// En-tête animé d'une fiche projet (animations : initCaseHero dans src/main.js).
+// Le slot reçoit le contenu de la scène à droite : captures (.phone-duo / .phone)
+// et éléments flottants (.floaty avec --x, --y, --r, --size, --delay ; data-depth = parallaxe).
+// Pour surligner un passage du titre, utiliser le slot "titre" avec <span class="mark">.
+
+interface Props {
+  eyebrow: string;
+  titre?: string;
+  accroche?: string;
+  /** Boutons sous l'accroche ; le premier est mis en avant */
+  liens?: { href: string; label: string }[];
+  /** Couleur de la forme derrière les visuels */
+  couleur?: string;
+}
+
+const { eyebrow, titre, accroche, liens = [], couleur = 'var(--cream)' } = Astro.props;
+---
+
+<header class="section">
+  <div class="container case-hero" data-case-hero>
+    <div class="stack" style="--flow: var(--space-m)">
+      <a class="back-btn" href="/projets/">
+        <span class="back-btn__icon" aria-hidden="true"><svg class="icon"><use href="/icons.svg#arrow"></use></svg></span>
+        Tous les projets
+      </a>
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 data-split><slot name="titre">{titre}</slot></h1>
+      {accroche && <p class="lead" set:html={accroche} />}
+
+      {liens.length > 0 && (
+        <div class="cluster">
+          {liens.map((lien, i) => <a class={i === 0 ? 'btn' : 'btn btn--ghost'} href={lien.href}>{lien.label}</a>)}
+        </div>
+      )}
+    </div>
+
+    <div class="case-stage" style={`--stage-color: ${couleur}`} data-stage>
+      <slot />
+    </div>
+  </div>
+</header>

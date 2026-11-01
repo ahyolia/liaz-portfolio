@@ -2,10 +2,10 @@
   command = "npm run build"
   publish = "dist"
 
-# Développement local avec `netlify dev` (proxy devant le serveur Vite)
+# Développement local avec `netlify dev` (proxy devant le serveur Astro)
 [dev]
   command = "npm run dev"
-  targetPort = 5173
+  targetPort = 4321
   port = 8888
 
 # Protection Basic Auth du volet académique

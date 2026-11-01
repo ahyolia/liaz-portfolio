@@ -1,0 +1,55 @@
+---
+// Section « rendu final » : mosaïque filtrable (pastilles), agrandissement au clic.
+// item.images : 1 image = image seule ; 2 images = paire (recto/verso, déclinaisons),
+//               la 2e s'affiche au survol. image.fond = couleur du panneau derrière
+//               (logos, icônes sur fond transparent).
+// item.variante : 'logo' ou 'icon' pour poser l'image sur un panneau avec marge.
+// item.cat doit correspondre à l'id d'un filtre.
+
+interface Image {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  fond?: string;
+}
+
+interface Props {
+  titre: string;
+  intro?: string;
+  filtres: { id: string; label: string }[];
+  items: { cat: string; legende: string; variante?: 'logo' | 'icon'; images: Image[] }[];
+}
+
+const { titre, intro, filtres, items } = Astro.props;
+const style = (img: Image) => (img.fond ? `--swap-bg: ${img.fond}` : undefined);
+---
+
+<section class="section" aria-labelledby="galerie">
+  <div class="container stack" style="--flow: var(--space-l)">
+    <h2 id="galerie" class="reveal">{titre}</h2>
+    {intro && <p class="reveal" set:html={intro} />}
+    <div class="gallery-panel reveal" data-gallery data-lightbox>
+      <div class="gallery-filters" role="group" aria-label="Filtrer la galerie">
+        <button type="button" aria-pressed="true" data-filter="all">Tout</button>
+        {filtres.map((f) => <button type="button" aria-pressed="false" data-filter={f.id}>{f.label}</button>)}
+      </div>
+      <div class="gallery">
+        {items.map((item) => (
+          <figure class:list={['gallery__item', item.variante && `gallery__item--${item.variante}`]} data-cat={item.cat}>
+            {item.images.length > 1 ? (
+              <button class="swap" type="button" data-swap>
+                {item.images.map((img) => (
+                  <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" style={style(img)} />
+                ))}
+              </button>
+            ) : (
+              <img src={item.images[0].src} alt={item.images[0].alt} width={item.images[0].width} height={item.images[0].height} loading="lazy" style={style(item.images[0])} />
+            )}
+            <figcaption>{item.legende}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

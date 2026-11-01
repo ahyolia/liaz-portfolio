@@ -1,0 +1,65 @@
+---
+// Section « La démarche » : les étapes dans un carrousel, chacune avec un visuel.
+// Un clic sur un visuel l'ouvre en grand (data-lightbox).
+// etape.image  : capture (cadre 2:1, l'image y tient en entier ; portrait: true pour une image verticale)
+// etape.attendu : texte affiché dans un cadre en pointillés tant que l'image manque
+// etape.texte  : accepte du HTML simple
+
+interface Etape {
+  titre: string;
+  texte: string;
+  image?: { src: string; alt: string; width: number; height: number; portrait?: boolean };
+  attendu?: string;
+  liens?: { href: string; label: string }[];
+}
+
+interface Props {
+  titre?: string;
+  etapes: Etape[];
+}
+
+const { titre = 'La démarche', etapes } = Astro.props;
+const numero = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<section class="section" aria-labelledby="demarche">
+  <div class="container stack" style="--flow: var(--space-l)">
+    <h2 id="demarche" class="reveal">{titre}</h2>
+    <div class="process-carousel reveal" data-carousel-root data-lightbox>
+      <ol class="carousel" data-carousel data-carousel-start="0" tabindex="0" aria-label="Étapes de la démarche">
+        {etapes.map((etape, i) => (
+          <li class="process-step">
+            {etape.image ? (
+              <img
+                class:list={['process-step__visual', { 'process-step__visual--card': etape.image.portrait }]}
+                src={etape.image.src}
+                alt={etape.image.alt}
+                width={etape.image.width}
+                height={etape.image.height}
+                loading="lazy"
+              />
+            ) : (
+              <div class="process-step__visual slot"><span>Ajoute ici : {etape.attendu ?? 'un visuel'}</span></div>
+            )}
+            <p class="process-step__num annotation">{numero(i)}</p>
+            <h3>{etape.titre}</h3>
+            <p set:html={etape.texte} />
+            {etape.liens && (
+              <p class="process-step__links">
+                {etape.liens.map((lien) => <a href={lien.href}>{lien.label} <span aria-hidden="true">↗</span></a>)}
+              </p>
+            )}
+          </li>
+        ))}
+      </ol>
+      <div class="carousel-nav">
+        <button type="button" class="carousel-btn carousel-btn--prev" data-carousel-prev aria-label="Étape précédente">
+          <svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
+        </button>
+        <button type="button" class="carousel-btn" data-carousel-next aria-label="Étape suivante">
+          <svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

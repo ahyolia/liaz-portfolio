@@ -1,0 +1,47 @@
+---
+// Section « Le contexte » : texte (slot) + stickers des outils, et la fiche
+// d'identité façon ticket de caisse à droite.
+// outils : icônes de public/images/tools/ (nom = texte alternatif)
+// fiche  : lignes du ticket ; statut = dernière ligne, en gras
+
+interface Props {
+  titre?: string;
+  outils?: { nom: string; icone: string }[];
+  fiche: { label: string; valeur: string }[];
+  statut?: string;
+}
+
+const { titre = 'Le contexte', outils = [], fiche, statut } = Astro.props;
+// Inclinaisons variées pour l'effet autocollant
+const angles = [-10, 8, -6, 11, -12, 9, 7, -8];
+---
+
+<section class="section" aria-labelledby="contexte">
+  <div class="container case-context">
+    <div class="stack reveal">
+      <h2 id="contexte">{titre}</h2>
+      <slot />
+      {outils.length > 0 && (
+        <ul class="case-tools list-reset" role="list" aria-label="Technologies utilisées">
+          {outils.map((outil, i) => (
+            <li class="tool-sticker" style={`--r: ${angles[i % angles.length]}deg`}>
+              <img src={outil.icone} alt={outil.nom} width="48" height="48" loading="lazy" />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    <div class="case-ticket">
+      <div class="receipt-wrap receipt-wrap--narrow">
+        <div class="receipt stack">
+          <dl class="stack">
+            {fiche.map((ligne) => <div class="receipt__row"><dt>{ligne.label}</dt><dd>{ligne.valeur}</dd></div>)}
+            {statut && <div class="receipt__row receipt__total"><dt>Statut</dt><dd>{statut}</dd></div>}
+          </dl>
+          <span class="barcode" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

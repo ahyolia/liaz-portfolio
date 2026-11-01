@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="À propos — Camélia Amin Handoyo"
+  description="Présentation, parcours, CV et contact de Camélia Amin Handoyo. À REMPLACER."
+  current="/a-propos/"
+>
+<main id="contenu">
+  <section class="section" aria-labelledby="titre-page">
+    <div class="container stack" style="--flow: var(--space-m)">
+      <p class="eyebrow">Qui suis-je ?</p>
+      <h1 id="titre-page">À propos</h1>
+      <p class="lead">Étudiante en 3<sup>e</sup> année de BUT MMI, parcours <span class="hl">à préciser</span>. <span class="todo">À REMPLACER</span></p>
+    </div>
+  </section>
+
+  <!-- Présentation -->
+  <section class="section" aria-labelledby="presentation">
+    <div class="container">
+      <div class="notebook stack reveal">
+        <h2 id="presentation">En quelques lignes</h2>
+        <p>Qui tu es, ce qui te motive, le type de poste ou d'alternance que tu cherches. <span class="todo">À REMPLACER</span></p>
+        <p class="annotation">Petite note manuscrite sympa <span class="todo">À REMPLACER</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outils & logiciels : deux tickets entourés de leurs logos en stickers.
+       Pour ajouter un outil : une ligne dans le ticket + un sticker (logo dans public/images/tools/). -->
+  <section id="outils" class="band band--aqua torn-top torn-bottom" aria-labelledby="titre-outils">
+    <div class="container">
+      <h2 id="titre-outils" class="skills__title">Mes outils &amp; logiciels <span class="todo">Liste À ADAPTER</span></h2>
+      <div class="skills">
+        <div class="skills__stage">
+          <div class="skills__receipt receipt-wrap">
+            <div class="receipt skills-receipt">
+              <p class="receipt__row skills-receipt__meta"><span>reçu</span><span>n° 2026-01</span></p>
+              <h3 class="skills-receipt__title">Design &amp; audiovisuel :</h3>
+              <hr />
+              <h4 class="skills-receipt__group">Design</h4>
+              <ul class="list-reset">
+                <li class="receipt__row"><span>Figma</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Photoshop</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Illustrator</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>InDesign</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Canva</span><span aria-hidden="true">✓</span></li>
+              </ul>
+              <h4 class="skills-receipt__group">Vidéo &amp; motion</h4>
+              <ul class="list-reset">
+                <li class="receipt__row"><span>Premiere Pro</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>After Effects</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>DaVinci Resolve</span><span aria-hidden="true">✓</span></li>
+              </ul>
+              <p class="receipt__row receipt__total"><span>Total</span><span>8 outils</span></p>
+              <span class="barcode skills-receipt__barcode" aria-hidden="true"></span>
+              <p class="skills-receipt__thanks">merci !</p>
+            </div>
+          </div>
+
+          <!-- Stickers décoratifs : les noms sont déjà dans le ticket -->
+          <ul class="skills__stickers" aria-hidden="true">
+            <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 0%; --r: -10deg"><img src="/images/tools/figma.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 0rem; --y: 4%; --r: 8deg"><img src="/images/tools/photoshop.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 1rem; --y: 29%; --r: 6deg"><img src="/images/tools/illustrator.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 1rem; --y: 33%; --r: -9deg"><img src="/images/tools/indesign.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 59%; --r: -6deg"><img src="/images/tools/canva.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 0rem; --y: 63%; --r: 11deg"><img src="/images/tools/premierepro.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 1rem; --y: 88%; --r: 9deg"><img src="/images/tools/aftereffects.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 1rem; --y: 92%; --r: -12deg"><img src="/images/tools/davinciresolve.svg" alt="" width="48" height="48" loading="lazy" /></li>
+          </ul>
+        </div>
+        <div class="skills__stage">
+          <div class="skills__receipt receipt-wrap">
+            <div class="receipt skills-receipt">
+              <p class="receipt__row skills-receipt__meta"><span>reçu</span><span>n° 2026-02</span></p>
+              <h3 class="skills-receipt__title">Développement :</h3>
+              <hr />
+              <h4 class="skills-receipt__group">Front</h4>
+              <ul class="list-reset">
+                <li class="receipt__row"><span>HTML</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>CSS</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>JavaScript</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>React</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Vue.js</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Angular</span><span aria-hidden="true">✓</span></li>
+              </ul>
+              <h4 class="skills-receipt__group">Back</h4>
+              <ul class="list-reset">
+                <li class="receipt__row"><span>PHP</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Laravel</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Spring Boot</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Node.js</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>MySQL</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>PostgreSQL</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>Docker</span><span aria-hidden="true">✓</span></li>
+              </ul>
+              <h4 class="skills-receipt__group">Jeu vidéo</h4>
+              <ul class="list-reset">
+                <li class="receipt__row"><span>Unity</span><span aria-hidden="true">✓</span></li>
+              </ul>
+              <h4 class="skills-receipt__group">Outils</h4>
+              <ul class="list-reset">
+                <li class="receipt__row"><span>Git</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>VS Code</span><span aria-hidden="true">✓</span></li>
+                <li class="receipt__row"><span>WordPress</span><span aria-hidden="true">✓</span></li>
+              </ul>
+              <p class="receipt__row receipt__total"><span>Total</span><span>17 outils</span></p>
+              <span class="barcode skills-receipt__barcode" aria-hidden="true"></span>
+              <p class="skills-receipt__thanks">merci !</p>
+            </div>
+          </div>
+
+          <!-- Stickers décoratifs : les noms sont déjà dans le ticket -->
+          <ul class="skills__stickers" aria-hidden="true">
+            <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 0%; --r: -11deg"><img src="/images/tools/html5.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 0rem; --y: 4%; --r: 7deg"><img src="/images/tools/css3.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 1rem; --y: 11%; --r: 10deg"><img src="/images/tools/javascript.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 1rem; --y: 15%; --r: -5deg"><img src="/images/tools/react.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 22%; --r: 5deg"><img src="/images/tools/vuejs.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 0rem; --y: 26%; --r: -8deg"><img src="/images/tools/angular.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 1rem; --y: 33%; --r: -12deg"><img src="/images/tools/php.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 1rem; --y: 37%; --r: 6deg"><img src="/images/tools/laravel.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 44%; --r: 7deg"><img src="/images/tools/springboot.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 0rem; --y: 48%; --r: -10deg"><img src="/images/tools/nodejs.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 1rem; --y: 55%; --r: 12deg"><img src="/images/tools/mysql.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 1rem; --y: 59%; --r: -7deg"><img src="/images/tools/postgresql.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 66%; --r: -9deg"><img src="/images/tools/docker.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 0rem; --y: 70%; --r: 8deg"><img src="/images/tools/unity.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 1rem; --y: 77%; --r: -6deg"><img src="/images/tools/git.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="right" style="--x: 1rem; --y: 81%; --r: 10deg"><img src="/images/tools/vscode.svg" alt="" width="48" height="48" loading="lazy" /></li>
+            <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 88%; --r: -11deg"><img src="/images/tools/wordpress.svg" alt="" width="48" height="48" loading="lazy" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV + contact -->
+  <section class="section" aria-labelledby="contact">
+    <div class="container grid">
+      <div class="stack reveal">
+        <h2 id="contact">Contact</h2>
+        <p>Une opportunité, une question ? Écris-moi.</p>
+        <!-- À REMPLACER : tes vrais liens -->
+        <ul class="stack list-reset">
+          <li><a href="mailto:camhdyo@gmail.com">camhdyo@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+          <li><a href="https://github.com/">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div class="receipt-wrap reveal">
+        <div class="receipt stack">
+          <h3 class="receipt__title">Mon CV</h3>
+          <hr />
+          <p>Le détail de mon parcours, de mes expériences et de mes compétences.</p>
+          <!-- Déposer le fichier dans public/cv/CV.pdf -->
+          <p><a class="btn" href="/cv/CV.pdf" download>Télécharger mon CV (PDF)</a></p>
+          <span class="stamp">CV à jour</span>
+          <p><span class="todo">CV.pdf À AJOUTER</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</BaseLayout>

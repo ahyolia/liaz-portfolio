@@ -1,0 +1,24 @@
+---
+// Carte d'un projet sur la page Projets (papier quadrillé + scotch).
+// projet : un élément de src/data/projets.js ; index : position, pour varier le scotch.
+import { lienProjet } from '../data/projets.js';
+
+interface Props {
+  projet: any;
+  index?: number;
+}
+
+const { projet, index = 0 } = Astro.props;
+const scotchs = ['tape', 'tape tape--tr', 'tape tape--tl'];
+---
+
+<li class="card gridpaper stack reveal">
+  <span class={scotchs[index % scotchs.length]} aria-hidden="true"></span>
+  <div class="card__media">
+    <img src={projet.image.src} alt="" width={projet.image.width} height={projet.image.height} loading="lazy" />
+  </div>
+  <p class="annotation">{projet.annee} · {projet.cadre}</p>
+  <h2><a class="card__link" href={lienProjet(projet)}>{projet.titre}</a></h2>
+  <p>{projet.resume} {projet.aRemplacer && <span class="todo">À REMPLACER</span>}</p>
+  <ul class="tags">{projet.tags.map((tag) => <li>{tag}</li>)}</ul>
+</li>

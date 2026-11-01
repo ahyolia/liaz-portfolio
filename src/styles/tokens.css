@@ -3,33 +3,52 @@
    ========================================================================== */
 
 :root {
-  /* ---- Palette -------------------------------------------------------- */
-  --plum: #451638;   /* fond du site */
-  --coral: #FF855E;  /* accent */
-  --aqua: #B0E0E2;   /* scotch, surlignage */
-  --cream: #F7F1D7;  /* papier ticket */
-  --paper: #FFFDF6;  /* papier blanc */
-  --ink: #2B0F23;    /* texte sur papier */
+  /* ---- Palette « Candy » ---------------------------------------------- */
+  --aqua: #86DCE0;         /* couleurs de la palette d'origine */
+  --pink: #FC5971;
+  --yellow: #DDD658;
 
-  /* Couleurs secondaires (décor uniquement, pas pour du texte) */
-  --rule-red: #E8766B;   /* marge du cahier */
-  --rule-blue: #C9E3EA;  /* lignes du cahier */
-  --grid-line: #DCEBEC;  /* papier quadrillé */
+  /* Teintes dérivées, plus foncées, pour garder du texte lisible */
+  --teal-ink: #1E3A44;     /* encre (texte courant) */
+  --pink-deep: #CF3350;    /* accents en petit texte, boutons */
 
-  /* ---- Rôles (à utiliser dans le code plutôt que la palette brute) ----
-     Contrastes :
-     cream / plum ≈ 13:1, coral / plum ≈ 6.2:1, ink / cream ≈ 15:1, ink / coral ≈ 7.3:1
-     ⚠ coral sur cream/paper ≈ 2.1:1 → jamais pour du texte sur papier. */
-  --color-bg: var(--plum);
-  --color-text: var(--cream);
-  --color-accent: var(--coral);
-  --color-surface: var(--cream);
-  --color-surface-text: var(--ink);
-  --focus-ring: var(--coral);
+  --cream: #FCF9E3;        /* papier ticket, teinté jaune */
+  --paper: #FFFFFF;        /* feuilles blanches (cahier, polaroid) */
+  --bg: #FFFDFC;           /* fond de page */
+
+  /* Anciennes palettes (pour revenir en arrière, remplacer les valeurs) :
+     Lorie de park : violet #A285BA · pink #E65887 · green #BDC473 · peach #FAB37F · ink #3F2A55
+     Swurby Cream : brown #80401C · violet #7B4B94 · tan #DABA87 · cream #FEEBC1 · mint #B4D9D2
+     Prune : plum #451638 · coral #FF855E · aqua #B0E0E2 · cream #F7F1D7 · ink #2B0F23 */
+
+  /* ---- Rôles (le CSS n'utilise que ces variables) ----------------------
+     Contrastes sur fond de page :
+     teal-ink ≈ 12:1 · pink-deep ≈ 5:1 · pink ≈ 3.1:1 (titres géants seulement)
+     blanc / pink-deep ≈ 5:1 · teal-ink / aqua ≈ 7.6:1 · teal-ink / yellow ≈ 7.9:1
+     ⚠ aqua, pink et yellow purs : jamais en couleur de petit texte. */
+  --ink: var(--teal-ink);
+  --color-bg: var(--bg);
+  --color-text: var(--teal-ink);
+  --color-display: var(--pink);       /* très grands titres (PORTFOLIO) */
+  --color-accent: var(--pink-deep);   /* petits textes d'accent, soulignés */
+  --color-pop: var(--pink-deep);      /* boutons, stickers */
+  --color-pop-text: var(--paper);
+  --color-highlight: var(--yellow);   /* surlignage, sélection */
+  --focus-ring: var(--teal-ink);
+
+  /* Décor papier */
+  --rule-margin: var(--pink);   /* marge du cahier */
+  --rule-line: #CFEFF1;         /* lignes du cahier */
+  --grid-line: #E2F5F6;         /* papier quadrillé */
+  --dot: #F3E1E4;               /* pois du fond de page */
+  --line-soft: rgb(30 58 68 / 0.3);    /* pointillés */
+  --shadow-color: 30 58 68;            /* ombres teintées */
 
   /* ---- Polices -------------------------------------------------------- */
-  --font-display: 'Bagel Fat One', 'Arial Black', system-ui, sans-serif;
-  --font-body: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --weight-display: 600; /* Fraunces est variable : 500 à 700 chargés */
+  --font-body: 'IBM Plex Sans', system-ui, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace; /* tickets de caisse uniquement */
   --font-hand: 'Gochi Hand', 'Comic Sans MS', cursive;
 
   /* ---- Échelle typographique fluide (mobile → desktop, ratio ~1.25) --- */
@@ -63,7 +82,7 @@
   --radius-s: 0.25rem;
   --radius-m: 0.6rem;
   --radius-pill: 999px;
-  --shadow-paper: 0 1px 2px rgb(0 0 0 / 0.15), 0 10px 24px -8px rgb(0 0 0 / 0.45);
+  --shadow-paper: 0 1px 2px rgb(var(--shadow-color) / 0.15), 0 10px 24px -8px rgb(var(--shadow-color) / 0.3);
   --duration: 0.6s;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }

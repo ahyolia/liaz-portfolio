@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projets } from '../../data/projets.js';
+---
+
+<BaseLayout
+  title="Projets — Camélia Amin Handoyo"
+  description="Sélection de projets web et design de Camélia Amin Handoyo. À REMPLACER."
+  current="/projets/"
+>
+<main id="contenu">
+  <section class="section" aria-labelledby="titre-page">
+    <div class="container stack" style="--flow: var(--space-l)">
+      <header class="stack">
+        <p class="eyebrow">Sélection</p>
+        <h1 id="titre-page">Projets</h1>
+        <p class="lead">Une sélection de projets réalisés en formation, en stage ou en perso. <span class="todo">À REMPLACER</span></p>
+      </header>
+
+      <!-- Une carte par projet : la liste est dans src/data/projets.js -->
+      <ul class="grid list-reset" role="list">
+        {projets.map((projet, i) => <ProjectCard projet={projet} index={i} />)}
+      </ul>
+    </div>
+  </section>
+</main>
+</BaseLayout>

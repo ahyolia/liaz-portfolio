@@ -1,0 +1,39 @@
+---
+// Section « Mon apport » : une fiche papier par casquette (la 1re quadrillée,
+// la 2e rose), compétences en stickers colorés, tampon optionnel entre les deux.
+
+interface Casquette {
+  titre: string;
+  texte: string;
+  competences: string[];
+}
+
+interface Props {
+  titre?: string;
+  casquettes: Casquette[];
+  /** Texte du tampon, ex. "~180<br />commits" (HTML) ; label = version lue par les lecteurs d'écran */
+  tampon?: { texte: string; label: string };
+}
+
+const { titre = 'Mon apport', casquettes, tampon } = Astro.props;
+const papiers = ['contrib__card gridpaper', 'contrib__card contrib__card--pink'];
+const scotchs = ['tape tape--tl', 'tape tape--tr'];
+---
+
+<section class="section" aria-labelledby="role">
+  <div class="container stack" style="--flow: var(--space-xl)">
+    <h2 id="role" class="reveal">{titre}</h2>
+    <div class="contrib">
+      {casquettes.map((c, i) => (
+        <article class={`${papiers[i % 2]} reveal`}>
+          <span class={scotchs[i % 2]} aria-hidden="true"></span>
+          <p class="contrib__kicker annotation">casquette n°{i + 1}</p>
+          <h3>{c.titre}</h3>
+          <p>{c.texte}</p>
+          <ul class="chips list-reset" role="list">{c.competences.map((comp) => <li>{comp}</li>)}</ul>
+        </article>
+      ))}
+      {tampon && <p class="contrib__stamp stamp" aria-label={tampon.label} set:html={tampon.texte} />}
+    </div>
+  </div>
+</section>
