@@ -91,7 +91,6 @@ export default function Page() {
 
         <p className="showcase__cta">
           <a className="btn btn--ghost" href="/projets/">Voir toutes mes réalisations</a>
-          <span className="todo">Projets À REMPLACER</span>
         </p>
       </section>
 
@@ -99,10 +98,9 @@ export default function Page() {
       <section className="band band--yellow torn-top contact-band" aria-labelledby="titre-contact">
         <div className="container contact-band__inner">
           <h2 id="titre-contact" className="contact-band__title">Intéressé(e) ?<br />Contactez-moi ^^</h2>
-          {/* À REMPLACER : tes vrais liens */}
           <ul className="contact-links">
             <li>
-              <a href="https://www.linkedin.com/">
+              <a href="https://www.linkedin.com/in/camelia-amin-handoyo/">
                 LinkedIn
                 <svg className="icon" aria-hidden="true"><use href="/icons.svg#linkedin"></use></svg>
               </a>
@@ -114,7 +112,7 @@ export default function Page() {
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/">
+              <a href="https://www.instagram.com/caamhy/">
                 Instagram
                 <svg className="icon" aria-hidden="true"><use href="/icons.svg#instagram"></use></svg>
               </a>

@@ -13,7 +13,7 @@ export default function Page() {
           <header className="stack">
             <p className="eyebrow">Sélection</p>
             <h1 id="titre-page">Projets</h1>
-            <p className="lead">Une sélection de projets réalisés en formation, en stage ou en perso. <span className="todo">À REMPLACER</span></p>
+            <p className="lead">Bienvenue ! Vous trouverez ici mes projets en développement, design et création visuelle, menés en formation, en concours ou en personnel. Bonne découverte !</p>
           </header>
 
           {/* Une carte par projet, filtrables par domaine : la liste est dans src/data/projets.js */}

@@ -141,11 +141,10 @@ export default function Page() {
           <div className="stack reveal">
             <h2 id="contact">Contact</h2>
             <p>Une opportunité, une question ? Écris-moi.</p>
-            {/* À REMPLACER : tes vrais liens */}
             <ul className="stack list-reset">
               <li><a href="mailto:camhdyo@gmail.com">camhdyo@gmail.com</a></li>
-              <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
-              <li><a href="https://github.com/">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/camelia-amin-handoyo/">LinkedIn</a></li>
+              <li><a href="https://github.com/ahyolia">GitHub</a></li>
             </ul>
           </div>
 

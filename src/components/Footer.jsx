@@ -16,12 +16,11 @@ export default function Footer() {
         </nav>
 
         <div className="site-footer__contact">
-          {/* À REMPLACER : tes vrais liens */}
           <ul className="social-links">
-            <li><a href="https://www.instagram.com/"><svg className="icon" aria-hidden="true"><use href="/icons.svg#instagram"></use></svg><span className="visually-hidden">Instagram</span></a></li>
-            <li><a href="https://www.linkedin.com/"><svg className="icon" aria-hidden="true"><use href="/icons.svg#linkedin"></use></svg><span className="visually-hidden">LinkedIn</span></a></li>
-            <li><a href="https://www.behance.net/"><svg className="icon" aria-hidden="true"><use href="/icons.svg#behance"></use></svg><span className="visually-hidden">Behance</span></a></li>
-            <li><a href="https://github.com/"><svg className="icon" aria-hidden="true"><use href="/icons.svg#github"></use></svg><span className="visually-hidden">GitHub</span></a></li>
+            <li><a href="https://www.instagram.com/caamhy/"><svg className="icon" aria-hidden="true"><use href="/icons.svg#instagram"></use></svg><span className="visually-hidden">Instagram</span></a></li>
+            <li><a href="https://www.linkedin.com/in/camelia-amin-handoyo/"><svg className="icon" aria-hidden="true"><use href="/icons.svg#linkedin"></use></svg><span className="visually-hidden">LinkedIn</span></a></li>
+            <li><a href="https://www.behance.net/camhdyo"><svg className="icon" aria-hidden="true"><use href="/icons.svg#behance"></use></svg><span className="visually-hidden">Behance</span></a></li>
+            <li><a href="https://github.com/ahyolia"><svg className="icon" aria-hidden="true"><use href="/icons.svg#github"></use></svg><span className="visually-hidden">GitHub</span></a></li>
           </ul>
           <a href="/cv/CV.pdf" download>Mon CV <span aria-hidden="true">↗</span></a>
           <a href="mailto:camhdyo@gmail.com">camhdyo@gmail.com</a>
