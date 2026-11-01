@@ -114,6 +114,18 @@ export const projets = [
     tags: ['TouchDesigner', 'Flux optique', 'Installation', 'Scénographie'],
     image: { src: '/images/projets/eveil-des-abysses/evenement-visiteur.webp', width: 1600, height: 1066 },
   },
+  {
+    slug: 'windtell',
+    domaines: ['3d', 'dev'],
+    titre: 'Windtell',
+    annee: '2025',
+    cadre: 'BUT MMI 2 - Forum des jeux de société',
+    resume:
+      "Un jeu de société sur une île flottante : un plateau à niveaux qui tournent fait au FabLab, des énigmes calédoniennes et des cartes à tirer sur une appli.",
+    roles: 'game design · fabrication · branding',
+    tags: ['Jeu de plateau', 'Impression 3D', 'Découpe laser', 'React Native'],
+    image: { src: '/images/projets/windtell/partie-test.webp', width: 1400, height: 1050 },
+  },
 ];
 
 /** Lien de la fiche d'un projet */
