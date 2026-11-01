@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Volet académique : jamais indexé, jamais lié depuis les pages publiques -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Fiche exemple — Journal — Prénom Nom</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gochi+Hand&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <!-- HEADER (identique sur toutes les pages, seul aria-current change) -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-logo" href="/">Prénom Nom</a>
+        <nav aria-label="Navigation principale">
+          <ul class="site-nav">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/projets/">Projets</a></li>
+            <li><a href="/a-propos/">À propos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <p class="academic-banner">Espace réservé à l'équipe pédagogique — BUT MMI</p>
+
+      <article>
+        <!-- En-tête de la fiche -->
+        <header class="section">
+          <div class="container stack" style="--flow: var(--space-m)">
+            <nav aria-label="Volet académique">
+              <ul class="academic-nav">
+                <li><a href="/academique/">Compétences et AC</a></li>
+                <li><a href="/academique/journal/">← Journal des fiches</a></li>
+              </ul>
+            </nav>
+            <p class="eyebrow">Fiche de réflexion</p>
+            <h1>Fiche exemple <span class="todo">À REMPLACER</span></h1>
+
+            <div class="receipt-wrap receipt-wrap--narrow">
+              <div class="receipt stack">
+                <dl class="stack">
+                  <div class="receipt__row"><dt>Date</dt><dd><time datetime="2026-10-15">15/10/2026</time></dd></div>
+                  <div class="receipt__row"><dt>Projet</dt><dd><a href="/projets/projet-exemple.html">Projet exemple</a></dd></div>
+                  <div class="receipt__row"><dt>Cadre</dt><dd>SAÉ 5.01</dd></div>
+                  <div class="receipt__row receipt__total"><dt>AC visés</dt><dd>3</dd></div>
+                </dl>
+                <p><span class="todo">À REMPLACER</span></p>
+              </div>
+            </div>
+
+            <!-- Sommaire -->
+            <nav aria-labelledby="titre-sommaire">
+              <h2 id="titre-sommaire" class="visually-hidden">Sommaire de la fiche</h2>
+              <ol>
+                <li><a href="#ac-vises">AC visés</a></li>
+                <li><a href="#preuves">Preuve de compétence</a></li>
+                <li><a href="#demonstration">Démonstration</a></li>
+                <li><a href="#dimension-pro">Dimension pro</a></li>
+                <li><a href="#je-vs-nous">Synthèse « Je vs Nous »</a></li>
+                <li><a href="#difficultes">Difficultés, pivots et axes d'amélioration</a></li>
+              </ol>
+            </nav>
+          </div>
+        </header>
+
+        <div class="container stack" style="--flow: var(--space-xl)">
+          <!-- 1. AC visés -->
+          <section class="notebook reveal" aria-labelledby="ac-vises">
+            <h2 id="ac-vises">1. AC visés</h2>
+            <p class="annotation">Codes précis du référentiel, avec leur intitulé.</p>
+            <ul>
+              <li><strong>AC34.01</strong> — Intitulé de l'AC <span class="todo">À REMPLACER</span></li>
+              <li><strong>AC34.02</strong> — Intitulé de l'AC <span class="todo">À REMPLACER</span></li>
+              <li><strong>AC35.01</strong> — Intitulé de l'AC <span class="todo">À REMPLACER</span></li>
+            </ul>
+          </section>
+
+          <!-- 2. Preuve de compétence -->
+          <section class="notebook reveal" aria-labelledby="preuves">
+            <h2 id="preuves">2. Preuve de compétence</h2>
+            <p class="annotation">Des liens vérifiables : dépôt, site en ligne, maquette, document…</p>
+            <ul>
+              <li><a href="https://github.com/">Dépôt GitHub</a> <span class="todo">À REMPLACER</span></li>
+              <li><a href="https://example.com">Site en ligne</a> <span class="todo">À REMPLACER</span></li>
+              <li><a href="https://www.figma.com/">Maquette Figma</a> <span class="todo">À REMPLACER</span></li>
+            </ul>
+          </section>
+
+          <!-- 3. Démonstration -->
+          <section class="notebook reveal" aria-labelledby="demonstration">
+            <h2 id="demonstration">3. Démonstration</h2>
+            <p class="annotation">Pourquoi mes choix répondent à chaque AC. Un paragraphe par AC.</p>
+            <h3>AC34.01</h3>
+            <p>J'ai choisi… parce que… ce qui montre que… <span class="todo">À REMPLACER</span></p>
+            <h3>AC34.02</h3>
+            <p>J'ai choisi… parce que… ce qui montre que… <span class="todo">À REMPLACER</span></p>
+            <h3>AC35.01</h3>
+            <p>J'ai choisi… parce que… ce qui montre que… <span class="todo">À REMPLACER</span></p>
+          </section>
+
+          <!-- 4. Dimension pro -->
+          <section class="notebook reveal" aria-labelledby="dimension-pro">
+            <h2 id="dimension-pro">4. Dimension pro</h2>
+            <p class="annotation">En quoi ce travail prouve que je suis opérationnelle en entreprise.</p>
+            <p>Méthodes, outils, contraintes réelles (délais, client, qualité, déploiement)… <span class="todo">À REMPLACER</span></p>
+          </section>
+
+          <!-- 5. Synthèse « Je vs Nous » -->
+          <section class="notebook reveal" aria-labelledby="je-vs-nous">
+            <h2 id="je-vs-nous">5. Synthèse « Je vs Nous »</h2>
+            <p class="annotation">Distinguer clairement le travail d'équipe de mon apport personnel.</p>
+            <h3>Nous — l'équipe</h3>
+            <p>Ce que le groupe a réalisé ensemble, la répartition des rôles. <span class="todo">À REMPLACER</span></p>
+            <h3>Je — mon apport</h3>
+            <p>Ce que j'ai fait moi-même, mes décisions, mes livrables. <span class="todo">À REMPLACER</span></p>
+          </section>
+
+          <!-- Réflexion critique -->
+          <section class="notebook reveal" aria-labelledby="difficultes">
+            <h2 id="difficultes">Difficultés, pivots et axes d'amélioration</h2>
+            <p class="annotation">Regard critique : ce qui a coincé, ce que j'ai changé, ce que je ferais mieux.</p>
+            <h3>Difficultés rencontrées</h3>
+            <p><span class="todo">À REMPLACER</span></p>
+            <h3>Pivots</h3>
+            <p>Changements de cap et leur justification. <span class="todo">À REMPLACER</span></p>
+            <h3>Axes d'amélioration</h3>
+            <p><span class="todo">À REMPLACER</span></p>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <!-- FOOTER (identique sur toutes les pages) -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="stack">
+          <p>© 2026 Prénom Nom — Portfolio BUT MMI</p>
+          <!-- À REMPLACER : tes vrais liens -->
+          <ul class="site-footer__links">
+            <li><a href="mailto:prenom.nom@example.com">E-mail</a></li>
+            <li><a href="https://github.com/">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+          </ul>
+        </div>
+        <span class="barcode" aria-hidden="true"></span>
+      </div>
+    </footer>
+  </body>
+</html>

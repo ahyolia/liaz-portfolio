@@ -1,0 +1,6 @@
+/* Point d'entrée CSS, lié dans le <head> de chaque page.
+   Vite assemble les @import au build. */
+@import 'lenis/dist/lenis.css';
+@import './tokens.css';
+@import './base.css';
+@import './components.css';

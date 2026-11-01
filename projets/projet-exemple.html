@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet exemple — Prénom Nom</title>
+    <meta name="description" content="Étude de cas : contexte, problème, solution et résultat. À REMPLACER." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gochi+Hand&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <!-- HEADER (identique sur toutes les pages, seul aria-current change) -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-logo" href="/">Prénom Nom</a>
+        <nav aria-label="Navigation principale">
+          <ul class="site-nav">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/projets/" aria-current="page">Projets</a></li>
+            <li><a href="/a-propos/">À propos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <article>
+        <!-- En-tête du projet -->
+        <header class="section">
+          <div class="container stack" style="--flow: var(--space-m)">
+            <a class="back-link" href="/projets/">← Tous les projets</a>
+            <p class="eyebrow">Étude de cas</p>
+            <h1>Projet exemple <span class="todo">À REMPLACER</span></h1>
+            <p class="lead">Une phrase d'accroche : ce que le projet a permis, pour qui. <span class="todo">À REMPLACER</span></p>
+
+            <!-- Fiche technique façon ticket -->
+            <div class="receipt-wrap receipt-wrap--narrow">
+              <div class="receipt stack">
+                <dl class="stack">
+                  <div class="receipt__row"><dt>Client / cadre</dt><dd>SAÉ, BUT MMI</dd></div>
+                  <div class="receipt__row"><dt>Durée</dt><dd>6 semaines</dd></div>
+                  <div class="receipt__row"><dt>Équipe</dt><dd>4 personnes</dd></div>
+                  <div class="receipt__row"><dt>Mon rôle</dt><dd>Dev front</dd></div>
+                  <div class="receipt__row"><dt>Outils</dt><dd>Figma, Vite, GSAP</dd></div>
+                  <div class="receipt__row receipt__total"><dt>Statut</dt><dd>En ligne</dd></div>
+                </dl>
+                <span class="barcode" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="cluster">
+              <a class="btn" href="https://example.com">Voir le site en ligne</a>
+              <a class="btn btn--ghost" href="https://github.com/">Code sur GitHub</a>
+              <span class="todo">Liens À REMPLACER</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- 1. Contexte -->
+        <section class="section" aria-labelledby="contexte">
+          <div class="container stack reveal">
+            <h2 id="contexte">Contexte</h2>
+            <p>Qui est le commanditaire, quel est le cadre (SAÉ, stage, perso), quelles contraintes ? <span class="todo">À REMPLACER</span></p>
+          </div>
+        </section>
+
+        <!-- 2. Problème -->
+        <section class="section" aria-labelledby="probleme">
+          <div class="container">
+            <div class="notebook stack reveal">
+              <h2 id="probleme">Problème</h2>
+              <p>Quel besoin ou quel irritant fallait-il résoudre ? Idéalement un constat chiffré ou observé. <span class="todo">À REMPLACER</span></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Solution -->
+        <section class="section" aria-labelledby="solution">
+          <div class="container stack reveal">
+            <h2 id="solution">Solution</h2>
+            <p>Les choix de conception et techniques, et <span class="hl">pourquoi</span> ceux-là. <span class="todo">À REMPLACER</span></p>
+            <ul>
+              <li>Choix 1 <span class="todo">À REMPLACER</span></li>
+              <li>Choix 2 <span class="todo">À REMPLACER</span></li>
+              <li>Choix 3 <span class="todo">À REMPLACER</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 4. Résultat -->
+        <section class="section" aria-labelledby="resultat">
+          <div class="container stack reveal">
+            <h2 id="resultat">Résultat</h2>
+            <p>Ce qui a été livré, retours du client ou des utilisateurs, chiffres si possible. <span class="todo">À REMPLACER</span></p>
+            <p class="postit postit--aqua">« Citation d'un retour client ou d'un prof. » <span class="todo">À REMPLACER</span></p>
+          </div>
+        </section>
+
+        <!-- 5. Visuels -->
+        <section class="section" aria-labelledby="visuels">
+          <div class="container stack" style="--flow: var(--space-l)">
+            <h2 id="visuels" class="reveal">Visuels</h2>
+            <div class="grid">
+              <!-- Toujours décrire l'image dans alt ; alt="" si purement décorative -->
+              <figure class="stack reveal">
+                <img src="/images/placeholder.svg" alt="Capture de la page d'accueil du projet (à remplacer)" width="1200" height="750" loading="lazy" />
+                <figcaption class="annotation">Page d'accueil <span class="todo">À REMPLACER</span></figcaption>
+              </figure>
+              <figure class="stack reveal">
+                <img src="/images/placeholder.svg" alt="Maquette mobile du projet (à remplacer)" width="1200" height="750" loading="lazy" />
+                <figcaption class="annotation">Version mobile <span class="todo">À REMPLACER</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <!-- FOOTER (identique sur toutes les pages) -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="stack">
+          <p>© 2026 Prénom Nom — Portfolio BUT MMI</p>
+          <!-- À REMPLACER : tes vrais liens -->
+          <ul class="site-footer__links">
+            <li><a href="mailto:prenom.nom@example.com">E-mail</a></li>
+            <li><a href="https://github.com/">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+          </ul>
+        </div>
+        <span class="barcode" aria-hidden="true"></span>
+      </div>
+    </footer>
+  </body>
+</html>

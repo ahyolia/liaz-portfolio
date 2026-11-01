@@ -1,0 +1,24 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Développement local avec `netlify dev` (proxy devant le serveur Vite)
+[dev]
+  command = "npm run dev"
+  targetPort = 5173
+  port = 8888
+
+# Protection Basic Auth du volet académique
+[[edge_functions]]
+  path = "/academique"
+  function = "protect"
+
+[[edge_functions]]
+  path = "/academique/*"
+  function = "protect"
+
+# Ceinture + bretelles : on demande aussi aux moteurs de ne pas indexer
+[[headers]]
+  for = "/academique/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

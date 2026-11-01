@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Volet académique : jamais indexé, jamais lié depuis les pages publiques -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Journal des fiches de réflexion — Prénom Nom</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gochi+Hand&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <!-- HEADER (identique sur toutes les pages, seul aria-current change) -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-logo" href="/">Prénom Nom</a>
+        <nav aria-label="Navigation principale">
+          <ul class="site-nav">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/projets/">Projets</a></li>
+            <li><a href="/a-propos/">À propos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <p class="academic-banner">Espace réservé à l'équipe pédagogique — BUT MMI</p>
+
+      <section class="section" aria-labelledby="titre-page">
+        <div class="container stack" style="--flow: var(--space-l)">
+          <nav aria-label="Volet académique">
+            <ul class="academic-nav">
+              <li><a href="/academique/">Compétences et AC</a></li>
+              <li><a href="/academique/journal/" aria-current="page">Journal des fiches</a></li>
+            </ul>
+          </nav>
+
+          <header class="stack">
+            <p class="eyebrow">Volet académique</p>
+            <h1 id="titre-page">Journal des fiches de réflexion</h1>
+            <p class="lead">Une fiche par projet ou situation d'apprentissage. <span class="todo">À REMPLACER</span></p>
+          </header>
+
+          <!-- Une carte = une fiche. Dupliquer un <li> pour en ajouter (et déclarer la page dans vite.config.js). -->
+          <ul class="grid list-reset" role="list">
+            <li class="card postit postit--cream stack reveal">
+              <span class="tape" aria-hidden="true"></span>
+              <p><time datetime="2026-10-15">15 octobre 2026</time></p>
+              <h2><a class="card__link" href="/academique/journal/fiche-exemple.html">Fiche exemple</a></h2>
+              <ul class="tags"><li>AC34.01</li><li>AC34.02</li><li>AC35.01</li></ul>
+              <p><span class="todo">À REMPLACER</span></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER (identique sur toutes les pages) -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="stack">
+          <p>© 2026 Prénom Nom — Portfolio BUT MMI</p>
+          <!-- À REMPLACER : tes vrais liens -->
+          <ul class="site-footer__links">
+            <li><a href="mailto:prenom.nom@example.com">E-mail</a></li>
+            <li><a href="https://github.com/">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+          </ul>
+        </div>
+        <span class="barcode" aria-hidden="true"></span>
+      </div>
+    </footer>
+  </body>
+</html>

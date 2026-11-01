@@ -1,0 +1,2 @@
+Dépose ton CV ici sous le nom : CV.pdf
+Le lien de la page /a-propos/ pointe vers /cv/CV.pdf
