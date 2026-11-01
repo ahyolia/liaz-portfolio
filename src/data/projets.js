@@ -25,6 +25,7 @@ export const DOMAINES = [
   { id: '3d', label: '3D & interactif' },
   { id: 'video', label: 'Vidéo' },
   { id: 'motion', label: 'Motion design' },
+  { id: 'graphisme', label: 'Design graphique' },
 ];
 
 export const projets = [
@@ -104,7 +105,7 @@ export const projets = [
   },
   {
     slug: 'liminis',
-    domaines: ['ux', '3d'],
+    domaines: ['ux', '3d', 'graphisme'],
     titre: 'Liminis',
     annee: '2026',
     cadre: 'BUT MMI 3 - Projet Micro-Mondes',
@@ -113,6 +114,18 @@ export const projets = [
     roles: 'direction artistique · design graphique',
     tags: ['Identité visuelle', 'Illustration', 'Figma', 'Réalité augmentée'],
     image: { src: '/images/projets/liminis/vignette.webp', width: 1600, height: 900 },
+  },
+  {
+    slug: 'sticker-pack',
+    domaines: ['graphisme'],
+    titre: "LIAZ' Sticker pack",
+    annee: '2025',
+    cadre: 'Projet perso - Mes 20 ans',
+    resume:
+      "Un pack de stickers « édition anniversaire » pour mes 20 ans, en collage sur Photoshop à partir de photos d'enfance.",
+    roles: 'design graphique · photoshop',
+    tags: ['Photoshop', 'Collage', 'Stickers', 'Projet perso'],
+    image: { src: '/images/projets/sticker-pack/vignette.webp', width: 1600, height: 900 },
   },
   {
     slug: 'eveil-des-abysses',
@@ -128,7 +141,7 @@ export const projets = [
   },
   {
     slug: 'windtell',
-    domaines: ['3d', 'dev'],
+    domaines: ['3d', 'dev', 'graphisme'],
     titre: 'Windtell',
     annee: '2025',
     cadre: 'BUT MMI 2 - Forum des jeux de société',
