@@ -25,7 +25,6 @@ export const DOMAINES = [
   { id: '3d', label: '3D & interactif' },
   { id: 'video', label: 'Vidéo' },
   { id: 'motion', label: 'Motion design' },
-  { id: 'gestion', label: 'Gestion de projet' },
 ];
 
 export const projets = [
@@ -35,7 +34,7 @@ export const projets = [
     aLaUne: true,
     titre: 'Aïma',
     annee: '2026',
-    cadre: "Projet de BUT MMI 3 en collaboration avec l'ADSB-NC",
+    cadre: "BUT MMI 3 - Projet de fin d'études en collaboration avec l'ADSB-NC",
     resume:
       'Une appli mobile créée pour l\'association des donneurs de sang de Nouvelle-Calédonie : des cartes à collectionner et des quiz pour donner envie de revenir donner.',
     roles: 'dev full-stack · ui/ux design',
@@ -44,7 +43,7 @@ export const projets = [
   },
   {
     slug: 'etincelle-caledonienne',
-    domaines: ['video', 'gestion'],
+    domaines: ['video'],
     aLaUne: true,
     titre: "L'amour d'une éducatrice",
     annee: '2026',
@@ -82,7 +81,6 @@ export const projets = [
   {
     slug: 'liaz-gallery',
     domaines: ['3d', 'dev'],
-    aLaUne: true,
     titre: 'LiAZ Gallery',
     annee: '2026',
     cadre: 'BUT MMI 3 - XR et Interactions',
@@ -95,7 +93,6 @@ export const projets = [
   {
     slug: 'pocket-stars',
     domaines: ['dev', '3d'],
-    aLaUne: true,
     titre: 'Pocket Stars',
     annee: '2026',
     cadre: 'BUT MMI 3 - Développement front',
@@ -104,45 +101,6 @@ export const projets = [
     roles: 'dev front 3d · game design',
     tags: ['React', 'Three.js', 'API TCGdex', 'Web Audio'],
     image: { src: '/images/projets/pocket-stars/carte-alakazam.webp', width: 1440, height: 900 },
-  },
-  {
-    slug: 'projet-2',
-    domaines: ['ux'],
-    href: '/projets/projet-exemple/',
-    titre: 'Projet 2',
-    annee: '2025',
-    cadre: 'Stage',
-    resume: 'Une phrase qui résume le problème résolu et le résultat obtenu.',
-    roles: 'ux design · dev web',
-    tags: ['Figma', 'Design system'],
-    image: { src: '/images/placeholder.svg', width: 1200, height: 750 },
-    aRemplacer: true,
-  },
-  {
-    slug: 'projet-3',
-    domaines: ['dev'],
-    href: '/projets/projet-exemple/',
-    titre: 'Projet 3',
-    annee: '2025',
-    cadre: 'Perso',
-    resume: 'Une phrase qui résume le problème résolu et le résultat obtenu.',
-    roles: 'ux design',
-    tags: ['WordPress', 'SEO'],
-    image: { src: '/images/placeholder.svg', width: 1200, height: 750 },
-    aRemplacer: true,
-  },
-  {
-    slug: 'projet-4',
-    domaines: ['video'],
-    href: '/projets/projet-exemple/',
-    titre: 'Projet 4',
-    annee: '2024',
-    cadre: 'Projet tutoré',
-    resume: 'Une phrase qui résume le problème résolu et le résultat obtenu.',
-    roles: 'graphisme',
-    tags: ['Vidéo', 'Motion'],
-    image: { src: '/images/placeholder.svg', width: 1200, height: 750 },
-    aRemplacer: true,
   },
 ];
 

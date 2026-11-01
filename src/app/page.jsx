@@ -1,4 +1,5 @@
 import ProjectSlide from '../components/ProjectSlide';
+import HeroDesk from '../components/HeroDesk';
 import { projetsALaUne } from '../data/projets.js';
 
 // Seuls les projets marqués aLaUne (src/data/projets.js) sont affichés.
@@ -19,18 +20,21 @@ export default function Page() {
         <div className="container hero__inner">
           <p className="hero__word reveal">Portfolio</p>
 
-          <div className="hero__skills receipt-wrap reveal">
-            <div className="receipt stack">
-              <p className="receipt__title">Au menu</p>
-              <ul className="list-reset stack" style={{ "--flow": "var(--space-2xs)" }}>
-                <li className="receipt__row"><span>Dev web</span><span>×1</span></li>
-                <li className="receipt__row"><span>Graphisme</span><span>×1</span></li>
-                <li className="receipt__row"><span>UX design</span><span>×1</span></li>
-              </ul>
-              <p className="receipt__row receipt__total"><span>Total</span><span>3 en 1</span></p>
-              <span className="barcode" aria-hidden="true"></span>
+          {/* Table de travail : objets déplaçables (voir src/components/HeroDesk.jsx) */}
+          <HeroDesk>
+            <div className="hero__skills receipt-wrap">
+              <div className="receipt stack">
+                <p className="receipt__title">Au menu</p>
+                <ul className="list-reset stack" style={{ "--flow": "var(--space-2xs)" }}>
+                  <li className="receipt__row"><span>Dev web</span><span>×1</span></li>
+                  <li className="receipt__row"><span>Graphisme</span><span>×1</span></li>
+                  <li className="receipt__row"><span>UX design</span><span>×1</span></li>
+                </ul>
+                <p className="receipt__row receipt__total"><span>Total</span><span>3 en 1</span></p>
+                <span className="barcode" aria-hidden="true"></span>
+              </div>
             </div>
-          </div>
+          </HeroDesk>
 
           <h1 className="hero__name reveal">Camélia<br />Amin Handoyo</h1>
         </div>
@@ -71,7 +75,7 @@ export default function Page() {
 
         <div data-carousel-root>
           {/* Une carte par projet : la liste est dans src/data/projets.js */}
-          <ul className="carousel" data-carousel tabIndex="0" aria-labelledby="titre-projets">
+          <ul className="carousel" data-carousel data-carousel-start={aLaUne.length > 2 ? 1 : 0} tabIndex="0" aria-labelledby="titre-projets">
             {aLaUne.map((projet) => <ProjectSlide key={projet.slug} projet={projet} />)}
           </ul>
 

@@ -30,7 +30,7 @@ export default function ProjectGrid() {
 
       <p className="visually-hidden" aria-live="polite">{visibles.length} projet{visibles.length > 1 ? 's' : ''} affiché{visibles.length > 1 ? 's' : ''}</p>
 
-      <ul className="grid list-reset" role="list">
+      <ul className="grid grid--3 project-grid list-reset" role="list">
         {visibles.map((projet) => <ProjectCard key={projet.slug} projet={projet} index={projets.indexOf(projet)} />)}
       </ul>
     </div>
