@@ -1,8 +1,9 @@
 // Section « La démarche » : les étapes dans un carrousel, chacune avec un visuel.
 // Un clic sur un visuel l'ouvre en grand (data-lightbox).
 //
-// Props : titre, etapes [{ titre, texte, image?, attendu?, liens? }]
+// Props : titre, etapes [{ titre, texte, image? | images?, attendu?, liens? }]
 //   image   : { src, alt, width, height, portrait? } (cadre 2:1, l'image y tient en entier)
+//   images  : plusieurs images côte à côte dans le même cadre (ex. écrans mobiles)
 //   attendu : texte du cadre en pointillés tant que l'image manque
 //   texte   : accepte du HTML simple
 
@@ -17,7 +18,17 @@ export default function Demarche({ titre = 'La démarche', etapes }) {
           <ol className="carousel" data-carousel="" data-carousel-start="0" tabIndex={0} aria-label="Étapes de la démarche">
             {etapes.map((etape, i) => (
               <li key={etape.titre} className="process-step">
-                {etape.image ? (
+                {etape.images ? (
+                  // Plusieurs images côte à côte (ex. écrans mobiles), dans le même cadre
+                  // Portraits (pages, téléphones) en éventail ; paysages en grille, côte à côte
+                  <div className={etape.images.every((im) => im.width > im.height)
+                    ? 'process-step__visual process-step__visual--grille'
+                    : 'process-step__visual process-step__visual--multi'}>
+                    {etape.images.map((im) => (
+                      <img key={im.src} src={im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy" />
+                    ))}
+                  </div>
+                ) : etape.image ? (
                   <img
                     className={etape.image.portrait ? 'process-step__visual process-step__visual--card' : 'process-step__visual'}
                     src={etape.image.src}

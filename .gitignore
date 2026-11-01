@@ -24,3 +24,6 @@ Thumbs.db
 # Next.js (cache de build et export statique)
 .next/
 out/
+
+# Vidéos sources brutes (trop lourdes) : seules les versions compressées (.webm) sont publiées
+public/images/projets/**/*.mp4

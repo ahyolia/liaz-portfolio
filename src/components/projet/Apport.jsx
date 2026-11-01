@@ -1,21 +1,21 @@
-// Section « Mon apport » : une fiche papier par casquette (la 1re quadrillée,
-// la 2e rose), compétences en stickers colorés, tampon optionnel entre les deux.
+// Section « Mon apport » : une fiche papier par casquette (quadrillée, rose,
+// crème ; 2 ou 3 côte à côte), compétences en stickers colorés, tampon optionnel entre les deux.
 //
 // Props : titre, casquettes [{ titre, texte, competences }],
 // tampon { texte, label } (texte en HTML, ex. "~180<br />commits" ; label = version lue)
 
-const PAPIERS = ['contrib__card gridpaper', 'contrib__card contrib__card--pink'];
-const SCOTCHS = ['tape tape--tl', 'tape tape--tr'];
+const PAPIERS = ['contrib__card gridpaper', 'contrib__card contrib__card--pink', 'contrib__card contrib__card--cream'];
+const SCOTCHS = ['tape tape--tl', 'tape tape--tr', 'tape'];
 
 export default function Apport({ titre = 'Mon apport', casquettes, tampon }) {
   return (
     <section className="section" aria-labelledby="role">
       <div className="container stack" style={{ '--flow': 'var(--space-xl)' }}>
         <h2 id="role" className="reveal">{titre}</h2>
-        <div className="contrib">
+        <div className={casquettes.length > 2 ? 'contrib contrib--3' : 'contrib'}>
           {casquettes.map((c, i) => (
-            <article key={c.titre} className={`${PAPIERS[i % 2]} reveal`}>
-              <span className={SCOTCHS[i % 2]} aria-hidden="true"></span>
+            <article key={c.titre} className={`${PAPIERS[i % PAPIERS.length]} reveal`}>
+              <span className={SCOTCHS[i % SCOTCHS.length]} aria-hidden="true"></span>
               <p className="contrib__kicker annotation">casquette n°{i + 1}</p>
               <h3>{c.titre}</h3>
               <p>{c.texte}</p>

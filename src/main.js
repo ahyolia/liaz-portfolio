@@ -265,16 +265,17 @@ function initLightbox() {
 }
 
 // Galerie filtrable : les pastilles [data-filter] masquent les items
-// dont le data-cat ne correspond pas
+// dont le data-cat ne correspond pas. Boutons et items sont relus à chaque
+// clic (délégation) : les images ajoutées après coup sont filtrées aussi.
 function initGalleryFilters() {
   document.querySelectorAll('[data-gallery]').forEach((gallery) => {
-    const buttons = gallery.querySelectorAll('[data-filter]');
-    const items = gallery.querySelectorAll('[data-cat]');
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
-        items.forEach((item) => { item.hidden = filter !== 'all' && item.dataset.cat !== filter; });
+    gallery.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-filter]');
+      if (!btn || !gallery.contains(btn)) return;
+      const filter = btn.dataset.filter;
+      gallery.querySelectorAll('[data-filter]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      gallery.querySelectorAll('[data-cat]').forEach((item) => {
+        item.hidden = filter !== 'all' && item.dataset.cat !== filter;
       });
     });
   });

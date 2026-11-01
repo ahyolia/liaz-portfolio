@@ -25,7 +25,7 @@ export default function Galerie({ titre, intro, filtres, items }) {
     <section className="section" aria-labelledby="galerie">
       <div className="container stack" style={{ '--flow': 'var(--space-l)' }}>
         <h2 id="galerie" className="reveal">{titre}</h2>
-        {intro && <p className="reveal" dangerouslySetInnerHTML={{ __html: intro }} />}
+        {intro && <p className="section-intro reveal" dangerouslySetInnerHTML={{ __html: intro }} />}
         <div className="gallery-panel reveal" data-gallery="" data-lightbox="">
           <div className="gallery-filters" role="group" aria-label="Filtrer la galerie">
             <button type="button" aria-pressed="true" data-filter="all">Tout</button>

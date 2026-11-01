@@ -632,6 +632,52 @@ img.process-step__visual--card {
   box-shadow: none;
 }
 
+/* Plusieurs images (pages, écrans mobiles) en éventail sur le fond crème :
+   elles se chevauchent légèrement et restent dans le cadre */
+.process-step__visual--multi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-m);
+  overflow: hidden;
+  background: #F7EFE4;
+}
+
+/* (la visionneuse enveloppe chaque image dans un bouton .zoom : sélecteur
+   plus précis que .zoom, sinon le bouton prendrait toute la largeur) */
+.process-step__visual--multi > :is(img, .zoom) {
+  flex: none;
+  width: auto;
+  height: 100%;
+  margin-inline: -0.6rem; /* chevauchement */
+  rotate: -4deg;
+  transition: rotate 0.3s var(--ease), translate 0.3s var(--ease);
+}
+
+.process-step__visual--multi > :nth-child(even) { rotate: 3deg; translate: 0 0.4rem; position: relative; z-index: 1; }
+.process-step__visual--multi > :hover { rotate: 0deg; translate: 0 -0.4rem; position: relative; z-index: 2; }
+
+.process-step__visual--multi img {
+  display: block;
+  height: 100%;
+  width: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 22px -10px rgb(0 0 0 / 0.45);
+}
+
+/* Plusieurs images en paysage (plans de film, captures) : grille régulière,
+   chaque image recadrée pour remplir sa case, sans débordement */
+.process-step__visual--grille {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--space-2xs);
+  overflow: hidden;
+}
+
+.process-step__visual--grille > :is(img, .zoom) { min-width: 0; height: 100%; }
+.process-step__visual--grille img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
 /* ---- .slot : emplacement d'image à fournir (contenu de travail) -------- */
 .slot {
   display: grid;
@@ -705,6 +751,19 @@ img.process-step__visual--card {
 }
 
 @media (min-width: 48rem) { .contrib__card--pink { margin-block-start: var(--space-xl); } }
+
+.contrib__card--cream {
+  background: var(--cream);
+  box-shadow: var(--shadow-paper);
+  rotate: -0.6deg;
+}
+
+/* Trois casquettes : 3 colonnes sur grand écran, décalage en escalier */
+@media (min-width: 64rem) {
+  .contrib--3 { grid-template-columns: repeat(3, 1fr); }
+  .contrib--3 .contrib__card--pink { margin-block-start: var(--space-l); }
+  .contrib--3 .contrib__card--cream { margin-block-start: var(--space-s); }
+}
 
 .contrib__card h3 { font-size: var(--step-3); }
 .contrib__kicker { line-height: 1; }
@@ -1017,3 +1076,62 @@ img.process-step__visual--card {
 .lightbox__prev .icon { scale: -1 1; }
 .lightbox__next { right: var(--space-m); }
 .lightbox--single :is(.lightbox__prev, .lightbox__next) { display: none; }
+
+/* ---- Vidéo de démonstration d'une fiche projet (composant Video) ------- */
+/* Seules les marges latérales et du bas sont fixées : la marge du haut vient de
+   .stack (espace entre l'intro et la vidéo), un `margin: 0` l'écraserait */
+.case-video { margin-inline: 0; margin-block-end: var(--space-xl); }
+
+.case-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  background: #111;
+  box-shadow: 0 18px 40px -20px rgb(0 0 0 / 0.5);
+}
+
+/* Intro courte d'une section (galerie, vidéo) : pleine largeur, la limite de
+   longueur de ligne (--measure) ne sert qu'aux textes plus longs */
+.section-intro { max-width: none; }
+
+/* ---- Vidéo YouTube chargée au clic (composant YouTube) ----------------- */
+.case-video--youtube { aspect-ratio: 16 / 9; overflow: hidden; border-radius: 1rem; background: #111; box-shadow: 0 18px 40px -20px rgb(0 0 0 / 0.5); }
+.case-video--youtube iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+.youtube-facade {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.youtube-facade img { width: 100%; height: 100%; object-fit: cover; transition: scale 0.5s var(--ease); }
+.youtube-facade:hover img { scale: 1.02; }
+
+.youtube-facade__play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--pink-deep);
+  color: var(--paper);
+  box-shadow: 0 10px 30px -8px rgb(0 0 0 / 0.6);
+  transition: scale 0.25s var(--ease);
+}
+
+.youtube-facade__play svg { width: 2.25rem; translate: 3px 0; }
+.youtube-facade:is(:hover, :focus-visible) .youtube-facade__play { scale: 1.1; }
+
+.youtube-note { font-size: var(--step--1); max-width: none; }
+
+/* Filtre de la page Projets : mêmes pastilles que la galerie, alignées à gauche */
+.project-filters { justify-content: flex-start; }
