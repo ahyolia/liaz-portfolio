@@ -103,6 +103,18 @@ export const projets = [
     image: { src: '/images/projets/pocket-stars/carte-alakazam.webp', width: 1440, height: 900 },
   },
   {
+    slug: 'liminis',
+    domaines: ['ux', '3d'],
+    titre: 'Liminis',
+    annee: '2026',
+    cadre: 'BUT MMI 3 - Projet Micro-Mondes',
+    resume:
+      "Une appli web en réalité augmentée qui révèle le monde microscopique caché dans les fresques du campus, et un familier à réveiller au bout du parcours.",
+    roles: 'direction artistique · design graphique',
+    tags: ['Identité visuelle', 'Illustration', 'Figma', 'Réalité augmentée'],
+    image: { src: '/images/projets/liminis/vignette.webp', width: 1600, height: 900 },
+  },
+  {
     slug: 'eveil-des-abysses',
     domaines: ['3d', 'ux'],
     titre: 'Éveil des Abysses',
