@@ -100,7 +100,9 @@
 .desk__projet-titre { font-family: var(--font-hand); font-size: var(--step-0); line-height: 1.1; }
 .desk__projet:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
 
-.desk__ticket { width: min(16rem, 40vw); }
+/* Ticket collé au bord droit de la table (placé à 76 %, il dépassait sur
+   tablette et téléphone) et posé au-dessus des post-its (z-index inline = 5) */
+.desk__ticket { width: min(16rem, 40vw); left: auto; right: 0; z-index: 8 !important; }
 .desk__ticket .hero__skills { width: 100%; rotate: 0deg; }
 
 .desk__postit { width: 11rem; max-width: none; font-size: var(--step-0); }
@@ -120,7 +122,9 @@
 /* Téléphone : objets un peu plus petits, ticket plus étroit */
 @media (max-width: 47.99rem) {
   .desk__projet { width: 8rem; }
-  .desk__ticket { width: 11rem; font-size: var(--step--1); }
+  /* Texte resserré pour que chaque compétence tienne sur une ligne */
+  .desk__ticket { width: 10.5rem; font-size: var(--step--2); }
+  .desk__ticket .receipt { padding-inline: var(--space-s); }
   .desk__postit { width: 8rem; font-size: var(--step--1); }
   .desk .desk__outil { width: 2.75rem; padding: 0.5rem; }
 }

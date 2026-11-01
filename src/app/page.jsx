@@ -27,10 +27,13 @@ export default function Page() {
                 <p className="receipt__title">Au menu</p>
                 <ul className="list-reset stack" style={{ "--flow": "var(--space-2xs)" }}>
                   <li className="receipt__row"><span>Dev web</span><span>×1</span></li>
+                  <li className="receipt__row"><span>UI/UX design</span><span>×1</span></li>
                   <li className="receipt__row"><span>Graphisme</span><span>×1</span></li>
-                  <li className="receipt__row"><span>UX design</span><span>×1</span></li>
+                  <li className="receipt__row"><span>Motion design</span><span>×1</span></li>
+                  <li className="receipt__row"><span>Vidéo</span><span>×1</span></li>
+                  <li className="receipt__row"><span>3D interactive</span><span>×1</span></li>
                 </ul>
-                <p className="receipt__row receipt__total"><span>Total</span><span>3 en 1</span></p>
+                <p className="receipt__row receipt__total"><span>Total</span><span>6 en 1</span></p>
                 <span className="barcode" aria-hidden="true"></span>
               </div>
             </div>
