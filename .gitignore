@@ -21,5 +21,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 
-# Types générés par Astro
-.astro/
+# Next.js (cache de build et export statique)
+.next/
+out/

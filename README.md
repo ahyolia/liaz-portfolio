@@ -1,6 +1,6 @@
 # Portfolio — BUT MMI 3ᵉ année
 
-Site statique en **[Astro](https://astro.build)** (composants `.astro`, CSS et JS sans framework côté navigateur), animé avec **GSAP + ScrollTrigger** et **Lenis**, hébergé sur **Netlify**.
+Site en **[Next.js](https://nextjs.org) / React**, exporté en HTML statique, animé avec **GSAP + ScrollTrigger** et **Lenis**, hébergé sur **Netlify**.
 
 Deux volets :
 
@@ -15,9 +15,9 @@ Prérequis : [Node.js](https://nodejs.org/) 20 ou plus.
 
 ```bash
 npm install       # une seule fois
-npm run dev       # serveur de dev → http://localhost:4321
-npm run build     # build de production dans dist/
-npm run preview   # prévisualiser le build
+npm run dev       # serveur de dev → http://localhost:3000
+npm run build     # build de production dans out/
+npm run preview   # prévisualiser le build (sert le dossier out/)
 ```
 
 > En `npm run dev`, le volet académique **n'est pas protégé** : la protection est assurée par Netlify. Pour la tester en local, voir [plus bas](#tester-la-protection-en-local).
@@ -28,25 +28,25 @@ npm run preview   # prévisualiser le build
 
 ```
 ├── src/
-│   ├── pages/                    Une page = un fichier (l'URL suit le chemin)
-│   │   ├── index.astro           Accueil
+│   ├── app/                      Une page = un dossier avec un page.jsx (l'URL suit le chemin)
+│   │   ├── layout.jsx            <head>, header, footer : commun à toutes les pages
+│   │   ├── page.jsx              Accueil (/)
 │   │   ├── projets/
-│   │   │   ├── index.astro       Liste des projets
-│   │   │   ├── aima.astro        Fiche projet Aïma
-│   │   │   └── projet-exemple.astro   Modèle de fiche projet
-│   │   ├── a-propos/index.astro  Présentation, CV, contact
-│   │   ├── mentions-legales/index.astro
+│   │   │   ├── page.jsx          Liste des projets (/projets/)
+│   │   │   ├── aima/page.jsx     Fiche projet Aïma (/projets/aima/)
+│   │   │   └── projet-exemple/page.jsx   Modèle de fiche projet
+│   │   ├── a-propos/page.jsx     Présentation, CV, contact
+│   │   ├── mentions-legales/page.jsx
 │   │   └── academique/           🔒 Volet académique
-│   │       ├── index.astro       Tableau compétences → AC → fiches
+│   │       ├── page.jsx          Tableau compétences → AC → fiches
 │   │       └── journal/
-│   │           ├── index.astro   Liste des fiches
-│   │           └── fiche-exemple.astro   Modèle de fiche de réflexion
-│   ├── layouts/
-│   │   └── BaseLayout.astro      <head>, header, footer, script : commun à toutes les pages
+│   │           ├── page.jsx      Liste des fiches
+│   │           └── fiche-exemple/page.jsx   Modèle de fiche de réflexion
 │   ├── components/
-│   │   ├── Header.astro, Footer.astro
-│   │   ├── ProjectCard.astro     Carte de la page Projets
-│   │   ├── ProjectSlide.astro    Carte du carrousel de l'accueil
+│   │   ├── Header.jsx, Footer.jsx
+│   │   ├── Animations.jsx        Charge src/main.js une fois la page affichée
+│   │   ├── ProjectCard.jsx       Carte de la page Projets
+│   │   ├── ProjectSlide.jsx      Carte du carrousel de l'accueil
 │   │   └── projet/               Sections d'une fiche projet (voir plus bas)
 │   ├── data/
 │   │   └── projets.js            Liste des projets (cartes, accueil, « Projet suivant »)
@@ -57,7 +57,7 @@ npm run preview   # prévisualiser le build
 │       ├── base.css              Reset, layout, header/footer, utilitaires
 │       ├── components.css        .receipt, .notebook, .postit, .tape, .band, .torn-top…
 │       └── sections.css          Sections des pages (accueil, À propos, fiches projet)
-├── public/                       Copié tel quel dans dist/
+├── public/                       Copié tel quel dans out/
 │   ├── robots.txt
 │   ├── favicon.svg
 │   ├── icons.svg                 Sprite d'icônes (LinkedIn, mail, Instagram, Behance, GitHub)
@@ -66,11 +66,17 @@ npm run preview   # prévisualiser le build
 ├── netlify/edge-functions/
 │   └── protect.js                Basic Auth du volet académique
 ├── netlify.toml
-├── astro.config.mjs              Config Astro (les URL gardent leur .html)
+├── next.config.mjs               Export statique, URL avec barre finale
 └── .env.example
 ```
 
-Une page s'écrit comme du HTML, dans `<BaseLayout title="…" description="…">…</BaseLayout>` : le `<head>`, le header, le footer et le script sont ajoutés automatiquement. Les URL restent celles d'avant : `src/pages/projets/aima.astro` donne `/projets/aima.html`. Il n'y a plus de liste de pages à tenir à jour : tout fichier de `src/pages/` est publié.
+### Comment ça marche
+
+- Chaque page est une fonction React qui renvoie du **JSX** : du HTML écrit dans du JavaScript. Différences avec le HTML : `className` au lieu de `class`, `htmlFor` au lieu de `for`, et `style={{ '--x': '10%' }}` au lieu de `style="--x: 10%"`.
+- Un **composant** est une fonction réutilisable qu'on appelle comme une balise, avec des **props** (paramètres) : `<ProjectCard projet={projet} />`.
+- Chaque page déclare son titre et sa description avec `export const metadata = { title: '…', description: '…' }`.
+- Au build, Next.js génère un fichier HTML par page dans `out/` : le site reste statique (pas de serveur), rapide et bien référencé. Tout dossier de `src/app/` qui contient un `page.jsx` est publié.
+- Les animations (`src/main.js`) sont du JavaScript classique qui agit sur le HTML une fois la page affichée. Les liens sont de simples `<a>` : chaque page se recharge, comme sur un site classique.
 
 Le contenu de démonstration est marqué **« À REMPLACER »** (badge `.todo` en pointillés). Pour tout retrouver, cherche `À REMPLACER` dans le projet.
 
@@ -79,29 +85,29 @@ Le contenu de démonstration est marqué **« À REMPLACER »** (badge `.todo` e
 ## Ajouter une page projet
 
 1. Ajoute le projet dans `src/data/projets.js` (titre, année, cadre, résumé, tags, image). Il apparaît aussitôt sur la page Projets, dans le carrousel de l'accueil et dans le lien « Projet suivant » des fiches. L'ordre du tableau est l'ordre d'affichage.
-2. Duplique `src/pages/projets/projet-exemple.astro` en `src/pages/projets/<slug>.astro` (même `slug` que dans `projets.js`).
-3. Remplis les sections. Chacune est un composant de `src/components/projet/` qui reçoit son contenu en propriétés :
+2. Duplique le dossier `src/app/projets/projet-exemple/` en `src/app/projets/<slug>/` (même `slug` que dans `projets.js`). La page sera en ligne sur `/projets/<slug>/`.
+3. Remplis les sections. Chacune est un composant de `src/components/projet/` qui reçoit son contenu en props :
 
-   | Composant | Section | Contenu |
+   | Composant | Section | Props |
    | --- | --- | --- |
-   | `ProjectLayout` | toute la fiche | `slug`, `title`, `description` ; ajoute la navigation « Projet suivant » |
-   | `CaseHero` | en-tête animé | `eyebrow`, `titre`, `accroche`, `liens`, `couleur` ; captures et `.floaty` dans le slot |
-   | `Contexte` | contexte + ticket | paragraphes dans le slot, `outils`, `fiche`, `statut` |
+   | `ProjectLayout` | toute la fiche | `slug` ; ajoute la navigation « Projet suivant » |
+   | `CaseHero` | en-tête animé | `eyebrow`, `titre`, `accroche`, `liens`, `couleur` ; captures et `.floaty` en enfants |
+   | `Contexte` | contexte + ticket | paragraphes en enfants, `outils`, `fiche`, `statut` |
    | `Questions` | page de cahier | `questions` (`question`, `reponse`) |
    | `Demarche` | carrousel des étapes | `etapes` (`titre`, `texte`, `image` ou `attendu`, `liens`) |
    | `Apport` | fiches « casquettes » | `casquettes` (`titre`, `texte`, `competences`), `tampon` |
    | `Galerie` | mosaïque filtrable | `titre`, `intro`, `filtres`, `items` (1 image, ou 2 pour un recto/verso) |
    | `Liens` | boutons de liens | `liens` |
 
-   Une section inutile se supprime. `aima.astro` sert d'exemple complet.
+   Une section inutile se supprime. `src/app/projets/aima/page.jsx` sert d'exemple complet.
 4. Mets tes images dans `public/images/projets/<slug>/` et référence-les en `/images/projets/<slug>/mon-image.png`, avec un `alt` descriptif.
 
 ---
 
 ## Ajouter une fiche de réflexion
 
-1. Duplique `src/pages/academique/journal/fiche-exemple.astro` en `ma-fiche.astro`.
-2. Garde **impérativement** la propriété `noindex` sur `<BaseLayout … noindex>` : elle ajoute `<meta name="robots" content="noindex, nofollow" />`.
+1. Duplique le dossier `src/app/academique/journal/fiche-exemple/` en `ma-fiche/`.
+2. Garde **impérativement** dans `metadata` la ligne `robots: { index: false, follow: false }` : elle ajoute `<meta name="robots" content="noindex, nofollow" />`.
 
 3. Remplis les 5 rubriques obligatoires et la réflexion critique :
    1. AC visés (codes précis, ex. AC34.01)
@@ -110,8 +116,8 @@ Le contenu de démonstration est marqué **« À REMPLACER »** (badge `.todo` e
    4. Dimension pro
    5. Synthèse « Je vs Nous »
    + Difficultés, pivots et axes d'amélioration
-4. Ajoute la carte dans `src/pages/academique/journal/index.astro`.
-5. Dans le tableau de `src/pages/academique/index.astro`, ajoute le lien vers la fiche sur chaque ligne d'AC concernée.
+4. Ajoute la carte dans `src/app/academique/journal/page.jsx`.
+5. Dans le tableau de `src/app/academique/page.jsx`, ajoute le lien vers la fiche sur chaque ligne d'AC concernée.
 
 > ⚠️ Ne mets **jamais** de lien vers `/academique` dans une page publique.
 
@@ -127,7 +133,7 @@ Le contenu de démonstration est marqué **« À REMPLACER »** (badge `.todo` e
    ```
 
 2. Sur [app.netlify.com](https://app.netlify.com) : **Add new site → Import an existing project → GitHub**, puis choisis le dépôt.
-3. Les réglages sont lus depuis `netlify.toml` (build `npm run build`, dossier `dist`, edge function). Il n'y a rien d'autre à saisir.
+3. Les réglages sont lus depuis `netlify.toml` (build `npm run build`, dossier `out`, edge function). Il n'y a rien d'autre à saisir.
 4. **Avant le premier déploiement**, configure `PROF_USER` et `PROF_PASS` (section suivante). Sans ces variables, le volet académique renvoie une erreur 503 : il reste fermé.
 5. Chaque `git push` sur `main` redéploie automatiquement.
 
@@ -160,7 +166,7 @@ cp .env.example .env           # puis modifie les valeurs dans .env
 netlify dev                    # → http://localhost:8888
 ```
 
-`netlify dev` lance le serveur Astro derrière un proxy (port 8888) et charge les variables du fichier `.env`.
+`netlify dev` lance le serveur Next.js derrière un proxy (port 8888) et charge les variables du fichier `.env`.
 
 À vérifier :
 
@@ -181,14 +187,14 @@ curl -I -u prof:change-moi http://localhost:8888/academique/ # 200
 
 ## Ajouter un outil ou logiciel
 
-Sur la page À propos (`src/pages/a-propos/index.astro`, section `#outils`), il y a deux tickets : « Design & audiovisuel » et « Développement ». Chacun est entouré de ses logos en stickers.
+Sur la page À propos (`src/app/a-propos/page.jsx`, section `#outils`), il y a deux tickets : « Design & audiovisuel » et « Développement ». Chacun est entouré de ses logos en stickers.
 
 1. Dépose le logo dans `public/images/tools/` (SVG de préférence).
-2. Ajoute une ligne dans le bon ticket : `<li class="receipt__row"><span>Nom</span><span aria-hidden="true">✓</span></li>`, puis mets à jour son total.
+2. Ajoute une ligne dans le bon ticket : `<li className="receipt__row"><span>Nom</span><span aria-hidden="true">✓</span></li>`, puis mets à jour son total.
 3. Ajoute un sticker dans le `.skills__stickers` du même ticket :
 
    ```html
-   <li class="tool-sticker" data-side="left" style="--x: 0rem; --y: 20%; --r: -8deg"><img src="/images/tools/nom.svg" alt="" width="48" height="48" loading="lazy" /></li>
+   <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "20%", "--r": "-8deg" }}><img src="/images/tools/nom.svg" alt="" width="48" height="48" loading="lazy" /></li>
    ```
 
    - `data-side` : à gauche (`left`) ou à droite (`right`) du ticket. Alterne les deux.
@@ -202,10 +208,10 @@ Logos : [Devicon](https://devicon.dev) (licence MIT) ; DaVinci Resolve et Spring
 
 ## Composants de mise en page
 
-- **Bandeau coloré** : `<section class="band band--cream">` (ou `band--aqua`, `band--yellow`).
+- **Bandeau coloré** : `<section className="band band--cream">` (ou `band--aqua`, `band--yellow`).
 - **Bord dentelé de ticket** : ajoute `torn-top` et/ou `torn-bottom` à un élément qui a une couleur `--band` (bandeaux, pied de page). Les dents débordent sur la section voisine.
-- **Icône** : `<svg class="icon" aria-hidden="true"><use href="/icons.svg#mail"></use></svg>`. Les icônes disponibles sont `linkedin`, `mail`, `instagram`, `behance`, `github` et `arrow`. Les logos et l'enveloppe sont des icônes pleines issues de [Font Awesome Free](https://fontawesome.com) (licence CC BY 4.0, crédit dans `public/icons.svg`). Pour en ajouter une, copie le `<path>` du SVG voulu dans un nouveau `<symbol>`. Pour une icône seule (sans texte visible), ajoute un texte `.visually-hidden` dans le lien.
-- **Carrousel** : `<ul class="carousel" data-carousel>` dans un `<div data-carousel-root>`, avec deux boutons `data-carousel-prev` / `data-carousel-next` (voir l'accueil). Le défilement s'aligne sur chaque carte, la page s'ouvre centrée sur la 2ᵉ carte, et la barre de défilement est masquée.
+- **Icône** : `<svg className="icon" aria-hidden="true"><use href="/icons.svg#mail"></use></svg>`. Les icônes disponibles sont `linkedin`, `mail`, `instagram`, `behance`, `github` et `arrow`. Les logos et l'enveloppe sont des icônes pleines issues de [Font Awesome Free](https://fontawesome.com) (licence CC BY 4.0, crédit dans `public/icons.svg`). Pour en ajouter une, copie le `<path>` du SVG voulu dans un nouveau `<symbol>`. Pour une icône seule (sans texte visible), ajoute un texte `.visually-hidden` dans le lien.
+- **Carrousel** : `<ul className="carousel" data-carousel>` dans un `<div data-carousel-root>`, avec deux boutons `data-carousel-prev` / `data-carousel-next` (voir l'accueil). Le défilement s'aligne sur chaque carte, la page s'ouvre centrée sur la 2ᵉ carte, et la barre de défilement est masquée.
 
 ## Animations et accessibilité
 

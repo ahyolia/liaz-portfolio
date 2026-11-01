@@ -2,10 +2,10 @@
 // le carrousel de l'accueil et la navigation « Projet suivant » des fiches.
 // L'ordre du tableau = l'ordre d'affichage. Ajouter un projet ici suffit
 // pour qu'il apparaisse partout ; sa fiche détaillée se crée dans
-// src/pages/projets/<slug>.astro (copier projet-exemple.astro).
+// src/app/projets/<slug>/page.jsx (copier projet-exemple/page.jsx).
 //
 // Champs :
-//   slug      identifiant, aussi le nom de la page (/projets/<slug>.html)
+//   slug      identifiant, aussi le nom de la page (/projets/<slug>/)
 //   titre     nom du projet
 //   annee     année affichée sur la carte
 //   cadre     contexte court (SAÉ, stage, perso…)
@@ -13,7 +13,7 @@
 //   roles     sous-titre du carrousel de l'accueil
 //   tags      mots-clés de la carte
 //   image     visuel de la carte et du carrousel
-//   href      (optionnel) lien de la fiche si elle n'est pas /projets/<slug>.html
+//   href      (optionnel) lien de la fiche si elle n'est pas /projets/<slug>/
 //   aRemplacer (optionnel) affiche le marqueur « À REMPLACER »
 
 export const projets = [
@@ -30,7 +30,7 @@ export const projets = [
   },
   {
     slug: 'projet-2',
-    href: '/projets/projet-exemple.html',
+    href: '/projets/projet-exemple/',
     titre: 'Projet 2',
     annee: '2025',
     cadre: 'Stage',
@@ -42,7 +42,7 @@ export const projets = [
   },
   {
     slug: 'projet-3',
-    href: '/projets/projet-exemple.html',
+    href: '/projets/projet-exemple/',
     titre: 'Projet 3',
     annee: '2025',
     cadre: 'Perso',
@@ -54,7 +54,7 @@ export const projets = [
   },
   {
     slug: 'projet-4',
-    href: '/projets/projet-exemple.html',
+    href: '/projets/projet-exemple/',
     titre: 'Projet 4',
     annee: '2024',
     cadre: 'Projet tutoré',
@@ -67,7 +67,7 @@ export const projets = [
 ];
 
 /** Lien de la fiche d'un projet */
-export const lienProjet = (projet) => projet.href ?? `/projets/${projet.slug}.html`;
+export const lienProjet = (projet) => projet.href ?? `/projets/${projet.slug}/`;
 
 /** Projet qui suit celui-ci dans la liste (on reboucle sur le premier) */
 export const projetSuivant = (slug) => {

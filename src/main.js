@@ -116,14 +116,16 @@ function initCaseHero() {
 
   // Entrée : texte mot à mot, captures qui glissent, flottants qui « pop »,
   // puis le surligneur se dessine
-  gsap
+  // (chaque étape n'est ajoutée que si ses éléments existent dans la page)
+  const marks = hero.querySelectorAll('.mark');
+  const tl = gsap
     .timeline({ defaults: { ease: 'power3.out' } })
     .from(hero.querySelectorAll('.back-btn, .eyebrow'), { autoAlpha: 0, y: 12, duration: 0.5, stagger: 0.08 })
     .from(words, { yPercent: 110, duration: 0.8, stagger: 0.045 }, '-=0.2')
-    .from(hero.querySelectorAll('.lead, .cluster'), { autoAlpha: 0, y: 20, duration: 0.6, stagger: 0.1 }, '-=0.5')
-    .from(phones, { autoAlpha: 0, y: 140, rotation: (i) => (i ? 14 : -14), duration: 1.1, stagger: 0.15, ease: 'back.out(1.3)' }, 0.25)
-    .from(floaties, { scale: 0, duration: 0.6, stagger: 0.08, ease: 'back.out(2.5)' }, '-=0.6')
-    .fromTo(hero.querySelectorAll('.mark'), { backgroundSize: '0% 0.35em' }, { backgroundSize: '100% 0.35em', duration: 0.8, ease: 'power2.inOut' }, '-=0.4');
+    .from(hero.querySelectorAll('.lead, .cluster'), { autoAlpha: 0, y: 20, duration: 0.6, stagger: 0.1 }, '-=0.5');
+  if (phones.length) tl.from(phones, { autoAlpha: 0, y: 140, rotation: (i) => (i ? 14 : -14), duration: 1.1, stagger: 0.15, ease: 'back.out(1.3)' }, 0.25);
+  if (floaties.length) tl.from(floaties, { scale: 0, duration: 0.6, stagger: 0.08, ease: 'back.out(2.5)' }, '-=0.6');
+  if (marks.length) tl.fromTo(marks, { backgroundSize: '0% 0.35em' }, { backgroundSize: '100% 0.35em', duration: 0.8, ease: 'power2.inOut' }, '-=0.4');
 
   // Parallaxe à la souris : chaque [data-depth] suit le pointeur plus ou moins fort
   if (stage && window.matchMedia('(pointer: fine)').matches) {

@@ -1,6 +1,5 @@
-/* Point d'entrée CSS, lié dans le <head> de chaque page.
-   Vite assemble les @import au build. */
-@import 'lenis/dist/lenis.css';
+/* Point d'entrée CSS, importé par src/app/layout.jsx (avec lenis.css).
+   Next.js assemble les @import au build. */
 @import './tokens.css';
 @import './base.css';
 @import './components.css';
