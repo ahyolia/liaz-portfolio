@@ -141,6 +141,18 @@ export const projets = [
     image: { src: '/images/projets/refonte-espaceclient-lagoon/mockup-accueil.webp', width: 1200, height: 903 },
   },
   {
+    slug: 'luckywheel-lagoon',
+    domaines: ['dev', 'ux'],
+    titre: 'La Grande Roue Lagoon',
+    annee: '2025',
+    cadre: 'Stage - OFFRATEL Lagoon',
+    resume:
+      "La refonte de la roue de la chance du stand Lagoon à la Foire du Pacifique 2025 : plus moderne, plus fun, avec du son et des animations. 119 participants, 35 prospects.",
+    roles: 'ui design · dev front',
+    tags: ['Figma', 'Nuxt', 'Animations', 'Stage'],
+    image: { src: '/images/projets/luckywheel-lagoon/roue.webp', width: 1364, height: 922 },
+  },
+  {
     slug: 'sticker-pack',
     domaines: ['graphisme'],
     titre: "LIAZ' Sticker pack",
