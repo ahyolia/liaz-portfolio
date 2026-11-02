@@ -57,7 +57,6 @@ export const projets = [
   {
     slug: 'liminis',
     domaines: ['ux', '3d', 'graphisme'],
-    aLaUne: true,
     titre: 'Liminis',
     annee: '2026',
     cadre: 'BUT MMI 3 - Projet Micro-Mondes',
