@@ -56,14 +56,14 @@ export default function Page() {
           { label: 'Cadre', valeur: "BUT MMI 3, projet Micro-Mondes, campus de l'UNC" },
           { label: 'Année', valeur: '2026' },
           { label: 'Équipe', valeur: 'Avec Magalie Chen (dev) et Geneviève Mekenese (UI/UX)' },
-          { label: 'Mon rôle', valeur: 'Direction artistique et design graphique' },
+          { label: 'Mon rôle', valeur: 'UI/UX design et branding' },
           { label: 'Outils', valeur: 'Figma, Photoshop, Affinity, Canva ; Vue, Leaflet, MindAR, PWA hors-ligne, Netlify' },
         ]}
         statut="Prototype en ligne"
       >
         <p>Sur le campus de l'Université de la Nouvelle-Calédonie, trois fresques de l'artiste Kuby Kolor (la tortue marine, l'hibiscus et le loriquet) cachent un second niveau de lecture : un monde invisible, microscopique, cellulaire.</p>
         <p>Avec Magalie et Geneviève, nous avons imaginé Liminis, une appli web qui transforme la visite en <span className="hl">quête du vivant</span>. On suit la carte jusqu'aux fresques, on les scanne en réalité augmentée pour révéler leurs fragments cachés, et on remplit un carnet de bord.</p>
-        <p>Une fois tous les tampons réunis, un familier se débloque, assemblé à partir de tout ce qu'on a découvert. Dans l'équipe, je me suis occupée de la direction artistique : identité visuelle, logo, charte, icônes et illustrations.</p>
+        <p>Une fois tous les tampons réunis, un familier se débloque, assemblé à partir de tout ce qu'on a découvert. Dans l'équipe, je me suis occupée du branding (identité visuelle, logo, charte, icônes et familiers) et de l'UI/UX de l'appli, de son parcours à ses écrans.</p>
       </Contexte>
 
       <Demarche
@@ -131,14 +131,14 @@ export default function Page() {
       <Apport
         casquettes={[
           {
-            titre: 'Direction artistique',
+            titre: 'Branding',
             texte: "Une identité qui relie les fresques, l'appli et les supports.",
             competences: ['Identité visuelle', 'Charte graphique', 'Illustration des familiers', 'Icône d’appli', 'Supports de communication', 'Photoshop, Affinity, Canva'],
           },
           {
-            titre: "Design d'expérience",
-            texte: 'Un parcours pensé à trois, du concept au prototype en ligne.',
-            competences: ['Concept et fil narratif', 'Parcours utilisateur', 'Réalité augmentée', 'Médiation scientifique'],
+            titre: 'UI/UX design',
+            texte: 'Une appli pensée pour le terrain, du parcours aux écrans.',
+            competences: ['User journey map et user flows', 'Arborescence', 'Wireframes Figma', 'Parcours en réalité augmentée', 'Médiation scientifique'],
           },
         ]}
       />

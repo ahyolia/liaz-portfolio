@@ -45,13 +45,14 @@ export const projets = [
   {
     slug: 'liminis',
     domaines: ['ux', '3d', 'graphisme'],
+    aLaUne: true,
     titre: 'Liminis',
     annee: '2026',
     cadre: 'BUT MMI 3 - Projet Micro-Mondes',
     resume:
       "Une appli web en réalité augmentée qui révèle le monde microscopique caché dans les fresques du campus, et un familier à réveiller au bout du parcours.",
-    roles: 'direction artistique · design graphique',
-    tags: ['Identité visuelle', 'Illustration', 'Figma', 'Réalité augmentée'],
+    roles: 'ui/ux design · branding',
+    tags: ['UI/UX', 'Branding', 'Figma', 'Réalité augmentée'],
     image: { src: '/images/projets/liminis/vignette.webp', width: 1600, height: 900 },
   },
   {
