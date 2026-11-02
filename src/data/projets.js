@@ -117,6 +117,19 @@ export const projets = [
     image: { src: '/images/projets/liaz-gallery/gallerie.webp', width: 1534, height: 862 },
   },
   {
+    slug: 'refonte-espaceclient-lagoon',
+    domaines: ['ux', 'dev'],
+    aLaUne: true,
+    titre: 'Espace client Lagoon',
+    annee: '2025',
+    cadre: 'Stage - OFFRATEL Lagoon',
+    resume:
+      "La refonte UI/UX de l'espace client d'un fournisseur d'accès internet calédonien, des maquettes Figma à l'intégration : toujours en production.",
+    roles: 'ui/ux design · dev front',
+    tags: ['UI/UX', 'Figma', 'Intégration', 'Stage'],
+    image: { src: '/images/projets/refonte-espaceclient-lagoon/mockup-accueil.webp', width: 1200, height: 903 },
+  },
+  {
     slug: 'sticker-pack',
     domaines: ['graphisme'],
     titre: "LIAZ' Sticker pack",
