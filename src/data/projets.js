@@ -43,6 +43,18 @@ export const projets = [
     image: { src: '/images/projets/aima/screens_app/mockups-aima.webp', width: 1080, height: 721 },
   },
   {
+    slug: 'tenjity',
+    domaines: ['dev', 'ux'],
+    titre: 'Tenjity',
+    annee: '2026',
+    cadre: 'Alternance - OFFRATEL Lagoon',
+    resume:
+      "Un module d'accessibilité web calédonien : loupe, mode sombre et autres fonctionnalités après des tests avec l'association Valentin Haüy, et la page article du site.",
+    roles: 'dev front · ui/ux · accessibilité',
+    tags: ['Accessibilité', 'Tests utilisateurs', 'Figma', 'Nuxt'],
+    image: { src: '/images/projets/tenjity/test-avh.webp', width: 1600, height: 1200 },
+  },
+  {
     slug: 'liminis',
     domaines: ['ux', '3d', 'graphisme'],
     aLaUne: true,
