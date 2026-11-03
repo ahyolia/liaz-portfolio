@@ -1,5 +1,5 @@
 // Section « Mon apport » : une fiche papier par casquette (quadrillée, rose,
-// crème ; 2 ou 3 côte à côte), compétences en stickers colorés, tampon optionnel entre les deux.
+// crème ; 2 ou 3 côte à côte), compétences en stickers blancs, tampon optionnel entre les deux.
 //
 // Props : titre, casquettes [{ titre, texte, competences }],
 // tampon { texte, label } (texte en HTML, ex. "~180<br />commits" ; label = version lue)

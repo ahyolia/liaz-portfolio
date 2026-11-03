@@ -14,7 +14,7 @@
 
   --cream: #FCF9E3;        /* papier ticket, teinté jaune */
   --paper: #FFFFFF;        /* feuilles blanches (cahier, polaroid) */
-  --bg: #FFFDFC;           /* fond de page */
+  --bg: #F6F1EB;           /* fond de page : plus soutenu que les feuilles blanches */
 
   /* Anciennes palettes (pour revenir en arrière, remplacer les valeurs) :
      Lorie de park : violet #A285BA · pink #E65887 · green #BDC473 · peach #FAB37F · ink #3F2A55
@@ -38,10 +38,11 @@
 
   /* Décor papier */
   --rule-margin: var(--pink);   /* marge du cahier */
-  --rule-line: #CFEFF1;         /* lignes du cahier */
-  --grid-line: #E2F5F6;         /* papier quadrillé */
-  --dot: #F3E1E4;               /* pois du fond de page */
-  --line-soft: rgb(30 58 68 / 0.3);    /* pointillés */
+  --rule-line: #BFE4E8;         /* lignes du cahier */
+  --grid-line: #D3EDEF;         /* papier quadrillé */
+  --dot: #E2CDD1;               /* pois du fond de page */
+  --line-soft: rgb(30 58 68 / 0.45);   /* pointillés */
+  --ink-soft: #4A6169;                 /* texte secondaire, 6:1 sur blanc (au lieu d'opacités) */
   --shadow-color: 30 58 68;            /* ombres teintées */
 
   /* ---- Polices -------------------------------------------------------- */
@@ -82,7 +83,7 @@
   --radius-s: 0.25rem;
   --radius-m: 0.6rem;
   --radius-pill: 999px;
-  --shadow-paper: 0 1px 2px rgb(var(--shadow-color) / 0.15), 0 10px 24px -8px rgb(var(--shadow-color) / 0.3);
+  --shadow-paper: 0 0 0 1px rgb(var(--shadow-color) / 0.08), 0 1px 2px rgb(var(--shadow-color) / 0.18), 0 12px 26px -8px rgb(var(--shadow-color) / 0.34);
   --duration: 0.6s;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }

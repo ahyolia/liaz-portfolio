@@ -282,6 +282,36 @@ function initGalleryFilters() {
   });
 }
 
+// Bouton « Revenir en haut » : visible après un écran de défilement
+function initBackToTop() {
+  const bouton = document.querySelector('[data-back-to-top]');
+  if (!bouton) return;
+  bouton.hidden = false;
+  const maj = () => bouton.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8);
+  window.addEventListener('scroll', maj, { passive: true });
+  maj();
+  bouton.addEventListener('click', () => {
+    if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+    else window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    // Le focus revient en haut de page (lien d'évitement) pour la navigation au clavier
+    document.querySelector('.skip-link')?.focus({ preventScroll: true });
+  });
+}
+
+// Liens vers un autre site : nouvel onglet, sans donner la main à la page ouverte.
+// Une mention cachée prévient les lecteurs d'écran (mailto: et tel: ne sont pas concernés).
+function initExternalLinks() {
+  document.querySelectorAll('a[href^="http"]').forEach((lien) => {
+    if (lien.hostname === window.location.hostname) return;
+    lien.target = '_blank';
+    lien.relList.add('noopener', 'noreferrer');
+    if (!lien.querySelector('.visually-hidden')) {
+      lien.insertAdjacentHTML('beforeend', '<span class="visually-hidden"> (nouvel onglet)</span>');
+    }
+  });
+}
+
+initExternalLinks();
 initCarousels();
 initLightbox();
 initGalleryFilters();
@@ -292,3 +322,5 @@ if (!prefersReducedMotion) {
   initReveal();
   initStickers();
 }
+
+initBackToTop();

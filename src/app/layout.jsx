@@ -5,6 +5,7 @@ import 'lenis/dist/lenis.css';
 import '../styles/main.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import BackToTop from '../components/BackToTop';
 import Animations from '../components/Animations';
 
 export const metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <BackToTop />
         <Animations />
       </body>
     </html>

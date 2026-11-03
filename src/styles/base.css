@@ -251,26 +251,259 @@ a:hover { text-decoration-color: var(--color-accent); }
   border-bottom-style: solid;
 }
 
-/* ---- Bandeau et sous-navigation du volet académique -------------------- */
-.academic-banner {
-  max-width: none;
-  padding: var(--space-2xs) var(--space-s);
-  background: var(--color-highlight);
-  color: var(--ink);
-  font-size: var(--step--1);
-  text-align: center;
+/* ---- Compétences du volet académique : une feuille de cahier par compétence
+   Le texte suit les lignes du cahier (--line) : marges en multiples de --line. */
+.competence + .competence { padding-block-start: 0; }
+
+.competence__sheet { position: relative; }
+
+/* Tampon « BUT 3 » posé en haut à droite de la feuille */
+.competence__stamp {
+  position: absolute;
+  top: var(--space-m);
+  right: var(--space-m);
+  width: 5.5rem;
+  rotate: 12deg;
 }
 
+.competence__sheet h2 { font-size: var(--step-4); line-height: calc(var(--line) * 2); }
+.competence__sheet > .annotation { margin-block-start: 0; padding-inline-end: 6rem; }
+
+/* Téléphone : tampon plus petit, dans le coin, et texte sur toute la largeur */
+@media (max-width: 47.99rem) {
+  .competence__stamp { top: var(--space-2xs); right: var(--space-2xs); width: 4rem; font-size: var(--step--2); }
+  .competence__sheet > .annotation { padding-inline-end: 0; }
+  .competence__sheet h2 { padding-inline-end: 4rem; }
+}
+
+.notebook .competence__niveau h3 { /* .notebook h3 (components.css) l'emporterait sinon */
+  margin-block: var(--line) 0;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+/* Une entrée par AC, calée sur les lignes du cahier : code et intitulé sur la
+   même ligne (titre), puis la fiche de réflexion et les projets sur deux lignes distinctes */
+.ac-entries > li + li { margin-block-start: var(--line); }
+
+.ac-entry,
+.ac-entry > * { max-width: none; }
+.ac-entry > * { margin: 0; }
+
+.ac-entry__code {
+  margin-inline-end: 0.35em;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.notebook .ac-entry__titre {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-display);
+}
+
+/* Preuves : deux groupes côte à côte (fiche, projets). Chaque lien est un mini
+   post-it collé sur la feuille : jaune pour la fiche de réflexion (la preuve
+   principale), aqua pour les projets. */
+.ac-entry__preuves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-l);
+  margin-block-start: var(--space-2xs);
+}
+
+.ac-entry .ac-entry__groupe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3xs) var(--space-xs);
+  margin: 0;
+}
+
+.ac-entry__label {
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ac-entry__vide {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.ac-postits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-xs);
+}
+
+.ac-lien {
+  display: inline-block;
+  padding: 0.25em 0.75em 0.3em;
+  background: var(--aqua);
+  color: var(--ink);
+  font-family: var(--font-hand);
+  font-size: var(--step-0);
+  line-height: 1.3;
+  text-decoration: none;
+  box-shadow: 0 6px 8px -5px rgb(var(--shadow-color) / 0.45);
+  border-bottom-right-radius: 60% 0.35rem; /* coin corné, comme les grands post-its */
+  transition: rotate 0.15s, translate 0.15s, box-shadow 0.15s;
+}
+
+.ac-lien--fiche { background: var(--yellow); }
+
+.ac-lien:nth-child(odd) { rotate: -1.5deg; }
+.ac-lien:nth-child(even) { rotate: 1.2deg; }
+
+.ac-lien:hover,
+.ac-lien:focus-visible {
+  rotate: 0deg;
+  translate: 0 -2px;
+  box-shadow: 0 9px 10px -6px rgb(var(--shadow-color) / 0.5);
+  text-decoration: underline 1.5px;
+  text-underline-offset: 0.2em;
+}
+
+/* ---- Bandeau et sous-navigation du volet académique -------------------- */
+/* Tampon « Réservé à l'équipe pédagogique », posé en haut à droite de la fiche */
+.academic-stamp {
+  position: absolute;
+  top: calc(clamp(var(--space-l), 5vw, var(--space-2xl)) - 0.35em);
+  right: clamp(var(--space-m), 4vw, var(--space-xl));
+  z-index: 2;
+  margin: 0;
+  padding: 0.25em 0.8em;
+  border: 2.5px solid var(--color-accent);
+  border-radius: 0.3rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  rotate: -3deg;
+  pointer-events: none;
+}
+.academic-stamp + * { margin-block-start: 0; }
+
+/* Téléphone : le tampon reprend sa place au-dessus du texte, sans le chevaucher */
+@media (max-width: 47.99rem) {
+  .academic-stamp { position: static; justify-self: start; margin-block-end: var(--space-xs); }
+  .academic-stamp + * { margin-block-start: var(--space-xs); }
+}
+
+/* En-tête des pages du volet académique : une fiche quadrillée (comme celles des
+   projets), avec les onglets de classeur qui dépassent de son bord supérieur */
+/* .gridpaper.academic-head : plus précis que .gridpaper (components.css, chargé
+   après), qui imposerait sinon sa propre marge intérieure */
+.gridpaper.academic-head {
+  position: relative;
+  /* plus large que le conteneur, comme la feuille blanche des fiches projet */
+  width: min(100% - 2 * var(--space-2xs), calc(var(--container) + 2 * var(--space-xl)));
+  margin-block-start: var(--space-xl);
+  padding: clamp(var(--space-l), 5vw, var(--space-2xl)) clamp(var(--space-l), 8vw, var(--space-3xl));
+  border-radius: 0 0.5rem 0.5rem;
+}
+
+.academic-head > nav:first-child {
+  position: absolute;
+  bottom: 100%;
+  left: clamp(var(--space-l), 8vw, var(--space-3xl));
+  margin: 0;
+}
+
+.academic-head > nav:first-child + * { margin-block-start: 0; }
+
+/* « Mon parcours » : deux stickers penchés (comme dans les en-têtes de projets),
+   le parcours en rose et la formation en alternance en turquoise */
+.academic-parcours {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-xs);
+  max-width: none;
+}
+
+.academic-parcours .sticker { font-size: var(--step-1); rotate: -2deg; }
+.academic-parcours .sticker--aqua { rotate: 2deg; }
+
+/* Post-its du journal des fiches : plus larges que le post-it de base (22rem), et
+   une forme par information (le post-it de base écrit tout à la main) */
+.academic-head .postit {
+  max-width: none;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+.academic-head .postit > * { margin: 0; }
+.academic-head .postit > * + * { margin-block-start: var(--space-xs); }
+.academic-head .postit time { font-family: var(--font-hand); color: var(--ink-soft); }
+.academic-head .postit h2 { font-size: var(--step-3); line-height: 1.1; }
+.journal-label { font-family: var(--font-hand); font-size: var(--step-0); color: var(--color-accent); }
+.academic-head .postit .journal-label + .journal-ac { margin-block-start: var(--space-3xs); }
+/* AC : des étiquettes au simple contour, à l'encre */
+.journal-ac li {
+  padding: 0.05em 0.6em;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 600;
+}
+.journal-resume { color: var(--ink); }
+
+
+/* Onglets de classeur (intercalaires) ; l'onglet actif est turquoise et
+   surélevé, comme l'onglet « ← Projets » des fiches projet */
 .academic-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-s);
+  align-items: flex-end;
+  gap: var(--space-2xs);
   padding: 0;
   list-style: none;
   font-size: var(--step--1);
+  font-weight: 600;
 }
 
-.academic-nav a[aria-current='page'] { color: var(--color-accent); }
+.academic-nav a {
+  display: block;
+  padding: 0.5rem 1.25rem 0.4rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: var(--yellow); /* onglet inactif : jaune de la palette, bien visible sur le quadrillé */
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 -2px 6px -3px rgb(var(--shadow-color) / 0.3);
+  transition: background-color 0.2s var(--ease);
+}
+
+.academic-nav a:hover { background: var(--paper); }
+
+.academic-nav a[aria-current] { /* page en cours, ou fiche du journal */
+  padding-block: 0.7rem 0.55rem;
+  background: var(--aqua);
+}
+
+/* Téléphone : onglets sur une ligne, marges réduites et titre plus petit,
+   pour que « apprentissages » tienne dans la fiche */
+@media (max-width: 40rem) {
+  .academic-nav { flex-wrap: nowrap; }
+  .academic-nav a { padding-inline: 0.8rem; white-space: nowrap; }
+  .gridpaper.academic-head { padding-inline: var(--space-m); }
+  .gridpaper.academic-head > nav:first-child { left: var(--space-m); }
+  .academic-head h1 { font-size: var(--step-4); }
+}
 
 /* ---- Lien d'évitement --------------------------------------------------- */
 .skip-link {
@@ -492,3 +725,170 @@ main:has(> .band:last-child) + .site-footer { margin-block-start: 0; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Fiches de réflexion (src/components/academique/Fiche.jsx)
+   ========================================================================== */
+
+/* En-tête : texte à gauche, ticket à droite */
+.fiche-head { display: grid; gap: var(--space-l); align-items: center; }
+.fiche-head h1 { font-size: var(--step-5); line-height: 1.05; }
+.fiche-head .lead { color: var(--ink-soft); }
+.fiche-head__ticket { width: min(100%, 21rem); justify-self: center; rotate: 2deg; }
+/* Colonne du ticket à largeur fixe : en « auto », un long texte du ticket élargissait
+   la colonne et écrasait le titre et l'introduction */
+@media (min-width: 64rem) { .fiche-head { grid-template-columns: minmax(0, 1fr) 21rem; gap: var(--space-xl); } }
+
+/* Sommaire : intercalaires numérotés */
+.fiche-sommaire { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
+.fiche-sommaire a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  padding: 0.45em 1em;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s var(--ease);
+}
+/* Au survol, l'intercalaire s'encre et la flèche descend : on va sauter à la partie */
+.fiche-sommaire a:hover,
+.fiche-sommaire a:focus-visible { background: var(--ink); color: var(--paper); }
+.fiche-sommaire a:hover .fiche-sommaire__num,
+.fiche-sommaire a:focus-visible .fiche-sommaire__num { color: var(--yellow); }
+.fiche-sommaire__fleche { color: var(--ink-soft); transition: translate 0.2s var(--ease); }
+.fiche-sommaire a:hover .fiche-sommaire__fleche,
+.fiche-sommaire a:focus-visible .fiche-sommaire__fleche { color: var(--paper); translate: 0 3px; }
+.fiche-sommaire__num { color: var(--color-accent); font-family: var(--font-mono); }
+
+/* Chaque partie : grand numéro rose, titre, note manuscrite */
+.fiche-section { scroll-margin-top: 6rem; }
+.fiche-section__head { display: flex; align-items: flex-start; gap: var(--space-s); margin-block-end: var(--line); }
+.notebook .fiche-section__head h2 { font-size: var(--step-3); line-height: 1.1; }
+.fiche-section__num {
+  font-family: var(--font-hand);
+  font-size: var(--step-4);
+  line-height: 1;
+  color: var(--color-accent);
+}
+.notebook .fiche-section__note { margin-block-start: var(--space-2xs); color: var(--ink-soft); font-size: var(--step-1); line-height: 1.3; }
+
+/* AC visés : code rose + intitulé, détail en dessous */
+.fiche-ac > li + li { margin-block-start: var(--space-2xs); }
+.fiche-ac p { margin: 0; max-width: none; }
+.fiche-ac__titre { font-weight: 600; }
+.fiche-ac__code { margin-inline-end: 0.4em; color: var(--color-accent); font-family: var(--font-mono); font-size: 0.9em; }
+.fiche-ac__detail { color: var(--ink-soft); font-size: var(--step--1); }
+.notebook .fiche-soustitre {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+/* Preuves : un lien par ligne, ce qu'on y trouve à côté */
+.fiche-preuves li { display: flex; flex-wrap: wrap; gap: 0 0.75em; align-items: baseline; }
+.fiche-preuves a { font-weight: 600; color: var(--ink); }
+.fiche-preuves__detail { color: var(--ink-soft); font-size: var(--step--1); }
+
+/* Démonstration : un titre et un texte simple ; dans la marge de droite, une note
+   « ce que ça prouve » avec le code et l'intitulé de chaque AC */
+.fiche-bloc { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs) var(--space-xl); }
+.fiche-bloc + .fiche-bloc { margin-block-start: var(--line); }
+.notebook .fiche-bloc h3 { font-size: var(--step-1); }
+.fiche-bloc__texte > * { margin: 0; }
+.fiche-bloc__texte > * + * { margin-block-start: var(--space-2xs); }
+.fiche-bloc__tech { margin: 0; color: var(--ink-soft); font-size: var(--step--1); }
+.fiche-bloc__tech span { margin-inline-end: 0.4em; color: var(--color-accent); font-family: var(--font-hand); font-size: var(--step-0); }
+
+.fiche-bloc__preuve {
+  padding: var(--space-xs) var(--space-s);
+  border-radius: var(--radius-m);
+  background: var(--cream);
+  line-height: 1.4;
+  rotate: 1deg;
+}
+.fiche-bloc__preuve-titre { margin: 0 0 var(--space-3xs); color: var(--color-accent); font-family: var(--font-hand); font-size: var(--step-0); }
+.fiche-bloc__preuve li { font-size: var(--step--1); color: var(--ink); }
+.fiche-bloc__preuve li + li { margin-block-start: var(--space-2xs); }
+.fiche-bloc__code { display: block; color: var(--color-accent); font-family: var(--font-mono); font-weight: 600; }
+
+@media (min-width: 64rem) {
+  .fiche-bloc { grid-template-columns: minmax(0, 1fr) 15rem; }
+  .fiche-bloc > :not(.fiche-bloc__preuve) { grid-column: 1; }
+  .fiche-bloc__preuve { grid-column: 2; grid-row: 1 / span 3; align-self: start; }
+}
+
+/* Texte des fiches : un vrai retrait après la marge rouge du cahier */
+.notebook.fiche-section {
+  padding-inline: calc(var(--margin) + var(--space-l)) clamp(var(--space-m), 4vw, var(--space-2xl));
+}
+@media (max-width: 47.99rem) {
+  .notebook.fiche-section { padding-inline: calc(var(--margin) + var(--space-s)) var(--space-s); }
+}
+
+/* « Je vs Nous » : deux fiches scotchées côte à côte */
+.fiche-jenous { display: grid; gap: var(--space-l); margin-block-start: var(--space-m); }
+@media (min-width: 48rem) { .fiche-jenous { grid-template-columns: 1fr 1fr; align-items: start; } }
+.fiche-carte {
+  position: relative;
+  padding: var(--space-l) var(--space-m) var(--space-m);
+  border-radius: 0.25rem;
+  line-height: var(--leading-normal);
+  box-shadow: 0 12px 16px -10px rgb(var(--shadow-color) / 0.45);
+}
+.fiche-carte > * + * { margin-block-start: var(--space-xs); }
+.fiche-carte--nous { background: #E4F6F7; rotate: -1deg; }
+.fiche-carte--je { background: #FBF4C4; rotate: 1deg; }
+.notebook .fiche-carte h3 { font-family: var(--font-hand); font-size: var(--step-3); line-height: 1; }
+.fiche-carte__groupe { margin: 0; font-weight: 600; }
+.fiche-carte ul { margin: 0; padding-inline-start: 1.2em; }
+
+/* Difficultés : une carte par obstacle */
+.fiche-pivots { display: grid; gap: var(--space-m); margin-block-start: var(--space-s); }
+@media (min-width: 64rem) { .fiche-pivots { grid-template-columns: repeat(2, 1fr); } }
+.fiche-pivots li {
+  padding: var(--space-s) var(--space-m);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  line-height: var(--leading-normal);
+}
+.fiche-pivots p { margin: 0; max-width: none; }
+.fiche-pivots p + p { margin-block-start: var(--space-2xs); }
+.fiche-pivots__obstacle { font-family: var(--font-display); font-size: var(--step-1); font-weight: var(--weight-display); }
+.fiche-pivots__label { display: block; color: var(--color-accent); font-family: var(--font-hand); font-size: var(--step-0); }
+
+/* ---- Bouton « Revenir en haut » (src/components/BackToTop.jsx) --------- */
+.back-to-top {
+  position: fixed;
+  right: clamp(var(--space-s), 3vw, var(--space-l));
+  bottom: clamp(var(--space-s), 3vw, var(--space-l));
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  aspect-ratio: 1;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow: 0 4px 0 rgb(var(--shadow-color) / 0.35);
+  cursor: pointer;
+  opacity: 0;
+  translate: 0 1rem;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease), translate 0.3s var(--ease), background-color 0.2s var(--ease);
+}
+.back-to-top.is-visible { opacity: 1; translate: 0 0; pointer-events: auto; }
+.back-to-top:hover { background: var(--paper); }
+.back-to-top:active { translate: 0 2px; box-shadow: 0 2px 0 rgb(var(--shadow-color) / 0.35); }
+.back-to-top:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+.back-to-top .icon { width: 1.4rem; height: 1.4rem; rotate: -90deg; transition: translate 0.2s var(--ease); }
+.back-to-top:hover .icon { translate: 0 -2px; }
