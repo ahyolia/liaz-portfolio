@@ -52,7 +52,7 @@ export const projets = [
       "Un module d'accessibilité web calédonien : loupe, mode sombre et autres fonctionnalités après des tests avec l'association Valentin Haüy, et la page article du site.",
     roles: 'dev front · ui/ux · accessibilité',
     tags: ['Accessibilité', 'Tests utilisateurs', 'Figma', 'Nuxt'],
-    image: { src: '/images/projets/tenjity/test-avh.webp', width: 1600, height: 1200 },
+    image: { src: '/images/projets/tenjity/vignette-module.webp', width: 1200, height: 900 },
   },
   {
     slug: 'liminis',
@@ -110,7 +110,7 @@ export const projets = [
     annee: '2026',
     cadre: 'Concours webdoc NC la 1ère',
     resume:
-      "Un web-documentaire sur Mirella, surveillante de lycée, réalisé en binôme pour le concours « Les Étincelles Calédoniennes » et diffusé par NC la 1ère.",
+      "Un web-documentaire sur Mirella, surveillante de lycée, réalisé en binôme pour le concours « Les Étincelles Calédoniennes » de NC la 1ère : prix Coup de cœur du jury.",
     roles: 'web-documentaire · gestion de projet',
     tags: ['Vidéo', 'Prise de son', 'Interview', 'ClickUp'],
     image: { src: '/images/projets/etincelle-caledonienne/visuel-brut.webp', width: 1600, height: 900 },
@@ -126,6 +126,19 @@ export const projets = [
     roles: 'dev unity · 3d interactive',
     tags: ['Unity 6', 'C#', 'Reconnaissance vocale'],
     image: { src: '/images/projets/liaz-gallery/gallerie.webp', width: 1534, height: 862 },
+  },
+  {
+    slug: 'yearbook-2025',
+    domaines: ['graphisme'],
+    aLaUne: true,
+    titre: 'Yearbook 2025',
+    annee: '2025',
+    cadre: "IUT de Nouvelle-Calédonie - Proposition élue",
+    resume:
+      "Le yearbook de tout l'IUT sur le thème des agents secrets : ma proposition, élue par la classe, mise en page en binôme sur 52 pages.",
+    roles: 'édition · direction artistique',
+    tags: ['InDesign', 'Illustrator', 'Photoshop', 'Mise en page'],
+    image: { src: '/images/projets/yearbook25/vignette.webp', width: 1200, height: 900 },
   },
   {
     slug: 'refonte-espaceclient-lagoon',
@@ -177,6 +190,18 @@ export const projets = [
     image: { src: '/images/projets/eveil-des-abysses/evenement-visiteur.webp', width: 1600, height: 1066 },
   },
   {
+    slug: 'epise',
+    domaines: ['dev', 'ux'],
+    titre: 'EPISE',
+    annee: '2025',
+    cadre: 'BUT MMI 2 - SAÉ 301 et 401',
+    resume:
+      "La plateforme de l'épicerie solidaire de l'UNC : conçue à quatre en PHP MVC, puis reprise seule avec un front Angular, une API REST et des design patterns.",
+    roles: 'dev full-stack · ui/ux',
+    tags: ['Angular', 'API REST PHP', 'Design patterns', 'MySQL'],
+    image: { src: '/images/projets/epise/site-accueil.webp', width: 1440, height: 900 },
+  },
+  {
     slug: 'windtell',
     domaines: ['3d', 'dev', 'graphisme'],
     titre: 'Windtell',
@@ -187,6 +212,30 @@ export const projets = [
     roles: 'game design · fabrication · branding',
     tags: ['Jeu de plateau', 'Impression 3D', 'Découpe laser', 'React Native'],
     image: { src: '/images/projets/windtell/partie-test.webp', width: 1400, height: 1050 },
+  },
+  {
+    slug: 'personal-branding',
+    domaines: ['graphisme'],
+    titre: 'Personal branding',
+    annee: '2024',
+    cadre: 'BUT MMI - Identité personnelle',
+    resume:
+      "Mon identité personnelle : un monogramme C et A inspiré des sceaux d'Asie, sa palette et ses déclinaisons sur cartes de visite et packagings.",
+    roles: 'identité visuelle · illustrator · photoshop',
+    tags: ['Branding', 'Monogramme', 'Packaging', 'Photoshop'],
+    image: { src: '/images/projets/personal-branding/couverture.webp', width: 1400, height: 840 },
+  },
+  {
+    slug: 'haigi',
+    domaines: ['graphisme'],
+    titre: 'Haigi',
+    annee: '2024',
+    cadre: 'BUT MMI 1 - Design de marque',
+    resume:
+      "L'identité d'une marque fictive de capsules qui transforment un liquide en objet : moodboards, logo, typographies et supports, en binôme.",
+    roles: 'identité visuelle · illustrator',
+    tags: ['Branding', 'Logo', 'Illustrator', 'Affiches'],
+    image: { src: '/images/projets/haigi/couverture.webp', width: 1400, height: 767 },
   },
 ];
 
