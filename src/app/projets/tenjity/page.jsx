@@ -36,9 +36,9 @@ export default function Page() {
           { href: article, label: "Lire l'article sur les tests" },
         ]}
       >
-        <img src={`${img}/test-avh.webp`} alt="L'équipe Tenjity et des adhérents de l'association Valentin Haüy autour d'une table, ordinateurs ouverts, pendant les tests du module" width="1600" height="1200" data-depth="0.4" style={{ width: '88%', borderRadius: '0.75rem', boxShadow: '0 18px 40px -20px rgb(0 0 0 / 0.6)' }} />
+        <img src={`${img}/site-accueil.webp`} alt="L'accueil de tenjity.com : « Vous voulez un site web plus accessible ? », avec les réglages du module (zooms, curseur, teintes, mode sombre)" width="1600" height="910" data-depth="0.4" style={{ width: '92%', borderRadius: '0.75rem', boxShadow: '0 18px 40px -20px rgb(0 0 0 / 0.6)' }} />
         <span className="floaty sticker" data-depth="1.8" style={{ '--x': '-2%', '--y': '6%', '--r': '-8deg', '--size': 'auto' }}>Testé avec l'AVH</span>
-        <img className="floaty floaty--card" src={`${img}/module-panneau.webp`} alt="" {...panneau} data-depth="1.6" style={{ '--x': '80%', '--y': '30%', '--r': '7deg', '--size': '6.5rem', '--delay': '-3s', border: '4px solid var(--ink)', borderRadius: '0.5rem' }} />
+        <img className="floaty floaty--card" src={`${img}/module-curseur.webp`} alt="" width="1200" height="827" data-depth="1.6" style={{ '--x': '74%', '--y': '70%', '--r': '7deg', '--size': '9rem', '--delay': '-3s', border: '4px solid var(--ink)', borderRadius: '0.5rem' }} />
         <span className="floaty sticker sticker--aqua" data-depth="1.4" style={{ '--x': '6%', '--y': '86%', '--r': '5deg', '--size': 'auto', '--delay': '-2s' }}>RGAA & WCAG</span>
       </CaseHero>
 

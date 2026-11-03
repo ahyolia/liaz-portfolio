@@ -13,6 +13,8 @@ const img = '/images/projets/windtell';
 const appli = 'https://windtell.vercel.app';
 const github = 'https://github.com/ahyolia/Windtell';
 const dossier = `${img}/dossier-de-conception.pdf`;
+const figma = 'https://www.figma.com/design/KqdvvgNCyPlddSRsF03LfP/SAE-302?node-id=0-1';
+const planche = { width: 1440, height: 810 };
 const page = { width: 1100, height: 1556 };
 const photo = { width: 1400, height: 1050 };
 const photoPortrait = { width: 1050, height: 1400 };
@@ -50,6 +52,7 @@ export default function Page() {
           { nom: 'Photoshop', icone: '/images/tools/photoshop.svg' },
           { nom: 'InDesign', icone: '/images/tools/indesign.svg' },
           { nom: 'React', icone: '/images/tools/react.svg' },
+          { nom: 'Figma', icone: '/images/tools/figma.svg' },
         ]}
         fiche={[
           { label: 'Cadre', valeur: 'SAÉ 302, BUT MMI 2, forum des jeux de société' },
@@ -68,8 +71,14 @@ export default function Page() {
       <Demarche
         etapes={[
           {
+            titre: 'La veille',
+            texte: "Nous avons commencé par une veille, réunie sur un tableau Figma : Fall Guys pour le principe de survie, des game designers repérés sur Behance pour les personnages, Genshin Impact pour une palette plus douce mais bien contourée, et les couleurs à éviter, trop « vieux jeu de fantaisie ». L'objectif : faire découvrir la Nouvelle-Calédonie sous un angle accessible et amusant.",
+            image: { src: `${img}/veille-inspirations.webp`, alt: 'Planche de veille : inspirations Fall Guys, Genshin Impact, game designers, palettes et idées de plateau en bois', ...planche },
+            liens: [{ href: figma, label: 'Voir la veille sur Figma' }],
+          },
+          {
             titre: 'Le concept et le récit',
-            texte: "Après une veille sur les jeux de société, nous avons trouvé le concept en brainstorming : un jeu de survie sur un plateau en mouvement, inspiré de Fall Guys, de Hunger Games et des mythes calédoniens, puis écrit son récit.",
+            texte: "En brainstorming, nous avons trouvé le concept : un jeu de survie sur un plateau en mouvement, inspiré de Fall Guys, de Hunger Games et des mythes calédoniens, puis écrit son récit.",
             images: [
               { src: `${img}/croquis-plateau.webp`, alt: 'Croquis du plateau circulaire et de ses niveaux, au crayon de couleur', ...photoPortrait },
               { src: `${img}/croquis-composants.webp`, alt: 'Croquis annoté du dé et des composants du jeu', ...photoPortrait },
@@ -84,6 +93,11 @@ export default function Page() {
               { src: `${img}/dossier-mecaniques.webp`, alt: 'Page Mécanismes du jeu du dossier : objectif, cartes et page de règles', ...page },
               { src: `${img}/dossier-enigmes.webp`, alt: 'Page Rédaction des énigmes du dossier : processus et types d’énigmes', ...page },
             ],
+          },
+          {
+            titre: 'Le plateau et le dé',
+            texte: "Nous avons exploré plusieurs plateaux (des îlots, des directions au choix) avant de retenir un plateau à quatre niveaux qui tournent, avec un portail pour passer au niveau supérieur, et un dé à symboles qui fait avancer ou déclenche un événement.",
+            image: { src: `${img}/veille-plateau.webp`, alt: 'Planche de recherche : idées de plateau, système du dé, prototype du plateau et du dé', ...planche },
           },
           {
             titre: 'Le prototype en carton',
@@ -128,8 +142,9 @@ export default function Page() {
             titre: 'Le branding et la communication',
             texte: "Nous avons créé l'identité du jeu : une palette céleste, un logo en esprit du vent mesquin, un nuage aux expressions changeantes, et le slogan « Puisse le vent tourner en votre faveur ! ». Elle se retrouve sur les cartes, l'appli et nos t-shirts floqués.",
             images: [
-              { src: `${img}/dossier-branding.webp`, alt: 'Page Branding du dossier : moodboard, logo et brandboard', ...page },
-              { src: `${img}/dossier-cartes.webp`, alt: 'Page Fabrication du dossier : impression des cartes et flocage des t-shirts', ...page },
+              { src: `${img}/brandboard.webp`, alt: 'Brandboard de Windtell : les trois nuages (original, événements, énigmes), la palette, les typographies Codan et Tw Cen MT et le logo', width: 674, height: 880 },
+              { src: `${img}/carte-evenement.webp`, alt: 'Maquette d’une carte Événement', width: 292, height: 407 },
+              { src: `${img}/carte-enigme.webp`, alt: 'Maquette d’une carte Énigme', width: 292, height: 407 },
             ],
           },
           {
@@ -169,6 +184,7 @@ export default function Page() {
         filtres={[
           { id: 'jeu', label: 'Le jeu' },
           { id: 'fabrication', label: 'Fabrication' },
+          { id: 'veille', label: 'Veille' },
           { id: 'conception', label: 'Conception' },
           { id: 'forum', label: 'Forum' },
         ]}
@@ -180,6 +196,16 @@ export default function Page() {
           { cat: 'fabrication', legende: 'Un disque découpé au laser', images: [{ src: `${img}/disque-bois.webp`, alt: 'Un disque en bois découpé au laser, avec ses nuages', ...ecran }] },
           { cat: 'fabrication', legende: 'Les disques peints', images: [{ src: `${img}/disques-peints.webp`, alt: 'Les disques du plateau peints en bleu', ...ecran }] },
           { cat: 'fabrication', legende: 'Les pions en 3D', images: [{ src: `${img}/modelisation-pions.webp`, alt: 'Modélisation 3D des pions animaux', ...photo }] },
+          { cat: 'veille', legende: 'Inspirations', images: [{ src: `${img}/veille-inspirations.webp`, alt: 'Planche des inspirations', ...planche }] },
+          { cat: 'veille', legende: 'Recherches de plateau', images: [{ src: `${img}/veille-plateau.webp`, alt: 'Planche des recherches de plateau et de dé', ...planche }] },
+          { cat: 'veille', legende: 'Plateau final et palette', images: [{ src: `${img}/veille-plateau-final.webp`, alt: 'Planche du plateau final, de la palette, des plans pour le FabLab, des dés et des pions', ...planche }] },
+          { cat: 'veille', legende: 'Modélisation et logos', images: [{ src: `${img}/veille-fabrication-logo.webp`, alt: 'Planche de la modélisation Tinkercad, de l’impression 3D, du moodboard logo et des typographies', ...planche }] },
+          { cat: 'veille', legende: 'Brandboard', images: [{ src: `${img}/brandboard.webp`, alt: 'Brandboard de Windtell', width: 674, height: 880 }] },
+          { cat: 'veille', legende: 'Cartes Événement et Énigme', images: [
+            { src: `${img}/carte-evenement.webp`, alt: 'Maquette d’une carte Événement', width: 292, height: 407 },
+            { src: `${img}/carte-enigme.webp`, alt: 'Maquette d’une carte Énigme', width: 292, height: 407 },
+          ] },
+          { cat: 'veille', legende: 'Déroulé d’une partie', images: [{ src: `${img}/veille-parcours-joueur.webp`, alt: 'Déroulé d’une partie : placement, lancer du dé, avancée vers le portail, arrivée au centre', ...planche }] },
           { cat: 'conception', variante: 'page', legende: 'Dossier : couverture', images: [{ src: `${img}/dossier-couverture.webp`, alt: 'Couverture du dossier de conception de Windtell', ...page }] },
           { cat: 'conception', variante: 'page', legende: 'Dossier : plateau et composants', images: [{ src: `${img}/dossier-plateau.webp`, alt: 'Page Design du plateau et des composants du dossier', ...page }] },
           { cat: 'conception', variante: 'page', legende: 'Dossier : impression 3D', images: [{ src: `${img}/dossier-impression-3d.webp`, alt: 'Page Modélisation et impression 3D des dés et pions du dossier', ...page }] },
@@ -196,6 +222,7 @@ export default function Page() {
           { href: appli, label: 'Appli des cartes' },
           { href: github, label: 'GitHub' },
           { href: dossier, label: 'Dossier de conception (PDF)' },
+          { href: figma, label: 'Veille sur Figma' },
         ]}
       />
     </ProjectLayout>

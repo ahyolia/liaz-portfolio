@@ -21,7 +21,7 @@ const affiche = { width: 1600, height: 900 };
 export const metadata = {
   title: "L'amour d'une éducatrice, web-documentaire — Camélia Amin Handoyo",
   description:
-    "« L'amour d'une éducatrice », web-documentaire réalisé en binôme pour le concours Les Étincelles Calédoniennes de NC la 1ère.",
+    "« L'amour d'une éducatrice », web-documentaire réalisé en binôme pour le concours Les Étincelles Calédoniennes de NC la 1ère, prix Coup de cœur du jury.",
 };
 
 export default function Page() {
@@ -40,7 +40,7 @@ export default function Page() {
       >
         <img src={`${img}/visuel-brut.webp`} alt="Affiche du film « L'amour d'une éducatrice » : Mirella et une proche s'enlacent dans la végétation" width="1600" height="900" data-depth="0.4" style={{ width: '92%', borderRadius: '1rem', boxShadow: '0 18px 40px -20px rgb(0 0 0 / 0.5)' }} />
         <span className="floaty sticker" data-depth="1.8" style={{ '--x': '0%', '--y': '4%', '--r': '-8deg', '--size': 'auto' }}>Diffusé sur NC la 1ère</span>
-        <span className="floaty sticker sticker--aqua" data-depth="1.4" style={{ '--x': '70%', '--y': '84%', '--r': '6deg', '--size': 'auto', '--delay': '-2s' }}>Moteur, ça tourne !</span>
+        <span className="floaty sticker sticker--aqua" data-depth="1.4" style={{ '--x': '70%', '--y': '84%', '--r': '6deg', '--size': 'auto', '--delay': '-2s' }}>Coup de cœur du jury ♥</span>
       </CaseHero>
 
       <Contexte
@@ -55,11 +55,12 @@ export default function Page() {
           { label: 'Mon rôle', valeur: 'Gestion de projet, prise de son, interviews' },
           { label: 'Outils', valeur: 'ClickUp, Canva, micros-cravates, perche' },
         ]}
-        statut="Diffusé"
+        statut="Prix Coup de cœur du jury"
       >
         <p>Pour le concours <em>Les Étincelles Calédoniennes</em>, en partenariat avec NC la 1ère, nous devions réaliser un web-documentaire de 4 à 6 minutes, avec un calendrier serré et entrecoupé de périodes d'alternance. Je l'ai réalisé en binôme avec Geneviève Mekenese.</p>
         <p>Notre sujet : Mirella Avae, surveillante au lycée Apollinaire Anova de Païta. On sous-estime souvent les éducateurs ; pour elle, ce métier est le prolongement naturel de son rôle de maman. Un portrait intime pour mettre en lumière <span className="hl">les travailleurs de l'ombre</span>, et leur rendre hommage.</p>
         <p>Plus qu'un métier, on voulait montrer l'humain avant la fonction. Notre souhait : qu'à la fin du film, chacun repense à la personne qui l'a éclairé dans un moment difficile. Et le défi : livrer un film diffusable par un média professionnel (Full HD, son clair, image étalonnée).</p>
+        <p>Le film a été diffusé par NC la 1ère et a reçu <span className="hl">le prix Coup de cœur du jury</span> du concours.</p>
       </Contexte>
 
       <Questions
