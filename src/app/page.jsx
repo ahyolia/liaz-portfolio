@@ -49,18 +49,24 @@ export default function Page() {
         <div className="container about-preview__inner">
           <figure className="polaroid reveal">
             <span className="tape" aria-hidden="true"></span>
-            {/* À REMPLACER : ta photo dans public/images/ */}
-            <img src="/images/photo-placeholder.svg" alt="Portrait de Camélia (à remplacer)" width="600" height="720" />
+            <img src="/images/perso/photo-camelia.jpg" alt="Camélia, souriante, fait un cœur avec ses mains à côté d'une rose géante" width="1100" height="1320" />
           </figure>
 
           <div className="stack reveal" style={{ "--flow": "var(--space-m)" }}>
             <div>
               <h2 id="titre-about" className="about-preview__title">Camélia ?</h2>
-              <p className="about-preview__subtitle">Une étudiante en BUT MMI</p>
+              <p className="about-preview__subtitle">Développeuse web &amp; designer</p>
             </div>
             <p>
-              Ma présentation, mes convictions, ce qui me motive et mes objectifs.
-              <span className="todo">À REMPLACER</span>
+              Je suis une étudiante en 3<sup>e</sup> année de <strong>BUT MMI</strong>, spécialisée dans le <strong>développement web</strong>.
+              Basée en <strong>Nouvelle-Calédonie</strong>, je navigue entre le code, le design d'interface et la création visuelle.
+              Ce qui me plaît, c'est de concevoir des expériences à la fois <strong>belles et utiles</strong>, du premier croquis jusqu'à la mise en ligne.
+              Fan de mangas et de dramas, je nourris ma curiosité de culture pop
+              et j'adore <strong>décortiquer les interfaces</strong> que je croise pour m'en inspirer.
+            </p>
+            <p>
+              Après mon BUT, j'envisage de poursuivre mes études en <strong>interaction humain-machine</strong> ou en <strong>design d'expérience</strong>,
+              tout en restant ouverte aux <strong>opportunités professionnelles</strong>.
             </p>
             <p className="cluster">
               <a className="btn" href="/cv/CV.pdf" download>Télécharger mon CV</a>

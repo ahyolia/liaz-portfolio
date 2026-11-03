@@ -1,26 +1,50 @@
 export const metadata = {
   title: "À propos — Camélia Amin Handoyo",
-  description: "Présentation, parcours, CV et contact de Camélia Amin Handoyo. À REMPLACER.",
+  description: "Présentation, parcours, CV et contact de Camélia Amin Handoyo, étudiante en BUT MMI en Nouvelle-Calédonie.",
 };
 
 export default function Page() {
   return (
     <main id="contenu">
+      {/* Titre + présentation (cahier) + photos */}
       <section className="section" aria-labelledby="titre-page">
-        <div className="container stack" style={{ "--flow": "var(--space-m)" }}>
-          <p className="eyebrow">Qui suis-je ?</p>
-          <h1 id="titre-page">À propos</h1>
-          <p className="lead">Étudiante en 3<sup>e</sup> année de BUT MMI, parcours <span className="hl">à préciser</span>. <span className="todo">À REMPLACER</span></p>
-        </div>
-      </section>
+        <div className="container stack" style={{ "--flow": "var(--space-l)" }}>
+          <div className="stack" style={{ "--flow": "var(--space-m)" }}>
+            <p className="eyebrow">Qui suis-je ?</p>
+            <h1 id="titre-page">À propos</h1>
+          </div>
 
-      {/* Présentation */}
-      <section className="section" aria-labelledby="presentation">
-        <div className="container">
-          <div className="notebook stack reveal">
-            <h2 id="presentation">En quelques lignes</h2>
-            <p>Qui tu es, ce qui te motive, le type de poste ou d'alternance que tu cherches. <span className="todo">À REMPLACER</span></p>
-            <p className="annotation">Petite note manuscrite sympa <span className="todo">À REMPLACER</span></p>
+          <div className="about-intro">
+            <div className="notebook stack reveal">
+              <h2 id="presentation">En quelques lignes</h2>
+              <p>
+                Je suis Camélia, étudiante en 3<sup>e</sup> année de BUT MMI,
+                parcours <span className="hl">Développement web et dispositifs interactifs</span>, en Nouvelle-Calédonie.
+                J'ai choisi le MMI parce que j'aime autant comprendre comment les choses fonctionnent que soigner leur apparence,
+                et le web est l'endroit où les deux se rencontrent.
+              </p>
+              <p>
+                En dehors des cours, je lis beaucoup (surtout des mangas et des manhwas), j'enchaîne les dramas et les animes,
+                et je suis toujours partante pour une bonne dose de culture pop. J'ai aussi la petite manie
+                de tester toutes les interfaces que je croise, pour comprendre ce qui les rend agréables (ou frustrantes !).
+              </p>
+              <p>
+                Aujourd'hui, j'aimerais poursuivre mes études en interaction humain-machine ou en design d'expérience,
+                tout en restant ouverte aux opportunités professionnelles.
+              </p>
+              <p className="annotation">J'adore tester les interfaces des jeux vidéo… beaucoup moins y jouer, je perds tout le temps 😅</p>
+            </div>
+
+            <div className="about-intro__photos">
+              <figure className="polaroid reveal">
+                <span className="tape" aria-hidden="true"></span>
+                <img src="/images/perso/camelia-fleurs-sourire.jpg" alt="Camélia souriante devant une grille couverte de bougainvilliers" width="750" height="900" />
+              </figure>
+              <figure className="polaroid reveal">
+                <span className="tape" aria-hidden="true"></span>
+                <img src="/images/perso/camelia-fleurs-boude.jpg" alt="Camélia qui boude, la joue dans la main, devant les mêmes bougainvilliers" width="750" height="900" />
+              </figure>
+            </div>
           </div>
         </div>
       </section>

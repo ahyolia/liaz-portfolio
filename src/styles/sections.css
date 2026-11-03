@@ -63,6 +63,7 @@
   height: 30rem;
   margin-block: calc(-1 * var(--space-m));
   touch-action: pan-y;
+  z-index: 2; /* objets posables par-dessus « PORTFOLIO » et le nom */
 }
 
 @media (min-width: 48rem) { .desk { grid-area: desk; height: 26rem; } }
@@ -101,13 +102,14 @@
 .desk__projet:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
 
 /* Ticket collé au bord droit de la table (placé à 76 %, il dépassait sur
-   tablette et téléphone) et posé au-dessus des post-its (z-index inline = 5) */
-.desk__ticket { width: min(16rem, 40vw); left: auto; right: 0; z-index: 8 !important; }
+   tablette et téléphone). Il passe au-dessus des post-its par son z-index inline. */
+.desk__ticket { width: min(16rem, 40vw); left: auto; right: 0; }
 .desk__ticket .hero__skills { width: 100%; rotate: 0deg; }
 
 .desk__postit { width: 11rem; max-width: none; font-size: var(--step-0); }
 
-.desk .desk__outil { position: absolute; width: 3.5rem; top: var(--y); }
+.desk__sticker { width: var(--w); filter: drop-shadow(0 6px 8px rgb(var(--shadow-color) / 0.25)); }
+.desk__sticker img { display: block; width: 100%; height: auto; }
 
 .desk__astuce {
   position: absolute;
@@ -126,7 +128,7 @@
   .desk__ticket { width: 10.5rem; font-size: var(--step--2); }
   .desk__ticket .receipt { padding-inline: var(--space-s); }
   .desk__postit { width: 8rem; font-size: var(--step--1); }
-  .desk .desk__outil { width: 2.75rem; padding: 0.5rem; }
+  .desk__sticker { width: calc(var(--w) * 0.6); }
 }
 
 /* ---- Aperçu « Camélia ? » ---------------------------------------------- */
@@ -157,6 +159,48 @@
 
 @media (min-width: 48rem) {
   .about-preview__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+}
+
+/* ---- À propos : cahier + polaroids ------------------------------------- */
+.about-intro {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* Téléphone : les deux polaroids côte à côte sous le cahier */
+.about-intro__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-m);
+}
+
+.about-intro__photos .polaroid { width: 100%; }
+.about-intro__photos .polaroid:nth-child(2) { rotate: 3deg; }
+.about-intro__photos .polaroid:first-child { z-index: 1; } /* 1er polaroid posé sur le 2e */
+
+/* Grand écran : polaroids empilés à droite du cahier, légèrement superposés.
+   La colonne photos ne compte pas dans la hauteur (contain: size) : elle prend
+   celle du cahier, et les photos se dimensionnent pour finir au même niveau. */
+@media (min-width: 60rem) {
+  .about-intro { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: stretch; }
+  .about-intro__photos {
+    --overlap: var(--space-xl);
+    /* Hauteur d'un polaroid hors photo : padding haut + bande blanche du bas */
+    --frame: calc(var(--space-s) + var(--space-xl));
+    container-type: size;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .about-intro__photos .polaroid { width: auto; }
+  .about-intro__photos img {
+    width: auto;
+    height: calc((100cqh + var(--overlap)) / 2 - var(--frame));
+    max-width: calc(100cqw - var(--space-l) - 2 * var(--space-s));
+  }
+  .about-intro__photos .polaroid:nth-child(2) { margin-block-start: calc(-1 * var(--overlap)); margin-inline-start: var(--space-l); }
 }
 
 /* ---- Outils & logiciels (page À propos) : 2 tickets + stickers -------- */
