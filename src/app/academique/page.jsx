@@ -1,3 +1,11 @@
+import { competences, PARCOURS, NIVEAUX_AFFICHES } from '../../data/competences';
+import { projets, lienProjet } from '../../data/projets';
+
+// Niveaux choisis dans NIVEAUX_AFFICHES, plus ceux qu'une fiche de réflexion mobilise
+const tableau = competences
+  .map((c) => ({ ...c, niveaux: c.niveaux.filter((n) => NIVEAUX_AFFICHES.includes(n.niveau) || n.ac.some((a) => a.fiches?.length)) }))
+  .filter((c) => c.niveaux.length > 0);
+
 export const metadata = {
   title: "Volet académique — Compétences — Camélia Amin Handoyo",
   robots: { index: false, follow: false },
@@ -6,96 +14,73 @@ export const metadata = {
 export default function Page() {
   return (
     <main id="contenu">
-      <p className="academic-banner">Espace réservé à l'équipe pédagogique — BUT MMI</p>
 
       <section className="section" aria-labelledby="titre-page">
-        <div className="container stack" style={{ "--flow": "var(--space-m)" }}>
+        <div className="container stack gridpaper academic-head" style={{ "--flow": "var(--space-m)" }}>
           <nav aria-label="Volet académique">
             <ul className="academic-nav">
               <li><a href="/academique/" aria-current="page">Compétences et AC</a></li>
               <li><a href="/academique/journal/">Journal des fiches</a></li>
             </ul>
           </nav>
+          <p className="academic-stamp">Réservé à l'équipe pédagogique</p>
           <p className="eyebrow">Volet académique</p>
           <h1 id="titre-page">Compétences et apprentissages critiques</h1>
-          <p className="lead">
-            Chaque AC renvoie aux fiches de réflexion qui en apportent la preuve.
-            <span className="todo">À REMPLACER</span>
+          <p className="academic-parcours">
+            <span className="sticker">Parcours {PARCOURS}</span>
+            <span className="sticker sticker--aqua">BUT MMI 3 · Alternance chez OFFRATEL Lagoon</span>
           </p>
-          <p className="annotation">Parcours : à préciser. Adapter les compétences et les AC au référentiel de ton parcours.</p>
+          <p className="lead">
+            Voici comment je valide les deux compétences de ma 3<sup>e</sup> année, <strong>Développer</strong> et <strong>Entreprendre</strong>, ainsi que les apprentissages de 2<sup>e</sup> année que mes fiches mobilisent.
+            Pour chaque apprentissage critique, je renvoie d'abord à ma fiche de réflexion, puis aux projets de mon portfolio qui le prouvent,
+            de mes SAÉ à mes missions en entreprise.
+          </p>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="titre-tableau">
-        <div className="container">
-          <div className="receipt-wrap">
-            <div className="receipt stack">
-              <h2 id="titre-tableau" className="receipt__title">Tableau des compétences</h2>
+      {/* Une feuille de cahier par compétence ; contenu dans src/data/competences.js */}
+      {tableau.map((competence) => (
+        <section key={competence.nom} className="section competence" aria-labelledby={`comp-${competence.nom}`}>
+          <div className="container">
+            <div className="notebook competence__sheet reveal">
+              <span className="stamp stamp--ink competence__stamp" aria-hidden="true">BUT {Math.max(...competence.niveaux.map((n) => n.niveau))}</span>
+              <h2 id={`comp-${competence.nom}`}>{competence.nom}</h2>
+              <p className="annotation">{competence.intitule}</p>
 
-              <div className="table-scroll" role="region" aria-labelledby="titre-tableau" tabIndex="0">
-                <table className="table">
-                  <caption>Une ligne par AC — codes et intitulés à reprendre du référentiel officiel</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Code</th>
-                      <th scope="col">Apprentissage critique</th>
-                      <th scope="col">Fiches qui le prouvent</th>
-                    </tr>
-                  </thead>
-
-                  {/* Un <tbody> par compétence. Dupliquer pour en ajouter. */}
-                  <tbody>
-                    <tr><th scope="rowgroup" colSpan="3">Développer</th></tr>
-                    <tr>
-                      <th scope="row">AC34.01</th>
-                      <td>Intitulé de l'AC <span className="todo">À REMPLACER</span></td>
-                      <td>
-                        <ul className="list-reset">
-                          <li><a href="/academique/journal/fiche-exemple/">Fiche exemple</a></li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">AC34.02</th>
-                      <td>Intitulé de l'AC <span className="todo">À REMPLACER</span></td>
-                      <td>
-                        <ul className="list-reset">
-                          <li><a href="/academique/journal/fiche-exemple/">Fiche exemple</a></li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">AC34.03</th>
-                      <td>Intitulé de l'AC <span className="todo">À REMPLACER</span></td>
-                      <td><em>Aucune fiche pour l'instant</em></td>
-                    </tr>
-                  </tbody>
-
-                  <tbody>
-                    <tr><th scope="rowgroup" colSpan="3">Entreprendre</th></tr>
-                    <tr>
-                      <th scope="row">AC35.01</th>
-                      <td>Intitulé de l'AC <span className="todo">À REMPLACER</span></td>
-                      <td>
-                        <ul className="list-reset">
-                          <li><a href="/academique/journal/fiche-exemple/">Fiche exemple</a></li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">AC35.02</th>
-                      <td>Intitulé de l'AC <span className="todo">À REMPLACER</span></td>
-                      <td><em>Aucune fiche pour l'instant</em></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <span className="barcode" aria-hidden="true"></span>
+              {competence.niveaux.map((niveau) => (
+                <div key={niveau.titre} className="competence__niveau">
+                  <h3>{niveau.titre}</h3>
+                  <ol className="list-reset ac-entries" role="list">
+                    {niveau.ac.map((ac) => {
+                      const projetsAc = ac.projets.map((slug) => projets.find((p) => p.slug === slug)).filter(Boolean);
+                      const fiches = ac.fiches ?? [];
+                      return (
+                        <li key={ac.code} className="ac-entry">
+                          <h4 className="ac-entry__titre"><span className="ac-entry__code">{ac.code}</span> {ac.intitule}</h4>
+                          <div className="ac-entry__preuves">
+                            <p className="ac-entry__groupe">
+                              <span className="ac-entry__label">Fiche</span>
+                              {fiches.length > 0
+                                ? <span className="ac-postits">{fiches.map((f) => <a key={f.href} className="ac-lien ac-lien--fiche" href={f.href}>{f.titre}</a>)}</span>
+                                : <em className="ac-entry__vide">à venir</em>}
+                            </p>
+                            <p className="ac-entry__groupe">
+                              <span className="ac-entry__label">Projets</span>
+                              {projetsAc.length > 0
+                                ? <span className="ac-postits">{projetsAc.map((p) => <a key={p.slug} className="ac-lien" href={lienProjet(p)}>{p.titre}</a>)}</span>
+                                : <em className="ac-entry__vide">aucun pour l'instant</em>}
+                            </p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ))}
     </main>
   );
 }
