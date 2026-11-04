@@ -208,7 +208,6 @@ export default function Page() {
               <p>Le détail de mon parcours, de mes expériences et de mes compétences, sur une page.</p>
               {/* Déposer le fichier dans public/cv/CV.pdf */}
               <p><a className="btn" href="/cv/CV.pdf" download>Télécharger mon CV (PDF)</a></p>
-              <p><span className="todo">CV.pdf À AJOUTER</span></p>
               <span className="barcode" aria-hidden="true"></span>
             </div>
             <span className="stamp contact-zone__stamp" aria-hidden="true">CV à jour</span>
