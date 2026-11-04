@@ -55,7 +55,7 @@ export default function Page() {
           { nom: 'Figma', icone: '/images/tools/figma.svg' },
         ]}
         fiche={[
-          { label: 'Cadre', valeur: 'SAÉ 302, BUT MMI 2, forum des jeux de société' },
+          { label: 'Cadre', valeur: 'SAÉ 302 Produire des contenus pour une communication plurimédia, BUT MMI 2, forum des jeux de société' },
           { label: 'Durée', valeur: 'mars → avril 2025' },
           { label: 'Équipe', valeur: 'Elitz, avec Magalie Chen et Geneviève Mekenese' },
           { label: 'Mon rôle', valeur: 'Conception, fabrication, branding et communication, en trio' },
@@ -63,22 +63,22 @@ export default function Page() {
         ]}
         statut="Présenté au forum jeu"
       >
-        <p>Windtell est le jeu de société que nous avons créé à trois pour la SAÉ 302 de ma 2<sup>e</sup> année de BUT MMI, et présenté au forum des jeux de société de la formation, le 4 avril 2025.</p>
-        <p>La commande : concevoir et fabriquer un jeu complet, avec <span className="hl">une innovation technologique</span> et des éléments de la Nouvelle-Calédonie, puis réaliser sa communication.</p>
-        <p>Six âmes sont transportées par les esprits sur une île flottante au-dessus des eaux calédoniennes. Sur un plateau à quatre niveaux qui tournent, entre énigmes, événements et duels, le premier à atteindre le centre gagne. Les cartes se tirent aussi sur une appli web.</p>
+        <p>Windtell est le <b>jeu de société</b> que nous avons créé à trois pour la <b>SAÉ 302</b> <em>Produire des contenus pour une communication plurimédia</em> de ma 2<sup>e</sup> année de BUT MMI, et présenté au <b>forum des jeux de société</b> de la formation, le 4 avril 2025.</p>
+        <p>On devait <b>concevoir et fabriquer un jeu complet</b>, avec <span className="hl">une innovation technologique</span> et des <b>éléments de la Nouvelle-Calédonie</b>, puis réaliser sa communication.</p>
+        <p>Six âmes sont transportées par les esprits sur une <b>île flottante</b> au-dessus des eaux calédoniennes. Sur un <b>plateau à quatre niveaux qui tournent</b>, entre énigmes, événements et duels, le premier à atteindre le centre gagne. Les cartes se tirent aussi sur une <b>appli web</b>.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'La veille',
-            texte: "Nous avons commencé par une veille, réunie sur un tableau Figma : Fall Guys pour le principe de survie, des game designers repérés sur Behance pour les personnages, Genshin Impact pour une palette plus douce mais bien contourée, et les couleurs à éviter, trop « vieux jeu de fantaisie ». L'objectif : faire découvrir la Nouvelle-Calédonie sous un angle accessible et amusant.",
+            texte: "Nous avons commencé par une veille, réunie sur un tableau Figma. On y trouvait Fall Guys pour le principe de survie, des game designers repérés sur Behance pour les personnages, Genshin Impact pour une palette plus douce mais bien contourée, et les couleurs à éviter, trop « vieux jeu de fantaisie ». Notre but était de faire découvrir la Nouvelle-Calédonie sous un angle accessible et amusant.",
             image: { src: `${img}/veille-inspirations.webp`, alt: 'Planche de veille : inspirations Fall Guys, Genshin Impact, game designers, palettes et idées de plateau en bois', ...planche },
             liens: [{ href: figma, label: 'Voir la veille sur Figma' }],
           },
           {
             titre: 'Le concept et le récit',
-            texte: "En brainstorming, nous avons trouvé le concept : un jeu de survie sur un plateau en mouvement, inspiré de Fall Guys, de Hunger Games et des mythes calédoniens, puis écrit son récit.",
+            texte: "En brainstorming, nous avons imaginé un jeu de survie sur un plateau en mouvement, inspiré de Fall Guys, de Hunger Games et des mythes calédoniens, puis nous avons écrit son récit.",
             images: [
               { src: `${img}/croquis-plateau.webp`, alt: 'Croquis du plateau circulaire et de ses niveaux, au crayon de couleur', ...photoPortrait },
               { src: `${img}/croquis-composants.webp`, alt: 'Croquis annoté du dé et des composants du jeu', ...photoPortrait },
@@ -88,7 +88,7 @@ export default function Page() {
           },
           {
             titre: 'Les règles et les énigmes',
-            texte: "Nous avons écrit les règles et les trois paquets de cartes : énigmes (charades, devinettes, QCM sur la culture, la faune et les légendes calédoniennes), événements qui changent le plateau, et cartes Master pour défier les joueurs proches de la victoire.",
+            texte: "Nous avons écrit les règles et les trois paquets de cartes. Il y a les énigmes (charades, devinettes, QCM sur la culture, la faune et les légendes calédoniennes), les événements qui changent le plateau, et les cartes Master pour défier les joueurs proches de la victoire.",
             images: [
               { src: `${img}/dossier-mecaniques.webp`, alt: 'Page Mécanismes du jeu du dossier : objectif, cartes et page de règles', ...page },
               { src: `${img}/dossier-enigmes.webp`, alt: 'Page Rédaction des énigmes du dossier : processus et types d’énigmes', ...page },
@@ -101,7 +101,7 @@ export default function Page() {
           },
           {
             titre: 'Le prototype en carton',
-            texte: "Avant de fabriquer, nous avons testé le plateau en carton : quatre disques superposés qui tournent, assemblés en puzzle pour être transportés facilement.",
+            texte: "Avant de fabriquer, nous avons testé le plateau en carton, fait de quatre disques superposés qui tournent, assemblés en puzzle pour être transportés facilement.",
             images: [
               { src: `${img}/prototype-dessin.webp`, alt: 'Tracé des disques du plateau sur une plaque de carton', ...photoPortrait },
               { src: `${img}/prototype-carton.webp`, alt: 'Le prototype en carton : quatre niveaux circulaires superposés, avec deux pions', ...photo },
@@ -126,7 +126,7 @@ export default function Page() {
           },
           {
             titre: 'Les cartes',
-            texte: "Les cartes ont été dessinées dans Illustrator puis mises en page pour l'impression : un dos à nuage pour chaque paquet, et le texte des énigmes, des événements et des cartes Master.",
+            texte: "Les cartes ont été dessinées dans Illustrator puis mises en page pour l'impression, avec un dos à nuage pour chaque paquet et le texte des énigmes, des événements et des cartes Master.",
             images: [
               { src: `${img}/cartes-illustrator.webp`, alt: 'Dessin des cartes à nuage dans Illustrator', ...ecran },
               { src: `${img}/cartes-mise-en-page.webp`, alt: "Planche d'impression des cartes", ...ecran },
@@ -134,13 +134,13 @@ export default function Page() {
           },
           {
             titre: 'Les cartes numériques',
-            texte: "Notre innovation technologique : une appli web en React Native où l'on tire au hasard une carte du paquet choisi, avec un bouton pour révéler la réponse des énigmes. Une fois les paquets vides, on les remélange.",
+            texte: "Notre innovation technologique est une appli web en React Native où l'on tire au hasard une carte du paquet choisi, avec un bouton pour révéler la réponse des énigmes. Une fois les paquets vides, on les remélange.",
             image: { src: `${img}/appli-cartes.webp`, alt: "L'appli Windtell : le logo, le slogan et les trois paquets de cartes à tirer", width: 1440, height: 900 },
             liens: [{ href: appli, label: "Ouvrir l'appli" }],
           },
           {
             titre: 'Le branding et la communication',
-            texte: "Nous avons créé l'identité du jeu : une palette céleste, un logo en esprit du vent mesquin, un nuage aux expressions changeantes, et le slogan « Puisse le vent tourner en votre faveur ! ». Elle se retrouve sur les cartes, l'appli et nos t-shirts floqués.",
+            texte: "Nous avons créé l'identité du jeu, avec une palette céleste, un logo en esprit du vent mesquin, un nuage aux expressions changeantes, et le slogan « Puisse le vent tourner en votre faveur ! ». Elle se retrouve sur les cartes, l'appli et nos t-shirts floqués.",
             images: [
               { src: `${img}/brandboard.webp`, alt: 'Brandboard de Windtell : les trois nuages (original, événements, énigmes), la palette, les typographies Codan et Tw Cen MT et le logo', width: 674, height: 880 },
               { src: `${img}/carte-evenement.webp`, alt: 'Maquette d’une carte Événement', width: 292, height: 407 },
@@ -149,7 +149,7 @@ export default function Page() {
           },
           {
             titre: 'Le forum jeu',
-            texte: "Le 4 avril 2025, nous avons fait jouer les visiteurs du forum. En les observant, nous avons changé une face « énigme » du dé en « avancer d'un nuage » : trop d'énigmes ralentissaient la partie.",
+            texte: "Le 4 avril 2025, nous avons fait jouer les visiteurs du forum. En les observant, nous avons changé une face « énigme » du dé en « avancer d'un nuage », car trop d'énigmes ralentissaient la partie.",
             images: [
               { src: `${img}/forum-table.webp`, alt: 'Des joueurs autour du plateau de Windtell au forum jeu', ...photoPortrait },
               { src: `${img}/forum-partie.webp`, alt: "Une partie en cours au forum, avec l'équipe en t-shirts Windtell", ...photoPortrait },

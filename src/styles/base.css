@@ -892,3 +892,6 @@ main:has(> .band:last-child) + .site-footer { margin-block-start: 0; }
 .back-to-top:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
 .back-to-top .icon { width: 1.4rem; height: 1.4rem; rotate: -90deg; transition: translate 0.2s var(--ease); }
 .back-to-top:hover .icon { translate: 0 -2px; }
+
+/* Pied de page : phrase d'appel au contact à la place du nom (bloc, sur deux lignes) */
+.site-footer__accroche { display: block; line-height: 1.25; }

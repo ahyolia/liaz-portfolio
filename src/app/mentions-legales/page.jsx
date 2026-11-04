@@ -25,9 +25,9 @@ export default function Page() {
           <h2 id="confidentialite">Politique de confidentialité</h2>
           <div className="notebook stack">
             <p>Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience.</p>
-            <p>Les polices sont chargées depuis Google Fonts : à cette occasion, votre adresse IP est transmise à Google.</p>
+            <p>Les polices sont chargées depuis Google Fonts, ce qui transmet votre adresse IP à Google.</p>
             <p>L'hébergeur (Netlify) peut conserver des journaux techniques de connexion (adresse IP, date, page demandée) pour assurer la sécurité du service.</p>
-            <p>Pour toute question sur vos données : <a href="mailto:camhdyo@gmail.com">camhdyo@gmail.com</a>.</p>
+            <p>Pour toute question sur vos données, écrivez-moi à <a href="mailto:camhdyo@gmail.com">camhdyo@gmail.com</a>.</p>
           </div>
         </div>
       </section>

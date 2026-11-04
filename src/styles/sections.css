@@ -374,6 +374,19 @@
 
 .carousel::-webkit-scrollbar { display: none; }
 
+/* Glisser à la souris (voir initCarouselDrag) : le magnétisme est coupé
+   pendant le geste, sinon la carte revient en place à chaque mouvement */
+@media (pointer: fine) {
+  .carousel { cursor: grab; }
+  /* Sur le texte, la souris sélectionne (voir surTexte) */
+  .carousel :is(p, h2, h3, h4, figcaption, code) { cursor: text; }
+}
+.carousel.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
 .carousel > li { scroll-snap-align: center; }
 
 .carousel__media {
@@ -836,6 +849,27 @@ img.process-step__visual--card {
 .process-step__visual--grille > :is(img, .zoom) { min-width: 0; height: 100%; }
 .process-step__visual--grille img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+/* Formats mélangés (photos de tournage) : la 1re image en grand à gauche,
+   les suivantes empilées à droite, chacune recadrée pour remplir sa case */
+.process-step__visual--mosaique {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: var(--space-2xs);
+  overflow: hidden;
+}
+.process-step__visual--mosaique > :is(img, .zoom) { min-width: 0; min-height: 0; height: 100%; }
+.process-step__visual--mosaique > :first-child { grid-row: span 2; }
+.process-step__visual--mosaique > :nth-child(2):last-child { grid-row: span 2; }
+.process-step__visual--mosaique img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%; /* garde les visages dans les portraits recadrés */
+  border-radius: 0.5rem;
+}
+
 /* ---- .slot : emplacement d'image à fournir (contenu de travail) -------- */
 .slot {
   display: grid;
@@ -980,7 +1014,7 @@ img.process-step__visual--card {
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
 }
 
-.gallery-filters button:hover { background: var(--cream); }
+.gallery-filters button:hover:not([aria-pressed="true"]) { background: var(--yellow); }
 .gallery-filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 
 .gallery {
@@ -1332,3 +1366,282 @@ img.process-step__visual--card {
 .flipbook__nav .carousel-btn:hover:not(:disabled) { background: var(--yellow); color: var(--ink); }
 .flipbook__nav .carousel-btn:disabled { opacity: 0.3; cursor: default; }
 .flipbook__compteur { margin: 0; min-width: 7rem; color: var(--paper); text-align: center; }
+
+/* ---- À propos : expériences pros, côte à côte sous une frise ----------
+   Une carte par poste, de la plus récente à la plus ancienne, sous une fine
+   ligne d'encre (frise). Chaque carte : année → poste → entreprise → missions,
+   puis une rangée de vignettes qui ouvre la visionneuse.
+   Section plus large que le conteneur normal, presque bord à bord. */
+.xp-section { width: min(100% - 2 * var(--space-m), 100rem); }
+
+.xp {
+  --dot: 0.9rem;
+  display: grid;
+  gap: var(--space-l) var(--space-m);
+  align-items: start;
+}
+
+.xp__item { min-width: 0; max-width: none; }
+
+/* Repère sur la frise : point, année, type et durée */
+.xp__repere {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3xs) var(--space-s);
+  margin-block-end: var(--space-s);
+  max-width: none;
+}
+.xp__annee {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--pink-deep);
+}
+.xp__type {
+  padding: 0.2em 0.8em;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Carte du poste */
+.xp__carte {
+  position: relative;
+  display: grid;
+  gap: var(--space-s);
+  padding: var(--space-l) var(--space-m) var(--space-m);
+  background: var(--paper);
+  box-shadow: var(--shadow-paper);
+  rotate: -0.6deg;
+}
+.xp__item:nth-child(even) .xp__carte { rotate: 0.6deg; }
+.xp__tete > div { min-width: 0; }
+.xp__carte :is(p, li, h3, h4) { max-width: none; }
+
+.xp__tete { display: flex; align-items: center; gap: var(--space-s); }
+.xp__logo {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 6.5rem;
+  height: 3.5rem;
+}
+.xp__logo img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+
+.xp__titre {
+  font-family: var(--font-body);
+  font-size: var(--step-2);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.xp__entreprise {
+  margin-block-start: var(--space-3xs);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.xp__entreprise span { color: var(--ink-soft); white-space: nowrap; }
+.xp__resume { margin-block-start: calc(-1 * var(--space-2xs)); rotate: -1.5deg; }
+
+/* Missions : titre en gras, une phrase, liens en petit */
+.xp__missions { display: grid; gap: var(--space-xs); padding-block-start: var(--space-s); border-block-start: 1.5px solid var(--ink); }
+.xp__mission { display: grid; gap: var(--space-3xs); }
+.xp__mission-titre {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.xp__mission-texte { color: var(--ink); font-size: var(--step--1); line-height: 1.5; }
+
+/* Liens en aqua foncé : l'aqua de la palette assombri pour rester lisible
+   sur le blanc (contraste 5:1) ; soulignés au survol */
+.xp__liens { display: flex; flex-wrap: wrap; gap: var(--space-3xs) var(--space-s); font-size: var(--step--1); }
+.xp__liens a { color: #137A82; font-weight: 600; text-decoration: none; }
+.xp__liens a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Vignettes : 4 visibles sur une rangée, les autres restent dans la
+   visionneuse (« +N » sur la dernière vignette visible) */
+.xp__vignettes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 0;
+  grid-template-rows: auto;
+  row-gap: 0;
+  column-gap: var(--space-2xs);
+  overflow: hidden;
+  padding-block-start: var(--space-xs);
+}
+.xp__vignettes img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top left;
+  border: 1px solid rgb(30 58 68 / 0.3);
+  border-radius: var(--radius-s);
+}
+.xp__vignettes > :nth-child(n + 5) { visibility: hidden; }
+.xp__vignettes[data-plus] > :nth-child(4) { position: relative; }
+.xp__vignettes[data-plus]::after {
+  content: var(--reste);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc((100% - 3 * var(--space-2xs)) / 4);
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-s);
+  background: rgb(30 58 68 / 0.7);
+  color: var(--paper);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* Grand écran : les postes côte à côte, reliés par la frise */
+@media (min-width: 60em) {
+  .xp { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .xp__repere { padding-block-start: calc(var(--dot) + var(--space-s)); }
+  .xp__repere::before { /* la ligne, d'un poste à l'autre */
+    content: "";
+    position: absolute;
+    top: calc(var(--dot) / 2);
+    left: 0;
+    right: calc(-1 * var(--space-m));
+    height: 1.5px;
+    translate: 0 -50%;
+    background: var(--ink);
+  }
+  .xp__item:last-child .xp__repere::before { right: 0; }
+  .xp__repere::after { /* le point : jaune en cours, gris terminé */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--dot);
+    height: var(--dot);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: #C9D0D2;
+  }
+  .xp__item:first-child .xp__repere::after { background: var(--yellow); }
+}
+
+/* ---- À propos : formation, sur une feuille quadrillée ------------------
+   Une ligne par diplôme : années en manuscrit | diplôme, établissement,
+   parcours surligné, matières en pastilles | tampon (En cours, Obtenu) */
+.formations { display: grid; padding: var(--space-m) var(--space-l); }
+.formation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "annees stamp" "corps corps";
+  gap: var(--space-2xs) var(--space-m);
+  align-items: center;
+  padding-block: var(--space-m);
+  max-width: none;
+}
+.formation + .formation { border-block-start: 2px dashed rgb(30 58 68 / 0.35); }
+.formation__annees { grid-area: annees; font-size: var(--step-2); rotate: -2deg; }
+.formation__corps { grid-area: corps; display: grid; gap: var(--space-3xs); min-width: 0; }
+.formation__corps :is(p, h3, li) { max-width: none; }
+.formation__diplome { font-size: var(--step-2); line-height: 1.15; }
+.formation__etablissement { color: var(--ink-soft); }
+.formation__parcours { margin-block-start: var(--space-3xs); }
+.formation__matieres { display: flex; flex-wrap: wrap; gap: var(--space-2xs); margin-block-start: var(--space-xs); }
+.formation__matieres li {
+  padding: 0.2em 0.8em;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  font-size: var(--step--1);
+}
+.formation__stamp { grid-area: stamp; width: 5.5rem; font-size: var(--step--1); rotate: -12deg; }
+.formation:nth-child(even) .formation__stamp { rotate: 8deg; }
+
+@media (min-width: 52em) {
+  .formation {
+    grid-template-columns: 11rem minmax(0, 1fr) auto;
+    grid-template-areas: "annees corps stamp";
+    gap: var(--space-l);
+  }
+}
+
+/* Page À propos : formation dans le bloc de présentation, et section qui suit
+   directement la précédente (les expériences) avec une petite marge haute */
+.about-formation { margin-block-start: var(--space-xl); }
+.section--suite { padding-block-start: var(--space-s); }
+
+/* ---- À propos : contact + CV ------------------------------------------
+   À gauche, un grand appel à écrire, l'e-mail en gros (pastille jaune) et
+   les réseaux en stickers ; à droite, le ticket du CV, tampon sur le coin */
+.contact-zone__inner {
+  display: grid;
+  gap: var(--space-2xl) var(--space-xl);
+  align-items: center;
+}
+.contact-zone__texte > * { max-width: none; }
+.contact-zone__titre { font-size: var(--step-6); line-height: 1; }
+.contact-zone__intro { font-size: var(--step-1); max-width: 34ch; }
+
+.contact-zone__mail {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  justify-self: start;
+  width: fit-content;
+  padding: 0.5em 1.1em;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: var(--step-2);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--ink);
+  rotate: -1.5deg;
+  transition: translate 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.contact-zone__mail .icon { width: 1.1em; height: 1.1em; }
+.contact-zone__mail:hover { translate: -2px -2px; box-shadow: 6px 6px 0 var(--ink); }
+
+.contact-zone__reseaux { display: flex; flex-wrap: wrap; gap: var(--space-s); }
+.contact-zone__reseaux a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: 0.4em 0.95em;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-paper);
+  rotate: 2deg;
+  transition: rotate 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.contact-zone__reseaux li:nth-child(even) a { rotate: -2deg; }
+.contact-zone__reseaux li:nth-child(2) a { background: var(--aqua); }
+.contact-zone__reseaux li:nth-child(4) a { background: #FFD3DA; }
+.contact-zone__reseaux a:hover { rotate: 0deg; background: var(--yellow); }
+.contact-zone__reseaux .icon { width: 1.15em; height: 1.15em; }
+
+.contact-zone__cv { position: relative; max-width: 26rem; justify-self: center; rotate: 1.5deg; }
+.contact-zone__cv .receipt p { max-width: none; }
+.contact-zone__stamp { position: absolute; top: -1.5rem; right: -1.5rem; rotate: 14deg; background: var(--paper); }
+
+@media (min-width: 52em) {
+  .contact-zone__inner { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+}

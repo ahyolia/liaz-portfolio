@@ -24,7 +24,7 @@ const ecran = { width: 1440, height: 900 };
 export const metadata = {
   title: "EPISE, la plateforme de l'épicerie solidaire de l'UNC — Camélia Amin Handoyo",
   description:
-    "EPISE, plateforme web de l'épicerie solidaire de l'UNC : site PHP MVC conçu à quatre, puis repris en solo avec un front Angular, une API REST et des design patterns (Singleton, Factory).",
+    "EPISE, plateforme web de l'épicerie solidaire de l'UNC. Un site PHP MVC conçu à quatre, puis repris en solo avec un front Angular, une API REST et des design patterns (Singleton, Factory).",
 };
 
 export default function Page() {
@@ -67,16 +67,16 @@ export default function Page() {
         ]}
         statut="Projet d'études, non hébergé"
       >
-        <p>EPISE est l'épicerie solidaire de l'Université de la Nouvelle-Calédonie. Portée par la Mission Vie Étudiante, elle aide les étudiants en situation de précarité à accéder à l'alimentation, aux produits d'hygiène et aux fournitures, grâce aux dons d'entreprises, de particuliers et au travail de bénévoles.</p>
-        <p>Au 3<sup>e</sup> semestre, nous avons conçu à quatre sa plateforme web, en PHP MVC. Elle met en relation <span className="hl">trois profils</span> : les étudiants adhérents qui réservent leurs paniers, les donateurs qui proposent des dons, et l'équipe de l'épicerie qui gère les stocks depuis un back-office.</p>
-        <p>Au 4<sup>e</sup> semestre, dans le parcours Développement web et dispositifs interactifs, j'ai repris le projet seule : un nouveau front office en Angular, branché sur une API REST ajoutée au back PHP, et une architecture renforcée avec des design patterns.</p>
+        <p>EPISE est <b>l'épicerie solidaire de l'Université de la Nouvelle-Calédonie</b>. Portée par la Mission Vie Étudiante, elle aide les <b>étudiants en situation de précarité</b> à accéder à l'alimentation, aux produits d'hygiène et aux fournitures, grâce aux dons d'entreprises, de particuliers et au travail de bénévoles.</p>
+        <p>Au 3<sup>e</sup> semestre, nous avons conçu à quatre sa <b>plateforme web</b>, en <b>PHP MVC</b>. Elle met en relation <span className="hl">trois profils</span>, les <b>étudiants adhérents</b> qui réservent leurs paniers, les <b>donateurs</b> qui proposent des dons, et l'<b>équipe</b> de l'épicerie qui gère les stocks depuis un back-office.</p>
+        <p>Au 4<sup>e</sup> semestre, dans le parcours Développement web et dispositifs interactifs, <b>j'ai repris le projet seule</b>. J'ai créé un nouveau front office en <b>Angular</b>, branché sur une <b>API REST</b> ajoutée au back PHP, et renforcé l'architecture avec des <b>design patterns</b>.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'Le cahier des charges (S3, à quatre)',
-            texte: "Nous avons commencé par le cahier des charges : contexte, objectifs, benchmark de sites solidaires, personas adhérent, donateur et gestionnaire, puis les règles de l'épicerie à traduire dans le site : adhésion de 200 F par an, 2 paniers par semaine, 5 articles alimentaires maximum, 1 article par produit.",
+            texte: "Nous avons commencé par le cahier des charges, avec le contexte, les objectifs, un benchmark de sites solidaires et les personas adhérent, donateur et gestionnaire. Il fallait aussi traduire les règles de l'épicerie dans le site, comme l'adhésion de 200 F par an, 2 paniers par semaine, 5 articles alimentaires maximum et 1 article par produit.",
             images: [
               { src: `${img}/cdc-couverture.webp`, alt: "Couverture du cahier des charges d'EPISE, par l'équipe Ninjago", ...page },
               { src: `${img}/cdc-personas.webp`, alt: 'Page Cibles et personas du cahier des charges', ...page },
@@ -86,7 +86,7 @@ export default function Page() {
           },
           {
             titre: 'Les wireframes et le brandboard (S3)',
-            texte: "Organisés en Scrum, avec un backlog sur Jira et un espace Notion que j'ai mis en place, nous avons défini le parcours. Matéo a dessiné les wireframes et le prototype sur Figma ; j'ai fait l'arborescence, et le brandboard avec Hugo : une palette de bleus et de verts reprise du logo.",
+            texte: "Organisés en Scrum, avec un backlog sur Jira et un espace Notion que j'ai mis en place, nous avons défini le parcours. Matéo a dessiné les wireframes et le prototype sur Figma. De mon côté, j'ai fait l'arborescence, puis le brandboard avec Hugo, autour d'une palette de bleus et de verts reprise du logo.",
             images: [
               { src: `${img}/wf-accueil.webp`, alt: "Wireframe de la page d'accueil", width: 546, height: 943 },
               { src: `${img}/wf-magasin.webp`, alt: 'Wireframe de la page Magasin', width: 648, height: 943 },
@@ -99,18 +99,18 @@ export default function Page() {
           },
           {
             titre: 'Le site PHP MVC (S3)',
-            texte: "Le site est construit sur un petit framework MVC en PHP, dont j'ai mis en place l'architecture : un routeur, des contrôleurs et des modèles par ressource, et des vues. J'ai développé le front office (catégories, panier, tunnel de réservation, inscription et profil adhérent) ; Magalie a développé le back-office sécurisé, avec la validation des dons.",
+            texte: "Le site est construit sur un petit framework MVC en PHP, dont j'ai mis en place l'architecture, avec un routeur, des contrôleurs et des modèles par ressource, et des vues. J'ai développé le front office (catégories, panier, tunnel de réservation, inscription et profil adhérent), et Magalie a développé le back-office sécurisé, avec la validation des dons.",
             image: { src: `${img}/bo-dons.webp`, alt: 'Back-office : liste des dons à valider ou refuser', ...ecran },
           },
           {
             titre: 'Une API REST et des design patterns (S4, en solo)',
-            texte: "J'ai transformé le back en API : un contrôleur <code>Api</code> qui répartit les requêtes GET, POST, PUT et DELETE vers chaque ressource, des en-têtes CORS pour le front Angular, et une session par jeton dans un cookie HttpOnly. J'ai ajouté deux design patterns : un <strong>Singleton</strong> pour la connexion à la base, et une <strong>Factory</strong> qui crée les modèles à partir d'une interface commune, chacun avec son script de test, ainsi qu'un test de configuration HTTPS.",
+            texte: "J'ai transformé le back en API. Un contrôleur <code>Api</code> répartit les requêtes GET, POST, PUT et DELETE vers chaque ressource, des en-têtes CORS ouvrent l'accès au front Angular, et la session passe par un jeton dans un cookie HttpOnly. J'ai aussi ajouté deux design patterns, un <strong>Singleton</strong> pour la connexion à la base et une <strong>Factory</strong> qui crée les modèles à partir d'une interface commune, chacun avec son script de test, ainsi qu'un test de configuration HTTPS.",
             image: { src: `${img}/bo-articles.webp`, alt: 'Back-office : gestion des articles d’actualité', ...ecran },
             liens: [{ href: back, label: 'Voir le code du back' }],
           },
           {
             titre: 'Le front office en Angular (S4, en solo)',
-            texte: "J'ai refait tout le front office en Angular 20 : une vingtaine de pages en composants autonomes, une couche de services par ressource et un intercepteur qui joint le jeton aux requêtes. Le magasin filtre par catégorie et applique les règles de l'épicerie ; le panier compte les produits réservés sur 5. S'y ajoutent l'espace compte, l'adhésion, le mot de passe oublié, le bandeau de cookies et les pages légales.",
+            texte: "J'ai refait tout le front office en Angular 20, avec une vingtaine de pages en composants autonomes, une couche de services par ressource et un intercepteur qui joint le jeton aux requêtes. Le magasin filtre par catégorie et applique les règles de l'épicerie, tandis que le panier compte les produits réservés sur 5. S'y ajoutent l'espace compte, l'adhésion, le mot de passe oublié, le bandeau de cookies et les pages légales.",
             image: { src: `${img}/site-magasin.webp`, alt: 'Le magasin : recherche, catégories et produits avec leur stock et le bouton Ajouter au panier', ...ecran },
             liens: [{ href: front, label: 'Voir le code du front' }],
           },

@@ -18,7 +18,7 @@ const photoChapeau = { width: 1079, height: 1600 };
 export const metadata = {
   title: "LIAZ' Sticker pack, édition anniversaire — Camélia Amin Handoyo",
   description:
-    "LIAZ' Sticker pack (Bday ver.), projet perso réalisé sur Photoshop pour mes 20 ans : un pack de stickers en collage, à partir de photos d'enfance et de ce qui me représente.",
+    "LIAZ' Sticker pack (Bday ver.), projet perso réalisé sur Photoshop pour mes 20 ans, un pack de stickers en collage à partir de photos d'enfance et de ce qui me représente.",
 };
 
 export default function Page() {
@@ -49,16 +49,16 @@ export default function Page() {
         ]}
         statut="Publié sur Behance"
       >
-        <p>Pour fêter mes 20 ans avec un peu de nostalgie et de légèreté, j'ai créé un pack de stickers « édition anniversaire » avec tout ce qui me représente.</p>
-        <p>L'idée m'est venue d'une vidéo YouTube d'edgykatrina, qui créait une illustration par jour pendant une semaine en s'inspirant de son propre Pinterest. Ce qui m'a marquée : <span className="hl">elle ne réfléchissait pas deux fois</span> avant de se lancer. J'ai voulu essayer la même chose.</p>
-        <p>Je voulais aussi tester depuis l'année dernière le style des affiches d'anniversaire en collage. C'était l'occasion de créer quelque chose juste pour le plaisir.</p>
+        <p>Pour fêter <b>mes 20 ans</b> avec un peu de nostalgie et de légèreté, j'ai créé un <b>pack de stickers « édition anniversaire »</b> avec tout ce qui me représente.</p>
+        <p>L'idée m'est venue d'une vidéo YouTube d'edgykatrina, qui créait <b>une illustration par jour</b> pendant une semaine en s'inspirant de son propre Pinterest. Ce qui m'a marquée, c'est qu'<span className="hl">elle ne réfléchissait pas deux fois</span> avant de se lancer. J'ai voulu essayer la même chose.</p>
+        <p>Je voulais aussi tester depuis l'année dernière le style des <b>affiches d'anniversaire en collage</b>. C'était l'occasion de créer quelque chose <b>juste pour le plaisir</b>.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'Les photos d’enfance',
-            texte: "Je suis partie de deux photos de moi petite, pendant une fête : la couronne de fleurs, le chapeau, la nappe couverte de fleurs.",
+            texte: "Je suis partie de deux photos de moi petite, pendant une fête, avec la couronne de fleurs, le chapeau et la nappe couverte de fleurs.",
             images: [
               { src: `${img}/photo-couronne.webp`, alt: "Photo d'enfance scannée : petite fille avec une couronne de fleurs, debout sur une table de fête", ...photoCouronne },
               { src: `${img}/photo-chapeau.webp`, alt: "Photo d'enfance scannée : petite fille avec un chapeau de fête, qui rit, debout sur la table", ...photoChapeau },
@@ -66,12 +66,12 @@ export default function Page() {
           },
           {
             titre: 'Les stickers',
-            texte: "Sur Photoshop, j'ai détouré les photos en stickers à bord blanc, puis ajouté d'autres éléments qui me représentent : deux fleurs, un coq, ma signature LIAZ et un timbre photo marqué 16. Au total : 6 stickers et 1 timbre, de tailles variées.",
+            texte: "Sur Photoshop, j'ai détouré les photos en stickers à bord blanc, puis ajouté d'autres éléments qui me représentent, comme deux fleurs, un coq, ma signature LIAZ et un timbre photo marqué 16. Le pack compte au total 6 stickers et 1 timbre, de tailles variées.",
             image: { src: `${img}/stickers.webp`, alt: "La planche de stickers : deux photos détourées, une fleur rouge, un coq violet, un timbre photo, la signature LIAZ et une fleur orange", width: 455, height: 720, portrait: true },
           },
           {
             titre: 'Le pack et l’affiche',
-            texte: "J'ai composé le pack comme un vrai sachet de stickers : les autocollants superposés sous un plastique froissé, et une étiquette « Liaz' sticker pack, Bday edition ! » avec la date du 16/10. L'affiche finale le présente à côté de la planche, avec ses détails.",
+            texte: "J'ai composé le pack comme un vrai sachet de stickers, avec les autocollants superposés sous un plastique froissé, et une étiquette « Liaz' sticker pack, Bday edition ! » avec la date du 16/10. L'affiche finale le présente à côté de la planche, avec ses détails.",
             images: [
               { src: `${img}/pack.webp`, alt: "Le pack de stickers sous plastique, avec son étiquette Liaz' sticker pack, Bday edition, datée du 16/10", width: 510, height: 805 },
               { src: `${img}/affiche.webp`, alt: "L'affiche finale du LIAZ' Sticker pack", ...affiche },

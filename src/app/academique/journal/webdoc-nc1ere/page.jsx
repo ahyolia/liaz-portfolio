@@ -61,15 +61,15 @@ export default function Page() {
         <Bloc titre="Tenir le calendrier malgré l'alternance" ac={['AC35.01']} technique="ClickUp avec un tableau Kanban ; jalons en semaines 17 (oral), 21 (dossier) et 22 (tournage).">
           <p>
             Le film devait durer 4 à 6 minutes, et notre calendrier était coupé par les périodes en entreprise. J'ai
-            construit le planning autour de quelques dates clés : l'oral de validation, le rendu du dossier, puis le
+            construit le planning autour de quelques dates clés, avec l'oral de validation, le rendu du dossier, puis le
             tournage. Grâce à ça, nous avons pu réserver le lycée et caler les interviews à temps.
           </p>
         </Bloc>
 
         <Bloc titre="Viser un rendu digne d'un diffuseur" ac={['AC35.02', 'AC23.04', 'AC23.05']} technique="Deux caméras en lumière naturelle, perche pour les ambiances, micros-cravates pour les interviews, feuille de service.">
           <p>
-            Le film devait pouvoir passer sur NC la 1ère : image Full HD, son clair, couleurs soignées. Nous avons donc
-            tout préparé dans un dossier avant de tourner, et listé ce qui pouvait mal tourner : l'autorisation de filmer
+            Le film devait pouvoir passer sur NC la 1ère, avec une image Full HD, un son clair et des couleurs soignées. Nous avons donc
+            tout préparé dans un dossier avant de tourner, et listé ce qui pouvait mal tourner, comme l'autorisation de filmer
             des élèves mineurs, le bruit de la cour, l'organisation des journées de tournage.
           </p>
         </Bloc>
@@ -77,7 +77,7 @@ export default function Page() {
         <Bloc titre="Convaincre le jury" ac={['AC35.04', 'CE5.02']}>
           <p>
             À l'oral de mi-parcours, devant nos enseignants et un représentant de NC la 1ère, nous ne présentions pas une
-            vidéo d'école mais un vrai regard : montrer les travailleurs de l'ombre à travers le portrait de Mirella. Nous
+            vidéo d'école mais un vrai regard, qui montre les travailleurs de l'ombre à travers le portrait de Mirella. Nous
             avons défendu nos choix, sans voix off qui explique tout, avec une caméra à l'épaule pour être au plus près
             d'elle, et nous avons convaincu le jury.
           </p>
@@ -85,7 +85,7 @@ export default function Page() {
 
         <Bloc titre="Préparer le tournage et capter le son" ac={['AC35.02', 'AC23.05']} technique="Découpage technique et feuille de service ; micros-cravates et perche.">
           <p>
-            Ma binôme filmait et montait ; moi, je préparais et je tenais le son. Avant le tournage, j'ai écrit le
+            Ma binôme filmait et montait, et moi, je préparais et je tenais le son. Avant le tournage, j'ai écrit le
             découpage et choisi le matériel pour couvrir le bruit de la cour. Sur place, j'ai enregistré le son et mené
             les interviews de Mirella et de ses proches, pour recueillir des témoignages sincères.
           </p>

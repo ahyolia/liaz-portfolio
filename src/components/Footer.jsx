@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="site-footer torn-top">
       <div className="container site-footer__inner">
-        {/* À REMPLACER : ton logo (SVG) */}
-        <a className="site-logo" href="/">Camélia Amin Handoyo</a>
+        {/* Phrase d'appel au contact (différente du bandeau « Intéressé(e) ? » de l'accueil) */}
+        <a className="site-logo site-footer__accroche" href="mailto:camhdyo@gmail.com">Une idée en tête ?<br />Écrivons la suite ensemble.</a>
 
         <nav className="footer-nav" aria-label="Pied de page">
           <ul>

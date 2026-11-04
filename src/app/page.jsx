@@ -10,7 +10,7 @@ const aLaUne = projetsALaUne.length > 2 ? [projetsALaUne.at(-1), ...projetsALaUn
 
 export const metadata = {
   title: "Camélia Amin Handoyo — Portfolio",
-  description: "Portfolio de Camélia Amin Handoyo, étudiante en BUT MMI : développement web, graphisme et UX design.",
+  description: "Portfolio de Camélia Amin Handoyo, étudiante en BUT MMI, entre développement web, graphisme et UX design.",
 };
 
 export default function Page() {

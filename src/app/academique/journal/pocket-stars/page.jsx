@@ -23,8 +23,8 @@ const sections = [
 export default function Page() {
   return (
     <Fiche
-      titre="Pocket Stars : un ciel d'étoiles qui cachent des cartes"
-      intro="Dans le cours d'Exploration interactive 3D de données de François Gillet, j'ai créé une balade en 3D sur une île volante : chaque étoile du ciel cache une carte Pokémon, tirée d'une API publique, qui descend et se révèle quand on clique dessus."
+      titre="Pocket Stars, un ciel d'étoiles qui cachent des cartes"
+      intro="Dans le cours d'Exploration interactive 3D de données de François Gillet, j'ai créé une balade en 3D sur une île volante. Chaque étoile du ciel cache une carte Pokémon, tirée d'une API publique, qui descend et se révèle quand on clique dessus."
       meta={[
         { label: 'Rendu', valeur: <time dateTime="2026-10-23">23/10/2026</time> },
         { label: 'Projet', valeur: <a href="/projets/pocket-stars/">Pocket Stars</a> },
@@ -71,7 +71,7 @@ export default function Page() {
         >
           <p>
             Pour que la 3D reste fluide, les mouvements continus (la caméra, les étoiles qui tournent) sont animés hors du
-            rendu de React. Quand on ouvre une carte, elle s'affiche dans une deuxième scène par-dessus l'île : on peut la
+            rendu de React. Quand on ouvre une carte, elle s'affiche dans une deuxième scène par-dessus l'île, où l'on peut la
             faire tourner, et les cartes rares brillent d'un reflet holographique qui change avec l'angle de vue.
           </p>
         </Bloc>
@@ -82,7 +82,7 @@ export default function Page() {
           technique={<>Touches lues par leur position (<code>KeyboardEvent.code</code>) ; joystick dans <a href={code('src/components/TouchJoystick.jsx')}>TouchJoystick.jsx</a> ; regard dans <a href={code('src/components/CameraController.jsx')}>CameraController.jsx</a>.</>}
         >
           <p>
-            Sur ordinateur, on marche avec ZQSD ou WASD : le jeu lit la position des touches, donc les deux claviers
+            Sur ordinateur, on marche avec ZQSD ou WASD. Le jeu lit la position des touches, donc les deux claviers
             fonctionnent. Le regard suit la souris sans la capturer, pour qu'on puisse toujours cliquer sur l'interface.
             Sur téléphone, un joystick apparaît pour marcher, et on glisse le doigt pour regarder autour de soi.
           </p>
@@ -96,7 +96,7 @@ export default function Page() {
           <p>
             Au démarrage, l'appli récupère une liste légère de 250 cartes et en place 50 au hasard dans le ciel. Le détail
             d'une carte n'est chargé qu'au moment où on l'ouvre. Si le service ne répond pas, l'appli bascule sur une copie
-            locale des 250 cartes ; et si une image est bloquée par le navigateur, une carte de remplacement s'affiche à sa
+            locale des 250 cartes. Et si une image est bloquée par le navigateur, une carte de remplacement s'affiche à sa
             place.
           </p>
         </Bloc>
@@ -128,9 +128,9 @@ export default function Page() {
 
       <Section id="ia" numero={4} titre="Piloter une IA" note="ce que j'ai appris en travaillant avec Claude Code">
         <p>
-          J'ai écrit le code avec l'assistant IA Claude Code. Mon rôle a été celui d'une directrice technique : choisir
+          J'ai écrit le code avec l'assistant IA Claude Code. Mon rôle a été celui d'une directrice technique. J'ai choisi
           l'architecture (React, React Three Fiber, l'API TCGdex), définir l'expérience (Mimikyu, les contrôles, le style
-          cartoon) et orienter chaque étape.
+          cartoon) et orienté chaque étape.
         </p>
         <p>
           Surtout, j'ai tout vérifié. J'ai testé chaque proposition sur ordinateur et sur téléphone, repéré les erreurs de
@@ -167,9 +167,9 @@ export default function Page() {
       <Section id="difficultes" numero={7} titre="Difficultés et pivots" note="ce qui a coincé, et ce que j'en ai tiré">
         <Pivots
           lignes={[
-            { obstacle: 'Deux API abandonnées en route', solution: 'Card Captor Sakura, trop peu structurée, puis l’API Pokémon TCG, devenue payante : j’ai migré vers TCGdex le 16/09, avant de coder ce qui en dépendait, et isolé tout l’accès aux données dans un seul fichier.', apprentissage: 'Vérifier la durée de vie et le modèle économique d’une API avant de s’y lier.' },
+            { obstacle: 'Deux API abandonnées en route', solution: 'Card Captor Sakura, trop peu structurée, puis l’API Pokémon TCG, devenue payante. J’ai migré vers TCGdex le 16/09, avant de coder ce qui en dépendait, et isolé tout l’accès aux données dans un seul fichier.', apprentissage: 'Vérifier la durée de vie et le modèle économique d’une API avant de s’y lier.' },
             { obstacle: 'Certaines images refusées par le navigateur', solution: 'Une carte de remplacement dessinée à la volée quand l’image ne charge pas.', apprentissage: 'Une interface doit tenir même quand un service extérieur échoue en partie.' },
-            { obstacle: 'Un fichier JavaScript lourd (1,2 Mo)', solution: 'Problème repéré, dû à Three.js ; le découpage du code en morceaux est prévu pour la V2.', apprentissage: 'Les bibliothèques 3D pèsent lourd : il faut le prévoir dès le départ.' },
+            { obstacle: 'Un fichier JavaScript lourd (1,2 Mo)', solution: 'Problème repéré, dû à Three.js. Le découpage du code en morceaux est prévu pour la V2.', apprentissage: 'Les bibliothèques 3D pèsent lourd, il faut le prévoir dès le départ.' },
             { obstacle: 'Des écarts avec le dossier de préparation', solution: 'Le ciel qui change de couleur et les filtres par date ont été retirés, pour privilégier la fluidité et Mimikyu.', apprentissage: 'Savoir renoncer à l’optionnel pour livrer un produit stable à temps.' },
             { obstacle: 'Pas de tests automatisés', solution: 'Un choix assumé sur six semaines, compensé par des tests manuels sur plusieurs appareils.', apprentissage: 'Connaître les limites de ses tests et assumer ses arbitrages.' },
           ]}

@@ -31,7 +31,7 @@ export default function Page() {
               <h2><a className="card__link" href="/academique/journal/webdoc-nc1ere/">Web-documentaire NC la 1ère</a></h2>
               <p className="journal-label">AC prouvés</p>
               <ul className="tags journal-ac" aria-label="AC prouvés"><li>AC35.01</li><li>AC35.02</li><li>AC35.04</li><li>AC23.04</li><li>AC23.05</li></ul>
-              <p className="journal-resume">Portrait de Mirella pour le concours Les Étincelles Calédoniennes : pilotage, cadrage technique, prise de son, interviews et soutenance. Prix Coup de cœur du jury.</p>
+              <p className="journal-resume">Portrait de Mirella pour le concours Les Étincelles Calédoniennes. J'ai piloté le projet, cadré la technique, pris le son, mené les interviews et préparé la soutenance. Prix Coup de cœur du jury.</p>
             </li>
             <li className="card postit postit--cream stack reveal">
               <span className="tape" aria-hidden="true"></span>
@@ -39,7 +39,7 @@ export default function Page() {
               <h2><a className="card__link" href="/academique/journal/aima-sae501/">Aïma - BloodShare (SAÉ 501)</a></h2>
               <p className="journal-label">AC prouvés</p>
               <ul className="tags journal-ac" aria-label="AC prouvés"><li>AC34.01</li><li>AC34.02</li><li>AC34.03</li><li>AC34.04</li><li>AC34.05</li><li>AC35.01</li><li>AC35.02</li></ul>
-              <p className="journal-resume">Application mobile et PWA gamifiée pour l'ADSB-NC : API Laravel 12 et back-office Filament, QR code tournant, sécurité et RGPD, hébergement de démo.</p>
+              <p className="journal-resume">Application mobile et PWA gamifiée pour l'ADSB-NC, avec une API Laravel 12, un back-office Filament, un QR code tournant, une attention à la sécurité et au RGPD, et un hébergement de démo.</p>
             </li>
             <li className="card postit postit--cream stack reveal">
               <span className="tape" aria-hidden="true"></span>
@@ -47,7 +47,7 @@ export default function Page() {
               <h2><a className="card__link" href="/academique/journal/pocket-stars/">Pocket Stars (exploration 3D)</a></h2>
               <p className="journal-label">AC prouvés</p>
               <ul className="tags journal-ac" aria-label="AC prouvés"><li>AC34.01</li><li>AC34.03</li><li>AC34.04</li><li>AC34.05</li><li>AC35.02</li></ul>
-              <p className="journal-resume">Balade 3D en React et Three.js sous un ciel de cartes Pokémon : API TCGdex avec secours hors ligne, contrôles tactiles, son généré et pilotage d'un assistant IA.</p>
+              <p className="journal-resume">Balade 3D en React et Three.js sous un ciel de cartes Pokémon, avec l'API TCGdex et un secours hors ligne, des contrôles tactiles, un son généré et le pilotage d'un assistant IA.</p>
             </li>
             <li className="card postit postit--cream stack reveal">
               <span className="tape" aria-hidden="true"></span>
@@ -55,7 +55,7 @@ export default function Page() {
               <h2><a className="card__link" href="/academique/journal/liaz-gallery/">LiAZ Gallery (XR et Interactions)</a></h2>
               <p className="journal-label">AC prouvés</p>
               <ul className="tags journal-ac" aria-label="AC prouvés"><li>AC34.01</li><li>AC34.03</li><li>AC35.02</li></ul>
-              <p className="journal-resume">Galerie 3D sous Unity pilotée à la voix : API Serper, navigation en drone, raycast, débogage du micro et image de secours.</p>
+              <p className="journal-resume">Galerie 3D sous Unity pilotée à la voix, avec l'API Serper, la navigation en drone, le raycast, le débogage du micro et une image de secours.</p>
             </li>
           </ul>
         </div>

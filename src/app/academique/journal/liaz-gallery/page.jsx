@@ -23,7 +23,7 @@ const sections = [
 export default function Page() {
   return (
     <Fiche
-      titre="LiAZ Gallery : une galerie 3D pilotée à la voix"
+      titre="LiAZ Gallery, une galerie 3D pilotée à la voix"
       intro="Dans le cours « XR et Interactions » de Gilles Énée, j'ai conçu une galerie d'art 3D sous Unity. On la parcourt en pilotant un drone, on dit ce qu'on cherche, et les images trouvées sur Google s'accrochent aussitôt aux murs."
       meta={[
         { label: 'Mise à jour', valeur: <time dateTime="2026-10-09">09/10/2026</time> },
@@ -62,9 +62,9 @@ export default function Page() {
           technique={<>API Serper interrogée par <a href={script('SearchManager.cs')}>SearchManager.cs</a>, images téléchargées par <a href={script('GalleryBuilder.cs')}>GalleryBuilder.cs</a>, clé exclue du dépôt par le <code>.gitignore</code>.</>}
         >
           <p>
-            Quand on lance une recherche, la galerie interroge Google Images, puis télécharge les images en arrière-plan :
+            Quand on lance une recherche, la galerie interroge Google Images, puis télécharge les images en arrière-plan, et
             elles apparaissent sur les murs sans que la scène se fige. La clé qui donne accès au service reste sur mon
-            ordinateur : elle n'est jamais publiée sur GitHub.
+            ordinateur et n'est jamais publiée sur GitHub.
           </p>
         </Bloc>
 
@@ -98,7 +98,7 @@ export default function Page() {
           technique={<>Image de secours <code>SetFallback</code> dans GalleryBuilder.cs ; OpenXR ; aide à l'écran dans <a href={script('HelpOverlay.cs')}>HelpOverlay.cs</a>.</>}
         >
           <p>
-            Si une image ne se télécharge pas, une image de secours prend sa place : la galerie n'affiche jamais de cadre
+            Si une image ne se télécharge pas, une image de secours prend sa place, si bien que la galerie n'affiche jamais de cadre
             vide. Le projet devait aussi fonctionner avec un casque de réalité virtuelle, mais il y était instable. J'ai
             choisi de livrer une version PC fiable, avec une aide à l'écran.
           </p>
@@ -127,7 +127,7 @@ export default function Page() {
       <Section id="difficultes" numero={6} titre="Difficultés et pivots" note="ce qui a coincé, et ce que j'en ai tiré">
         <Pivots
           lignes={[
-            { obstacle: 'Le micro ne se libérait plus sous Windows', solution: 'J’ai réinitialisé la reconnaissance vocale et ajouté des tentatives automatiques.', apprentissage: 'Un bug peut venir du système, pas seulement de mon code : il faut savoir aller le chercher.' },
+            { obstacle: 'Le micro ne se libérait plus sous Windows', solution: 'J’ai réinitialisé la reconnaissance vocale et ajouté des tentatives automatiques.', apprentissage: 'Un bug peut venir du système, pas seulement de mon code, et il faut savoir aller le chercher.' },
             { obstacle: 'Des images du web ne se chargeaient pas', solution: 'J’ai ajouté une image de secours automatique.', apprentissage: 'Une interface doit rester correcte quand un service extérieur échoue.' },
             { obstacle: 'Le build était instable sur un vrai casque VR', solution: 'J’ai stabilisé la version PC, au clavier et à la souris.', apprentissage: 'Mieux vaut livrer un produit stable que tout miser sur un matériel capricieux.' },
           ]}

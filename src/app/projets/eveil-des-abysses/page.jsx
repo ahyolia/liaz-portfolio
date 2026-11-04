@@ -42,7 +42,7 @@ export default function Page() {
 
       <Contexte
         fiche={[
-          { label: 'Cadre', valeur: 'R410, BUT MMI 2, événement Pacific Spirit' },
+          { label: 'Cadre', valeur: 'R410 Création numérique, BUT MMI 2, événement Pacific Spirit' },
           { label: 'Durée', valeur: 'juillet → octobre 2025' },
           { label: 'Équipe', valeur: 'Avec Océane Hermant-Melas et Geneviève Mekenese' },
           { label: 'Mon rôle', valeur: 'Conception, dossier et dispositif interactif, en trio' },
@@ -50,16 +50,16 @@ export default function Page() {
         ]}
         statut="Présenté à Pacific Spirit"
       >
-        <p>Éveil des Abysses est une installation immersive et interactive conçue à trois pour l'événement Pacific Spirit, dans le cadre de la ressource R410 de ma 2<sup>e</sup> année de BUT MMI, à l'Université de la Nouvelle-Calédonie.</p>
-        <p>Le point de départ : plus de 95 % des océans restent inexplorés. Face à cet inconnu, on imagine. Notre installation invite le visiteur à <span className="hl">devenir acteur de l'œuvre</span> plutôt que simple spectateur.</p>
-        <p>Dans une salle plongée dans le bleu, une webcam suit les mouvements de la main. Dans TouchDesigner, ces gestes orchestrent en temps réel le déplacement d'un banc de poissons virtuels, dans un environnement fluide et organique.</p>
+        <p>Éveil des Abysses est une <b>installation immersive et interactive</b> conçue à trois pour l'événement <b>Pacific Spirit</b>, dans le cadre de la ressource R410 <em>Création numérique</em> de ma 2<sup>e</sup> année de BUT MMI, à l'Université de la Nouvelle-Calédonie.</p>
+        <p>Tout part d'un constat, <b>plus de 95 % des océans restent inexplorés</b>. Face à cet inconnu, on imagine. Notre installation invite le visiteur à <span className="hl">devenir acteur de l'œuvre</span> plutôt que simple spectateur.</p>
+        <p>Dans une salle plongée dans le bleu, <b>une webcam suit les mouvements de la main</b>. Dans TouchDesigner, ces gestes orchestrent en temps réel le déplacement d'un <b>banc de poissons virtuels</b>, dans un environnement fluide et organique.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'La conception',
-            texte: "Nous avons d'abord écrit le dossier de conception : contexte, problématique, narratif de l'œuvre, puis une veille (Sketch Aquarium de teamLab, le jeu Tchia, la culture kanak) et une direction artistique inspirée du lagon calédonien.",
+            texte: "Nous avons d'abord écrit le dossier de conception, avec le contexte, la problématique et le narratif de l'œuvre, puis une veille (Sketch Aquarium de teamLab, le jeu Tchia, la culture kanak) et une direction artistique inspirée du lagon calédonien.",
             images: [
               { src: `${img}/dossier-couverture.webp`, alt: "Couverture du dossier de conception d'Éveil des Abysses, avec une tortue marine et des coraux", ...page },
               { src: `${img}/dossier-narratif.webp`, alt: "Page Concept de l'œuvre du dossier : le narratif de l'installation", ...page },
@@ -69,7 +69,7 @@ export default function Page() {
           },
           {
             titre: 'Le parcours utilisateur',
-            texte: "Nous avons préparé le parcours du visiteur, de l'accueil dans la pénombre à la vidéo d'introduction puis au moment d'interaction, et dessiné le plan de la salle : écran, tables, lumières et décor.",
+            texte: "Nous avons préparé le parcours du visiteur, de l'accueil dans la pénombre à la vidéo d'introduction puis au moment d'interaction, et dessiné le plan de la salle, avec l'écran, les tables, les lumières et le décor.",
             images: [
               { src: `${img}/dossier-parcours.webp`, alt: 'Page Parcours utilisateur du dossier : le parcours du visiteur, étape par étape', ...page },
               { src: `${img}/dossier-schema.webp`, alt: "Page Schéma de l'installation du dossier : plan de la salle, tables et projection", ...page },
@@ -82,7 +82,7 @@ export default function Page() {
           },
           {
             titre: 'La réaction à la caméra',
-            texte: "Dans TouchDesigner, nous avons relié les nodes : la webcam filme le visiteur, l'image passe en noir et blanc, un flux optique mesure la direction de la main, et ces valeurs lissées guident le banc de poissons.",
+            texte: "Dans TouchDesigner, nous avons relié les nodes entre eux. La webcam filme le visiteur, l'image passe en noir et blanc, un flux optique mesure la direction de la main, et ces valeurs lissées guident le banc de poissons.",
             images: [
               { src: `${img}/touchdesigner-nodes.webp`, alt: 'Les nodes TouchDesigner en cours de montage, devant le décor et un poisson jaune', width: 1280, height: 779 },
               { src: `${img}/demo-touchdesigner.webp`, alt: "Le réseau TouchDesigner terminé : webcam, monochrome, flux optique et analyse, devant l'aquarium", width: 1440, height: 810 },
@@ -90,7 +90,7 @@ export default function Page() {
           },
           {
             titre: "La préparation de l'événement",
-            texte: "Enfin, nous avons installé le dispositif sur place pour Pacific Spirit : écran, caméra, ballons et décor, avec les derniers réglages faits sur l'ordinateur avant l'arrivée des visiteurs.",
+            texte: "Enfin, nous avons installé le dispositif sur place pour Pacific Spirit (écran, caméra, ballons et décor), avec les derniers réglages faits sur l'ordinateur avant l'arrivée des visiteurs.",
             images: [
               { src: `${img}/preparation-installation.webp`, alt: "Installation sur place : l'aquarium affiché sur l'écran, pendant la pose des ballons du décor", width: 1200, height: 1600 },
               { src: `${img}/preparation-equipe.webp`, alt: "Derniers réglages sur l'ordinateur, assises au sol à côté de l'installation", width: 828, height: 1104 },
@@ -105,7 +105,7 @@ export default function Page() {
         poster={`${img}/demo-poster.webp`}
         width={1280}
         height={720}
-        legende="Enregistrement de la démo d'Éveil des Abysses dans TouchDesigner : les mouvements de la main filmés par la webcam déplacent le banc de poissons"
+        legende="Enregistrement de la démo d'Éveil des Abysses dans TouchDesigner. Les mouvements de la main filmés par la webcam déplacent le banc de poissons"
       />
 
       <Apport

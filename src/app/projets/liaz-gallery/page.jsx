@@ -56,31 +56,32 @@ export default function Page() {
         ]}
         statut="Version PC publiée"
       >
-        <p>Pour le cours <em>XR et Interactions</em> de Gilles Énée, j'ai conçu et développé seule une galerie d'art en 3D sous Unity, capable d'afficher en direct les résultats d'une recherche Google Images.</p>
-        <p>Le principe : on dit « recherche », on énonce ce qu'on veut voir, puis « terminé ». Les images trouvées sur le web sont aussitôt accrochées aux murs comme des tableaux, et on visite la galerie en pilotant un drone.</p>
-        <p>Mon objectif : une recherche <span className="hl">entièrement à la voix</span>, et une visite fluide. Le projet intègre OpenXR pour les casques, mais face à des incompatibilités matérielles pendant les tests, j'ai choisi de livrer une version PC stable, au clavier et à la souris.</p>
+        <p>Pour le cours <em>XR et Interactions</em> de Gilles Énée, j'ai <b>conçu et développé seule</b> une <b>galerie d'art en 3D sous Unity</b>, capable d'afficher en direct les <b>résultats d'une recherche Google Images</b>.</p>
+        <p>On dit « recherche », on énonce ce qu'on veut voir, puis « terminé ». Les images trouvées sur le web sont aussitôt <b>accrochées aux murs comme des tableaux</b>, et on visite la galerie <b>en pilotant un drone</b>.</p>
+        <p>Je voulais une recherche <span className="hl">entièrement à la voix</span> et une visite fluide. Le projet intègre OpenXR pour les casques, mais face à des incompatibilités matérielles pendant les tests, j'ai choisi de livrer une <b>version PC stable</b>, au clavier et à la souris.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'Trouver les assets',
-            texte: "J'ai commencé par réunir les modèles 3D : décor et plantes (Gogo Casual Pack, PolyKebap), un drone de science-fiction et des mains animées pour la VR.",
-            attendu: 'capture des assets importés dans Unity',
+            texte: "J'ai commencé par réunir les modèles 3D sur l'<b>Unity Asset Store</b>. On y trouve les plantes (Casual Plants Lite Pack), les cadres des tableaux (Customizable Frames Gallery, Picture frames with photos), le décor intérieur (Interior House Assets), le drone de science-fiction (Sci-Fi Drone) et des mains animées pour la VR.",
+            image: { src: '/images/projets/liaz-gallery/assets-unity.webp', alt: "La page My Assets de l'Unity Asset Store, avec Casual Plants Lite Pack, Customizable Frames Gallery, Interior House Assets, Picture frames with photos et Sci-Fi-Drone", width: 1270, height: 812 },
+            liens: [{ href: 'https://assetstore.unity.com', label: "Voir l'Unity Asset Store" }],
           },
           {
             titre: 'Créer la salle',
-            texte: "J'ai monté la salle d'exposition : murs, sol, plafond et fenêtres, à la bonne échelle pour s'y déplacer.",
+            texte: "J'ai monté la salle d'exposition (murs, sol, plafond et fenêtres) à la bonne échelle pour s'y déplacer.",
             attendu: 'capture de la salle vide',
           },
           {
             titre: 'Faire voler le drone',
-            texte: "Le drone vole librement sur les trois axes et tourne sur lui-même ; la souris oriente le regard. Il glisse le long des murs sans jamais les traverser, grâce aux collisions gérées avec les 141 éléments de la scène, et sans gravité pour rester fluide.",
+            texte: "Le drone vole librement sur les trois axes et tourne sur lui-même, tandis que la souris oriente le regard. Il glisse le long des murs sans jamais les traverser, grâce aux collisions gérées avec les 141 éléments de la scène, et sans gravité pour rester fluide.",
             attendu: 'capture du drone en vol',
           },
           {
             titre: 'Placer les tableaux',
-            texte: "J'ai réparti les emplacements de tableaux sur les murs. Chacun est un plan dont l'image est remplacée par un résultat de la recherche ; un clic ouvre ses détails et le lien vers la source. Si une image ne se télécharge pas (lien cassé, réseau), une image de secours prend sa place.",
+            texte: "J'ai réparti les emplacements de tableaux sur les murs. Chacun est un plan dont l'image est remplacée par un résultat de la recherche, et un clic ouvre ses détails et le lien vers la source. Si une image ne se télécharge pas (lien cassé, réseau), une image de secours prend sa place.",
             attendu: 'capture des tableaux remplis après une recherche',
           },
           {
@@ -90,7 +91,7 @@ export default function Page() {
           },
           {
             titre: 'Lumières, déco et consignes',
-            texte: "Pour finir, j'ai ajouté l'éclairage, le mobilier et l'aide toujours visible à l'écran, demandée par le cahier des charges : comment se déplacer, lancer une recherche et ouvrir les détails d'un tableau.",
+            texte: "Pour finir, j'ai ajouté l'éclairage, le mobilier et l'aide toujours visible à l'écran, demandée par le cahier des charges, qui explique comment se déplacer, lancer une recherche et ouvrir les détails d'un tableau.",
             image: { src: '/images/projets/liaz-gallery/gallerie.webp', alt: "La galerie LiAZ : salle d'exposition avec des tableaux aux murs et des canapés, consignes de recherche vocale et de déplacement affichées à l'écran", width: 1534, height: 862 },
           },
         ]}

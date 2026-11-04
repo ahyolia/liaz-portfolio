@@ -35,7 +35,7 @@ const pages = [
 export const metadata = {
   title: 'Yearbook 2025 de l’IUT, « Case Files » — Camélia Amin Handoyo',
   description:
-    "Le Yearbook 2025 de l'IUT de Nouvelle-Calédonie, sur le thème des agents secrets : ma proposition, élue par la classe, mise en page avec Geneviève Mekenese sur InDesign, Illustrator et Photoshop.",
+    "Le Yearbook 2025 de l'IUT de Nouvelle-Calédonie, sur le thème des agents secrets. Ma proposition, élue par la classe, a été mise en page avec Geneviève Mekenese sur InDesign, Illustrator et Photoshop.",
 };
 
 export default function Page() {
@@ -45,7 +45,7 @@ export default function Page() {
         slug="yearbook-2025"
         eyebrow="Édition · mise en page"
         titre="Yearbook 2025 : l'IUT devient une agence secrète"
-        accroche="Ma proposition a été la plus votée par la classe. Avec Geneviève Mekenese, nous avons mis en page le yearbook de tout l'IUT : chaque promo a son dossier classifié, chaque étudiant son nom de code."
+        accroche="Ma proposition a été la plus votée par la classe. Avec Geneviève Mekenese, nous avons mis en page le yearbook de tout l'IUT, où chaque promo a son dossier classifié et chaque étudiant son nom de code."
         couleur="#E2E0B8"
         liens={[{ href: '#flipbook', label: 'Feuilleter le yearbook' }]}
       >
@@ -71,21 +71,21 @@ export default function Page() {
         ]}
         statut="Distribué aux étudiants et aux diplômés"
       >
-        <p>Pour le yearbook 2025 de l'IUT, toute la classe a proposé un design. <span className="hl">Ma proposition a été la plus votée</span>, et j'ai mis en page le livre avec Geneviève Mekenese.</p>
-        <p>Le concept : l'IUT devient une organisation secrète. Les promos deviennent des unités, les spécialités des divisions, et chaque étudiant un agent avec son nom de code. Chaque unité a son dossier classifié, avec son identifiant, son rang et sa date de fin de mission.</p>
-        <p>Le yearbook réunit toutes les formations de l'IUT (MMI, GEA, LP CAN et LP MIAW). Il a aussi été remis aux diplômés de la promo 2023-2025, qui ont reçu leur diplôme en 2026.</p>
+        <p>Pour le <b>yearbook 2025 de l'IUT</b>, toute la classe a proposé un design. <span className="hl">Ma proposition a été la plus votée</span>, et j'ai mis en page le livre avec Geneviève Mekenese.</p>
+        <p>Dans ce concept, <b>l'IUT devient une organisation secrète</b>. Les promos deviennent des unités, les spécialités des divisions, et chaque étudiant un agent avec son <b>nom de code</b>. Chaque unité a son <b>dossier classifié</b>, avec son identifiant, son rang et sa date de fin de mission.</p>
+        <p>Le yearbook réunit <b>toutes les formations de l'IUT</b> (MMI, GEA, LP CAN et LP MIAW). Il a aussi été remis aux <b>diplômés de la promo 2023-2025</b>, qui ont reçu leur diplôme en 2026.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'La proposition',
-            texte: "J'ai monté une proposition « Rapports de missions – Agents secrets », inspirée du braille, des dossiers d'enquête et des fiches d'agents : un univers de documents confidentiels, de tampons et de pastilles en relief.",
+            texte: "J'ai monté une proposition « Rapports de missions – Agents secrets », inspirée du braille, des dossiers d'enquête et des fiches d'agents. C'est un univers de documents confidentiels, de tampons et de pastilles en relief.",
             image: { src: `${img}/concept-inspirations.webp`, alt: 'Planche Inspirations : braille, dossiers classifiés et fiches d’agents secrets', ...planche },
           },
           {
             titre: 'Le concept et la structure',
-            texte: "J'ai défini les règles du livre : chaque unité (classe) choisit son nom et reçoit un identifiant et un rang (SR, SSR, SSS), chaque division (spécialité) a son nom et son identifiant, et chaque agent choisit son nom de code. Chaque unité a son dossier, ses lettres de rapport et ses fiches de responsables.",
+            texte: "J'ai défini les règles du livre. Chaque unité (classe) choisit son nom et reçoit un identifiant et un rang (SR, SSR, SSS), chaque division (spécialité) a son nom et son identifiant, et chaque agent choisit son nom de code. Chaque unité a son dossier, ses lettres de rapport et ses fiches de responsables.",
             image: { src: `${img}/concept-specificites.webp`, alt: 'Planche Spécificités : unités, divisions, rangs et noms de code', ...planche },
           },
           {

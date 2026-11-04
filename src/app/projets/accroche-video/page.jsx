@@ -11,6 +11,7 @@ import Galerie from '../../../components/projet/Galerie';
 
 const img = '/images/projets/cv-video';
 const plan = { width: 1600, height: 900 };
+const dossier = 'https://docs.google.com/document/d/1lDpBRgB1o5dEIid0T1EbdoPAUWVk-DbG7Uu09WHcnLk/edit?usp=sharing';
 
 export const metadata = {
   title: 'Accroche vidéo, me présenter en une minute — Camélia Amin Handoyo',
@@ -25,7 +26,7 @@ export default function Page() {
         slug="accroche-video"
         eyebrow="Vidéo"
         titre="Accroche vidéo, me présenter en moins d'une minute"
-        accroche="Je construis, je prends du recul, je me projette. Le reste ne se dit pas. Il se lit."
+        accroche="Une minute pour montrer là où je construis, là où je prends du recul, et vers où m'appellent mes ambitions."
         couleur="#FCE7C8"
       >
         <img src={`${img}/miniature-bougies.webp`} alt="Plan du film : une main allume les bougies d'un gâteau d'anniversaire" width="1600" height="900" data-depth="0.4" style={{ width: '92%', borderRadius: '1rem', boxShadow: '0 18px 40px -20px rgb(0 0 0 / 0.5)' }} />
@@ -44,9 +45,9 @@ export default function Page() {
         ]}
         statut="Rendu"
       >
-        <p>Pour le cours de Projet personnel et professionnel, il fallait réaliser une vidéo d'accroche de type CV : moins d'une minute pour donner envie d'en savoir plus sur soi.</p>
-        <p>Plutôt que de lister ce que je sais faire, j'ai choisi de montrer ce qui me compose, par fragments. Formée au développement, ce qui m'anime, c'est <span className="hl">l'humain derrière l'écran</span> : ce qui m'oriente vers l'UX design. Et lectrice de fiction, j'ai appris très tôt à imaginer des mondes qui n'existent pas encore.</p>
-        <p>J'ai écrit, réalisé et monté la vidéo seule ; Geneviève Mekenese et Magalie Chen m'ont aidée au cadrage.</p>
+        <p>Pour le cours de Projet Personnel et Professionnel, il fallait réaliser une <b>vidéo d'accroche de type CV</b>, soit <b>moins d'une minute</b> pour donner envie d'en savoir plus sur soi.</p>
+        <p>Plutôt que de lister ce que je sais faire, j'ai choisi de montrer <b>ce qui me compose, par fragments</b>. Formée au développement, ce qui m'anime, c'est <span className="hl">l'humain derrière l'écran</span>, et c'est ce qui m'oriente vers l'<b>UX design</b>. Et lectrice de fiction, j'ai appris très tôt à <b>imaginer des mondes</b> qui n'existent pas encore.</p>
+        <p><b>J'ai écrit, réalisé et monté la vidéo seule</b>, et Geneviève Mekenese et Magalie Chen m'ont aidée au cadrage.</p>
       </Contexte>
 
       <Questions
@@ -54,36 +55,37 @@ export default function Page() {
         questions={[
           {
             question: 'Comment se présenter en une minute quand une personne ne se résume pas ?',
-            reponse: "En trois temps : ma chambre, où je construis (mes livres, mes couleurs, mon tableau blanc couvert de projets) ; la plage, où je respire et prends du recul ; mon anniversaire, qui tombait ce mois-là, où je me projette.",
+            reponse: "En trois temps. D'abord ma chambre, où je construis (mes livres, mes couleurs, mon tableau blanc couvert de projets). Puis la plage, où je respire et prends du recul. Enfin mon anniversaire, qui tombait ce mois-là, où je me projette vers ces « ambitions qui m'appellent au loin ».",
           },
           {
             question: 'Quel fil rouge ?',
-            reponse: "Le temps. Le sable qui glisse entre mes doigts dit ce que je ne peux pas retenir, comme cette minute qui ne suffit pas à tout raconter. Les bougies marquent une année qui se termine et une autre qui commence.",
+            reponse: "Le temps. La voix off parle « de mots qui glissent entre mes mains », et à l'image, le sable glisse entre mes doigts. Ils disent ce que je ne peux pas retenir, comme cette minute qui ne suffit pas à tout raconter. Les bougies marquent une année qui se termine et une autre qui commence.",
           },
           {
             question: 'Comment finir sans tout dire ?',
-            reponse: "La voix off est un court poème en rimes, une pensée intérieure. Le dernier vers reste sans rime : il est coupé par mon souffle sur les bougies. Un vœu ne se dit pas. Le texte final, « Le reste ne se dit pas. Il se lit. », renvoie vers mon CV.",
+            reponse: "La voix off est un court poème en rimes, une pensée intérieure. Le dernier vers reste sans rime, coupé par mon souffle sur les bougies. Un vœu ne se dit pas, il se garde pour soi.",
           },
         ]}
       />
 
       <YouTube
         titre="La vidéo"
-        intro="Ton intime et contemplatif : caméra proche du corps, gros plans, lumière naturelle, musique douce et sons proches (les pages, le sable, la mer, le souffle)."
+        intro="Un ton intime et contemplatif, avec une caméra proche du corps, gros plans, lumière naturelle, musique douce et sons proches (les pages, le sable, la mer, le souffle)."
         id="FDmvYcf1NJI"
         poster={`${img}/miniature-bougies.webp`}
-        legende="Accroche vidéo de Camélia Amin Handoyo : ma chambre, la plage, puis mon anniversaire"
+        legende="Accroche vidéo de Camélia Amin Handoyo, de ma chambre à la plage, puis à mon anniversaire"
       />
 
       <Demarche
         etapes={[
           {
             titre: 'Le dossier de préparation',
-            texte: "Du 5 au 9 octobre : la note d'intention, le poème de la voix off, puis le découpage plan par plan des trois séquences, avec des images de référence pour les cadrages et le calendrier du projet.",
-            attendu: 'une page du découpage',
+            texte: "Du 5 au 9 octobre, j'ai écrit la note d'intention, le poème de la voix off, puis le découpage plan par plan des trois séquences, avec des images de référence pour les cadrages et le calendrier du projet.",
+            image: { src: `${img}/dossier-prepa.webp`, alt: "Première page du dossier de préparation sur Google Docs : l'équipe, le format (moins de 60 secondes, 16:9, voix off et musique) et le calendrier, avec les onglets Présentation, Note d'intention et Découpage", width: 1534, height: 769 },
+            liens: [{ href: dossier, label: 'Lire le dossier de préparation' }],
           },
           {
-            titre: 'Le tournage : 3 jours, 3 lieux',
+            titre: 'Le tournage, 3 jours et 3 lieux',
             texte: "La plage le 10 octobre, ma chambre le 11, et le salon pour l'anniversaire le 16. Un même verre fait le raccord entre la chambre et la plage. Geneviève Mekenese et Magalie Chen m'ont aidée à cadrer quand je devais être à l'image.",
             images: [
               { src: `${img}/chambre-bureau.webp`, alt: 'Plan du film : je code à mon bureau, le soir', ...plan },
@@ -101,7 +103,7 @@ export default function Page() {
           },
           {
             titre: 'Le sound design',
-            texte: "Une musique douce, ma voix off qui dit le poème, et des sons proches : les pages, le sable, la mer, le souffle. Le dernier vers est coupé par le souffle sur les bougies, avant l'écran noir. Rendu final le 26 octobre.",
+            texte: "Une musique douce, ma voix off qui dit le poème, et des sons proches comme les pages, le sable, la mer et le souffle. Le dernier vers est coupé par le souffle sur les bougies, avant l'écran noir. Rendu final le 26 octobre.",
             image: { src: `${img}/plage-sable.webp`, alt: 'Plan du film : le sable glisse entre mes doigts', ...plan },
           },
         ]}
@@ -124,7 +126,7 @@ export default function Page() {
 
       <Galerie
         titre="Quelques plans"
-        intro="Les trois lieux du film : la chambre, la plage et le salon."
+        intro="Les trois lieux du film, la chambre, la plage et le salon."
         filtres={[
           { id: 'chambre', label: 'Chambre' },
           { id: 'plage', label: 'Plage' },

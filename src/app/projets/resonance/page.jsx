@@ -46,9 +46,9 @@ export default function Page() {
         ]}
         statut="Publié sur Behance"
       >
-        <p>La consigne : réaliser un « moodboard animé » ou un showreel personnel d'au moins 20 secondes, qui représente mon univers créatif, ma sensibilité artistique et mon identité visuelle.</p>
-        <p>Plutôt qu'un portrait figé, j'ai choisi de traduire mon monde intérieur par des <span className="hl">mouvements fluides</span>, des géométries qui contrastent et des espaces profonds : une introspection sur un moi qui échappe aux cases.</p>
-        <p>Côté technique : typographie animée, rythme calé sur la musique et composition vectorielle.</p>
+        <p>La consigne était de réaliser un <b>« moodboard animé »</b> ou un <b>showreel personnel</b> d'au moins 20 secondes, qui représente <b>mon univers créatif</b>, ma sensibilité artistique et mon identité visuelle.</p>
+        <p>Plutôt qu'un portrait figé, j'ai choisi de traduire <b>mon monde intérieur</b> par des <span className="hl">mouvements fluides</span>, des géométries qui contrastent et des espaces profonds, comme une introspection sur un moi qui échappe aux cases.</p>
+        <p>Côté technique, j'ai travaillé la <b>typographie animée</b>, un <b>rythme calé sur la musique</b> et la <b>composition vectorielle</b>.</p>
       </Contexte>
 
       <YouTube

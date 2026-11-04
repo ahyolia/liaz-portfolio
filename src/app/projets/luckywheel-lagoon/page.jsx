@@ -16,7 +16,7 @@ const ecran = { width: 1364, height: 922 };
 export const metadata = {
   title: 'La Grande Roue Lagoon, un jeu pour la Foire du Pacifique — Camélia Amin Handoyo',
   description:
-    "Refonte de la roue de la chance de Lagoon pour la Foire du Pacifique : maquettes Figma, puis intégration en Nuxt avec du son et des animations, pendant mon stage chez OFFRATEL Lagoon.",
+    "Refonte de la roue de la chance de Lagoon pour la Foire du Pacifique, des maquettes Figma à l'intégration en Nuxt avec du son et des animations, pendant mon stage chez OFFRATEL Lagoon.",
 };
 
 export default function Page() {
@@ -51,9 +51,9 @@ export default function Page() {
         ]}
         statut="Foire du Pacifique 2025"
       >
-        <p>À la Foire du Pacifique, le stand Lagoon propose aux visiteurs de tenter leur chance sur une roue : stylo, paréo, chapeau, ballon de plage, poisson anti-stress… ou un mois d'abonnement.</p>
-        <p>C'était ma deuxième mission pendant mon stage de 2<sup>e</sup> année de BUT MMI chez OFFRATEL Lagoon. On m'a confié la refonte de la roue. L'objectif : <span className="hl">la moderniser et la rendre plus fun</span>.</p>
-        <p>J'ai dessiné la nouvelle roue et ses écrans sur Figma, puis je l'ai intégrée en Nuxt, en ajoutant du son et des éléments animés à l'interface.</p>
+        <p>À la <b>Foire du Pacifique, le stand Lagoon</b> propose aux visiteurs de tenter leur chance sur une roue pour gagner un stylo, un paréo, un chapeau, un ballon de plage, un poisson anti-stress… ou un mois d'abonnement.</p>
+        <p>C'était ma deuxième mission pendant mon stage de 2<sup>e</sup> année de BUT MMI chez <b>OFFRATEL Lagoon</b>. On m'a confié la <b>refonte de la roue</b>, avec pour objectif de <span className="hl">la moderniser et la rendre plus fun</span>.</p>
+        <p>J'ai dessiné la nouvelle roue et ses écrans sur <b>Figma</b>, puis je l'ai intégrée en <b>Nuxt</b>, en ajoutant du <b>son</b> et des <b>éléments animés</b> à l'interface.</p>
         <p>À la Foire du Pacifique 2025, la roue a attiré <strong>119 participants</strong> sur le stand et permis de recueillir <strong>35 prospects</strong> pour Lagoon.</p>
       </Contexte>
 
@@ -61,12 +61,12 @@ export default function Page() {
         etapes={[
           {
             titre: "L'ancienne roue",
-            texte: "La roue d'origine faisait le travail, mais restait très simple : des parts bleues et blanches avec des emojis, un fond gris et un petit bouton « Jouer » sous la roue.",
+            texte: "La roue d'origine faisait le travail, mais restait très simple, avec des parts bleues et blanches avec des emojis, un fond gris et un petit bouton « Jouer » sous la roue.",
             image: { src: `${img}/ancienne-roue.webp`, alt: "L'ancienne roue Lagoon : parts bleues et blanches avec des emojis, sur fond gris, et un bouton Jouer en dessous", width: 751, height: 529 },
           },
           {
             titre: 'La nouvelle roue sur Figma',
-            texte: "J'ai redessiné la roue dans l'univers de Lagoon : un fond bleu avec des bulles et des poissons-clowns, une roue cerclée d'orange, un picto et un nom pour chaque lot, et le bouton « Jouer » au centre de la roue. Les logos Lagoon et Foire du Pacifique signent l'écran.",
+            texte: "J'ai redessiné la roue dans l'univers de Lagoon, avec un fond bleu plein de bulles et de poissons-clowns, une roue cerclée d'orange, un picto et un nom pour chaque lot, et le bouton « Jouer » au centre de la roue. Les logos Lagoon et Foire du Pacifique signent l'écran.",
             image: { src: `${img}/roue.webp`, alt: 'La nouvelle roue : lots illustrés, cercle orange et bouton Jouer au centre', ...ecran },
             liens: [{ href: figma, label: 'Voir les maquettes Figma' }],
           },

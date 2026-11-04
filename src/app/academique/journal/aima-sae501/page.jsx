@@ -24,8 +24,8 @@ const sections = [
 export default function Page() {
   return (
     <Fiche
-      titre="Aïma - BloodShare : application mobile et PWA gamifiée"
-      intro="Avec l'ADSB-NC et le centre de don, nous avons créé une appli qui donne envie aux 18-35 ans de donner leur sang, sans jamais culpabiliser. Cette fiche détaille le volet technique : une appli React Native connectée à une API Laravel et à son back-office, présentée au forum du 29 octobre."
+      titre="Aïma - BloodShare, une application mobile et PWA gamifiée"
+      intro="Avec l'ADSB-NC et le centre de don, nous avons créé une appli qui donne envie aux 18-35 ans de donner leur sang, sans jamais culpabiliser. Cette fiche détaille le volet technique, soit une appli React Native connectée à une API Laravel et à son back-office, présentée au forum du 29 octobre."
       meta={[
         { label: 'Mise à jour', valeur: <time dateTime="2026-11-02">02/11/2026</time> },
         { label: 'Projet', valeur: <a href="/projets/aima/">Aïma</a> },
@@ -74,7 +74,7 @@ export default function Page() {
         <Bloc titre="Cadrer le produit et le livrer à temps" ac={['AC35.01', 'AC35.02']} technique="User stories sur ClickUp, une branche Git par user story, pull requests relues, commits normés.">
           <p>
             Nous sommes partis des échanges avec l'association pour écrire le cahier des charges et imaginer la
-            gamification : des cartes-souvenirs, des niveaux, des badges et des défis. Le temps manquait, alors nous avons
+            gamification autour de cartes-souvenirs, de niveaux, de badges et de défis. Le temps manquait, alors nous avons
             choisi ce qui partait dans la première version pour le forum, et ce qui attendait la suivante. Chaque mois,
             nous faisions le point avec l'équipe Stratégie et l'association.
           </p>
@@ -84,7 +84,7 @@ export default function Page() {
           <p>
             Une seule base de code nous a permis de viser Android, iOS et le web. Au forum, l'appli s'ouvrait en scannant
             un QR code, sans rien installer. Le questionnaire qui vérifie si l'on peut donner son sang fonctionne
-            entièrement sur le téléphone : aucune donnée médicale n'est envoyée ni enregistrée.
+            entièrement sur le téléphone, sans qu'aucune donnée médicale soit envoyée ni enregistrée.
           </p>
         </Bloc>
 
@@ -95,8 +95,8 @@ export default function Page() {
         >
           <p>
             J'ai construit le serveur qui fait tourner l'appli, et le back-office où l'association gère elle-même ses
-            contenus : stocks de sang, quiz, cartes, défis et comptes. Pour valider un don, le centre affiche un QR code
-            qui change toutes les 30 secondes : une photo partagée ne sert donc à rien. J'ai aussi prévu un mot de passe
+            contenus (stocks de sang, quiz, cartes, défis et comptes). Pour valider un don, le centre affiche un QR code
+            qui change toutes les 30 secondes, si bien qu'une photo partagée ne sert à rien. J'ai aussi prévu un mot de passe
             temporaire que l'administrateur peut donner, et que l'utilisateur doit changer en se reconnectant.
           </p>
           <p>
@@ -108,7 +108,7 @@ export default function Page() {
         <Bloc titre="Héberger une démo, préparer la suite" ac={['AC34.05']} technique="Docker Compose ; démo sur le serveur de l'IUT avec une base Neon ; plan de migration dans le dossier de rendu.">
           <p>
             Pour respecter le RGPD, l'appli doit être hébergée en Europe ou en Nouvelle-Calédonie. Nous n'avons pas pu
-            choisir un hébergeur définitif à temps : j'ai donc mis en ligne une démo provisoire sur le serveur de l'IUT,
+            choisir un hébergeur définitif à temps, alors j'ai mis en ligne une démo provisoire sur le serveur de l'IUT,
             signalée comme telle, et écrit les étapes pour passer à l'hébergement final dans la version suivante.
           </p>
         </Bloc>
@@ -131,7 +131,7 @@ export default function Page() {
             </>
           }
           je={[
-            { titre: 'Seule : back-end et hébergement', points: ['API Laravel, base et seeders', 'Back-office, rôles et permissions', 'Services métier et QR code tournant', 'Mot de passe temporaire et ses tests', "Contrat d'API", "Hébergement du back-end sur le serveur de l'IUT"] },
+            { titre: 'Seule, sur le back-end et l’hébergement', points: ['API Laravel, base et seeders', 'Back-office, rôles et permissions', 'Services métier et QR code tournant', 'Mot de passe temporaire et ses tests', "Contrat d'API", "Hébergement du back-end sur le serveur de l'IUT"] },
             { titre: 'Avec Geneviève', points: ['User stories et comptes rendus', 'Design system et maquettes Figma', 'Écrans Quiz, Don, Cartes, Profil, Notifications', 'Veille hébergeurs et cybersécurité', 'Cahier des charges et bilan V1 / V2'] },
           ]}
         />
@@ -140,11 +140,11 @@ export default function Page() {
       <Section id="difficultes" numero={6} titre="Difficultés et pivots" note="ce qui a coincé, et ce que j'en ai tiré">
         <Pivots
           lignes={[
-            { obstacle: 'Le planning a glissé', solution: 'Backlog recadré, MVP priorisé, le reste reporté en V2.', apprentissage: 'Un planning se réévalue à chaque étape : il faut savoir réduire le périmètre.' },
+            { obstacle: 'Le planning a glissé', solution: 'Backlog recadré, MVP priorisé, le reste reporté en V2.', apprentissage: 'Un planning se réévalue à chaque étape, et il faut savoir réduire le périmètre.' },
             { obstacle: 'Stratégie et Dev n’avançaient pas au même rythme', solution: 'Échéances clarifiées et livrables attendus formalisés.', apprentissage: 'Le développement a besoin de contenus validés à des dates précises.' },
             { obstacle: 'Pas le temps de monter l’envoi d’e-mails', solution: 'Un mot de passe temporaire, changé de force à la connexion.', apprentissage: 'Simplifier sans rien céder sur la sécurité.' },
             { obstacle: 'Un QR code fixe pouvait être photographié et partagé', solution: 'Un QR code qui change toutes les 30 secondes, avec un QR de secours encadré.', apprentissage: 'Penser aux détournements dès la conception.' },
-            { obstacle: 'Le don ne devait pas rapporter de points', solution: 'Le don donne une carte-souvenir ; les points viennent des quiz, défis et parrainages.', apprentissage: 'Un modèle de données souple permet de pivoter sans tout réécrire.' },
+            { obstacle: 'Le don ne devait pas rapporter de points', solution: 'Le don donne une carte-souvenir, et les points viennent des quiz, défis et parrainages.', apprentissage: 'Un modèle de données souple permet de pivoter sans tout réécrire.' },
             { obstacle: 'Pas d’hébergeur conforme au RGPD à temps', solution: 'Une démo provisoire, signalée, et un plan de migration pour la V2.', apprentissage: 'Bien distinguer une démo d’une mise en production, et le documenter.' },
           ]}
         />

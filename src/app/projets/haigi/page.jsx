@@ -15,7 +15,7 @@ const planche = { width: 1400, height: 767 };
 export const metadata = {
   title: 'Haigi, une identité de marque — Camélia Amin Handoyo',
   description:
-    "Haigi, identité visuelle d'une marque fictive de capsules qui transforment un liquide en objet : moodboards, logo, typographies, affiches et cartes de visite, sur Illustrator. Projet de BUT MMI 1 en binôme.",
+    "Haigi, identité visuelle d'une marque fictive de capsules qui transforment un liquide en objet. Moodboards, logo, typographies, affiches et cartes de visite, sur Illustrator. Projet de BUT MMI 1 en binôme.",
 };
 
 export default function Page() {
@@ -25,7 +25,7 @@ export default function Page() {
         slug="haigi"
         eyebrow="Identité de marque"
         titre="Haigi, une marque entre fun et mystique"
-        accroche="Une capsule qui transforme un simple liquide en l'objet dont on a besoin : notre première identité de marque, du moodboard aux supports imprimés."
+        accroche="Une capsule dont le liquide se change en l'objet dont on a besoin. Pour cette première identité de marque, nous sommes allées du moodboard jusqu'aux supports imprimés."
         couleur="#F6D3E4"
         liens={[{ href: behance, label: 'Voir sur Behance' }]}
       >
@@ -46,21 +46,21 @@ export default function Page() {
         ]}
         statut="Publié sur Behance"
       >
-        <p>Haigi est une marque fictive, créée pour notre premier projet de design de marque en BUT MMI, en binôme avec Geneviève Mekenese.</p>
-        <p>Le concept : une capsule qui contient un liquide unique. Une fois brisée, elle se solidifie en l'objet dont on a besoin. On peut même mélanger plusieurs liquides pour <span className="hl">combiner les fonctions</span>, comme une lampe-tasse.</p>
-        <p>Il fallait donc une identité à la fois ludique et un peu magique, capable de porter une promesse de personnalisation : « Personnalisez le design de chaque objet pour qu'il reflète votre style ! »</p>
+        <p>Haigi est une <b>marque fictive</b>, créée pour notre <b>premier projet de design de marque</b> en BUT MMI, en binôme avec Geneviève Mekenese.</p>
+        <p>L'idée est <b>une capsule qui contient un liquide unique</b>. Une fois brisée, elle se solidifie en <b>l'objet dont on a besoin</b>. On peut même mélanger plusieurs liquides pour <span className="hl">combiner les fonctions</span>, comme une lampe-tasse.</p>
+        <p>Il fallait donc une identité à la fois <b>ludique et un peu magique</b>, capable de porter une promesse de <b>personnalisation</b>, « Personnalisez le design de chaque objet pour qu'il reflète votre style ! »</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'Le concept',
-            texte: "Nous avons d'abord écrit le concept et le ton de la marque : une capsule révolutionnaire qui transforme un simple liquide en tous vos besoins, et un slogan centré sur la personnalisation.",
+            texte: "Nous avons d'abord écrit le concept et le ton de la marque, autour d'une capsule révolutionnaire qui transforme un simple liquide en tous vos besoins, et un slogan centré sur la personnalisation.",
             image: { src: `${img}/concept.webp`, alt: 'Planche de présentation du concept Haigi et de ses capsules', ...planche },
           },
           {
-            titre: 'Deux moodboards : Fun et Mystic',
-            texte: "Chacune a fait son moodboard : « Fun » pour Geneviève, avec des objets colorés et pop, et « Mystic » pour moi, plus sombre et mystérieux. L'identité est née du mélange des deux.",
+            titre: 'Deux moodboards, Fun et Mystic',
+            texte: "Chacune a fait son moodboard, « Fun » pour Geneviève, avec des objets colorés et pop, et « Mystic » pour moi, plus sombre et mystérieux. L'identité est née du mélange des deux.",
             image: { src: `${img}/moodboards.webp`, alt: 'Les deux moodboards : Fun, par Geneviève, et Mystic, par Camélia', ...planche },
           },
           {
@@ -75,7 +75,7 @@ export default function Page() {
           },
           {
             titre: 'Les supports',
-            texte: "Pour finir, nous avons appliqué l'identité à des supports : une campagne d'affichage « Back to school » et des cartes de visite.",
+            texte: "Pour finir, nous avons appliqué l'identité à des supports, une campagne d'affichage « Back to school » et des cartes de visite.",
             image: { src: `${img}/affiches-kiosque.webp`, alt: 'Les affiches Haigi « Back to school » sur un kiosque, en vert et en rose', width: 1400, height: 919 },
             liens: [{ href: behance, label: 'Voir le projet sur Behance' }],
           },

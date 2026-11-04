@@ -37,7 +37,7 @@ export const projets = [
     annee: '2026',
     cadre: "BUT MMI 3 - Projet de fin d'études en collaboration avec l'ADSB-NC",
     resume:
-      'Une appli mobile créée pour l\'association des donneurs de sang de Nouvelle-Calédonie : des cartes à collectionner et des quiz pour donner envie de revenir donner.',
+      'Une appli mobile créée pour l\'association des donneurs de sang de Nouvelle-Calédonie, avec des cartes à collectionner et des quiz pour donner envie de revenir donner.',
     roles: 'dev full-stack · ui/ux design',
     tags: ['React Native', 'Laravel', 'UI/UX', 'RGPD'],
     image: { src: '/images/projets/aima/screens_app/mockups-aima.webp', width: 1080, height: 721 },
@@ -49,7 +49,7 @@ export const projets = [
     annee: '2026',
     cadre: 'Alternance - OFFRATEL Lagoon',
     resume:
-      "Un module d'accessibilité web calédonien : loupe, mode sombre et autres fonctionnalités après des tests avec l'association Valentin Haüy, et la page article du site.",
+      "Un module d'accessibilité web calédonien. J'ai développé la loupe, le mode sombre et d'autres fonctionnalités après des tests avec l'association Valentin Haüy, ainsi que la page article du site.",
     roles: 'dev front · ui/ux · accessibilité',
     tags: ['Accessibilité', 'Tests utilisateurs', 'Figma', 'Nuxt'],
     image: { src: '/images/projets/tenjity/vignette-module.webp', width: 1200, height: 900 },
@@ -73,7 +73,7 @@ export const projets = [
     annee: '2026',
     cadre: 'BUT MMI 3 - Cours PPP',
     resume:
-      "Me présenter en moins d'une minute, par fragments : là où je construis, là où je respire, et là où je me projette.",
+      "Me présenter en moins d'une minute, par fragments, là où je construis, là où je respire, et là où je me projette.",
     roles: 'écriture · réalisation · montage',
     tags: ['Vidéo', 'Écriture', 'Montage', 'Voix off'],
     image: { src: '/images/projets/cv-video/miniature-bougies.webp', width: 1600, height: 900 },
@@ -85,7 +85,7 @@ export const projets = [
     annee: '2026',
     cadre: 'BUT MMI 3 - Développement front',
     resume:
-      'Une balade en 3D sur une île flottante, sous un ciel où chaque étoile cache une carte Pokémon : on clique, elle descend et se révèle.',
+      'Une balade en 3D sur une île flottante, sous un ciel où chaque étoile cache une carte Pokémon. On clique, elle descend et se révèle.',
     roles: 'dev front 3d · game design',
     tags: ['React', 'Three.js', 'API TCGdex', 'Web Audio'],
     image: { src: '/images/projets/pocket-stars/carte-alakazam.webp', width: 1440, height: 900 },
@@ -110,7 +110,7 @@ export const projets = [
     annee: '2026',
     cadre: 'Concours webdoc NC la 1ère',
     resume:
-      "Un web-documentaire sur Mirella, surveillante de lycée, réalisé en binôme pour le concours « Les Étincelles Calédoniennes » de NC la 1ère : prix Coup de cœur du jury.",
+      "Un web-documentaire sur Mirella, surveillante de lycée, réalisé en binôme pour le concours « Les Étincelles Calédoniennes » de NC la 1ère, qui a reçu le prix Coup de cœur du jury.",
     roles: 'web-documentaire · gestion de projet',
     tags: ['Vidéo', 'Prise de son', 'Interview', 'ClickUp'],
     image: { src: '/images/projets/etincelle-caledonienne/visuel-brut.webp', width: 1600, height: 900 },
@@ -122,7 +122,7 @@ export const projets = [
     annee: '2026',
     cadre: 'BUT MMI 3 - XR et Interactions',
     resume:
-      "Une galerie d'images en 3D qu'on pilote à la voix : on dit ce qu'on cherche, et les images trouvées sur le web s'accrochent aux murs.",
+      "Une galerie d'images en 3D qu'on pilote à la voix. On dit ce qu'on cherche, et les images trouvées sur le web s'accrochent aux murs.",
     roles: 'dev unity · 3d interactive',
     tags: ['Unity 6', 'C#', 'Reconnaissance vocale'],
     image: { src: '/images/projets/liaz-gallery/gallerie.webp', width: 1534, height: 862 },
@@ -135,7 +135,7 @@ export const projets = [
     annee: '2025',
     cadre: "IUT de Nouvelle-Calédonie - Proposition élue",
     resume:
-      "Le yearbook de tout l'IUT sur le thème des agents secrets : ma proposition, élue par la classe, mise en page en binôme sur 52 pages.",
+      "Le yearbook de tout l'IUT sur le thème des agents secrets. Ma proposition, élue par la classe, a été mise en page en binôme sur 52 pages.",
     roles: 'édition · direction artistique',
     tags: ['InDesign', 'Illustrator', 'Photoshop', 'Mise en page'],
     image: { src: '/images/projets/yearbook25/vignette.webp', width: 1200, height: 900 },
@@ -148,7 +148,7 @@ export const projets = [
     annee: '2025',
     cadre: 'Stage - OFFRATEL Lagoon',
     resume:
-      "La refonte UI/UX de l'espace client d'un fournisseur d'accès internet calédonien, des maquettes Figma à l'intégration : toujours en production.",
+      "La refonte UI/UX de l'espace client d'un fournisseur d'accès internet calédonien, des maquettes Figma à l'intégration. Elle est toujours en production.",
     roles: 'ui/ux design · dev front',
     tags: ['UI/UX', 'Figma', 'Intégration', 'Stage'],
     image: { src: '/images/projets/refonte-espaceclient-lagoon/mockup-accueil.webp', width: 1200, height: 903 },
@@ -196,7 +196,7 @@ export const projets = [
     annee: '2025',
     cadre: 'BUT MMI 2 - SAÉ 301 et 401',
     resume:
-      "La plateforme de l'épicerie solidaire de l'UNC : conçue à quatre en PHP MVC, puis reprise seule avec un front Angular, une API REST et des design patterns.",
+      "La plateforme de l'épicerie solidaire de l'UNC, conçue à quatre en PHP MVC, puis reprise seule avec un front Angular, une API REST et des design patterns.",
     roles: 'dev full-stack · ui/ux',
     tags: ['Angular', 'API REST PHP', 'Design patterns', 'MySQL'],
     image: { src: '/images/projets/epise/site-accueil.webp', width: 1440, height: 900 },
@@ -208,7 +208,7 @@ export const projets = [
     annee: '2025',
     cadre: 'BUT MMI 2 - Forum des jeux de société',
     resume:
-      "Un jeu de société sur une île flottante : un plateau à niveaux qui tournent fait au FabLab, des énigmes calédoniennes et des cartes à tirer sur une appli.",
+      "Un jeu de société sur une île flottante, avec un plateau à niveaux qui tournent fait au FabLab, des énigmes calédoniennes et des cartes à tirer sur une appli.",
     roles: 'game design · fabrication · branding',
     tags: ['Jeu de plateau', 'Impression 3D', 'Découpe laser', 'React Native'],
     image: { src: '/images/projets/windtell/partie-test.webp', width: 1400, height: 1050 },
@@ -220,7 +220,7 @@ export const projets = [
     annee: '2024',
     cadre: 'BUT MMI - Identité personnelle',
     resume:
-      "Mon identité personnelle : un monogramme C et A inspiré des sceaux d'Asie, sa palette et ses déclinaisons sur cartes de visite et packagings.",
+      "Mon identité personnelle, un monogramme C et A inspiré des sceaux d'Asie, sa palette et ses déclinaisons sur cartes de visite et packagings.",
     roles: 'identité visuelle · illustrator · photoshop',
     tags: ['Branding', 'Monogramme', 'Packaging', 'Photoshop'],
     image: { src: '/images/projets/personal-branding/couverture.webp', width: 1400, height: 840 },
@@ -232,7 +232,7 @@ export const projets = [
     annee: '2024',
     cadre: 'BUT MMI 1 - Design de marque',
     resume:
-      "L'identité d'une marque fictive de capsules qui transforment un liquide en objet : moodboards, logo, typographies et supports, en binôme.",
+      "L'identité d'une marque fictive de capsules qui transforment un liquide en objet, des moodboards aux supports, en binôme.",
     roles: 'identité visuelle · illustrator',
     tags: ['Branding', 'Logo', 'Illustrator', 'Affiches'],
     image: { src: '/images/projets/haigi/couverture.webp', width: 1400, height: 767 },

@@ -61,16 +61,16 @@ export default function Page() {
         ]}
         statut="Prototype en ligne"
       >
-        <p>Sur le campus de l'Université de la Nouvelle-Calédonie, trois fresques de l'artiste Kuby Kolor (la tortue marine, l'hibiscus et le loriquet) cachent un second niveau de lecture : un monde invisible, microscopique, cellulaire.</p>
-        <p>Avec Magalie et Geneviève, nous avons imaginé Liminis, une appli web qui transforme la visite en <span className="hl">quête du vivant</span>. On suit la carte jusqu'aux fresques, on les scanne en réalité augmentée pour révéler leurs fragments cachés, et on remplit un carnet de bord.</p>
-        <p>Une fois tous les tampons réunis, un familier se débloque, assemblé à partir de tout ce qu'on a découvert. Dans l'équipe, je me suis occupée du branding (identité visuelle, logo, charte, icônes et familiers) et de l'UI/UX de l'appli, de son parcours à ses écrans.</p>
+        <p>Sur le campus de l'Université de la Nouvelle-Calédonie, <b>trois fresques de l'artiste Kuby Kolor</b> (la tortue marine, l'hibiscus et le loriquet) cachent un second niveau de lecture, un <b>monde invisible, microscopique et cellulaire</b>.</p>
+        <p>Avec Magalie et Geneviève, nous avons imaginé Liminis, une <b>appli web</b> qui transforme la visite en <span className="hl">quête du vivant</span>. On suit la carte jusqu'aux fresques, on les scanne en <b>réalité augmentée</b> pour révéler leurs fragments cachés, et on remplit un <b>carnet de bord</b>.</p>
+        <p>Une fois tous les tampons réunis, <b>un familier se débloque</b>, assemblé à partir de tout ce qu'on a découvert. Dans l'équipe, je me suis occupée du <b>branding</b> (identité visuelle, logo, charte, icônes et familiers) et de l'<b>UI/UX de l'appli</b>, de son parcours à ses écrans.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'Le concept et le dispositif',
-            texte: "Nous avons d'abord posé le contexte et la problématique : comment révéler, pour chaque fresque, un univers invisible grâce à l'art, la réalité augmentée et le son ? Puis le pitch, l'intention UX, le fil narratif et les interactions clés.",
+            texte: "Nous avons d'abord posé le contexte et la problématique. Comment révéler, pour chaque fresque, un univers invisible grâce à l'art, la réalité augmentée et le son ? Sont venus ensuite le pitch, l'intention UX, le fil narratif et les interactions clés.",
             images: [
               { src: `${img}/dossier-couverture.webp`, alt: 'Couverture du dossier de conception Micro-Mondes, avec les trois familiers', ...page },
               { src: `${img}/dossier-concept.webp`, alt: "Page Concept d'expérience du dossier : pitch, intention UX, fil narratif", ...page },
@@ -86,13 +86,13 @@ export default function Page() {
           },
           {
             titre: 'Les maquettes',
-            texte: "Les écrans ont été pensés d'abord en wireframes dans Figma, sur une grille mobile : la carte du parcours, le carnet de bord, les fragments et le déblocage du familier, avec une navigation réduite à trois onglets.",
+            texte: "Les écrans ont été pensés d'abord en wireframes dans Figma, sur une grille mobile. On y retrouve la carte du parcours, le carnet de bord, les fragments et le déblocage du familier, avec une navigation réduite à trois onglets.",
             image: { src: `${img}/maquettes-figma.webp`, alt: 'Le fichier Figma des maquettes : wireframes de la carte du parcours, du carnet de bord, des fragments et du familier débloqué', width: 1534, height: 832 },
             liens: [{ href: figmaMaquettes, label: 'Voir les maquettes sur Figma' }],
           },
           {
             titre: "L'identité visuelle",
-            texte: "Mon rôle principal : une identité douce et ludique, sur un fond crème, avec une palette tirée des fresques (bleu nuit, violet, orange, turquoise, jaune), la police arrondie Darumadrop One et Karla pour le texte.",
+            texte: "Mon rôle principal était de créer une identité douce et ludique, sur un fond crème, avec une palette tirée des fresques (bleu nuit, violet, orange, turquoise, jaune), la police arrondie Darumadrop One et Karla pour le texte.",
             images: [
               { src: `${img}/dossier-moodboard.webp`, alt: 'Page Moodboard du dossier', ...page },
               { src: `${img}/brandboard.webp`, alt: 'Brandboard de Liminis : logos, palette de couleurs et polices', width: 961, height: 1554 },
@@ -109,7 +109,7 @@ export default function Page() {
           },
           {
             titre: "L'appli",
-            texte: "Magalie a développé l'appli en Vue, installable et utilisable hors-ligne : la carte Leaflet mène aux fresques, le scanner en réalité augmentée révèle les fragments, et le carnet garde la progression.",
+            texte: "Magalie a développé l'appli en Vue, installable et utilisable hors-ligne. La carte Leaflet mène aux fresques, le scanner en réalité augmentée révèle les fragments, et le carnet garde la progression.",
             images: [
               { src: `${img}/ecran-parcours.webp`, alt: "L'écran Parcours : la carte du campus et les trois fresques", ...page },
               { src: `${img}/ecran-scan.webp`, alt: 'Scan de la fresque de la tortue marine avec un téléphone', ...page },

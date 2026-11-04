@@ -57,16 +57,16 @@ export default function Page() {
         ]}
         statut="En ligne"
       >
-        <p>Pocket Stars est né dans le cours de développement front de ma 3<sup>e</sup> année de BUT MMI. La consigne : utiliser une API publique et construire une scène 3D pour l'illustrer.</p>
-        <p>On marche à la première personne sur une île flottante, sous un ciel de nuit. Chaque étoile cache une carte : un clic la fait descendre, et la carte se retourne en 3D, commentée par Mimikyu, le compagnon.</p>
-        <p>J'ai choisi les cartes Pokémon et l'API TCGdex. Mon objectif : faire de la découverte d'une carte <span className="hl">un petit moment de surprise</span>, sur ordinateur comme sur téléphone.</p>
+        <p>Pocket Stars est né dans le <b>cours de Développement Front</b> de ma 3<sup>e</sup> année de BUT MMI. La consigne était d'utiliser une <b>API publique</b> et de construire une <b>scène 3D</b> pour l'illustrer.</p>
+        <p>On marche à la première personne sur une <b>île flottante</b>, sous un ciel de nuit. <b>Chaque étoile cache une carte</b>. Un clic la fait descendre, et la carte <b>se retourne en 3D</b>, commentée par Mimikyu, le compagnon.</p>
+        <p>J'ai choisi les <b>cartes Pokémon</b> et l'<b>API TCGdex</b>. Je voulais faire de la découverte d'une carte <span className="hl">un petit moment de surprise</span>, <b>sur ordinateur comme sur téléphone</b>.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'Dossier de conception et planning',
-            texte: "J'ai commencé par un dossier de préparation : choix de l'API et des technologies, moodboard, arborescence, maquettes, schéma des données et planning, avec ses risques et marges de sécurité.",
+            texte: "J'ai commencé par un dossier de préparation. Il réunit le choix de l'API et des technologies, le moodboard, l'arborescence, les maquettes, le schéma des données et un planning qui prévoit les risques et des marges de sécurité.",
             images: [
               { src: `${img}/dossier-couverture.webp`, alt: "Couverture du dossier de préparation de Pocket Stars", width: 1100, height: 1556 },
               { src: `${img}/dossier-maquettes.webp`, alt: "Page Maquettes du dossier : croquis au crayon et maquettes de l'interface", width: 1100, height: 1556 },
@@ -76,8 +76,8 @@ export default function Page() {
           },
           {
             titre: "L'asset 3D de l'étoile",
-            texte: "J'ai cherché un modèle 3D d'étoile libre de droits : « Star » de J-Toastie, trouvé sur Poly Pizza. Le même modèle sert pour toutes les étoiles, qui ne trahissent pas la carte qu'elles cachent.",
-            attendu: "capture du modèle 3D de l'étoile",
+            texte: "Pour l'étoile, j'ai choisi un modèle 3D libre de droits, « Star » de J-Toastie, trouvé sur Poly Pizza. Le même modèle sert pour toutes les étoiles, qui ne trahissent pas la carte qu'elles cachent.",
+            image: { src: `${img}/etoile.webp`, alt: "Le modèle 3D « Star » de J-Toastie sur Poly Pizza, une étoile jaune aux branches arrondies", width: 1534, height: 768 },
           },
           {
             titre: 'La scène et les étoiles',
@@ -86,7 +86,7 @@ export default function Page() {
           },
           {
             titre: 'Les interactions',
-            texte: "Le déplacement à la première personne (ZQSD ou WASD, regard à la souris sans clic), puis le clic sur une étoile : la carte descend face cachée, se retourne et se manipule. Les cartes rares ont un reflet holographique.",
+            texte: "Le déplacement à la première personne (ZQSD ou WASD, regard à la souris sans clic), puis le clic sur une étoile. La carte descend alors face cachée, se retourne et se manipule. Les cartes rares ont un reflet holographique.",
             image: { src: `${img}/carte-alakazam.webp`, alt: "Révélation d'une carte Alakazam rare, avec son reflet holographique", ...capture },
           },
           {
@@ -96,7 +96,7 @@ export default function Page() {
           },
           {
             titre: 'Le mobile',
-            texte: "Pour finir, j'ai adapté l'expérience au téléphone et à la tablette : mise en page responsive, joystick virtuel pour marcher, glissement du doigt pour regarder, et plein écran au premier toucher.",
+            texte: "Pour finir, j'ai adapté l'expérience au téléphone et à la tablette, avec une mise en page responsive, un joystick virtuel pour marcher, un glissement du doigt pour regarder et le plein écran au premier toucher.",
             images: [
               { src: `${img}/pocketstars-mobile.webp`, alt: "Pocket Stars sur téléphone : ciel étoilé, boutons de recherche et de son, joystick virtuel et Mimikyu", width: 302, height: 654 },
               { src: `${img}/pocketstars-mobile2.webp`, alt: "Pocket Stars sur téléphone : révélation d'Arcanine, carte holo rare affichée avec son recto de remplacement, et la réaction de Mimikyu", width: 298, height: 654 },
@@ -111,7 +111,7 @@ export default function Page() {
         poster={`${img}/demo-revelation-poster.webp`}
         width={1280}
         height={620}
-        legende="Enregistrement de la démo de Pocket Stars : déplacement sur l'île, clic sur des étoiles et révélation de cartes Pokémon en 3D"
+        legende="Enregistrement de la démo de Pocket Stars, avec le déplacement sur l'île, clic sur des étoiles et révélation de cartes Pokémon en 3D"
       />
 
       <Apport
@@ -131,7 +131,7 @@ export default function Page() {
 
       <Galerie
         titre="Pocket Stars en images"
-        intro="Captures de la démo en ligne : l'île et son ciel, et quelques cartes révélées."
+        intro="Quelques captures de la démo en ligne, avec l'île, son ciel et des cartes révélées."
         filtres={[
           { id: 'exploration', label: 'Exploration' },
           { id: 'cartes', label: 'Cartes' },

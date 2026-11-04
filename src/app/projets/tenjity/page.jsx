@@ -19,7 +19,7 @@ const panneau = { width: 900, height: 1362 };
 export const metadata = {
   title: "Tenjity, un module d'accessibilité web — Camélia Amin Handoyo",
   description:
-    "Tenjity, module d'accessibilité web calédonien : contribution au développement (loupe, mode sombre…) après des tests avec l'association Valentin Haüy, et maquettes puis intégration de la page article du site, pendant mon alternance chez OFFRATEL Lagoon.",
+    "Tenjity, module d'accessibilité web calédonien. Contribution au développement (loupe, mode sombre…) après des tests avec l'association Valentin Haüy, et maquettes puis intégration de la page article du site, pendant mon alternance chez OFFRATEL Lagoon.",
 };
 
 export default function Page() {
@@ -55,16 +55,16 @@ export default function Page() {
         ]}
         statut="En ligne"
       >
-        <p>Tenjity est un module d'accessibilité web développé en Nouvelle-Calédonie, proposé par Lagoon. Installé sur un site, il permet à chaque visiteur de l'adapter à ses besoins : zooms et loupe, police pour la dyslexie, curseur, lecteur d'écran, mode sombre, teintes et contrastes.</p>
-        <p>Pendant mon alternance de 3<sup>e</sup> année de BUT MMI chez OFFRATEL Lagoon, j'ai contribué à son développement, notamment sur <span className="hl">la loupe et le mode sombre</span>, à partir des retours de tests menés avec l'association Valentin Haüy.</p>
-        <p>J'ai aussi travaillé sur le site tenjity.com : j'ai dessiné les maquettes de la page article sur Figma, puis je l'ai intégrée.</p>
+        <p>Tenjity est un <b>module d'accessibilité web</b> développé en Nouvelle-Calédonie, proposé par Lagoon. Installé sur un site, il permet à chaque visiteur de <b>l'adapter à ses besoins</b>, grâce aux zooms et à la loupe, à une police pour la dyslexie, au curseur, au lecteur d'écran, au mode sombre, aux teintes et aux contrastes.</p>
+        <p>Pendant mon <b>alternance de 3<sup>e</sup> année de BUT MMI</b> chez OFFRATEL Lagoon, j'ai contribué à son développement, notamment sur <span className="hl">la loupe et le mode sombre</span>, à partir des retours de tests menés avec l'<b>association Valentin Haüy</b>.</p>
+        <p>J'ai aussi travaillé sur le <b>site <a href={site}>tenjity.com</a></b>, où j'ai dessiné les <b>maquettes de la page article</b> sur Figma, puis je l'ai <b>intégrée</b>.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: "Les tests avec l'AVH",
-            texte: "Cinq adhérents de l'association Valentin Haüy ont testé le module avec nous. Leurs retours ont donné des axes concrets : un zoom plus performant, des curseurs plus visibles, des contrastes et des tailles de texte ajustables, et un module plus facile à repérer sur la page.",
+            texte: "Cinq adhérents de l'association Valentin Haüy ont testé le module avec nous. Leurs retours ont donné des axes concrets, comme un zoom plus performant, des curseurs plus visibles, des contrastes et des tailles de texte ajustables, et un module plus facile à repérer sur la page.",
             image: { src: `${img}/test-avh.webp`, alt: "Séance de test du module Tenjity avec des adhérents de l'association Valentin Haüy", width: 1600, height: 1200 },
             liens: [{ href: article, label: "Lire l'article sur les tests" }],
           },
@@ -78,7 +78,7 @@ export default function Page() {
           },
           {
             titre: 'Les maquettes du site',
-            texte: "Pour le site tenjity.com, j'ai dessiné sur Figma la page des actualités et la page article : date et auteur, titre, étiquettes, grande image, texte, lien vers la source et navigation entre les articles.",
+            texte: "Pour le site tenjity.com, j'ai dessiné sur Figma la page des actualités et la page article, avec la date et l'auteur, le titre, les étiquettes, une grande image, le texte, un lien vers la source et la navigation entre les articles.",
             images: [
               { src: `${img}/maquette-article.webp`, alt: 'Maquette Figma de la page article de Tenjity', ...maquette },
               { src: `${img}/maquette-actualites.webp`, alt: 'Maquette Figma de la page des actualités de Tenjity', ...maquette },

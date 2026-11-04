@@ -25,7 +25,7 @@ export default function Page() {
         slug="personal-branding"
         eyebrow="Identité personnelle"
         titre="Mon personal branding, un monogramme comme un sceau"
-        accroche="Un C pour Camélia, un A pour Amin Handoyo, dessinés à la façon des sceaux qu'on appose au Japon pour signer un document."
+        accroche="Mes initiales, C et A, réunies dans un monogramme inspiré des sceaux d'Asie, ces tampons qui servent de signature."
         couleur="#F3E3D6"
         liens={[{ href: behance, label: 'Voir sur Behance' }]}
       >
@@ -49,16 +49,16 @@ export default function Page() {
         ]}
         statut="Publié sur Behance"
       >
-        <p>En 2024, j'ai créé mon identité personnelle : un logo qui me représente, sa palette de couleurs, et ses déclinaisons sur des supports.</p>
-        <p>Je me suis inspirée des <span className="hl">sceaux traditionnels d'Asie de l'Est et du Sud-Est</span>. Au Japon, ces tampons appelés <em>inkan</em> (印鑑) ou <em>hanko</em> (判子) servent de signature pour authentifier les actes officiels : une identité graphique en soi.</p>
-        <p>Mon monogramme reprend ce principe : mes initiales, tracées avec l'élégance d'une écriture calligraphique, et posées dans un cadre comme un cachet.</p>
+        <p>En 2024, j'ai créé <b>mon identité personnelle</b>, avec <b>un logo qui me représente</b>, sa palette de couleurs et ses déclinaisons sur des supports.</p>
+        <p>Je me suis inspirée des <span className="hl">sceaux traditionnels d'Asie de l'Est et du Sud-Est</span>. Au Japon, ces tampons appelés <em>inkan</em> (印鑑) ou <em>hanko</em> (判子) <b>servent de signature</b> pour authentifier les actes officiels. Ce sont déjà des identités graphiques en soi.</p>
+        <p><b>Mon monogramme</b> reprend ce principe, avec mes initiales tracées avec l'élégance d'une <b>écriture calligraphique</b>, et posées dans un cadre <b>comme un cachet</b>.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: 'Les inspirations',
-            texte: "Je suis partie des sceaux d'Asie de l'Est et du Sud-Est (inkan, hanko) et de la calligraphie : des signatures graphiques compactes, posées dans un cadre.",
+            texte: "Je suis partie des sceaux d'Asie de l'Est et du Sud-Est (inkan, hanko) et de la calligraphie, des signatures graphiques compactes posées dans un cadre.",
             image: { src: `${img}/inspirations.webp`, alt: 'Planche Inspirations : sceaux japonais et lettres calligraphiées', ...planche },
           },
           {
@@ -73,7 +73,7 @@ export default function Page() {
           },
           {
             titre: 'Les supports',
-            texte: "Pour finir, j'ai appliqué l'identité à des supports : cartes de visite et deux packagings imaginaires, une crème « Liaz care » et une canette « Jeruknya », mis en situation dans des mockups sur Photoshop.",
+            texte: "Pour finir, j'ai appliqué l'identité à des cartes de visite et à deux packagings imaginaires, une crème « Liaz care » et une canette « Jeruknya », mis en situation dans des mockups sur Photoshop.",
             image: { src: `${img}/cartes-visite.webp`, alt: 'Mes cartes de visite, recto et verso, avec le monogramme et des motifs floraux', width: 1400, height: 1145 },
             liens: [{ href: behance, label: 'Voir le projet sur Behance' }],
           },

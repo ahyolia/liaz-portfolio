@@ -191,7 +191,114 @@ function initCarousels() {
     };
     carousel.addEventListener('scroll', update, { passive: true });
     update();
+
+    initCarouselDrag(carousel, behavior);
   });
+}
+
+// Le point (x, y) est-il posé sur des caractères ? (et pas sur une image ou une marge)
+function surTexte(x, y) {
+  let node;
+  let offset;
+  if (document.caretPositionFromPoint) {
+    const pos = document.caretPositionFromPoint(x, y);
+    node = pos?.offsetNode;
+    offset = pos?.offset;
+  } else if (document.caretRangeFromPoint) {
+    const range = document.caretRangeFromPoint(x, y);
+    node = range?.startContainer;
+    offset = range?.startOffset;
+  }
+  if (!node || node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) return false;
+  // Le curseur texte tombe aussi sur le mot le plus proche : on vérifie que le
+  // point est vraiment dans la boîte du caractère visé (ou de son voisin)
+  const range = document.createRange();
+  const debut = Math.max(0, Math.min(offset, node.length - 1));
+  range.setStart(node, debut);
+  range.setEnd(node, Math.min(node.length, debut + 1));
+  const boites = [...range.getClientRects()];
+  if (debut > 0) {
+    range.setStart(node, debut - 1);
+    range.setEnd(node, debut);
+    boites.push(...range.getClientRects());
+  }
+  return boites.some((r) => x >= r.left - 2 && x <= r.right + 2 && y >= r.top && y <= r.bottom);
+}
+
+// Glisser à la souris (le tactile et le pavé tactile défilent déjà nativement).
+// Sur du texte, la souris sélectionne au lieu de faire glisser.
+// Au relâchement, la carte la plus proche du centre se recentre ; un geste
+// rapide passe à la voisine. Un glissé n'ouvre pas le lien ou l'image visés.
+function initCarouselDrag(carousel, behavior) {
+  const SEUIL = 6; // px : en dessous, c'est un clic
+  let startX = 0;
+  let startScroll = 0;
+  let startTime = 0;
+  let pointerId = null;
+  let glisse = false;
+
+  carousel.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    if (surTexte(e.clientX, e.clientY)) return; // on laisse surligner le texte
+    pointerId = e.pointerId;
+    startX = e.clientX;
+    startScroll = carousel.scrollLeft;
+    startTime = performance.now();
+    glisse = false;
+  });
+
+  carousel.addEventListener('pointermove', (e) => {
+    if (e.pointerId !== pointerId) return;
+    const dx = e.clientX - startX;
+    if (!glisse && Math.abs(dx) < SEUIL) return;
+    if (!glisse) {
+      glisse = true;
+      carousel.setPointerCapture(pointerId);
+      carousel.classList.add('is-dragging');
+    }
+    carousel.scrollLeft = startScroll - dx;
+  });
+
+  const fin = (e) => {
+    if (e.pointerId !== pointerId) return;
+    pointerId = null;
+    if (!glisse) return;
+
+    const dx = e.clientX - startX;
+    const rapide = Math.abs(dx) / (performance.now() - startTime) > 0.5;
+    const centre = carousel.scrollLeft + carousel.clientWidth / 2;
+    const items = [...carousel.children];
+    let index = 0;
+    items.forEach((item, i) => {
+      const d = Math.abs(item.offsetLeft + item.offsetWidth / 2 - centre);
+      if (d < Math.abs(items[index].offsetLeft + items[index].offsetWidth / 2 - centre)) index = i;
+    });
+    // Geste rapide resté sur la même carte : on passe à la voisine
+    const depart = startScroll + carousel.clientWidth / 2;
+    const surPlace = Math.abs(items[index].offsetLeft + items[index].offsetWidth / 2 - depart) < items[index].offsetWidth / 2;
+    if (rapide && surPlace) index = Math.min(items.length - 1, Math.max(0, index + (dx < 0 ? 1 : -1)));
+
+    const cible = items[index];
+    carousel.scrollTo({ left: cible.offsetLeft - (carousel.clientWidth - cible.offsetWidth) / 2, behavior });
+    // Magnétisme rétabli une fois la carte recentrée (scrollend, ou délai de secours)
+    const retablir = () => carousel.classList.remove('is-dragging');
+    if ('onscrollend' in window) carousel.addEventListener('scrollend', retablir, { once: true });
+    setTimeout(retablir, 600);
+    // Le clic qui suit le relâchement est bloqué juste en dessous ; ensuite on oublie le glissé
+    setTimeout(() => { glisse = false; }, 0);
+  };
+  carousel.addEventListener('pointerup', fin);
+  carousel.addEventListener('pointercancel', fin);
+
+  // Après un glissé, le clic qui suit ne doit pas ouvrir le lien ou l'image
+  carousel.addEventListener('click', (e) => {
+    if (!glisse) return;
+    e.preventDefault();
+    e.stopPropagation();
+  }, true);
+
+  // Pas de glisser-déposer natif des images et des liens
+  carousel.addEventListener('dragstart', (e) => e.preventDefault());
 }
 
 // Visionneuse (lightbox) : un clic sur une image d'un [data-lightbox]

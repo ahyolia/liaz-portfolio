@@ -10,6 +10,14 @@
 
 const numero = (i) => String(i + 1).padStart(2, '0');
 
+// Tout en paysage → grille ; tout en portrait → éventail ; mélange → mosaïque
+function dispositionImages(images) {
+  const paysages = images.filter((im) => im.width > im.height).length;
+  if (paysages === images.length) return 'grille';
+  if (paysages === 0) return 'multi';
+  return 'mosaique';
+}
+
 export default function Demarche({ titre = 'La démarche', etapes }) {
   return (
     <section className="section" aria-labelledby="demarche">
@@ -21,10 +29,9 @@ export default function Demarche({ titre = 'La démarche', etapes }) {
               <li key={etape.titre} className="process-step">
                 {etape.images ? (
                   // Plusieurs images côte à côte (ex. écrans mobiles), dans le même cadre
-                  // Portraits (pages, téléphones) en éventail ; paysages en grille, côte à côte
-                  <div className={etape.images.every((im) => im.width > im.height)
-                    ? 'process-step__visual process-step__visual--grille'
-                    : 'process-step__visual process-step__visual--multi'}>
+                  // Portraits (pages, téléphones) en éventail ; paysages en grille, côte à côte ;
+                  // formats mélangés (photos de tournage) en mosaïque, la 1re en grand
+                  <div className={`process-step__visual process-step__visual--${dispositionImages(etape.images)}`}>
                     {etape.images.map((im) => (
                       <img key={im.src} src={im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy" />
                     ))}

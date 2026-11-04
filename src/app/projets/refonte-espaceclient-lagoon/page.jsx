@@ -16,7 +16,7 @@ const ecran = { width: 1280, height: 832 };
 export const metadata = {
   title: "Refonte de l'espace client Lagoon — Camélia Amin Handoyo",
   description:
-    "Refonte UI/UX de l'espace client de Lagoon, fournisseur d'accès à internet calédonien, pendant mon stage chez OFFRATEL Lagoon : maquettes Figma puis intégration front, toujours en production.",
+    "Refonte UI/UX de l'espace client de Lagoon, fournisseur d'accès à internet calédonien, pendant mon stage chez OFFRATEL Lagoon, des maquettes Figma à l'intégration front, toujours en production.",
 };
 
 export default function Page() {
@@ -46,21 +46,21 @@ export default function Page() {
         ]}
         statut="En production"
       >
-        <p>Lagoon est un fournisseur d'accès à internet en Nouvelle-Calédonie. Ses clients gèrent leurs abonnements, leur consommation et leurs factures depuis un espace client en ligne.</p>
-        <p>Pendant mon stage de deux mois au pôle numérique d'OFFRATEL Lagoon, ma mission était d'en proposer une refonte UI/UX : <span className="hl">moderniser l'interface et rendre le parcours plus fluide</span>.</p>
-        <p>J'ai conçu les maquettes sur Figma, puis intégré directement le nouveau design. D'après mon tuteur, il est toujours en production aujourd'hui, et les clients l'apprécient beaucoup.</p>
+        <p>Lagoon est un <b>fournisseur d'accès à internet</b> en Nouvelle-Calédonie. Ses clients gèrent leurs abonnements, leur consommation et leurs factures depuis un <b>espace client en ligne</b>.</p>
+        <p>Pendant mon stage de deux mois au <b>pôle numérique d'OFFRATEL Lagoon</b>, ma mission était d'en proposer une <b>refonte UI/UX</b> pour <span className="hl">moderniser l'interface et rendre le parcours plus fluide</span>.</p>
+        <p>J'ai conçu les <b>maquettes</b> sur <b>Figma</b>, puis intégré directement le nouveau design. D'après mon tuteur, il est <b>toujours en production</b> aujourd'hui, et les clients l'apprécient beaucoup.</p>
       </Contexte>
 
       <Demarche
         etapes={[
           {
             titre: "L'existant",
-            texte: "Je suis partie de l'espace client en place : une navigation latérale très longue, sans regroupement, et un accueil aux cartes plates qui donnait peu de repères pour aller plus loin.",
+            texte: "Je suis partie de l'espace client en place, avec une navigation latérale très longue sans regroupement, et un accueil aux cartes plates qui donnait peu de repères pour aller plus loin.",
             image: { src: `${img}/avant-accueil.webp`, alt: "L'ancien accueil de l'espace client Lagoon : longue liste de liens à gauche et trois cartes grises", width: 1281, height: 576 },
           },
           {
             titre: 'Les maquettes sur Figma',
-            texte: "Sur Figma, j'ai fait plusieurs versions des pages, de la V1 à la V5, en commençant par la navigation : menus regroupés en sous-menus, version réduite en icônes, et une déclinaison orange pour Lagoon Business.",
+            texte: "Sur Figma, j'ai fait plusieurs versions des pages, de la V1 à la V5, en commençant par la navigation. Les menus sont regroupés en sous-menus, avec une version réduite en icônes et une déclinaison orange pour Lagoon Business.",
             image: { src: `${img}/maquettes-figma-navigation.webp`, alt: 'Le fichier Figma de la refonte : variantes de la navigation latérale, ouverte, réduite, et version Lagoon Business orange', width: 1534, height: 834 },
             liens: [{ href: figma, label: 'Voir les maquettes Figma' }],
           },
@@ -74,7 +74,7 @@ export default function Page() {
           },
           {
             titre: "L'intégration",
-            texte: "Après validation des maquettes, j'ai intégré le design directement dans l'espace client : un accueil qui salue le client, des cartes plus lisibles pour les abonnements, le solde et les demandes, et des raccourcis vers les autres services.",
+            texte: "Après validation des maquettes, j'ai intégré le design directement dans l'espace client, avec un accueil qui salue le client, des cartes plus lisibles pour les abonnements, le solde et les demandes, et des raccourcis vers les autres services.",
             image: { src: `${img}/apres-accueil.webp`, alt: "Le nouvel accueil intégré : cartes Abonnements, Solde restant dû et Demandes, et raccourcis Conso+, Parrainage, Maintenances et Aide", ...ecran },
           },
         ]}
