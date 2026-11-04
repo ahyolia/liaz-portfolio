@@ -47,7 +47,7 @@ export default function Frise({ etapes }) {
               {images.length > 0 && (
                 // Toutes les captures de l'étape : une rangée de vignettes,
                 // un clic ouvre la visionneuse et permet de les faire défiler
-                <div className="xp__vignettes" data-lightbox="" style={{ '--reste': `"+${Math.max(0, images.length - 4)}"` }} data-plus={images.length > 4 ? '' : undefined}>
+                <div className="xp__vignettes" data-lightbox="" role="group" aria-label={`Captures (${images.length}), à agrandir`} style={{ '--reste': `"+${Math.max(0, images.length - 4)}"` }} data-plus={images.length > 4 ? '' : undefined}>
                   {images.map((im) => <img key={im.src} src={im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy" />)}
                 </div>
               )}

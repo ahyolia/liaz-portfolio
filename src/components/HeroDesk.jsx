@@ -8,6 +8,7 @@
 // Pour ajouter un sticker : une entrée dans STICKERS, avec sa position de départ
 // (x, y en % de la table), son inclinaison r (degrés) et sa profondeur.
 import { useEffect, useRef } from 'react';
+import { jouer } from '../sons.js';
 
 // Stickers de mon pack « 20 ans » (public/images/perso/stickers/), découpés
 // de la planche du projet Sticker pack. w = largeur sur grand écran.
@@ -80,7 +81,7 @@ export default function HeroDesk({ children }) {
       const vx = e.clientX - s.depart.x;
       const vy = e.clientY - s.depart.y;
       if (!s.glisse && Math.hypot(vx, vy) < SEUIL_GLISSER) return;
-      if (!s.glisse) { s.glisse = true; el.classList.add('is-dragging'); }
+      if (!s.glisse) { s.glisse = true; el.classList.add('is-dragging'); jouer('pop'); }
       const t = zone.getBoundingClientRect();
       const o = el.getBoundingClientRect();
       // Position actuelle sans le déplacement en cours, pour borner
@@ -97,7 +98,10 @@ export default function HeroDesk({ children }) {
       s.depart = null;
       el.classList.remove('is-dragging');
       // Après un vrai glisser, on bloque le clic qui suit (pas d'ouverture du lien)
-      if (s.glisse) el.addEventListener('click', (c) => c.preventDefault(), { once: true, capture: true });
+      if (s.glisse) {
+        jouer('pose');
+        el.addEventListener('click', (c) => c.preventDefault(), { once: true, capture: true });
+      }
       setTimeout(() => { s.glisse = false; }, 0);
     };
 

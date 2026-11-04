@@ -895,3 +895,29 @@ main:has(> .band:last-child) + .site-footer { margin-block-start: 0; }
 
 /* Pied de page : phrase d'appel au contact à la place du nom (bloc, sur deux lignes) */
 .site-footer__accroche { display: block; line-height: 1.25; }
+
+/* Masque d'attente des animations (voir layout.jsx et main.js) : les éléments
+   animés à l'arrivée restent cachés tant que GSAP n'a pas posé leur état de
+   départ, pour éviter qu'ils s'affichent, disparaissent puis réapparaissent */
+.anim-attente :is(.reveal, [data-case-hero], .tool-sticker, .chips > li) { visibility: hidden; }
+
+/* Bouton du son (menu) : haut-parleur barré quand le son est coupé */
+.site-son {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-inline-start: var(--space-3xs);
+  padding: 0;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), rotate 0.2s var(--ease);
+}
+.site-son svg { width: 1.15rem; height: 1.15rem; }
+.site-son:hover { background: var(--yellow); rotate: -6deg; }
+.site-son[aria-pressed="true"] { background: var(--aqua); }
+.site-son[aria-pressed="true"] .site-son__off,
+.site-son:not([aria-pressed="true"]) .site-son__on { display: none; }

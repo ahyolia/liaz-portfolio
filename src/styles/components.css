@@ -188,7 +188,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   rotate: -12deg;
-  opacity: 0.85;
+  /* pas d'opacité : le texte du tampon doit garder un contraste suffisant */
 }
 
 .stamp--ink { --stamp-color: var(--ink); }

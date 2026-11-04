@@ -6,6 +6,7 @@
 // toutes, la 1re et la dernière servent de couvertures), largeur et hauteur
 // d'une page en px (pour le ratio), legende (texte sous le livre)
 import { useEffect, useRef, useState } from 'react';
+import { jouer } from '../../sons.js';
 
 export default function Flipbook({ titre = 'Feuilleter le livre', intro, pages, largeur, hauteur, legende }) {
   const livreRef = useRef(null);
@@ -33,6 +34,8 @@ export default function Flipbook({ titre = 'Feuilleter le livre', intro, pages, 
       });
       flip.loadFromHTML(livreRef.current.querySelectorAll('.flipbook__page'));
       flip.on('flip', (e) => setPage(e.data));
+      // Son de page qui tourne, au début de chaque tour (flèches, clavier, glisser)
+      flip.on('changeState', (e) => { if (e.data === 'flipping') jouer('page'); });
       flipRef.current = flip;
     });
 
@@ -66,11 +69,11 @@ export default function Flipbook({ titre = 'Feuilleter le livre', intro, pages, 
           </div>
 
           <div className="flipbook__nav">
-            <button type="button" className="carousel-btn carousel-btn--prev" onClick={precedent} aria-label="Page précédente" disabled={page === 0}>
+            <button type="button" className="carousel-btn carousel-btn--prev" onClick={precedent} data-son-muet="" aria-label="Page précédente" disabled={page === 0}>
               <svg className="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
             </button>
             <p className="flipbook__compteur annotation" aria-live="polite">page {page + 1} / {pages.length}</p>
-            <button type="button" className="carousel-btn" onClick={suivant} aria-label="Page suivante" disabled={page >= pages.length - 1}>
+            <button type="button" className="carousel-btn" onClick={suivant} data-son-muet="" aria-label="Page suivante" disabled={page >= pages.length - 1}>
               <svg className="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
             </button>
           </div>

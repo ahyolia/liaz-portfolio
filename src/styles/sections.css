@@ -1645,3 +1645,23 @@ img.process-step__visual--card {
 @media (min-width: 52em) {
   .contact-zone__inner { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
 }
+
+/* ---- Téléphones : rien ne doit dépasser à droite de l'écran -------------
+   Les flottants du haut des fiches projet sont placés en % (--x) : on limite
+   leur largeur à la place qui reste jusqu'au bord, et les stickers peuvent
+   passer à la ligne. Le tampon du CV reste posé sur le ticket. */
+@media (max-width: 40em) {
+  .floaty { max-width: calc(100% - var(--x, 0%)); }
+  /* Galerie : une seule colonne, pour que la légende (toujours affichée au
+     doigt) ne recouvre pas toute l'image */
+  .gallery { columns: 1; }
+  /* Expériences : le logo passe au-dessus de l'intitulé du poste */
+  .xp__tete { flex-direction: column; align-items: flex-start; gap: var(--space-2xs); }
+  .xp__logo { width: auto; height: 2.75rem; place-items: start; }
+  .floaty.sticker { white-space: normal; }
+  .contact-zone__stamp { right: -0.25rem; width: 5.5rem; }
+}
+
+/* Mentions légales : le texte occupe toute la largeur des feuilles (sinon la
+   mesure de lecture laisse un grand vide à droite) */
+.legal :is(.receipt, .notebook) p { max-width: none; }

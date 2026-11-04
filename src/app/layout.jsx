@@ -15,8 +15,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <head>
+        {/* Avant le premier affichage : masque les éléments animés (.anim-attente)
+             jusqu'à ce que src/main.js pose leur état de départ. Rien n'est masqué
+             si l'utilisateur réduit les animations, et le masque saute au bout de
+             4 s si le script ne se charge pas. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "if(!matchMedia('(prefers-reduced-motion: reduce)').matches){var h=document.documentElement;h.classList.add('anim-attente');setTimeout(function(){h.classList.remove('anim-attente')},4000)}",
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link

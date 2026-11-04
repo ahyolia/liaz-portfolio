@@ -7,6 +7,7 @@
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { jouer, sonActif, changerSon } from './sons.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -280,6 +281,7 @@ function initCarouselDrag(carousel, behavior) {
 
     const cible = items[index];
     carousel.scrollTo({ left: cible.offsetLeft - (carousel.clientWidth - cible.offsetWidth) / 2, behavior });
+    jouer('glisse');
     // Magnétisme rétabli une fois la carte recentrée (scrollend, ou délai de secours)
     const retablir = () => carousel.classList.remove('is-dragging');
     if ('onscrollend' in window) carousel.addEventListener('scrollend', retablir, { once: true });
@@ -418,6 +420,49 @@ function initExternalLinks() {
   });
 }
 
+// Sound design : bouton du menu (activer / couper, choix mémorisé), puis sons
+// au survol (souris seulement), au clic, sur les carrousels et la visionneuse.
+function initSons() {
+  const bouton = document.querySelector('[data-son]');
+  const afficher = () => {
+    const actif = sonActif();
+    // Bouton bascule : l'intitulé reste fixe, c'est aria-pressed qui dit l'état
+    bouton?.setAttribute('aria-pressed', String(actif));
+    bouton?.setAttribute('title', actif ? 'Couper le son' : 'Activer le son');
+  };
+  afficher();
+  bouton?.addEventListener('click', () => {
+    changerSon(!sonActif());
+    afficher();
+    if (sonActif()) jouer('activer', { forcer: true });
+  });
+
+  const interactif = 'a, button, [role="button"], summary';
+
+  // Survol : un petit « tic » en entrant sur un nouvel élément cliquable
+  if (window.matchMedia('(pointer: fine)').matches) {
+    let dernier = null;
+    document.addEventListener('pointerover', (e) => {
+      const el = e.target.closest(interactif);
+      if (el === dernier) return;
+      dernier = el;
+      if (el && el !== bouton) jouer('survol');
+    });
+  }
+
+  // Clic : son selon l'élément (carrousel, visionneuse, le reste)
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest(interactif);
+    // (clic bloqué après un glisser : pas de son)
+    // (data-son-muet : l'élément joue déjà son propre son, ex. le flipbook)
+    if (!el || el === bouton || e.defaultPrevented || el.hasAttribute('data-son-muet')) return;
+    if (el.matches('[data-carousel-prev], [data-carousel-next], .lightbox__prev, .lightbox__next')) jouer('glisse');
+    else if (el.matches('.zoom, [data-swap], .lightbox__close')) jouer('papier');
+    else jouer('clic');
+  });
+}
+
+initSons();
 initExternalLinks();
 initCarousels();
 initLightbox();
@@ -429,5 +474,13 @@ if (!prefersReducedMotion) {
   initReveal();
   initStickers();
 }
+
+// Les éléments animés étaient masqués par la classe .anim-attente (posée dans
+// le <head> par layout.jsx) pour ne pas s'afficher avant l'animation. Leur état
+// de départ est posé par GSAP, qui l'applique à sa prochaine image : on lève
+// le masque deux images plus tard, sinon le contenu apparaît une image en entier.
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  document.documentElement.classList.remove('anim-attente');
+}));
 
 initBackToTop();

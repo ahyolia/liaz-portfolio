@@ -10,7 +10,7 @@
 
   /* Teintes dérivées, plus foncées, pour garder du texte lisible */
   --teal-ink: #1E3A44;     /* encre (texte courant) */
-  --pink-deep: #CF3350;    /* accents en petit texte, boutons */
+  --pink-deep: #C02B47;    /* accents en petit texte, boutons (≥ 4,5:1 sur tous les fonds clairs du site) */
 
   --cream: #FCF9E3;        /* papier ticket, teinté jaune */
   --paper: #FFFFFF;        /* feuilles blanches (cahier, polaroid) */
@@ -23,13 +23,13 @@
 
   /* ---- Rôles (le CSS n'utilise que ces variables) ----------------------
      Contrastes sur fond de page :
-     teal-ink ≈ 12:1 · pink-deep ≈ 5:1 · pink ≈ 3.1:1 (titres géants seulement)
-     blanc / pink-deep ≈ 5:1 · teal-ink / aqua ≈ 7.6:1 · teal-ink / yellow ≈ 7.9:1
+     teal-ink ≈ 12:1 · pink-deep ≈ 5:1 (4,7:1 sur le rose pâle) · pink ≈ 2,8:1, d'où --color-display (3,4:1) pour les titres géants
+     blanc / pink-deep ≈ 5,7:1 · teal-ink / aqua ≈ 7.6:1 · teal-ink / yellow ≈ 7.9:1
      ⚠ aqua, pink et yellow purs : jamais en couleur de petit texte. */
   --ink: var(--teal-ink);
   --color-bg: var(--bg);
   --color-text: var(--teal-ink);
-  --color-display: var(--pink);       /* très grands titres (PORTFOLIO) */
+  --color-display: #EB4560;           /* très grands titres (PORTFOLIO) : rose un peu plus soutenu que --pink, ≥ 3:1 sur le fond */
   --color-accent: var(--pink-deep);   /* petits textes d'accent, soulignés */
   --color-pop: var(--pink-deep);      /* boutons, stickers */
   --color-pop-text: var(--paper);

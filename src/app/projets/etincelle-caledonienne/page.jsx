@@ -50,7 +50,7 @@ export default function Page() {
       <Contexte
         outils={[
           { nom: 'Canva', icone: '/images/tools/canva.svg' },
-          { nom: 'Premiere Pro', icone: '/images/tools/premierepro.svg' },
+          { nom: 'DaVinci Resolve', icone: '/images/tools/davinciresolve.svg' },
         ]}
         fiche={[
           { label: 'Cadre', valeur: 'Concours Les Étincelles Calédoniennes, NC la 1ère' },
