@@ -3,20 +3,22 @@
 //
 // Props : titre, casquettes [{ titre, texte, competences }],
 // tampon { texte, label } (texte en HTML, ex. "~180<br />commits" ; label = version lue)
+import { t } from '../../i18n';
 
 const PAPIERS = ['contrib__card gridpaper', 'contrib__card contrib__card--pink', 'contrib__card contrib__card--cream'];
 const SCOTCHS = ['tape tape--tl', 'tape tape--tr', 'tape'];
 
-export default function Apport({ titre = 'Mon apport', casquettes, tampon }) {
+export default function Apport({ titre, casquettes, tampon, lang = 'fr' }) {
+  const ui = t(lang);
   return (
     <section className="section" aria-labelledby="role">
       <div className="container stack" style={{ '--flow': 'var(--space-xl)' }}>
-        <h2 id="role" className="reveal">{titre}</h2>
+        <h2 id="role" className="reveal">{titre ?? ui.apport}</h2>
         <div className={casquettes.length > 2 ? 'contrib contrib--3' : 'contrib'}>
           {casquettes.map((c, i) => (
             <article key={c.titre} className={`${PAPIERS[i % PAPIERS.length]} reveal`}>
               <span className={SCOTCHS[i % SCOTCHS.length]} aria-hidden="true"></span>
-              <p className="contrib__kicker annotation">casquette n°{i + 1}</p>
+              <p className="contrib__kicker annotation">{ui.casquette}{i + 1}</p>
               <h3>{c.titre}</h3>
               <p>{c.texte}</p>
               <ul className="chips list-reset" role="list">

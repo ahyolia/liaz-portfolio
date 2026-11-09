@@ -9,22 +9,24 @@
 // (x, y en % de la table), son inclinaison r (degrés) et sa profondeur.
 import { useEffect, useRef } from 'react';
 import { jouer } from '../sons.js';
+import { t } from '../i18n';
 
 // Stickers de mon pack « 20 ans » (public/images/perso/stickers/), découpés
 // de la planche du projet Sticker pack. w = largeur sur grand écran.
 const STICKERS = [
-  { nom: 'Moi petite, avec une couronne de fleurs', image: 'mini-moi-couronne', x: 3, y: 4, r: -6, w: 4.5, profondeur: 1.6 },
-  { nom: 'Un coq violet', image: 'coq', x: 12, y: 56, r: 8, w: 7, profondeur: 1.2 },
-  { nom: 'Un motif de batik rouge', image: 'batik', x: 37, y: 64, r: -10, w: 5, profondeur: 1.8 },
-  { nom: 'Un timbre avec ma photo et mon chat', image: 'timbre', x: 40, y: 2, r: 6, w: 7, profondeur: 1.3 },
-  { nom: 'Une fleur orange', image: 'fleur', x: 51, y: 32, r: 12, w: 6, profondeur: 1.5 },
-  { nom: 'Ma signature LIAZ', image: 'signature-liaz', x: 61, y: 6, r: -5, w: 8, profondeur: 1.7 },
-  { nom: 'Moi petite, avec un chapeau de fête', image: 'mini-moi-chapeau', x: 13, y: 0, r: 5, w: 4.5, profondeur: 1.4 },
+  { nom: 'Moi petite, avec une couronne de fleurs', nomEn: 'Little me, wearing a flower crown', image: 'mini-moi-couronne', x: 3, y: 4, r: -6, w: 4.5, profondeur: 1.6 },
+  { nom: 'Un coq violet', nomEn: 'A purple rooster', image: 'coq', x: 12, y: 56, r: 8, w: 7, profondeur: 1.2 },
+  { nom: 'Un motif de batik rouge', nomEn: 'A red batik pattern', image: 'batik', x: 37, y: 64, r: -10, w: 5, profondeur: 1.8 },
+  { nom: 'Un timbre avec ma photo et mon chat', nomEn: 'A stamp with my photo and my cat', image: 'timbre', x: 40, y: 2, r: 6, w: 7, profondeur: 1.3 },
+  { nom: 'Une fleur orange', nomEn: 'An orange flower', image: 'fleur', x: 51, y: 32, r: 12, w: 6, profondeur: 1.5 },
+  { nom: 'Ma signature LIAZ', nomEn: 'My LIAZ signature', image: 'signature-liaz', x: 61, y: 6, r: -5, w: 8, profondeur: 1.7 },
+  { nom: 'Moi petite, avec un chapeau de fête', nomEn: 'Little me, wearing a party hat', image: 'mini-moi-chapeau', x: 13, y: 0, r: 5, w: 4.5, profondeur: 1.4 },
 ];
 
 const SEUIL_GLISSER = 6; // px : en dessous, c'est un clic
 
-export default function HeroDesk({ children }) {
+export default function HeroDesk({ children, lang = 'fr' }) {
+  const ui = t(lang);
   const tableRef = useRef(null);
 
   useEffect(() => {
@@ -121,7 +123,7 @@ export default function HeroDesk({ children }) {
 
   return (
     <div className="desk reveal" ref={tableRef}>
-      <p className="desk__astuce annotation" aria-hidden="true">psst… tout se déplace !</p>
+      <p className="desk__astuce annotation" aria-hidden="true">{ui.astuce}</p>
 
       {/* Le ticket « Au menu » (passé par la page) */}
       <div className="desk__objet desk__ticket" data-objet="" data-profondeur="0.5" style={place({ x: 76, y: 10, r: 4 }, { zIndex: 8 })}>
@@ -129,16 +131,16 @@ export default function HeroDesk({ children }) {
       </div>
 
       <div className="desk__objet desk__postit postit" data-objet="" data-profondeur="1.1" style={place({ x: 60, y: 62, r: -5 }, { zIndex: 6 })}>
-        Bienvenue sur ma table de travail ✶
+        {ui.postitBienvenue}
       </div>
 
       <div className="desk__objet desk__postit postit postit--aqua" data-objet="" data-profondeur="0.9" style={place({ x: 22, y: 26, r: 3 }, { zIndex: 7 })}>
-        Mes projets sont un peu plus bas ↓
+        {ui.postitProjets}
       </div>
 
       {STICKERS.map((o, i) => (
         <span key={o.image} className="desk__objet desk__sticker" data-objet="" data-profondeur={o.profondeur} style={place(o, { zIndex: 10 + i, '--w': `${o.w}rem` })}>
-          <img src={`/images/perso/stickers/${o.image}.png`} alt={o.nom} draggable="false" />
+          <img src={`/images/perso/stickers/${o.image}.png`} alt={lang === 'en' ? o.nomEn : o.nom} draggable="false" />
         </span>
       ))}
     </div>

@@ -1,8 +1,9 @@
 // Formations (page À propos) : une feuille quadrillée, une ligne par diplôme.
 // Années en manuscrit, diplôme et établissement, matières en pastilles,
 // et un tampon (En cours, Obtenu). Données : src/data/formations.js.
+import { t } from '../i18n';
 
-export default function Formations({ formations }) {
+export default function Formations({ formations, lang = 'fr' }) {
   return (
     <ol className="formations gridpaper list-reset reveal">
       {formations.map((f) => (
@@ -16,7 +17,7 @@ export default function Formations({ formations }) {
               {f.matieres.map((m) => <li key={m}>{m}</li>)}
             </ul>
           </div>
-          <span className={f.statut === 'En cours' ? 'stamp formation__stamp' : 'stamp stamp--ink formation__stamp'}>{f.statut}</span>
+          <span className={f.statut === t(lang).enCours ? 'stamp formation__stamp' : 'stamp stamp--ink formation__stamp'}>{f.statut}</span>
         </li>
       ))}
     </ol>

@@ -10,8 +10,10 @@
 //   - autre lecteur : embed (URL du lecteur), lien (page de la vidéo),
 //     plateforme (nom affiché, ex. « Behance »)
 import { useState } from 'react';
+import { t } from '../../i18n';
 
-export default function YouTube({ titre = 'Le film', intro, id, embed, lien, plateforme = 'YouTube', poster, legende }) {
+export default function YouTube({ titre, intro, id, embed, lien, plateforme = 'YouTube', poster, legende, lang = 'fr' }) {
+  const ui = t(lang);
   const [lance, setLance] = useState(false);
   const src = embed ?? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
   const page = lien ?? `https://www.youtube.com/watch?v=${id}`;
@@ -19,7 +21,7 @@ export default function YouTube({ titre = 'Le film', intro, id, embed, lien, pla
   return (
     <section className="section" aria-labelledby="video">
       <div className="container stack" style={{ '--flow': 'var(--space-l)' }}>
-        <h2 id="video" className="reveal">{titre}</h2>
+        <h2 id="video" className="reveal">{titre ?? ui.film}</h2>
         {intro && <p className="section-intro reveal" dangerouslySetInnerHTML={{ __html: intro }} />}
         <figure className="case-video case-video--youtube reveal">
           {lance ? (
@@ -31,7 +33,7 @@ export default function YouTube({ titre = 'Le film', intro, id, embed, lien, pla
               allowFullScreen
             />
           ) : (
-            <button type="button" className="youtube-facade" onClick={() => setLance(true)} aria-label={`Lire la vidéo : ${legende}`}>
+            <button type="button" className="youtube-facade" onClick={() => setLance(true)} aria-label={`${ui.lireVideo}${lang === 'en' ? ':' : ' :'} ${legende}`}>
               <img src={poster} alt="" width="1280" height="720" loading="lazy" />
               <span className="youtube-facade__play" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
@@ -40,8 +42,8 @@ export default function YouTube({ titre = 'Le film', intro, id, embed, lien, pla
           )}
         </figure>
         <p className="youtube-note">
-          La vidéo est hébergée sur {plateforme}, qui se charge au clic.{' '}
-          <a href={page}>Voir sur {plateforme} <span aria-hidden="true">↗</span></a>
+          {ui.videoHebergee(plateforme)}{' '}
+          <a href={page}>{ui.voirSur(plateforme)} <span aria-hidden="true">↗</span></a>
         </p>
       </div>
     </section>

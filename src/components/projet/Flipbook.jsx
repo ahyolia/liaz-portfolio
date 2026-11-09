@@ -7,8 +7,10 @@
 // d'une page en px (pour le ratio), legende (texte sous le livre)
 import { useEffect, useRef, useState } from 'react';
 import { jouer } from '../../sons.js';
+import { t } from '../../i18n';
 
-export default function Flipbook({ titre = 'Feuilleter le livre', intro, pages, largeur, hauteur, legende }) {
+export default function Flipbook({ titre, intro, pages, largeur, hauteur, legende, lang = 'fr' }) {
+  const ui = t(lang);
   const livreRef = useRef(null);
   const flipRef = useRef(null);
   const [page, setPage] = useState(0);
@@ -56,10 +58,10 @@ export default function Flipbook({ titre = 'Feuilleter le livre', intro, pages, 
   return (
     <section className="section" aria-labelledby="flipbook">
       <div className="container stack" style={{ '--flow': 'var(--space-l)' }}>
-        <h2 id="flipbook" className="reveal">{titre}</h2>
+        <h2 id="flipbook" className="reveal">{titre ?? ui.feuilleter}</h2>
         {intro && <p className="section-intro reveal" dangerouslySetInnerHTML={{ __html: intro }} />}
 
-        <div className="flipbook" role="group" aria-roledescription="livre" aria-label={legende} tabIndex={0} onKeyDown={clavier}>
+        <div className="flipbook" role="group" aria-roledescription={ui.livre} aria-label={legende} tabIndex={0} onKeyDown={clavier}>
           <div className="flipbook__livre" ref={livreRef}>
             {pages.map((p, i) => (
               <div key={p.src} className="flipbook__page" data-density={i === 0 || i === pages.length - 1 ? 'hard' : 'soft'}>
@@ -69,11 +71,11 @@ export default function Flipbook({ titre = 'Feuilleter le livre', intro, pages, 
           </div>
 
           <div className="flipbook__nav">
-            <button type="button" className="carousel-btn carousel-btn--prev" onClick={precedent} data-son-muet="" aria-label="Page précédente" disabled={page === 0}>
+            <button type="button" className="carousel-btn carousel-btn--prev" onClick={precedent} data-son-muet="" aria-label={ui.pagePrec} disabled={page === 0}>
               <svg className="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
             </button>
-            <p className="flipbook__compteur annotation" aria-live="polite">page {page + 1} / {pages.length}</p>
-            <button type="button" className="carousel-btn" onClick={suivant} data-son-muet="" aria-label="Page suivante" disabled={page >= pages.length - 1}>
+            <p className="flipbook__compteur annotation" aria-live="polite">{ui.page} {page + 1} / {pages.length}</p>
+            <button type="button" className="carousel-btn" onClick={suivant} data-son-muet="" aria-label={ui.pageSuiv} disabled={page >= pages.length - 1}>
               <svg className="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
             </button>
           </div>

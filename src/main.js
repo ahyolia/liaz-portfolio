@@ -312,14 +312,15 @@ function initLightbox() {
   const groups = document.querySelectorAll('[data-lightbox]');
   if (!groups.length) return;
 
+  const en = document.documentElement.lang === 'en';
   const dialog = document.createElement('dialog');
   dialog.className = 'lightbox';
-  dialog.setAttribute('aria-label', 'Image agrandie');
+  dialog.setAttribute('aria-label', en ? 'Enlarged image' : 'Image agrandie');
   dialog.innerHTML = `
     <figure class="lightbox__figure"><img alt="" /><figcaption></figcaption></figure>
-    <button type="button" class="lightbox__btn lightbox__close" aria-label="Fermer">×</button>
-    <button type="button" class="lightbox__btn lightbox__prev" aria-label="Image précédente"><svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg></button>
-    <button type="button" class="lightbox__btn lightbox__next" aria-label="Image suivante"><svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg></button>`;
+    <button type="button" class="lightbox__btn lightbox__close" aria-label="${en ? 'Close' : 'Fermer'}">×</button>
+    <button type="button" class="lightbox__btn lightbox__prev" aria-label="${en ? 'Previous image' : 'Image précédente'}"><svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg></button>
+    <button type="button" class="lightbox__btn lightbox__next" aria-label="${en ? 'Next image' : 'Image suivante'}"><svg class="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg></button>`;
   document.body.append(dialog);
 
   const img = dialog.querySelector('img');
@@ -359,7 +360,7 @@ function initLightbox() {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'zoom';
-      btn.setAttribute('aria-label', `Agrandir : ${el.alt}`);
+      btn.setAttribute('aria-label', `${en ? 'Enlarge: ' : 'Agrandir : '}${el.alt}`);
       el.replaceWith(btn);
       btn.append(el);
     });
@@ -428,7 +429,8 @@ function initSons() {
     const actif = sonActif();
     // Bouton bascule : l'intitulé reste fixe, c'est aria-pressed qui dit l'état
     bouton?.setAttribute('aria-pressed', String(actif));
-    bouton?.setAttribute('title', actif ? 'Couper le son' : 'Activer le son');
+    const en = document.documentElement.lang === 'en';
+    bouton?.setAttribute('title', actif ? (en ? 'Turn sound off' : 'Couper le son') : (en ? 'Turn sound on' : 'Activer le son'));
   };
   afficher();
   bouton?.addEventListener('click', () => {

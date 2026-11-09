@@ -4,12 +4,13 @@
 //
 // Props : titre, intro (HTML simple), src (WebM ou MP4), poster, width, height,
 // legende (texte lu par les lecteurs d'écran)
+import { t } from '../../i18n';
 
-export default function Video({ titre = 'La démo en vidéo', intro, src, poster, width, height, legende }) {
+export default function Video({ titre, intro, src, poster, width, height, legende, lang = 'fr' }) {
   return (
     <section className="section" aria-labelledby="video">
       <div className="container stack" style={{ '--flow': 'var(--space-l)' }}>
-        <h2 id="video" className="reveal">{titre}</h2>
+        <h2 id="video" className="reveal">{titre ?? t(lang).video}</h2>
         {intro && <p className="section-intro reveal" dangerouslySetInnerHTML={{ __html: intro }} />}
         <figure className="case-video reveal">
           <video

@@ -6,8 +6,10 @@
 import { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import { projets, DOMAINES } from '../data/projets';
+import { t } from '../i18n';
 
-export default function ProjectGrid() {
+export default function ProjectGrid({ lang = 'fr' }) {
+  const ui = t(lang);
   const [filtre, setFiltre] = useState('tout');
   const domaines = DOMAINES.filter((d) => projets.some((p) => p.domaines?.includes(d.id)));
   const visibles = filtre === 'tout' ? projets : projets.filter((p) => p.domaines?.includes(filtre));
@@ -21,17 +23,17 @@ export default function ProjectGrid() {
 
   return (
     <div className="stack" style={{ '--flow': 'var(--space-l)' }}>
-      <div className="gallery-filters project-filters" role="group" aria-label="Filtrer les projets par domaine">
-        <button type="button" aria-pressed={filtre === 'tout'} onClick={() => choisir('tout')}>Tous</button>
+      <div className="gallery-filters project-filters" role="group" aria-label={ui.filtrerProjets}>
+        <button type="button" aria-pressed={filtre === 'tout'} onClick={() => choisir('tout')}>{ui.tous}</button>
         {domaines.map((d) => (
-          <button key={d.id} type="button" aria-pressed={filtre === d.id} onClick={() => choisir(d.id)}>{d.label}</button>
+          <button key={d.id} type="button" aria-pressed={filtre === d.id} onClick={() => choisir(d.id)}>{lang === 'en' ? d.labelEn : d.label}</button>
         ))}
       </div>
 
-      <p className="visually-hidden" aria-live="polite">{visibles.length} projet{visibles.length > 1 ? 's' : ''} affiché{visibles.length > 1 ? 's' : ''}</p>
+      <p className="visually-hidden" aria-live="polite">{ui.projetsAffiches(visibles.length)}</p>
 
       <ul className="grid grid--3 project-grid list-reset" role="list">
-        {visibles.map((projet) => <ProjectCard key={projet.slug} projet={projet} index={projets.indexOf(projet)} />)}
+        {visibles.map((projet) => <ProjectCard key={projet.slug} projet={projet} index={projets.indexOf(projet)} lang={lang} />)}
       </ul>
     </div>
   );

@@ -22,3 +22,22 @@ export const formations = [
     matieres: ['Numérique et sciences informatiques (NSI)', 'Arts plastiques'],
   },
 ];
+
+// Version anglaise (page /en/a-propos/)
+export const formationsEn = [
+  {
+    annees: '2024 → 2026',
+    statut: 'In progress',
+    diplome: 'BUT in Multimedia and Internet Professions (MMI)',
+    etablissement: 'University Institute of Technology (IUT), Nouméa',
+    parcours: 'Web development and interactive devices track',
+    matieres: ['Web development', 'Graphic design', 'Communication strategy', 'Audiovisual production'],
+  },
+  {
+    annees: '2021 → 2023',
+    statut: 'Obtained',
+    diplome: 'French general baccalaureate',
+    etablissement: 'Lycée Blaise Pascal, Nouméa',
+    matieres: ['Digital and computer science (NSI)', 'Visual arts'],
+  },
+];

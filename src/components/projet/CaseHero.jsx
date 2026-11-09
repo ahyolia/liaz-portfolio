@@ -9,27 +9,29 @@
 // Props : slug (titre de l'onglet, n° de fiche et année, lus dans src/data/projets.js), eyebrow, titre,
 // accroche (HTML simple), liens [{ href, label }] (le 1er est mis en avant),
 // couleur (forme derrière les visuels)
-import { projets } from '../../data/projets';
+import { projets, projetLocal } from '../../data/projets';
+import { t, chemin } from '../../i18n';
 
-export default function CaseHero({ slug, eyebrow, titre, accroche, liens = [], couleur = 'var(--cream)', children }) {
+export default function CaseHero({ slug, eyebrow, titre, accroche, liens = [], couleur = 'var(--cream)', lang = 'fr', children }) {
+  const ui = t(lang);
   const index = projets.findIndex((p) => p.slug === slug);
-  const projet = projets[index];
+  const projet = projetLocal(projets[index], lang);
 
   return (
     <header className="section">
       <div className="container case-hero-wrap" data-case-hero="">
         <div className="case-hero gridpaper" style={{ '--stage-color': couleur }}>
-          <nav className="case-hero__tab" aria-label="Fil d'Ariane">
-            <a href="/projets/">
+          <nav className="case-hero__tab" aria-label={ui.filAriane}>
+            <a href={chemin(lang, '/projets/')}>
               <svg className="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
-              Projets
+              {ui.projets}
             </a>
             {projet && <><span aria-hidden="true">/</span><span className="case-hero__crumb" aria-current="page">{projet.titre}</span></>}
           </nav>
           <span className="tape tape--tr" aria-hidden="true"></span>
           {projet && (
             <p className="case-hero__num annotation" aria-hidden="true">
-              fiche n° {String(index + 1).padStart(2, '0')} · {projet.annee}
+              {ui.fiche} {String(index + 1).padStart(2, '0')} · {projet.annee}
             </p>
           )}
 

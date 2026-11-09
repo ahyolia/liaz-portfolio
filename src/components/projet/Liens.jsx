@@ -1,11 +1,12 @@
 // Section « Les liens » : site en ligne, GitHub, Figma, Behance…
 // Props : titre, liens [{ href, label }] (le premier est mis en avant)
+import { t } from '../../i18n';
 
-export default function Liens({ titre = 'Les liens', liens }) {
+export default function Liens({ titre, liens, lang = 'fr' }) {
   return (
     <section className="section" aria-labelledby="liens">
       <div className="container stack reveal">
-        <h2 id="liens">{titre}</h2>
+        <h2 id="liens">{titre ?? t(lang).liens}</h2>
         <ul className="case-links list-reset" role="list">
           {liens.map((lien, i) => (
             <li key={lien.href}>

@@ -5,8 +5,9 @@
 // Chaque étape : { annee, type, duree?, titre, entreprise, lieu?, logo?, resume?, missions }
 //   missions : [{ titre, texte, liens?, images? }]
 //   les images de toutes les missions forment une rangée de vignettes (visionneuse)
+import { t } from '../i18n';
 
-export default function Frise({ etapes }) {
+export default function Frise({ etapes, lang = 'fr' }) {
   return (
     <ol className="xp list-reset">
       {etapes.map((xp) => {
@@ -47,7 +48,7 @@ export default function Frise({ etapes }) {
               {images.length > 0 && (
                 // Toutes les captures de l'étape : une rangée de vignettes,
                 // un clic ouvre la visionneuse et permet de les faire défiler
-                <div className="xp__vignettes" data-lightbox="" role="group" aria-label={`Captures (${images.length}), à agrandir`} style={{ '--reste': `"+${Math.max(0, images.length - 4)}"` }} data-plus={images.length > 4 ? '' : undefined}>
+                <div className="xp__vignettes" data-lightbox="" role="group" aria-label={t(lang).captures(images.length)} style={{ '--reste': `"+${Math.max(0, images.length - 4)}"` }} data-plus={images.length > 4 ? '' : undefined}>
                   {images.map((im) => <img key={im.src} src={im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy" />)}
                 </div>
               )}

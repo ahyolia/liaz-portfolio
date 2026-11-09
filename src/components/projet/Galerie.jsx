@@ -7,6 +7,7 @@
 //   variante: 'logo' ou 'icon' pour poser l'image sur un panneau avec marge ;
 //             'page' pour une page de PDF (vignette réduite au haut de la page)
 //   cat     : doit correspondre à l'id d'un filtre
+import { t } from '../../i18n';
 
 function Image({ img }) {
   return (
@@ -21,15 +22,16 @@ function Image({ img }) {
   );
 }
 
-export default function Galerie({ titre, intro, filtres, items }) {
+export default function Galerie({ titre, intro, filtres, items, lang = 'fr' }) {
+  const ui = t(lang);
   return (
     <section className="section" aria-labelledby="galerie">
       <div className="container stack" style={{ '--flow': 'var(--space-l)' }}>
         <h2 id="galerie" className="reveal">{titre}</h2>
         {intro && <p className="section-intro reveal" dangerouslySetInnerHTML={{ __html: intro }} />}
         <div className="gallery-panel reveal" data-gallery="" data-lightbox="">
-          <div className="gallery-filters" role="group" aria-label="Filtrer la galerie">
-            <button type="button" aria-pressed="true" data-filter="all">Tout</button>
+          <div className="gallery-filters" role="group" aria-label={ui.filtrerGalerie}>
+            <button type="button" aria-pressed="true" data-filter="all">{ui.tout}</button>
             {filtres.map((f) => (
               <button key={f.id} type="button" aria-pressed="false" data-filter={f.id}>{f.label}</button>
             ))}

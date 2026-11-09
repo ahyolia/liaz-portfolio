@@ -7,6 +7,7 @@
 //   video   : { src, poster, alt, width, height } courte vidéo muette à la place de l'image
 //   attendu : texte du cadre en pointillés tant que l'image manque
 //   texte   : accepte du HTML simple
+import { t } from '../../i18n';
 
 const numero = (i) => String(i + 1).padStart(2, '0');
 
@@ -18,13 +19,14 @@ function dispositionImages(images) {
   return 'mosaique';
 }
 
-export default function Demarche({ titre = 'La démarche', etapes }) {
+export default function Demarche({ titre, etapes, lang = 'fr' }) {
+  const ui = t(lang);
   return (
     <section className="section" aria-labelledby="demarche">
       <div className="container stack" style={{ '--flow': 'var(--space-l)' }}>
-        <h2 id="demarche" className="reveal">{titre}</h2>
+        <h2 id="demarche" className="reveal">{titre ?? ui.demarche}</h2>
         <div className="process-carousel reveal" data-carousel-root="" data-lightbox="">
-          <ol className="carousel" data-carousel="" data-carousel-start="0" tabIndex={0} aria-label="Étapes de la démarche">
+          <ol className="carousel" data-carousel="" data-carousel-start="0" tabIndex={0} aria-label={ui.etapes}>
             {etapes.map((etape, i) => (
               <li key={etape.titre} className="process-step">
                 {etape.images ? (
@@ -61,7 +63,7 @@ export default function Demarche({ titre = 'La démarche', etapes }) {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="process-step__visual slot"><span>Ajoute ici : {etape.attendu ?? 'un visuel'}</span></div>
+                  <div className="process-step__visual slot"><span>{ui.ajouteIci} : {etape.attendu ?? ui.unVisuel}</span></div>
                 )}
                 <p className="process-step__num annotation">{numero(i)}</p>
                 <h3>{etape.titre}</h3>
@@ -77,10 +79,10 @@ export default function Demarche({ titre = 'La démarche', etapes }) {
             ))}
           </ol>
           <div className="carousel-nav">
-            <button type="button" className="carousel-btn carousel-btn--prev" data-carousel-prev="" aria-label="Étape précédente">
+            <button type="button" className="carousel-btn carousel-btn--prev" data-carousel-prev="" aria-label={ui.etapePrec}>
               <svg className="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
             </button>
-            <button type="button" className="carousel-btn" data-carousel-next="" aria-label="Étape suivante">
+            <button type="button" className="carousel-btn" data-carousel-next="" aria-label={ui.etapeSuiv}>
               <svg className="icon" aria-hidden="true"><use href="/icons.svg#arrow"></use></svg>
             </button>
           </div>

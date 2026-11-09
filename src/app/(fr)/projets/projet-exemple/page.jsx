@@ -1,0 +1,121 @@
+// MODÈLE DE FICHE PROJET
+// 1. Dupliquer ce fichier en src/app/projets/<slug>/page.jsx
+// 2. Ajouter le projet dans src/data/projets.js (même slug) : il apparaît
+//    alors sur l'accueil, la page Projets et dans « Projet suivant »
+// 3. Remplacer les contenus ci-dessous. Exemple complet : src/app/projets/aima/page.jsx
+// Une section inutile se supprime simplement (ex. pas de <Questions>).
+// Les champs texte, reponse, accroche et intro acceptent du HTML simple.
+import ProjectLayout from '../../../../components/projet/ProjectLayout';
+import CaseHero from '../../../../components/projet/CaseHero';
+import Contexte from '../../../../components/projet/Contexte';
+import Questions from '../../../../components/projet/Questions';
+import Demarche from '../../../../components/projet/Demarche';
+import Apport from '../../../../components/projet/Apport';
+import Galerie from '../../../../components/projet/Galerie';
+import Liens from '../../../../components/projet/Liens';
+
+const todo = '<span class="todo">À REMPLACER</span>';
+const placeholder = { src: '/images/placeholder.svg', width: 1200, height: 750 };
+
+export const metadata = {
+  title: "Projet exemple — Camélia Amin Handoyo",
+  description: "Contexte, démarche et rendu final. À REMPLACER.",
+};
+
+export default function Page() {
+  return (
+    <ProjectLayout slug="projet-exemple">
+      <CaseHero
+        slug="projet-exemple"
+        eyebrow="Type de projet"
+        titre="Nom du projet, ce qu'il fait en quelques mots"
+        accroche={`Une phrase d'accroche. ${todo}`}
+        liens={[
+          { href: 'https://example.com', label: 'Voir le projet en ligne' },
+          { href: 'https://github.com/', label: 'Code sur GitHub' },
+        ]}
+      >
+        {/* Scène : une capture (ou .phone-duo pour du mobile) + éléments .floaty */}
+        <img src={placeholder.src} alt="Capture du projet (à remplacer)" width={placeholder.width} height={placeholder.height} data-depth="0.4" style={{ width: "85%", borderRadius: "1rem" }} />
+        <span className="floaty sticker" data-depth="1.6" style={{ "--x": "64%", "--y": "80%", "--r": "-8deg", "--size": "auto" }}>Sticker À REMPLACER</span>
+      </CaseHero>
+
+      <Contexte
+        outils={[
+          { nom: 'Figma', icone: '/images/tools/figma.svg' },
+          { nom: 'HTML', icone: '/images/tools/html5.svg' },
+          { nom: 'CSS', icone: '/images/tools/css3.svg' },
+        ]}
+        fiche={[
+          { label: 'Client / cadre', valeur: 'SAÉ, BUT MMI' },
+          { label: 'Durée', valeur: '6 semaines' },
+          { label: 'Équipe', valeur: '4 personnes' },
+          { label: 'Mon rôle', valeur: 'Dev front' },
+          { label: 'Outils', valeur: 'Figma, HTML, CSS' },
+        ]}
+        statut="En ligne"
+      >
+        <p>Le cadre (SAÉ, stage, perso, client réel), le commanditaire et l'équipe. <span className="todo">À REMPLACER</span></p>
+        <p>Ce qu'on a imaginé, en une ou deux phrases. <span className="todo">À REMPLACER</span></p>
+        <p>Notre objectif : la cible et la contrainte principale, avec <span className="hl">l'idée clé surlignée</span>. <span className="todo">À REMPLACER</span></p>
+      </Contexte>
+
+      <Questions
+        questions={[
+          { question: 'Première question de conception ?', reponse: `Ce qu'on a décidé, et pourquoi. ${todo}` },
+          { question: 'Deuxième question ?', reponse: `Ce qu'on a décidé, et pourquoi. ${todo}` },
+        ]}
+      />
+
+      <Demarche
+        etapes={[
+          { titre: 'Recherche et cadrage', texte: `Ce qu'on a fait à cette étape. ${todo}`, attendu: 'recherche, cahier des charges…' },
+          {
+            titre: 'Maquettes',
+            texte: `Ce qu'on a fait à cette étape. ${todo}`,
+            attendu: 'wireframes ou maquettes',
+            liens: [{ href: 'https://www.figma.com/', label: 'Maquettes Figma' }],
+          },
+          { titre: 'Développement', texte: `Ce qu'on a fait à cette étape. ${todo}`, attendu: 'capture du développement' },
+        ]}
+      />
+
+      <Apport
+        casquettes={[
+          { titre: 'Rôle principal', texte: 'Une phrase sur ce rôle.', competences: ['Compétence', 'Compétence', 'Compétence'] },
+          { titre: 'Autre rôle', texte: 'Une phrase sur ce rôle.', competences: ['Compétence', 'Compétence'] },
+        ]}
+        tampon={{ texte: 'Un<br />chiffre', label: 'Un chiffre clé' }}
+      />
+
+      <Galerie
+        titre="Le rendu final"
+        intro={`Une phrase pour présenter les visuels. ${todo}`}
+        filtres={[
+          { id: 'ecrans', label: 'Écrans' },
+          { id: 'identite', label: 'Identité' },
+        ]}
+        items={[
+          { cat: 'ecrans', legende: "Page d'accueil", images: [{ ...placeholder, alt: "Capture de la page d'accueil (à remplacer)" }] },
+          { cat: 'ecrans', legende: 'Version mobile', images: [{ ...placeholder, alt: 'Capture mobile (à remplacer)' }] },
+          {
+            cat: 'identite',
+            legende: 'Support · recto / verso',
+            images: [
+              { ...placeholder, alt: 'Recto (à remplacer)' },
+              { ...placeholder, alt: 'Verso (à remplacer)' },
+            ],
+          },
+        ]}
+      />
+
+      <Liens
+        liens={[
+          { href: 'https://example.com', label: 'Site en ligne' },
+          { href: 'https://github.com/', label: 'GitHub' },
+          { href: 'https://www.figma.com/', label: 'Figma' },
+        ]}
+      />
+    </ProjectLayout>
+  );
+}

@@ -917,6 +917,24 @@ main:has(> .band:last-child) + .site-footer { margin-block-start: 0; }
   transition: background-color 0.2s var(--ease), rotate 0.2s var(--ease);
 }
 .site-son svg { width: 1.15rem; height: 1.15rem; }
+
+/* Bouton de langue (FR / EN) : même pastille ronde que le son, en texte */
+.site-nav .site-langue {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  --pill: var(--yellow);
+}
+@media (max-width: 30rem) {
+  .site-nav .site-langue { padding: 0; margin-inline-start: var(--space-3xs); }
+}
 .site-son:hover { background: var(--yellow); rotate: -6deg; }
 .site-son[aria-pressed="true"] { background: var(--aqua); }
 .site-son[aria-pressed="true"] .site-son__off,

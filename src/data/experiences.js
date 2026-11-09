@@ -104,3 +104,67 @@ export const experiences = [
     ],
   },
 ];
+
+// Version anglaise (page /en/a-propos/) : mêmes images et liens, textes traduits
+const imagesEn = {
+  '/images/pro/lagoon/accueil/accueil-mag.webp': "lagoon.nc home page, Lagoon Mag section with its article carousel",
+  '/images/pro/lagoon/accueil/accueil-avis-business.webp': "lagoon.nc home page, customer reviews section and Lagoon Business promotion",
+  '/images/pro/lagoon/offres/offres-speciales.webp': "lagoon.nc Offers page, special offers carousel",
+  '/images/pro/lagoon/offres/bento.webp': "lagoon.nc Offers page, bento grid with 3 good reasons to choose Lagoon, the quiz and the advisor",
+  '/images/pro/lagoon/offres/forfaits.webp': "lagoon.nc Offers page, internet plan picker with the cart",
+  '/images/pro/lagoon/offres/promo-espace-client.webp': "lagoon.nc Offers page, customer area promotion and Mag articles",
+  '/images/pro/lagoon/offres/formulaire-rappel.webp': "Schedule a call form, to be called back by a Lagoon advisor",
+  '/images/pro/lagoon_business/solutions-entreprises.webp': "Lagoon Business Business solutions page, “100% by professionals' side”, with the contact form",
+  '/images/pro/lagoon_business/business-200.webp': "Lagoon Business Business 200 page, “Business 100 becomes Business 200”",
+  '/images/pro/lagoon_business/espace-client/rappel-commercial.webp': "Lagoon Business customer area home, with the Contact your sales rep button at the bottom right",
+  '/images/pro/lagoon_business/espace-client/filtrage-pro.webp': "Lagoon Business customer area Pro filtering page, with allowed or blocked website categories",
+};
+
+const textesEn = [
+  {
+    type: 'Work-study', duree: '1 year', titre: 'Front-end developer and UI/UX work-study student', entreprise: 'OFFRATEL Lagoon, digital team', resume: 'Front-end integration and mockups!',
+    missions: [
+      { titre: 'Redesign of lagoon.nc pages', texte: 'Front-end integration of the redesigned Home and Offers pages. I also designed the mockup of the callback form.', liens: ['lagoon.nc', 'Figma mockup'] },
+      { titre: 'New Lagoon Business pages', texte: 'Front-end integration of the new Business solutions page, then mockup and integration of the Business 200 page.', liens: ['Business 200 page', 'Business 200 mockup'] },
+      { titre: 'Lagoon Business customer area', texte: 'Mockups of a sales callback button and of the Pro filtering page.', liens: ['Sales callback mockup', 'Pro filtering mockup'] },
+      { titre: 'Tenjity', texte: 'Front-end development of the accessibility module, then mockup and integration of the tenjity.com article page.', liens: ['Tenjity case study'] },
+    ],
+  },
+  {
+    type: 'Internship', duree: '2 months', titre: 'Web development intern', entreprise: 'OFFRATEL Lagoon, digital team',
+    missions: [
+      { titre: 'The Lagoon Big Wheel', texte: 'UX/UI redesign and front-end integration of the game for the Foire du Pacifique.', liens: ['Case study'] },
+      { titre: 'Customer area', texte: 'UX/UI optimisation and front-end integration of the customer area, still in production.', liens: ['Case study'] },
+    ],
+  },
+  {
+    type: 'Internship', duree: '1 month', titre: 'Communication intern', entreprise: 'New Caledonia Health and Social Agency (ASSNC)',
+    missions: [
+      { titre: 'New Year 2025 campaign', texte: 'Designed the campaign visuals.' },
+      { titre: 'Social media', texte: 'Optimised the social media communication strategy.' },
+      { titre: 'Teamwork', texte: 'Planned and carried out communication projects.' },
+    ],
+  },
+];
+
+export const experiencesEn = experiences.map((xp, i) => {
+  const en = textesEn[i];
+  return {
+    ...xp,
+    type: en.type,
+    duree: en.duree,
+    titre: en.titre,
+    entreprise: en.entreprise,
+    resume: en.resume,
+    missions: xp.missions.map((m, j) => ({
+      ...m,
+      titre: en.missions[j].titre,
+      texte: en.missions[j].texte,
+      liens: m.liens?.map((l, k) => ({
+        titre: en.missions[j].liens?.[k] ?? l.titre,
+        href: l.href.startsWith('/projets/') ? `/en${l.href}` : l.href,
+      })),
+      images: m.images?.map((im) => ({ ...im, alt: imagesEn[im.src] ?? im.alt })),
+    })),
+  };
+});
