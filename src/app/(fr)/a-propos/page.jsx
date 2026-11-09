@@ -123,6 +123,7 @@ export default function Page() {
                   <ul className="list-reset">
                     <li className="receipt__row"><span>HTML</span><span aria-hidden="true">✓</span></li>
                     <li className="receipt__row"><span>CSS</span><span aria-hidden="true">✓</span></li>
+                    <li className="receipt__row"><span>Tailwind CSS</span><span aria-hidden="true">✓</span></li>
                     <li className="receipt__row"><span>JavaScript</span><span aria-hidden="true">✓</span></li>
                     <li className="receipt__row"><span>React</span><span aria-hidden="true">✓</span></li>
                     <li className="receipt__row"><span>Vue.js</span><span aria-hidden="true">✓</span></li>
@@ -149,7 +150,7 @@ export default function Page() {
                     <li className="receipt__row"><span>VS Code</span><span aria-hidden="true">✓</span></li>
                     <li className="receipt__row"><span>WordPress</span><span aria-hidden="true">✓</span></li>
                   </ul>
-                  <p className="receipt__row receipt__total"><span>Total</span><span>18 outils</span></p>
+                  <p className="receipt__row receipt__total"><span>Total</span><span>19 outils</span></p>
                   <span className="barcode skills-receipt__barcode" aria-hidden="true"></span>
                   <p className="skills-receipt__thanks">merci !</p>
                 </div>
@@ -158,23 +159,24 @@ export default function Page() {
               {/* Stickers décoratifs : les noms sont déjà dans le ticket */}
               <ul className="skills__stickers" aria-hidden="true">
                 <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "0%", "--r": "-11deg" }}><img src="/images/tools/html5.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "4%", "--r": "7deg" }}><img src="/images/tools/css3.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "11%", "--r": "10deg" }}><img src="/images/tools/javascript.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "15%", "--r": "-5deg" }}><img src="/images/tools/react.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "22%", "--r": "5deg" }}><img src="/images/tools/vuejs.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "26%", "--r": "-8deg" }}><img src="/images/tools/angular.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "33%", "--r": "-12deg" }}><img src="/images/tools/php.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "37%", "--r": "6deg" }}><img src="/images/tools/laravel.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "92%", "--r": "-8deg" }}><img src="/images/tools/symfony.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "44%", "--r": "7deg" }}><img src="/images/tools/springboot.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "48%", "--r": "-10deg" }}><img src="/images/tools/nodejs.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "55%", "--r": "12deg" }}><img src="/images/tools/mysql.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "59%", "--r": "-7deg" }}><img src="/images/tools/postgresql.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "66%", "--r": "-9deg" }}><img src="/images/tools/docker.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "70%", "--r": "8deg" }}><img src="/images/tools/unity.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "77%", "--r": "-6deg" }}><img src="/images/tools/git.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "81%", "--r": "10deg" }}><img src="/images/tools/vscode.svg" alt="" width="48" height="48" loading="lazy" /></li>
-                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "88%", "--r": "-11deg" }}><img src="/images/tools/wordpress.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "5%", "--r": "7deg" }}><img src="/images/tools/css3.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "10%", "--r": "-6deg" }}><img src="/images/tools/tailwind.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "15%", "--r": "10deg" }}><img src="/images/tools/javascript.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "20%", "--r": "-5deg" }}><img src="/images/tools/react.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "26%", "--r": "5deg" }}><img src="/images/tools/vuejs.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "31%", "--r": "-8deg" }}><img src="/images/tools/angular.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "36%", "--r": "-12deg" }}><img src="/images/tools/php.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "41%", "--r": "6deg" }}><img src="/images/tools/laravel.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "46%", "--r": "-8deg" }}><img src="/images/tools/symfony.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "51%", "--r": "7deg" }}><img src="/images/tools/springboot.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "56%", "--r": "-10deg" }}><img src="/images/tools/nodejs.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "61%", "--r": "12deg" }}><img src="/images/tools/mysql.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "66%", "--r": "-7deg" }}><img src="/images/tools/postgresql.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "72%", "--r": "-9deg" }}><img src="/images/tools/docker.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "1rem", "--y": "77%", "--r": "8deg" }}><img src="/images/tools/unity.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "0rem", "--y": "82%", "--r": "-6deg" }}><img src="/images/tools/git.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="right" style={{ "--x": "0rem", "--y": "87%", "--r": "10deg" }}><img src="/images/tools/vscode.svg" alt="" width="48" height="48" loading="lazy" /></li>
+                <li className="tool-sticker" data-side="left" style={{ "--x": "1rem", "--y": "92%", "--r": "-11deg" }}><img src="/images/tools/wordpress.svg" alt="" width="48" height="48" loading="lazy" /></li>
               </ul>
             </div>
           </div>
