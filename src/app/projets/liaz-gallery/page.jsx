@@ -71,14 +71,9 @@ export default function Page() {
             liens: [{ href: 'https://assetstore.unity.com', label: "Voir l'Unity Asset Store" }],
           },
           {
-            titre: 'Créer la salle',
-            texte: "J'ai monté la salle d'exposition (murs, sol, plafond et fenêtres) à la bonne échelle pour s'y déplacer. La scène s'organise en quelques blocs : la salle, le drone, les tableaux, la déco et l'interface.",
+            titre: 'Créer la salle et le drone',
+            texte: "J'ai monté la salle d'exposition (murs, sol, plafond et fenêtres) à la bonne échelle pour s'y déplacer. La scène s'organise en quelques blocs : la salle, le drone, les tableaux, la déco et l'interface. On la visite aux commandes d'un drone qui vole librement dans les trois dimensions, guidé par la souris, sans jamais traverser les murs.",
             image: { src: `${img}/unity-editeur.webp`, alt: "Le projet dans l'éditeur Unity 6 : la salle vue de l'extérieur dans la scène, la hiérarchie (GalleryRoom, DroneRig, GalleryManager, Tableaux, deco, Canvas) et la vue de jeu avec les canapés et les tableaux", width: 1917, height: 1078 },
-          },
-          {
-            titre: 'Faire voler le drone',
-            texte: "Le drone vole librement sur les trois axes et tourne sur lui-même, tandis que la souris oriente le regard. Il glisse le long des murs sans jamais les traverser, grâce aux collisions gérées avec les 141 éléments de la scène, et sans gravité pour rester fluide.",
-            attendu: 'capture du drone en vol',
           },
           {
             titre: 'Placer les tableaux',
