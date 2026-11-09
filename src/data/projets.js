@@ -124,7 +124,7 @@ export const projets = [
     resume:
       "Une galerie d'images en 3D qu'on pilote à la voix. On dit ce qu'on cherche, et les images trouvées sur le web s'accrochent aux murs.",
     roles: 'dev unity · 3d interactive',
-    tags: ['Unity 6', 'C#', 'Reconnaissance vocale'],
+    tags: ['Unity 6', 'C#', 'Reconnaissance vocale', 'Whisper'],
     image: { src: '/images/projets/liaz-gallery/gallerie.webp', width: 1534, height: 862 },
   },
   {

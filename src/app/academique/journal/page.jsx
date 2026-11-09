@@ -55,7 +55,7 @@ export default function Page() {
               <h2><a className="card__link" href="/academique/journal/liaz-gallery/">LiAZ Gallery (XR et Interactions)</a></h2>
               <p className="journal-label">AC prouvés</p>
               <ul className="tags journal-ac" aria-label="AC prouvés"><li>AC34.01</li><li>AC34.03</li><li>AC35.02</li></ul>
-              <p className="journal-resume">Galerie 3D sous Unity pilotée à la voix, avec l'API Serper, la navigation en drone, le raycast, le débogage du micro et une image de secours.</p>
+              <p className="journal-resume">Galerie 3D sous Unity pilotée à la voix, avec l'API Serper, la navigation en drone, le raycast, une image de secours et, en v1.1, la transcription vocale locale par Whisper.</p>
             </li>
           </ul>
         </div>

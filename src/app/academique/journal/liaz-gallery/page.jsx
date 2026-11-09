@@ -4,7 +4,7 @@ import { Fiche, Section, AcVises, Preuves, Bloc, JeNous, Pivots } from '../../..
 
 const depot = 'https://github.com/ahyolia/LiAZ-Gallery';
 const script = (nom) => `${depot}/blob/HEAD/projet_unity/Assets/Scripts/${nom}`;
-const release = 'https://github.com/ahyolia/LiAZ-Gallery/releases/tag/v1.0';
+const release = 'https://github.com/ahyolia/LiAZ-Gallery/releases/tag/v1.1';
 
 export const metadata = {
   title: 'LiAZ Gallery (XR et Interactions) — Journal — Camélia Amin Handoyo',
@@ -24,12 +24,13 @@ export default function Page() {
   return (
     <Fiche
       titre="LiAZ Gallery, une galerie 3D pilotée à la voix"
-      intro="Dans le cours « XR et Interactions » de Gilles Énée, j'ai conçu une galerie d'art 3D sous Unity. On la parcourt en pilotant un drone, on dit ce qu'on cherche, et les images trouvées sur Google s'accrochent aussitôt aux murs."
+      intro="Dans le cours « XR et Interactions » de Gilles Énée, j'ai conçu une galerie d'art 3D sous Unity. On la parcourt en pilotant un drone, on dit ce qu'on cherche, et les images trouvées sur Google s'accrochent aussitôt aux murs. La version 1.1 rend la recherche vocale vraiment libre grâce à Whisper, qui transcrit la voix directement sur l'ordinateur."
       meta={[
-        { label: 'Mise à jour', valeur: <time dateTime="2026-10-09">09/10/2026</time> },
+        { label: 'Mise à jour', valeur: <time dateTime="2026-11-09">09/11/2026</time> },
         { label: 'Projet', valeur: <a href="/projets/liaz-gallery/">LiAZ Gallery</a> },
         { label: 'Cadre', valeur: 'XR et Interactions, BUT MMI 3' },
         { label: 'Équipe', valeur: 'Projet solo' },
+        { label: 'Version', valeur: '1.1' },
         { label: 'AC visés', valeur: '3' },
       ]}
       sections={sections}
@@ -49,8 +50,8 @@ export default function Page() {
         <Preuves
           liens={[
             { href: depot, titre: 'Dépôt GitHub', detail: 'le code C# complet et le projet Unity' },
-            { href: release, titre: 'Version Windows (.exe)', detail: 'la build PC, prête à lancer' },
-            { href: '/projets/liaz-gallery/', titre: 'Fiche du projet', detail: 'captures et démarche dans mon portfolio' },
+            { href: release, titre: 'Release v1.1 (Windows)', detail: 'la build PC prête à lancer, avec ses notes de version' },
+            { href: '/projets/liaz-gallery/', titre: 'Fiche du projet', detail: 'captures, démarche et vidéo de démonstration dans mon portfolio' },
           ]}
         />
       </Section>
@@ -93,6 +94,21 @@ export default function Page() {
         </Bloc>
 
         <Bloc
+          titre="v1.1 : une recherche vraiment libre avec Whisper"
+          ac={['AC34.03', 'AC35.02']}
+          technique={<>Mot déclencheur par <code>KeywordRecognizer</code>, enregistrement du micro jusqu'à une pause puis transcription locale par <a href="https://github.com/Macoron/whisper.unity">whisper.unity</a> 1.4.0 (modèle <code>ggml-base</code>) dans <a href={script('VoiceSearchInput.cs')}>VoiceSearchInput.cs</a> ; secours par <code>GrammarRecognizer</code> ; modèle exclu du dépôt.</>}
+        >
+          <p>
+            Après la v1.0, un problème restait : sur mon poste, la dictée de Windows démarrait puis s'arrêtait sans
+            jamais rendre un mot, donc tout ce qu'on disait après « recherche » se perdait. Plutôt que de dépendre de
+            ce service, j'ai intégré Whisper, un modèle de transcription qui tourne sur l'ordinateur, en français et
+            hors ligne. On dit « recherche », sa phrase, puis on fait une pause, et l'on peut chercher n'importe quoi,
+            même un nom propre comme « Marius von Hagen ». J'ai gardé un mode de secours par liste de mots, documenté
+            l'installation du modèle dans le README et publié le tout dans une release v1.1.
+          </p>
+        </Bloc>
+
+        <Bloc
           titre="Une galerie qui ne casse pas"
           ac={['AC35.02']}
           technique={<>Image de secours <code>SetFallback</code> dans GalleryBuilder.cs ; OpenXR ; aide à l'écran dans <a href={script('HelpOverlay.cs')}>HelpOverlay.cs</a>.</>}
@@ -110,6 +126,7 @@ export default function Page() {
           <li><strong>Je relie le web et la 3D temps réel</strong> : une API REST qui alimente une scène Unity, avec des requêtes asynchrones.</li>
           <li><strong>Je sais chercher la cause d'un bug</strong>, même quand elle se trouve dans le système et pas dans mon code.</li>
           <li><strong>J'écris un code propre et sûr</strong> : clé API protégée, scripts séparés par rôle.</li>
+          <li><strong>Je fais vivre un projet après sa livraison</strong> : j'ai corrigé un vrai défaut d'usage et publié une v1.1 avec ses notes de version.</li>
         </ul>
       </Section>
 
@@ -118,7 +135,7 @@ export default function Page() {
           nous={<p>Le cadre, les consignes d'ergonomie 3D et les bases d'Unity (XR, reconnaissance vocale) ont été posés dans le TP de Gilles Énée.</p>}
           je={[
             { titre: 'Web et API', points: ["Configuration de l'API Serper", 'Requêtes asynchrones et parsing JSON en C#', 'Protection de la clé API'] },
-            { titre: 'Programmation', points: ['Recherche vocale en deux temps', 'Correction du bug du micro et tentatives automatiques'] },
+            { titre: 'Programmation', points: ['Recherche vocale en deux temps', 'Correction du bug du micro et tentatives automatiques', 'Intégration de Whisper en local (v1.1)'] },
             { titre: 'Interactions', points: ['Contrôleur du drone', 'Œuvres cliquables par raycast', 'Image de secours et aide à l’écran'] },
           ]}
         />
@@ -128,6 +145,7 @@ export default function Page() {
         <Pivots
           lignes={[
             { obstacle: 'Le micro ne se libérait plus sous Windows', solution: 'J’ai réinitialisé la reconnaissance vocale et ajouté des tentatives automatiques.', apprentissage: 'Un bug peut venir du système, pas seulement de mon code, et il faut savoir aller le chercher.' },
+            { obstacle: 'La dictée Windows ne rendait aucun mot après « recherche »', solution: 'J’ai remplacé la dictée par Whisper, qui transcrit la voix en local, et publié une v1.1.', apprentissage: 'Quand un service extérieur bloque, je peux le remplacer par une brique que je maîtrise, puis livrer une nouvelle version propre.' },
             { obstacle: 'Des images du web ne se chargeaient pas', solution: 'J’ai ajouté une image de secours automatique.', apprentissage: 'Une interface doit rester correcte quand un service extérieur échoue.' },
             { obstacle: 'Le build était instable sur un vrai casque VR', solution: 'J’ai stabilisé la version PC, au clavier et à la souris.', apprentissage: 'Mieux vaut livrer un produit stable que tout miser sur un matériel capricieux.' },
           ]}
